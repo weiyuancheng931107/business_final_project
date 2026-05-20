@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台股基本面分析系統 | Neumorphism Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css">
+    <!-- 引入 FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="app-container">
+        <!-- 左側側邊欄 -->
+        <aside>
+            <div class="brand">
+                <i class="fa-solid fa-chart-line"></i>
+                基本面分析系統
+            </div>
+
+            <form id="add-stock-form" class="add-stock-form">
+                <input type="text" id="stock-input" placeholder="輸入代號 (例: 2330)" autocomplete="off" aria-label="輸入台股代號">
+                <button type="submit" title="新增自選股" aria-label="新增自選股">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </form>
+
+            <div class="portfolio-list" id="portfolio-list">
+                <!-- 自選股清單會用 JS 動態生成 -->
+            </div>
+
+        </aside>
+
+        <!-- 右側主內容 -->
+        <main>
+            <!-- 尚未選擇股票時的空狀態 -->
+            <div id="empty-state" class="empty-state" style="flex: 1;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                <h2>請從左側選擇一檔股票，或新增自選股</h2>
+                <p>開始您的台股基本面分析之旅</p>
+            </div>
+
+            <!-- 股票分析主要畫面 -->
+            <div id="dashboard-content" style="display: none;">
+                <!-- 標題列 -->
+                <header class="dashboard-header">
+                    <div class="stock-title-container">
+                        <h1 class="stock-title" id="display-name">---</h1>
+                        <div class="stock-subtitle" id="display-symbol">---</div>
+                    </div>
+                </header>
+
+                <!-- 上半部：財務卡片 -->
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">目前股價</div>
+                        <div class="info-value" id="val-price">---</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">本益比 (P/E)</div>
+                        <div class="info-value" id="val-pe">---</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">每股盈餘 (EPS)</div>
+                        <div class="info-value" id="val-eps">---</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">股東權益報酬率 (ROE)</div>
+                        <div class="info-value" id="val-roe">---</div>
+                    </div>
+                </div>
+
+                <!-- 下半部：圖表及歷史財報頁籤 -->
+                <div class="charts-section">
+                    <div class="tab-nav-bar">
+                        <div class="tabs" id="stock-tabs">
+                            <button class="tab-btn active" data-tab="price" aria-label="歷史走勢圖">歷史走勢圖</button>
+                            <button class="tab-btn" data-tab="river" aria-label="本益比河流圖">本益比河流圖</button>
+                        </div>
+
+                        <!-- 時間區間切換 -->
+                        <div class="chart-controls" id="chart-periods">
+                            <button class="period-btn" data-period="6mo" aria-label="6個月走勢">6M</button>
+                            <button class="period-btn active" data-period="1y" aria-label="1年走勢">1Y</button>
+                            <button class="period-btn" data-period="3y" aria-label="3年走勢">3Y</button>
+                            <button class="period-btn" data-period="5y" aria-label="5年走勢">5Y</button>
+                        </div>
+                    </div>
+
+                    <!-- 圖表區 -->
+                    <div class="chart-container" id="media-viewport">
+                        <div class="loader" id="chart-loader"></div>
+                        <img id="chart-img" class="chart-img" src="" alt="分析圖表">
+                    </div>
+                </div>
+
+                <!-- 相關新聞區區塊 (佔位) -->
+                <div class="news-section">
+                    <div class="news-header">
+                        <div class="section-label">
+                            <i class="fa-solid fa-newspaper"></i> 相關新聞 (佔位)
+                        </div>
+                        <span class="news-note" id="news-note">功能開發中...</span>
+                    </div>
+                    <div class="news-list" id="news-list">
+                        <!-- 動態載入新聞項目 -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        // DOM Elements
+        const portfolioListEl = document.getElementById('portfolio-list');
+        const addStockForm = document.getElementById('add-stock-form');
+        const stockInput = document.getElementById('stock-input');
+
+        const emptyState = document.getElementById('empty-state');
+        const dashboardContent = document.getElementById('dashboard-content');
+
+        const chartLoader = document.getElementById('chart-loader');
+        const chartImg = document.getElementById('chart-img');
+        const chartPeriods = document.getElementById('chart-periods');
+
+        let currentSymbol = null;
+        let currentTab = 'price'; // 'price' or 'river'
+        let currentPeriod = '1y'; // '6mo', '1y', '3y', '5y'
+
+        // 系統初始化
+        async function init() {
+            await loadPortfolio();
+        }
+
+        // 顯示通知
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.style.borderLeft = `4px solid ${type === 'error' ? 'var(--danger-color)' : 'var(--success-color)'}`;
+            toast.textContent = message;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // 載入自選股清單
+        async function loadPortfolio() {
+            try {
+                const res = await fetch('/api/portfolio');
+                const data = await res.json();
+                renderPortfolio(data.stocks);
+            } catch (err) {
+                showToast('無法載入自選股清單', 'error');
+            }
+        }
+
+        // 渲染自選股清單
+        function renderPortfolio(stocks) {
+            portfolioListEl.innerHTML = '';
+            stocks.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `stock-item glass ${currentSymbol === item.symbol ? 'active' : ''}`;
+
+                const infoBlock = document.createElement('div');
+                infoBlock.className = 'stock-info-block';
+
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'stock-name';
+                nameSpan.textContent = item.name;
+
+                const symbolSpan = document.createElement('span');
+                symbolSpan.className = 'stock-symbol';
+                symbolSpan.textContent = item.symbol;
+
+                infoBlock.appendChild(nameSpan);
+                infoBlock.appendChild(symbolSpan);
+
+                const delBtn = document.createElement('button');
+                delBtn.className = 'delete-btn';
+                delBtn.setAttribute('aria-label', `移除自選股 ${item.symbol}`);
+                delBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+                delBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    removeStock(item.symbol);
+                };
+
+                div.appendChild(infoBlock);
+                div.appendChild(delBtn);
+
+                div.onclick = () => loadStockAnalysis(item.symbol);
+                portfolioListEl.appendChild(div);
+            });
+        }
+
+        // 新增股票
+        addStockForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const symbol = stockInput.value.trim();
+            if (!symbol) return;
+
+            try {
+                const res = await fetch('/api/portfolio', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ symbol })
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || '新增失敗');
+
+                stockInput.value = '';
+                showToast(`已新增 ${data.name} (${data.added})`);
+                await loadPortfolio();
+                loadStockAnalysis(data.added);
+            } catch (err) {
+                showToast(err.message, 'error');
+            }
+        });
+
+        // 刪除股票
+        async function removeStock(symbol) {
+            try {
+                const res = await fetch(`/api/portfolio/${symbol}`, { method: 'DELETE' });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error);
+
+                showToast(`已成功移除股票`);
+                await loadPortfolio();
+
+                if (currentSymbol === symbol) {
+                    currentSymbol = null;
+                    emptyState.style.display = 'flex';
+                    dashboardContent.style.display = 'none';
+                }
+            } catch (err) {
+                showToast(err.message, 'error');
+            }
+        }
+
+        // 載入單一股票分析
+        async function loadStockAnalysis(symbol) {
+            currentSymbol = symbol;
+            emptyState.style.display = 'none';
+            dashboardContent.style.display = 'block';
+
+            // 更新選單反白狀態
+            document.querySelectorAll('.stock-item').forEach(el => {
+                const sym = el.querySelector('.stock-symbol').textContent;
+                el.classList.toggle('active', sym === symbol);
+            });
+
+            // 1. 載入基本面數據
+            try {
+                document.getElementById('display-name').textContent = '載入中...';
+                document.getElementById('display-symbol').textContent = symbol;
+
+                const res = await fetch(`/api/stock/${symbol}/info`);
+                const data = await res.json();
+
+                document.getElementById('display-name').textContent = data.name || '未知名稱';
+                document.getElementById('val-price').textContent = data.current_price ? `${data.current_price.toLocaleString()} 元` : 'N/A';
+                document.getElementById('val-pe').textContent = data.pe_ratio ? data.pe_ratio.toFixed(2) : 'N/A';
+                document.getElementById('val-eps').textContent = data.eps ? `${data.eps.toFixed(2)} 元` : 'N/A';
+
+                if (data.roe) {
+                    document.getElementById('val-roe').textContent = (data.roe * 100).toFixed(2) + '%';
+                } else {
+                    document.getElementById('val-roe').textContent = 'N/A';
+                }
+
+                // 2. 載入圖表
+                loadChart();
+
+                // 3. 載入相關新聞 (佔位)
+                loadNews(symbol);
+
+            } catch (err) {
+                showToast('讀取基本面資料失敗', 'error');
+            }
+        }
+
+        // 載入新聞 API (佔位)
+        async function loadNews(symbol) {
+            const newsListEl = document.getElementById('news-list');
+            const newsNoteEl = document.getElementById('news-note');
+            newsListEl.innerHTML = '<div class="news-loading">新聞載入中...</div>';
+            try {
+                const res = await fetch(`/api/stock/${symbol}/news`);
+                const data = await res.json();
+                newsNoteEl.textContent = data.note || '功能開發中...';
+                
+                newsListEl.innerHTML = '';
+                if (data.news && data.news.length > 0) {
+                    data.news.forEach(item => {
+                        newsListEl.innerHTML += `
+                            <div class="news-item">
+                                <div class="news-title">${item.title}</div>
+                                <div class="news-meta">
+                                    <span class="news-source">${item.source}</span>
+                                    <span class="news-date">${item.date}</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    newsListEl.innerHTML = '<div class="news-empty">無相關新聞</div>';
+                }
+            } catch (err) {
+                newsListEl.innerHTML = '<div class="news-error">新聞載入失敗</div>';
+            }
+        }
+
+        // 切換圖表 Tab
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentTab = e.target.dataset.tab;
+
+                // P/E 河流圖預設為 3Y，歷史股價預設為 1Y
+                if (currentTab === 'river') {
+                    setPeriodActive('3y');
+                } else {
+                    setPeriodActive('1y');
+                }
+
+                if (currentSymbol) loadChart();
+            });
+        });
+
+        // 設定特定的 Period 按鈕為 active
+        function setPeriodActive(period) {
+            currentPeriod = period;
+            document.querySelectorAll('.period-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.period === period);
+            });
+        }
+
+        // 時間區間切換按鈕
+        document.querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentPeriod = e.target.dataset.period;
+                if (currentSymbol) loadChart();
+            });
+        });
+
+        // 讀取圖表 API
+        async function loadChart() {
+            chartImg.classList.remove('loaded');
+            chartLoader.classList.add('active');
+
+            const endpoint = currentTab === 'price'
+                ? `/api/stock/${currentSymbol}/price_chart?period=${currentPeriod}`
+                : `/api/stock/${currentSymbol}/pe_river?period=${currentPeriod}`;
+
+            try {
+                const res = await fetch(endpoint);
+                const data = await res.json();
+
+                if (!res.ok) throw new Error(data.error);
+
+                // 加上時間戳防止瀏覽器快取舊圖
+                chartImg.src = `${data.image}?t=${new Date().getTime()}`;
+                chartImg.onload = () => {
+                    chartLoader.classList.remove('active');
+                    chartImg.classList.add('loaded');
+                };
+            } catch (err) {
+                chartLoader.classList.remove('active');
+                showToast(err.message, 'error');
+            }
+        }
+
+        // 啟動
+        init();
+    </script>
+</body>
+
+</html>
