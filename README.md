@@ -19,7 +19,6 @@ business_final_project/
 │   └── SKILL.md        # 前端設計規範參考 (Neumorphism Design System)
 ├── app.py              # Flask 後端伺服器
 ├── portfolio.json      # 自選股清單 (持久化)
-├── test_analysis.py    # 針對台積電 (2330.TW) 的測試腳本
 └── requirements.txt
 ```
 
@@ -28,9 +27,8 @@ business_final_project/
 本專案使用 Python 的虛擬環境 (venv) 進行開發，以確保套件版本獨立。
 
 1. **建立虛擬環境**（若尚未建立）
-   ```bash
-   python3 -m venv .venv
-   ```
+   - Linux/macOS: `python3 -m venv .venv`
+   - Windows: `python -m venv .venv`
 
 2. **啟動虛擬環境**
    - Linux/macOS: `source .venv/bin/activate`
@@ -44,8 +42,7 @@ business_final_project/
 ## 執行程式
 
 啟動 Flask 網頁伺服器：
-```bash
-python3 app.py
-```
+- Linux/macOS: `python3 app.py`
+- Windows: `python app.py`
 
 開啟後在瀏覽器中訪問：**[http://localhost:2330](http://localhost:2330)**
