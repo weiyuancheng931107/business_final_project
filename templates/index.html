@@ -103,6 +103,19 @@
                         <img id="chart-img" class="chart-img" src="" alt="分析圖表">
                     </div>
                 </div>
+
+                <!-- 相關新聞區區塊 (佔位) -->
+                <div class="news-section">
+                    <div class="news-header">
+                        <div class="section-label">
+                            <i class="fa-solid fa-newspaper"></i> 相關新聞 (佔位)
+                        </div>
+                        <span class="news-note" id="news-note">功能開發中...</span>
+                    </div>
+                    <div class="news-list" id="news-list">
+                        <!-- 動態載入新聞項目 -->
+                    </div>
+                </div>
             </div>
 
         </main>
@@ -275,8 +288,42 @@
                 // 2. 載入圖表
                 loadChart();
 
+                // 3. 載入相關新聞 (佔位)
+                loadNews(symbol);
+
             } catch (err) {
                 showToast('讀取基本面資料失敗', 'error');
+            }
+        }
+
+        // 載入新聞 API (佔位)
+        async function loadNews(symbol) {
+            const newsListEl = document.getElementById('news-list');
+            const newsNoteEl = document.getElementById('news-note');
+            newsListEl.innerHTML = '<div class="news-loading">新聞載入中...</div>';
+            try {
+                const res = await fetch(`/api/stock/${symbol}/news`);
+                const data = await res.json();
+                newsNoteEl.textContent = data.note || '功能開發中...';
+                
+                newsListEl.innerHTML = '';
+                if (data.news && data.news.length > 0) {
+                    data.news.forEach(item => {
+                        newsListEl.innerHTML += `
+                            <div class="news-item">
+                                <div class="news-title">${item.title}</div>
+                                <div class="news-meta">
+                                    <span class="news-source">${item.source}</span>
+                                    <span class="news-date">${item.date}</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    newsListEl.innerHTML = '<div class="news-empty">無相關新聞</div>';
+                }
+            } catch (err) {
+                newsListEl.innerHTML = '<div class="news-error">新聞載入失敗</div>';
             }
         }
 

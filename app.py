@@ -168,6 +168,37 @@ def api_pe_river(symbol):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# ────────────────────────────────────────────
+# API: 相關新聞 (佔位，待實作爬蟲)
+# ────────────────────────────────────────────
+@app.route("/api/stock/<symbol>/news")
+def api_stock_news(symbol):
+    """取得股票相關新聞（目前為示意資料，待串接新聞 API）。"""
+    placeholder_news = [
+        {
+            "title": f"{symbol} 法人看法與近期展望",
+            "source": "財經新聞示意",
+            "date": "2025-05-20",
+            "url": "#",
+        },
+        {
+            "title": f"{symbol} 季報公告：EPS 符合市場預期",
+            "source": "市場快訊示意",
+            "date": "2025-05-18",
+            "url": "#",
+        },
+        {
+            "title": f"{symbol} 外資持股動態觀察",
+            "source": "投資參考示意",
+            "date": "2025-05-15",
+            "url": "#",
+        },
+    ]
+    return jsonify({
+        "symbol": symbol,
+        "news": placeholder_news,
+        "note": "新聞功能開發中",
+    })
 
 
 
