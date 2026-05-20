@@ -49,8 +49,3 @@ python3 app.py
 ```
 
 開啟後在瀏覽器中訪問：**[http://localhost:2330](http://localhost:2330)**
-
-或執行後端測試腳本（不需啟動伺服器）：
-```bash
-python3 test_analysis.py
-```
