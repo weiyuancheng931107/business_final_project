@@ -104,21 +104,41 @@
                     </div>
                 </div>
 
-                <!-- 相關新聞區區塊 (佔位) -->
+                <!-- 相關新聞區區塊 -->
                 <div class="news-section">
                     <div class="news-header">
                         <div class="section-label">
-                            <i class="fa-solid fa-newspaper"></i> 相關新聞 (佔位)
+                            <i class="fa-solid fa-newspaper"></i> 相關新聞
                         </div>
-                        <span class="news-note" id="news-note">功能開發中...</span>
+                        <button id="btn-analyze-news" class="action-btn analyze-btn" style="margin-left: auto;">
+                            <i class="fa-solid fa-brain"></i> AI 產生分析報告
+                        </button>
                     </div>
                     <div class="news-list" id="news-list">
                         <!-- 動態載入新聞項目 -->
+                    </div>
+                    <div id="news-load-more-container" style="text-align: center; margin-top: 15px; display: none;">
+                        <button id="btn-load-more-news" class="load-more-btn" aria-label="載入更多新聞">
+                            <span>載入更多新聞</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
                     </div>
                 </div>
             </div>
 
         </main>
+    </div>
+
+    <div id="analysis-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-brain"></i> AI 新聞情緒分析報告</h2>
+                <button id="btn-close-modal" class="close-btn" aria-label="關閉">&times;</button>
+            </div>
+            <div class="modal-body" id="analysis-result-content">
+                <!-- 動態插入 -->
+            </div>
+        </div>
     </div>
 
     <div class="toast-container" id="toast-container"></div>
@@ -139,6 +159,11 @@
         let currentSymbol = null;
         let currentTab = 'price'; // 'price' or 'river'
         let currentPeriod = '1y'; // '6mo', '1y', '3y', '5y'
+
+        // 新聞分頁狀態
+        let newsNextStartDate = null;
+        let newsHasMore = false;
+        let newsLoading = false;
 
         // 系統初始化
         async function init() {
@@ -260,6 +285,12 @@
             emptyState.style.display = 'none';
             dashboardContent.style.display = 'block';
 
+            // 重設新聞分頁狀態
+            newsNextStartDate = null;
+            newsHasMore = false;
+            newsLoading = false;
+            document.getElementById('news-load-more-container').style.display = 'none';
+
             // 更新選單反白狀態
             document.querySelectorAll('.stock-item').forEach(el => {
                 const sym = el.querySelector('.stock-symbol').textContent;
@@ -288,7 +319,7 @@
                 // 2. 載入圖表
                 loadChart();
 
-                // 3. 載入相關新聞 (佔位)
+                // 3. 載入相關新聞 
                 loadNews(symbol);
 
             } catch (err) {
@@ -296,34 +327,79 @@
             }
         }
 
-        // 載入新聞 API (佔位)
-        async function loadNews(symbol) {
+        // 載入新聞 API
+        async function loadNews(symbol, isLoadMore = false) {
+            if (newsLoading) return;
+            newsLoading = true;
+
             const newsListEl = document.getElementById('news-list');
-            const newsNoteEl = document.getElementById('news-note');
-            newsListEl.innerHTML = '<div class="news-loading">新聞載入中...</div>';
+            const loadMoreContainer = document.getElementById('news-load-more-container');
+            const btnLoadMore = document.getElementById('btn-load-more-news');
+
+            if (!isLoadMore) {
+                newsListEl.innerHTML = '<div class="news-loading"><i class="fa-solid fa-spinner fa-spin"></i> 新聞載入中...</div>';
+                loadMoreContainer.style.display = 'none';
+            } else {
+                btnLoadMore.disabled = true;
+                btnLoadMore.querySelector('span').textContent = '載入中...';
+                btnLoadMore.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+            }
+
             try {
-                const res = await fetch(`/api/stock/${symbol}/news`);
+                const url = isLoadMore && newsNextStartDate 
+                    ? `/api/stock/${symbol}/news?start_date=${newsNextStartDate}` 
+                    : `/api/stock/${symbol}/news`;
+
+                const res = await fetch(url);
                 const data = await res.json();
-                newsNoteEl.textContent = data.note || '功能開發中...';
-                
-                newsListEl.innerHTML = '';
+
+                if (!res.ok) throw new Error(data.error || '載入失敗');
+
+                if (!isLoadMore) {
+                    newsListEl.innerHTML = '';
+                }
+
                 if (data.news && data.news.length > 0) {
                     data.news.forEach(item => {
-                        newsListEl.innerHTML += `
-                            <div class="news-item">
+                        const newsItem = document.createElement('div');
+                        newsItem.className = 'news-item';
+                        newsItem.innerHTML = `
+                            <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">
                                 <div class="news-title">${item.title}</div>
-                                <div class="news-meta">
-                                    <span class="news-source">${item.source}</span>
-                                    <span class="news-date">${item.date}</span>
-                                </div>
+                            </a>
+                            <div class="news-meta">
+                                <span class="news-source">${item.source}</span>
+                                <span class="news-date">${item.date}</span>
                             </div>
                         `;
+                        newsListEl.appendChild(newsItem);
                     });
-                } else {
+                } else if (!isLoadMore) {
                     newsListEl.innerHTML = '<div class="news-empty">無相關新聞</div>';
                 }
+
+                // 更新分頁狀態
+                newsNextStartDate = data.next_start_date;
+                newsHasMore = data.has_more;
+
+                // 顯示/隱藏載入更多按鈕
+                if (newsHasMore) {
+                    loadMoreContainer.style.display = 'block';
+                } else {
+                    loadMoreContainer.style.display = 'none';
+                }
+
             } catch (err) {
-                newsListEl.innerHTML = '<div class="news-error">新聞載入失敗</div>';
+                if (!isLoadMore) {
+                    newsListEl.innerHTML = '<div class="news-error">新聞載入失敗</div>';
+                } else {
+                    showToast('載入更多新聞失敗', 'error');
+                }
+            } finally {
+                newsLoading = false;
+                btnLoadMore.disabled = false;
+                btnLoadMore.querySelector('span').textContent = '載入更多新聞';
+                btnLoadMore.querySelector('i').className = 'fa-solid fa-angle-down';
             }
         }
 
@@ -389,6 +465,95 @@
                 showToast(err.message, 'error');
             }
         }
+
+        // 綁定「載入更多」按鈕點擊事件
+        document.getElementById('btn-load-more-news').addEventListener('click', () => {
+            if (currentSymbol) {
+                loadNews(currentSymbol, true);
+            }
+        });
+
+        // 監聽 main 區塊滾動事件以支援自動載入
+        const mainEl = document.querySelector('main');
+        mainEl.addEventListener('scroll', () => {
+            if (newsHasMore && !newsLoading && currentSymbol) {
+                const threshold = 50; // 距離底部 50px 時觸發
+                if (mainEl.scrollHeight - mainEl.scrollTop - mainEl.clientHeight < threshold) {
+                    loadNews(currentSymbol, true);
+                }
+            }
+        });
+
+        // 處理 AI 分析按鈕點擊
+        document.getElementById('btn-analyze-news').addEventListener('click', async () => {
+            if (!currentSymbol) return;
+            const btn = document.getElementById('btn-analyze-news');
+            const originalHTML = btn.innerHTML;
+            
+            // 抓取目前畫面上已渲染的新聞
+            const newsItems = Array.from(document.querySelectorAll('#news-list .news-item')).map(item => {
+                return {
+                    title: item.querySelector('.news-title').textContent,
+                    url: item.querySelector('a').href,
+                    source: item.querySelector('.news-source').textContent,
+                    date: item.querySelector('.news-date').textContent
+                };
+            });
+
+            if (newsItems.length === 0) {
+                showToast('目前沒有新聞可以分析', 'warning');
+                return;
+            }
+
+            // 進入 Loading 狀態
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 分析中...';
+
+            try {
+                const res = await fetch(`/api/stock/${currentSymbol}/analyze_news`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ news: newsItems })
+                });
+                const data = await res.json();
+                
+                if (!res.ok) throw new Error(data.error || '分析失敗');
+
+                // 渲染 Modal 內容
+                let html = `<p class="analysis-summary">${data.summary}</p><div class="analysis-details">`;
+                data.details.forEach(item => {
+                    html += `
+                        <div class="analysis-item">
+                            <div class="analysis-item-title"><a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">${item.title}</a></div>
+                            <div class="analysis-item-meta">
+                                <span class="sentiment-badge sentiment-${item.sentiment_type}">${item.sentiment_label}</span>
+                                <span>${item.source} · ${item.date}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+
+                document.getElementById('analysis-result-content').innerHTML = html;
+                document.getElementById('analysis-modal').classList.add('active');
+
+            } catch (err) {
+                showToast(err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+            }
+        });
+
+        // Modal 關閉事件
+        document.getElementById('btn-close-modal').addEventListener('click', () => {
+            document.getElementById('analysis-modal').classList.remove('active');
+        });
+        document.getElementById('analysis-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'analysis-modal') {
+                document.getElementById('analysis-modal').classList.remove('active');
+            }
+        });
 
         // 啟動
         init();

@@ -12,6 +12,7 @@ from analysis.fetcher import (
     get_price_history,
     get_historical_pe,
     get_tw_stock_name,
+    get_stock_news,
 )
 from analysis.plotter import (
     plot_price_history,
@@ -169,43 +170,74 @@ def api_pe_river(symbol):
         return jsonify({"error": str(e)}), 500
 
 # ────────────────────────────────────────────
-# API: 相關新聞 (佔位，待實作爬蟲)
+# API: 相關新聞 
 # ────────────────────────────────────────────
 @app.route("/api/stock/<symbol>/news")
 def api_stock_news(symbol):
-    """取得股票相關新聞（目前為示意資料，待串接新聞 API）。"""
-    placeholder_news = [
-        {
-            "title": f"{symbol} 法人看法與近期展望",
-            "source": "財經新聞示意",
-            "date": "2025-05-20",
-            "url": "#",
-        },
-        {
-            "title": f"{symbol} 季報公告：EPS 符合市場預期",
-            "source": "市場快訊示意",
-            "date": "2025-05-18",
-            "url": "#",
-        },
-        {
-            "title": f"{symbol} 外資持股動態觀察",
-            "source": "投資參考示意",
-            "date": "2025-05-15",
-            "url": "#",
-        },
-    ]
-    return jsonify({
-        "symbol": symbol,
-        "news": placeholder_news,
-        "note": "新聞功能開發中",
-    })
+    """取得股票相關新聞。支持分頁加載。"""
+    start_date = request.args.get("start_date")
+    try:
+        news_data = get_stock_news(symbol, start_date)
+        return jsonify({
+            "symbol": symbol,
+            "news": news_data["news"],
+            "next_start_date": news_data["next_start_date"],
+            "has_more": news_data["has_more"],
+            "note": ""
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
+
+# ────────────────────────────────────────────
+# API: 新聞情緒分析 (Placeholder)
+# ────────────────────────────────────────────
+@app.route("/api/stock/<symbol>/analyze_news", methods=["POST"])
+def api_analyze_news(symbol):
+    """
+    接收前端送來的新聞清單，模擬 AI 進行情緒分析。
+    """
+    import time
+    import random
+    
+    data = request.json or {}
+    news_list = data.get("news", [])
+    
+    # 模擬 LLM 分析延遲
+    time.sleep(2)
+    
+    analyzed_news = []
+    # 權重設定：中立佔多數，正向與負向次之
+    sentiments = [
+        {"label": "正向", "type": "positive"},
+        {"label": "中立", "type": "neutral"},
+        {"label": "中立", "type": "neutral"},
+        {"label": "負向", "type": "negative"}
+    ]
+    
+    for item in news_list:
+        sentiment = random.choice(sentiments)
+        analyzed_news.append({
+            "title": item.get("title", "未命名標題"),
+            "url": item.get("url", "#"),
+            "source": item.get("source", "未知"),
+            "date": item.get("date", ""),
+            "sentiment_label": sentiment["label"],
+            "sentiment_type": sentiment["type"]
+        })
+
+    summary = f"（目前為 Placeholder 以下是新聞清單）"
+    
+    report = {
+        "summary": summary,
+        "details": analyzed_news
+    }
+    
+    return jsonify(report)
 
 
 # ────────────────────────────────────────────
 # 啟動伺服器
 # ────────────────────────────────────────────
 if __name__ == "__main__":
-    print("股票基本面分析工具已啟動！")
-    print("請在瀏覽器開啟 http://localhost:2330")
     app.run(host="127.0.0.1", port=2330, debug=True)
