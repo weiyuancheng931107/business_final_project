@@ -1,14 +1,14 @@
 # 商管程式設計期末專案 - 股票基本面分析
 
 這是一個以 Python 實作的台股基本面分析工具。
-透過網頁介面管理自選股、查看歷史股價走勢與本益比河流圖。
+透過網頁介面管理自選股、查看歷史股價走勢、本益比河流圖，以及結合 AI 情緒分析的即時財經新聞（開發中）。
 
 ## 專案結構
 
 ```
 business_final_project/
 ├── analysis/           # 核心功能模組
-│   ├── fetcher.py      # 負責從 yfinance 抓取股價與基本面資料
+│   ├── fetcher.py      # 負責從 yfinance 抓取股價/基本面，及從 FinMind 抓取新聞
 │   └── plotter.py      # 負責用 matplotlib 繪製走勢圖與河流圖
 ├── templates/
 │   └── index.html      # 網頁前端模板

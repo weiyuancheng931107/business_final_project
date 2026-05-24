@@ -4,6 +4,7 @@ fetcher.py
 """
 import urllib.request
 import re
+from datetime import datetime
 import yfinance as yf
 import pandas as pd
 import numpy as np
@@ -114,3 +115,76 @@ def get_historical_pe(ticker_symbol: str, period: str = "3y") -> pd.DataFrame:
     df["PE"] = df["Close"] / df["EPS"]
 
     return df
+
+
+def get_stock_news(symbol: str, start_date_str: str = None) -> dict:
+    """
+    透過 FinMind API 獲取台股相關新聞。
+    限制一次只能抓一天，我們每次查詢最多往前推 7 天，直到抓滿 5 篇。
+    回傳：{"news": list[dict], "next_start_date": str, "has_more": bool}
+    """
+    import urllib.request
+    import json
+    from datetime import datetime, timedelta
+
+    # FinMind 股票代號不含 .TW
+    stock_id = symbol.split('.')[0]
+    
+    if start_date_str:
+        try:
+            start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
+        except Exception:
+            start_date = datetime.now()
+    else:
+        start_date = datetime.now()
+        
+    news_list = []
+    days_searched = 0
+    max_days_to_search = 7
+    
+    current_search_date = start_date
+    
+    while days_searched < max_days_to_search:
+        target_date_str = current_search_date.strftime("%Y-%m-%d")
+        url = f"https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockNews&data_id={stock_id}&start_date={target_date_str}"
+        
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=5) as response:
+                res_data = json.loads(response.read().decode('utf-8'))
+                
+                if res_data.get("status") == 200:
+                    daily_news = res_data.get("data", [])
+                    for item in daily_news:
+                        news_list.append({
+                            "title": item.get("title", "無標題"),
+                            "source": item.get("source", "財經新聞"),
+                            "date": item.get("date", "").split(" ")[0],
+                            "url": item.get("link", "#")
+                        })
+        except Exception as e:
+            print(f"⚠️ FinMind 新聞獲取失敗 ({target_date_str}): {e}")
+            
+        current_search_date -= timedelta(days=1)
+        days_searched += 1
+        
+        # 如果抓滿了 5 篇，就提早結束
+        if len(news_list) >= 5:
+            break
+            
+    # 計算是否還有更多新聞
+    # 限制最多只往前追溯 30 天的歷史新聞，避免無限往前抓取
+    delta = datetime.now() - current_search_date
+    has_more = True
+    if delta.days > 30:
+        has_more = False
+    elif len(news_list) == 0 and days_searched >= max_days_to_search:
+        # 如果連續找了 7 天都沒半篇新聞，也宣告沒有更多新聞，避免讓前端無限載入
+        has_more = False
+        
+    return {
+        "news": news_list,
+        "next_start_date": current_search_date.strftime("%Y-%m-%d"),
+        "has_more": has_more
+    }
+
