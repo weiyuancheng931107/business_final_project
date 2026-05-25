@@ -36,6 +36,20 @@
                 <!-- 自選股清單會用 JS 動態生成 -->
             </div>
 
+            <!-- 比較模式區塊 -->
+            <div class="compare-mode-section">
+                <div class="compare-mode-header">
+                    <i class="fa-solid fa-code-compare"></i>
+                    比較模式
+                </div>
+                <div class="compare-checkboxes-list" id="compare-checkboxes-list">
+                    <!-- 動態生成勾選框 -->
+                </div>
+                <button id="btn-start-compare" class="action-btn start-compare-btn" style="width: 100%; margin-top: 10px;">
+                    <i class="fa-solid fa-play"></i> 開始比較
+                </button>
+            </div>
+
         </aside>
 
         <!-- 右側主內容 -->
@@ -50,7 +64,7 @@
                 <p>開始您的台股基本面分析之旅</p>
             </div>
 
-            <!-- 股票分析主要畫面 -->
+            <!-- 單一股票分析主要畫面 -->
             <div id="dashboard-content" style="display: none;">
                 <!-- 標題列 -->
                 <header class="dashboard-header">
@@ -126,9 +140,76 @@
                 </div>
             </div>
 
+            <!-- 比較模式主要畫面 -->
+            <div id="compare-dashboard" style="display: none;">
+                <!-- 比較模式標題 -->
+                <header class="dashboard-header">
+                    <div class="stock-title-container">
+                        <h1 class="stock-title"><i class="fa-solid fa-code-compare"></i> 多股比較分析</h1>
+                        <button id="btn-back-to-single" class="action-btn" style="margin-left: auto;">
+                            <i class="fa-solid fa-arrow-left"></i> 返回
+                        </button>
+                    </div>
+                </header>
+
+                <!-- 基本面卡片（多股對比） -->
+                <div id="compare-info-grid" class="info-grid">
+                    <!-- 動態生成 -->
+                </div>
+
+                <!-- 圖表區 -->
+                <div class="charts-section">
+                    <div class="tab-nav-bar">
+                        <div class="tabs" id="compare-tabs">
+                            <button class="tab-btn active" data-tab="normalized" aria-label="標準化走勢">標準化走勢圖</button>
+                            <button class="tab-btn" data-tab="heatmap" aria-label="相關係數熱力圖">相關係數熱力圖</button>
+                        </div>
+
+                        <!-- 時間區間切換 -->
+                        <div class="chart-controls" id="compare-chart-periods">
+                            <button class="period-btn" data-period="6mo" aria-label="6個月">6M</button>
+                            <button class="period-btn active" data-period="1y" aria-label="1年">1Y</button>
+                            <button class="period-btn" data-period="3y" aria-label="3年">3Y</button>
+                            <button class="period-btn" data-period="5y" aria-label="5年">5Y</button>
+                        </div>
+                    </div>
+
+                    <div class="chart-container" id="compare-media-viewport">
+                        <div class="loader" id="compare-chart-loader"></div>
+                        <img id="compare-chart-img" class="chart-img" src="" alt="比較圖表">
+                    </div>
+                </div>
+
+                <!-- 配對相關性分析 -->
+                <div class="news-section" id="compare-pairs-section">
+                    <div class="section-label" style="margin-bottom: 15px;">
+                        <i class="fa-solid fa-link"></i> 股票對相關性
+                    </div>
+                    <div id="compare-pairs-list">
+                        <!-- 動態生成 -->
+                    </div>
+                </div>
+
+                <!-- 新聞跨股分析 -->
+                <div class="news-section">
+                    <div class="news-header">
+                        <div class="section-label">
+                            <i class="fa-solid fa-newspaper"></i> 多股新聞分析
+                        </div>
+                        <button id="btn-analyze-compare-news" class="action-btn analyze-btn" style="margin-left: auto;">
+                            <i class="fa-solid fa-brain"></i> AI 跨股分析
+                        </button>
+                    </div>
+                    <div id="compare-news-list">
+                        <!-- 動態載入 -->
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 
+    <!-- 單一股票分析 Modal -->
     <div id="analysis-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -141,83 +222,108 @@
         </div>
     </div>
 
+    <!-- 比較分析解讀 Modal -->
+    <div id="compare-interpret-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-brain"></i> AI 比較分析報告</h2>
+                <button id="btn-close-compare-modal" class="close-btn" aria-label="關閉">&times;</button>
+            </div>
+            <div class="modal-body" id="compare-interpret-result">
+                <!-- 動態插入 -->
+            </div>
+        </div>
+    </div>
+
     <div class="toast-container" id="toast-container"></div>
 
     <script>
-        // DOM Elements
+        // ────────────────────────────────────────
+        // 全局狀態管理
+        // ────────────────────────────────────────
+        const UI_STATE = {
+            mode: 'single', // 'single' 或 'compare'
+            currentSymbol: null,
+            compareSymbols: new Set(),
+            currentTab: 'price',
+            currentPeriod: '1y',
+            newsNextStartDate: null,
+            newsHasMore: false,
+            newsLoading: false,
+            compareData: null,
+        };
+
+        // ────────────────────────────────────────
+        // DOM 元素引用
+        // ────────────────────────────────────────
         const portfolioListEl = document.getElementById('portfolio-list');
         const addStockForm = document.getElementById('add-stock-form');
         const stockInput = document.getElementById('stock-input');
-
         const emptyState = document.getElementById('empty-state');
         const dashboardContent = document.getElementById('dashboard-content');
+        const compareDashboard = document.getElementById('compare-dashboard');
 
-        const chartLoader = document.getElementById('chart-loader');
-        const chartImg = document.getElementById('chart-img');
-        const chartPeriods = document.getElementById('chart-periods');
-
-        let currentSymbol = null;
-        let currentTab = 'price'; // 'price' or 'river'
-        let currentPeriod = '1y'; // '6mo', '1y', '3y', '5y'
-
-        // 新聞分頁狀態
-        let newsNextStartDate = null;
-        let newsHasMore = false;
-        let newsLoading = false;
-
-        // 系統初始化
-        async function init() {
-            await loadPortfolio();
-        }
-
-        // 顯示通知
+        // ────────────────────────────────────────
+        // 工具函式
+        // ────────────────────────────────────────
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.style.borderLeft = `4px solid ${type === 'error' ? 'var(--danger-color)' : 'var(--success-color)'}`;
             toast.textContent = message;
-
             container.appendChild(toast);
-
             setTimeout(() => {
                 toast.classList.add('fade-out');
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
 
-        // 載入自選股清單
+        // ────────────────────────────────────────
+        // 切換 UI 模式
+        // ────────────────────────────────────────
+        function switchMode(newMode) {
+            UI_STATE.mode = newMode;
+            if (newMode === 'single') {
+                emptyState.style.display = UI_STATE.currentSymbol ? 'none' : 'flex';
+                dashboardContent.style.display = UI_STATE.currentSymbol ? 'block' : 'none';
+                compareDashboard.style.display = 'none';
+            } else {
+                emptyState.style.display = 'none';
+                dashboardContent.style.display = 'none';
+                compareDashboard.style.display = 'block';
+            }
+        }
+
+        // ────────────────────────────────────────
+        // 單一股票分析
+        // ────────────────────────────────────────
         async function loadPortfolio() {
             try {
                 const res = await fetch('/api/portfolio');
                 const data = await res.json();
                 renderPortfolio(data.stocks);
+                updateCompareCheckboxes(data.stocks);
             } catch (err) {
                 showToast('無法載入自選股清單', 'error');
             }
         }
 
-        // 渲染自選股清單
         function renderPortfolio(stocks) {
             portfolioListEl.innerHTML = '';
             stocks.forEach(item => {
                 const div = document.createElement('div');
-                div.className = `stock-item glass ${currentSymbol === item.symbol ? 'active' : ''}`;
-
+                div.className = `stock-item glass ${UI_STATE.currentSymbol === item.symbol ? 'active' : ''}`;
                 const infoBlock = document.createElement('div');
                 infoBlock.className = 'stock-info-block';
-
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'stock-name';
                 nameSpan.textContent = item.name;
-
                 const symbolSpan = document.createElement('span');
                 symbolSpan.className = 'stock-symbol';
                 symbolSpan.textContent = item.symbol;
-
                 infoBlock.appendChild(nameSpan);
                 infoBlock.appendChild(symbolSpan);
-
                 const delBtn = document.createElement('button');
                 delBtn.className = 'delete-btn';
                 delBtn.setAttribute('aria-label', `移除自選股 ${item.symbol}`);
@@ -226,21 +332,51 @@
                     e.stopPropagation();
                     removeStock(item.symbol);
                 };
-
                 div.appendChild(infoBlock);
                 div.appendChild(delBtn);
-
-                div.onclick = () => loadStockAnalysis(item.symbol);
+                div.onclick = () => {
+                    if (UI_STATE.mode === 'single') {
+                        loadStockAnalysis(item.symbol);
+                    }
+                };
                 portfolioListEl.appendChild(div);
             });
         }
 
-        // 新增股票
+        function updateCompareCheckboxes(stocks) {
+            const checkboxList = document.getElementById('compare-checkboxes-list');
+            checkboxList.innerHTML = '';
+            stocks.forEach(item => {
+                const label = document.createElement('label');
+                label.className = 'compare-checkbox-label';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = item.symbol;
+                checkbox.checked = UI_STATE.compareSymbols.has(item.symbol);
+                checkbox.onchange = (e) => {
+                    if (e.target.checked) {
+                        if (UI_STATE.compareSymbols.size < 6) {
+                            UI_STATE.compareSymbols.add(item.symbol);
+                        } else {
+                            e.target.checked = false;
+                            showToast('最多選擇 6 支股票', 'warning');
+                        }
+                    } else {
+                        UI_STATE.compareSymbols.delete(item.symbol);
+                    }
+                };
+                const span = document.createElement('span');
+                span.textContent = item.name;
+                label.appendChild(checkbox);
+                label.appendChild(span);
+                checkboxList.appendChild(label);
+            });
+        }
+
         addStockForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const symbol = stockInput.value.trim();
             if (!symbol) return;
-
             try {
                 const res = await fetch('/api/portfolio', {
                     method: 'POST',
@@ -249,7 +385,6 @@
                 });
                 const data = await res.json();
                 if (!res.ok) throw new Error(data.error || '新增失敗');
-
                 stockInput.value = '';
                 showToast(`已新增 ${data.name} (${data.added})`);
                 await loadPortfolio();
@@ -259,83 +394,56 @@
             }
         });
 
-        // 刪除股票
         async function removeStock(symbol) {
             try {
                 const res = await fetch(`/api/portfolio/${symbol}`, { method: 'DELETE' });
                 const data = await res.json();
                 if (!res.ok) throw new Error(data.error);
-
                 showToast(`已成功移除股票`);
                 await loadPortfolio();
-
-                if (currentSymbol === symbol) {
-                    currentSymbol = null;
-                    emptyState.style.display = 'flex';
-                    dashboardContent.style.display = 'none';
+                if (UI_STATE.currentSymbol === symbol) {
+                    UI_STATE.currentSymbol = null;
+                    switchMode('single');
                 }
             } catch (err) {
                 showToast(err.message, 'error');
             }
         }
 
-        // 載入單一股票分析
         async function loadStockAnalysis(symbol) {
-            currentSymbol = symbol;
-            emptyState.style.display = 'none';
-            dashboardContent.style.display = 'block';
-
-            // 重設新聞分頁狀態
-            newsNextStartDate = null;
-            newsHasMore = false;
-            newsLoading = false;
-            document.getElementById('news-load-more-container').style.display = 'none';
-
-            // 更新選單反白狀態
+            UI_STATE.currentSymbol = symbol;
+            UI_STATE.newsNextStartDate = null;
+            UI_STATE.newsHasMore = false;
+            UI_STATE.newsLoading = false;
+            switchMode('single');
             document.querySelectorAll('.stock-item').forEach(el => {
                 const sym = el.querySelector('.stock-symbol').textContent;
                 el.classList.toggle('active', sym === symbol);
             });
-
-            // 1. 載入基本面數據
+            document.getElementById('news-load-more-container').style.display = 'none';
             try {
                 document.getElementById('display-name').textContent = '載入中...';
                 document.getElementById('display-symbol').textContent = symbol;
-
                 const res = await fetch(`/api/stock/${symbol}/info`);
                 const data = await res.json();
-
                 document.getElementById('display-name').textContent = data.name || '未知名稱';
                 document.getElementById('val-price').textContent = data.current_price ? `${data.current_price.toLocaleString()} 元` : 'N/A';
                 document.getElementById('val-pe').textContent = data.pe_ratio ? data.pe_ratio.toFixed(2) : 'N/A';
                 document.getElementById('val-eps').textContent = data.eps ? `${data.eps.toFixed(2)} 元` : 'N/A';
-
-                if (data.roe) {
-                    document.getElementById('val-roe').textContent = (data.roe * 100).toFixed(2) + '%';
-                } else {
-                    document.getElementById('val-roe').textContent = 'N/A';
-                }
-
-                // 2. 載入圖表
+                document.getElementById('val-roe').textContent = data.roe ? (data.roe * 100).toFixed(2) + '%' : 'N/A';
                 loadChart();
-
-                // 3. 載入相關新聞 
                 loadNews(symbol);
-
             } catch (err) {
                 showToast('讀取基本面資料失敗', 'error');
             }
         }
 
-        // 載入新聞 API
         async function loadNews(symbol, isLoadMore = false) {
-            if (newsLoading) return;
-            newsLoading = true;
-
+            if (UI_STATE.newsLoading) return;
+            UI_STATE.newsLoading = true;
             const newsListEl = document.getElementById('news-list');
             const loadMoreContainer = document.getElementById('news-load-more-container');
             const btnLoadMore = document.getElementById('btn-load-more-news');
-
             if (!isLoadMore) {
                 newsListEl.innerHTML = '<div class="news-loading"><i class="fa-solid fa-spinner fa-spin"></i> 新聞載入中...</div>';
                 loadMoreContainer.style.display = 'none';
@@ -344,25 +452,20 @@
                 btnLoadMore.querySelector('span').textContent = '載入中...';
                 btnLoadMore.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
             }
-
             try {
-                const url = isLoadMore && newsNextStartDate 
-                    ? `/api/stock/${symbol}/news?start_date=${newsNextStartDate}` 
+                const url = isLoadMore && UI_STATE.newsNextStartDate 
+                    ? `/api/stock/${symbol}/news?start_date=${UI_STATE.newsNextStartDate}` 
                     : `/api/stock/${symbol}/news`;
-
                 const res = await fetch(url);
                 const data = await res.json();
-
-                if (!res.ok) throw new Error(data.error || '載入失敗');
-
+                if (!res.ok) throw new Error(data.error);
                 if (!isLoadMore) {
                     newsListEl.innerHTML = '';
                 }
-
                 if (data.news && data.news.length > 0) {
                     data.news.forEach(item => {
                         const newsItem = document.createElement('div');
-                        newsItem.className = 'news-item';
+                        newsItem.className = 'news-item glass';
                         newsItem.innerHTML = `
                             <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">
                                 <div class="news-title">${item.title}</div>
@@ -377,18 +480,9 @@
                 } else if (!isLoadMore) {
                     newsListEl.innerHTML = '<div class="news-empty">無相關新聞</div>';
                 }
-
-                // 更新分頁狀態
-                newsNextStartDate = data.next_start_date;
-                newsHasMore = data.has_more;
-
-                // 顯示/隱藏載入更多按鈕
-                if (newsHasMore) {
-                    loadMoreContainer.style.display = 'block';
-                } else {
-                    loadMoreContainer.style.display = 'none';
-                }
-
+                UI_STATE.newsNextStartDate = data.next_start_date;
+                UI_STATE.newsHasMore = data.has_more;
+                loadMoreContainer.style.display = UI_STATE.newsHasMore ? 'block' : 'none';
             } catch (err) {
                 if (!isLoadMore) {
                     newsListEl.innerHTML = '<div class="news-error">新聞載入失敗</div>';
@@ -396,65 +490,59 @@
                     showToast('載入更多新聞失敗', 'error');
                 }
             } finally {
-                newsLoading = false;
+                UI_STATE.newsLoading = false;
                 btnLoadMore.disabled = false;
                 btnLoadMore.querySelector('span').textContent = '載入更多新聞';
                 btnLoadMore.querySelector('i').className = 'fa-solid fa-angle-down';
             }
         }
 
-        // 切換圖表 Tab
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentTab = e.target.dataset.tab;
-
-                // P/E 河流圖預設為 3Y，歷史股價預設為 1Y
-                if (currentTab === 'river') {
-                    setPeriodActive('3y');
-                } else {
-                    setPeriodActive('1y');
+                if (e.target.closest('#stock-tabs')) {
+                    document.querySelectorAll('#stock-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    UI_STATE.currentTab = e.target.dataset.tab;
+                    if (UI_STATE.currentTab === 'river') {
+                        setPeriodActive('3y');
+                    } else {
+                        setPeriodActive('1y');
+                    }
+                    if (UI_STATE.currentSymbol) loadChart();
                 }
-
-                if (currentSymbol) loadChart();
             });
         });
 
-        // 設定特定的 Period 按鈕為 active
         function setPeriodActive(period) {
-            currentPeriod = period;
+            UI_STATE.currentPeriod = period;
             document.querySelectorAll('.period-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.period === period);
             });
         }
 
-        // 時間區間切換按鈕
         document.querySelectorAll('.period-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentPeriod = e.target.dataset.period;
-                if (currentSymbol) loadChart();
+                if (e.target.closest('#chart-periods')) {
+                    document.querySelectorAll('#chart-periods .period-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    UI_STATE.currentPeriod = e.target.dataset.period;
+                    if (UI_STATE.currentSymbol) loadChart();
+                }
             });
         });
 
-        // 讀取圖表 API
         async function loadChart() {
+            const chartImg = document.getElementById('chart-img');
+            const chartLoader = document.getElementById('chart-loader');
             chartImg.classList.remove('loaded');
             chartLoader.classList.add('active');
-
-            const endpoint = currentTab === 'price'
-                ? `/api/stock/${currentSymbol}/price_chart?period=${currentPeriod}`
-                : `/api/stock/${currentSymbol}/pe_river?period=${currentPeriod}`;
-
+            const endpoint = UI_STATE.currentTab === 'price'
+                ? `/api/stock/${UI_STATE.currentSymbol}/price_chart?period=${UI_STATE.currentPeriod}`
+                : `/api/stock/${UI_STATE.currentSymbol}/pe_river?period=${UI_STATE.currentPeriod}`;
             try {
                 const res = await fetch(endpoint);
                 const data = await res.json();
-
                 if (!res.ok) throw new Error(data.error);
-
-                // 加上時間戳防止瀏覽器快取舊圖
                 chartImg.src = `${data.image}?t=${new Date().getTime()}`;
                 chartImg.onload = () => {
                     chartLoader.classList.remove('active');
@@ -466,31 +554,26 @@
             }
         }
 
-        // 綁定「載入更多」按鈕點擊事件
         document.getElementById('btn-load-more-news').addEventListener('click', () => {
-            if (currentSymbol) {
-                loadNews(currentSymbol, true);
+            if (UI_STATE.currentSymbol) {
+                loadNews(UI_STATE.currentSymbol, true);
             }
         });
 
-        // 監聽 main 區塊滾動事件以支援自動載入
-        const mainEl = document.querySelector('main');
-        mainEl.addEventListener('scroll', () => {
-            if (newsHasMore && !newsLoading && currentSymbol) {
-                const threshold = 50; // 距離底部 50px 時觸發
-                if (mainEl.scrollHeight - mainEl.scrollTop - mainEl.clientHeight < threshold) {
-                    loadNews(currentSymbol, true);
+        document.querySelector('main').addEventListener('scroll', (e) => {
+            if (UI_STATE.newsHasMore && !UI_STATE.newsLoading && UI_STATE.currentSymbol && UI_STATE.mode === 'single') {
+                const main = e.target;
+                const threshold = 50;
+                if (main.scrollHeight - main.scrollTop - main.clientHeight < threshold) {
+                    loadNews(UI_STATE.currentSymbol, true);
                 }
             }
         });
 
-        // 處理 AI 分析按鈕點擊
         document.getElementById('btn-analyze-news').addEventListener('click', async () => {
-            if (!currentSymbol) return;
+            if (!UI_STATE.currentSymbol) return;
             const btn = document.getElementById('btn-analyze-news');
             const originalHTML = btn.innerHTML;
-            
-            // 抓取目前畫面上已渲染的新聞
             const newsItems = Array.from(document.querySelectorAll('#news-list .news-item')).map(item => {
                 return {
                     title: item.querySelector('.news-title').textContent,
@@ -499,27 +582,20 @@
                     date: item.querySelector('.news-date').textContent
                 };
             });
-
             if (newsItems.length === 0) {
                 showToast('目前沒有新聞可以分析', 'warning');
                 return;
             }
-
-            // 進入 Loading 狀態
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 分析中...';
-
             try {
-                const res = await fetch(`/api/stock/${currentSymbol}/analyze_news`, {
+                const res = await fetch(`/api/stock/${UI_STATE.currentSymbol}/analyze_news`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ news: newsItems })
                 });
                 const data = await res.json();
-                
                 if (!res.ok) throw new Error(data.error || '分析失敗');
-
-                // 渲染 Modal 內容
                 let html = `<p class="analysis-summary">${data.summary}</p><div class="analysis-details">`;
                 data.details.forEach(item => {
                     html += `
@@ -533,10 +609,8 @@
                     `;
                 });
                 html += '</div>';
-
                 document.getElementById('analysis-result-content').innerHTML = html;
                 document.getElementById('analysis-modal').classList.add('active');
-
             } catch (err) {
                 showToast(err.message, 'error');
             } finally {
@@ -545,7 +619,6 @@
             }
         });
 
-        // Modal 關閉事件
         document.getElementById('btn-close-modal').addEventListener('click', () => {
             document.getElementById('analysis-modal').classList.remove('active');
         });
@@ -555,7 +628,286 @@
             }
         });
 
-        // 啟動
+        // ────────────────────────────────────────
+        // 比較模式
+        // ────────────────────────────────────────
+        document.getElementById('btn-start-compare').addEventListener('click', async () => {
+            if (UI_STATE.compareSymbols.size < 2) {
+                showToast('請至少選擇 2 支股票', 'warning');
+                return;
+            }
+            const symbols = Array.from(UI_STATE.compareSymbols);
+            const btn = document.getElementById('btn-start-compare');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 分析中...';
+            try {
+                // 取得股票名稱
+                const nameMap = {};
+                for (const sym of symbols) {
+                    const res = await fetch(`/api/stock/${sym}/info`);
+                    const data = await res.json();
+                    nameMap[sym] = data.name || sym;
+                }
+                // 執行比較 API
+                const res = await fetch('/api/compare', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        symbols,
+                        period: '1y',
+                        names: nameMap
+                    })
+                });
+                const compareData = await res.json();
+                if (!res.ok) throw new Error(compareData.error);
+                UI_STATE.compareData = compareData;
+                UI_STATE.compareData.names = nameMap;
+                renderCompareDashboard();
+                switchMode('compare');
+            } catch (err) {
+                showToast(err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-play"></i> 開始比較';
+            }
+        });
+
+        function renderCompareDashboard() {
+            if (!UI_STATE.compareData) return;
+            const data = UI_STATE.compareData;
+            const names = data.names || {};
+
+            // 渲染基本面卡片
+            const infoGrid = document.getElementById('compare-info-grid');
+            infoGrid.innerHTML = '';
+            data.symbols.forEach(sym => {
+                const card = document.createElement('div');
+                card.className = 'info-card glass';
+                const price = data.performance[sym] !== undefined ? `${data.performance[sym]}%` : 'N/A';
+                const vol = data.volatility[sym] !== undefined ? `${data.volatility[sym]}%` : 'N/A';
+                card.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 8px;">${names[sym] || sym}</div>
+                    <div style="font-size: 0.85em; line-height: 1.6;">
+                        <div>期間績效: ${price}</div>
+                        <div>年化波動: ${vol}</div>
+                    </div>
+                `;
+                infoGrid.appendChild(card);
+            });
+
+            // 渲染配對相關性
+            const pairsList = document.getElementById('compare-pairs-list');
+            pairsList.innerHTML = '';
+            data.pairs.forEach(pair => {
+                const pairDiv = document.createElement('div');
+                pairDiv.className = 'glass pair-item';
+                pairDiv.style.marginBottom = '12px';
+                const direction = pair.direction;
+                const icon = pair.correlation > 0 ? '↗️' : '↙️';
+                pairDiv.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 8px;">
+                        ${icon} ${pair.name_a} × ${pair.name_b}
+                    </div>
+                    <div style="font-size: 0.85em; line-height: 1.8; color: #666;">
+                        <div><strong>相關係數:</strong> ${pair.correlation.toFixed(3)} (${pair.strength}${direction})</div>
+                        <div><strong>Beta:</strong> ${pair.pair[0]}→${pair.pair[1]}: ${pair.beta_a_on_b?.toFixed(3) || 'N/A'}, 反向: ${pair.beta_b_on_a?.toFixed(3) || 'N/A'}</div>
+                    </div>
+                `;
+                pairsList.appendChild(pairDiv);
+            });
+
+            // 加載圖表
+            loadCompareChart();
+        }
+
+        document.getElementById('compare-tabs').querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.getElementById('compare-tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                loadCompareChart();
+            });
+        });
+
+        document.getElementById('compare-chart-periods').querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                document.getElementById('compare-chart-periods').querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                const period = e.target.dataset.period;
+                const btn = document.getElementById('btn-start-compare');
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 重新分析中...';
+                try {
+                    const symbols = Array.from(UI_STATE.compareSymbols);
+                    const nameMap = UI_STATE.compareData.names;
+                    const res = await fetch('/api/compare', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ symbols, period, names: nameMap })
+                    });
+                    const compareData = await res.json();
+                    if (!res.ok) throw new Error(compareData.error);
+                    UI_STATE.compareData = compareData;
+                    UI_STATE.compareData.names = nameMap;
+                    renderCompareDashboard();
+                } catch (err) {
+                    showToast(err.message, 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-play"></i> 開始比較';
+                }
+            });
+        });
+
+        function loadCompareChart() {
+            const chartImg = document.getElementById('compare-chart-img');
+            const chartLoader = document.getElementById('compare-chart-loader');
+            const activeTab = document.querySelector('#compare-tabs .tab-btn.active').dataset.tab;
+            
+            chartImg.classList.remove('loaded');
+            chartLoader.classList.add('active');
+
+            if (!UI_STATE.compareData) return;
+            if (activeTab === 'normalized' && UI_STATE.compareData.normalized_chart) {
+                chartImg.src = `${UI_STATE.compareData.normalized_chart}?t=${new Date().getTime()}`;
+            } else if (activeTab === 'heatmap' && UI_STATE.compareData.heatmap_chart) {
+                chartImg.src = `${UI_STATE.compareData.heatmap_chart}?t=${new Date().getTime()}`;
+            }
+            chartImg.onload = () => {
+                chartLoader.classList.remove('active');
+                chartImg.classList.add('loaded');
+            };
+            chartImg.onerror = () => {
+                chartLoader.classList.remove('active');
+                showToast('圖表載入失敗', 'error');
+            };
+        }
+
+        document.getElementById('btn-back-to-single').addEventListener('click', () => {
+            UI_STATE.compareSymbols.clear();
+            UI_STATE.compareData = null;
+            loadPortfolio();
+            if (UI_STATE.currentSymbol) {
+                switchMode('single');
+            } else {
+                switchMode('single');
+            }
+        });
+
+        document.getElementById('btn-analyze-compare-news').addEventListener('click', async () => {
+            const symbols = Array.from(UI_STATE.compareSymbols);
+            if (symbols.length < 2) {
+                showToast('請選擇至少 2 支股票', 'warning');
+                return;
+            }
+
+            // 抓取多支股票的新聞
+            const btn = document.getElementById('btn-analyze-compare-news');
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 分析中...';
+
+            try {
+                const allNews = [];
+                const nameMap = UI_STATE.compareData.names;
+                
+                for (const sym of symbols) {
+                    try {
+                        const res = await fetch(`/api/stock/${sym}/news`);
+                        const data = await res.json();
+                        if (data.news) {
+                            allNews.push(...data.news);
+                        }
+                    } catch (err) {
+                        console.warn(`無法取得 ${sym} 新聞:`, err);
+                    }
+                }
+
+                if (allNews.length === 0) {
+                    showToast('無法取得新聞資料', 'warning');
+                    return;
+                }
+
+                // 去重
+                const uniqueNews = [];
+                const seen = new Set();
+                allNews.forEach(item => {
+                    const key = item.url || item.title;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        uniqueNews.push(item);
+                    }
+                });
+
+                // 調用多股新聞分析 API
+                const analyzeRes = await fetch('/api/compare/analyze_news', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        symbols,
+                        names: nameMap,
+                        news: uniqueNews.slice(0, 5) // 只分析前 5 篇
+                    })
+                });
+                const analysisData = await analyzeRes.json();
+                if (!analyzeRes.ok) throw new Error(analysisData.error);
+
+                // 渲染多股新聞分析結果
+                const newsList = document.getElementById('compare-news-list');
+                newsList.innerHTML = '';
+                analysisData.forEach(newsItem => {
+                    const newsDiv = document.createElement('div');
+                    newsDiv.className = 'glass compare-news-item';
+                    newsDiv.style.marginBottom = '15px';
+                    newsDiv.style.padding = '15px';
+                    
+                    let html = `
+                        <div style="font-weight: bold; margin-bottom: 10px;">
+                            <a href="${newsItem.url}" target="_blank" style="color: inherit; text-decoration: none;">
+                                ${newsItem.news_title}
+                            </a>
+                        </div>
+                        <div style="font-size: 0.85em; color: #666; margin-bottom: 10px;">
+                            ${newsItem.source} · ${newsItem.date}
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    `;
+                    
+                    newsItem.stocks.forEach(stock => {
+                        const sentimentClass = stock.sentiment === 'positive' ? 'positive' : stock.sentiment === 'negative' ? 'negative' : 'neutral';
+                        const sentimentLabel = stock.sentiment === 'positive' ? '正面' : stock.sentiment === 'negative' ? '負面' : '中立';
+                        html += `
+                            <div style="flex: 1; min-width: 200px; padding: 10px; border-radius: 8px; background: rgba(0,0,0,0.05);">
+                                <div style="font-weight: bold; margin-bottom: 5px;">${stock.name}</div>
+                                <div style="font-size: 0.85em; line-height: 1.5;">
+                                    <div><span class="sentiment-badge sentiment-${sentimentClass}">${sentimentLabel}</span> (${(stock.score * 100).toFixed(0)}%)</div>
+                                    <div style="color: #666; margin-top: 5px;">${stock.reason}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += '</div>';
+                    newsDiv.innerHTML = html;
+                    newsList.appendChild(newsDiv);
+                });
+
+            } catch (err) {
+                showToast(err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+            }
+        });
+
+        document.getElementById('btn-close-compare-modal').addEventListener('click', () => {
+            document.getElementById('compare-interpret-modal').classList.remove('active');
+        });
+
+        // 初始化
+        async function init() {
+            await loadPortfolio();
+        }
+
         init();
     </script>
 </body>
