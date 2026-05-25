@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 import yfinance as yf
 import pandas as pd
 import numpy as np
-
+from typing import Optional
 
 NEWS_LIMIT = 8
 FINMIND_LOOKBACK_DAYS = 7
@@ -141,7 +141,7 @@ def _date_range_for_days(days: int) -> tuple[str, str]:
     return start.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d")
 
 
-def _fetch_finmind_dataset(dataset: str, stock_id: str, start_date: str, end_date: str | None = None) -> list[dict]:
+def _fetch_finmind_dataset(dataset: str, stock_id: str, start_date: str, end_date: Optional[str] = None) -> list[dict]:
     params = {
         "dataset": dataset,
         "data_id": stock_id,
@@ -165,7 +165,7 @@ def _fetch_finmind_dataset(dataset: str, stock_id: str, start_date: str, end_dat
     return data if isinstance(data, list) else []
 
 
-def _latest_numeric_value(rows: list[dict], value_key: str = "value", type_name: str | None = None):
+def _latest_numeric_value(rows: list[dict], value_key: str = "value", type_name: Optional[str] = None) -> Optional[float]:
     if not rows:
         return None
 
@@ -383,7 +383,7 @@ def _nested_url(value) -> str:
     return ""
 
 
-def _normalize_yfinance_news_item(item: dict) -> dict | None:
+def _normalize_yfinance_news_item(item: dict) -> Optional[dict]:
     """
     yfinance has used both flat and nested news payloads. Convert either shape
     to the frontend contract: title/source/date/url.
@@ -425,7 +425,7 @@ def _normalize_yfinance_news_item(item: dict) -> dict | None:
     }
 
 
-def _normalize_finmind_news_item(item: dict) -> dict | None:
+def _normalize_finmind_news_item(item: dict) -> Optional[dict]:
     if not isinstance(item, dict):
         return None
 
@@ -461,7 +461,7 @@ def _dedupe_news(news_items: list[dict]) -> list[dict]:
     return unique_items
 
 
-def _parse_start_date(start_date_str: str | None) -> datetime:
+def _parse_start_date(start_date_str: Optional[str]) -> datetime:
     if not start_date_str:
         return datetime.now()
     try:
@@ -485,7 +485,7 @@ def _fetch_yfinance_news(symbol: str, limit: int = NEWS_LIMIT) -> list[dict]:
     return normalized_news
 
 
-def _fetch_finmind_news(symbol: str, start_date_str: str | None = None, limit: int = NEWS_LIMIT) -> dict:
+def _fetch_finmind_news(symbol: str, start_date_str: Optional[str] = None, limit: int = NEWS_LIMIT) -> dict:
     stock_id = symbol.split(".")[0]
     news_list = []
     current_date = _parse_start_date(start_date_str)
