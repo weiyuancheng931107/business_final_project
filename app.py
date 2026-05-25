@@ -8,6 +8,8 @@ import os
 import pandas as pd
 from flask import Flask, jsonify, request, render_template
 
+import google.generativeai as genai
+
 from analysis.fetcher import (
     get_stock_info,
     get_price_history,
@@ -19,6 +21,9 @@ from analysis.plotter import (
     plot_price_history,
     plot_pe_river_chart,
 )
+
+genai.configure(api_key="請替換")
+ai_model = genai.GenerativeModel('gemini-3.5-flash')
 
 app = Flask(__name__)
 
@@ -207,43 +212,65 @@ def api_stock_news(symbol):
 
 
 # ────────────────────────────────────────────
-# API: 新聞情緒分析 (Placeholder)
+# API: 新聞情緒分析 (真實 AI 版本)
 # ────────────────────────────────────────────
 @app.route("/api/stock/<symbol>/analyze_news", methods=["POST"])
 def api_analyze_news(symbol):
     """
-    接收前端送來的新聞清單，模擬 AI 進行情緒分析。
+    接收前端送來的新聞清單，使用 Gemini 進行真實情緒分析。
     """
-    import time
-    import random
-    
     data = request.json or {}
     news_list = data.get("news", [])
     
-    # 模擬 LLM 分析延遲
-    time.sleep(2)
-    
     analyzed_news = []
-    # 權重設定：中立佔多數，正向與負向次之
-    sentiments = [
-        {"label": "正向", "type": "positive"},
-        {"label": "中立", "type": "neutral"},
-        {"label": "中立", "type": "neutral"},
-        {"label": "負向", "type": "negative"}
-    ]
     
+    # 針對每一篇新聞，呼叫 AI 判斷情緒
     for item in news_list:
-        sentiment = random.choice(sentiments)
+        title = item.get("title", "未命名標題")
+        url = item.get("url", "#")
+        source = item.get("source", "未知")
+        date = item.get("date", "")
+        
+        # 預設值（萬一 AI 判斷失敗或異常，至少保持中立，不要讓網頁當掉）
+        sentiment_label = "中立"
+        sentiment_type = "neutral"
+        
+        if title != "未命名標題":
+            prompt = f"""
+            請以財經分析師的角度，判斷這則新聞標題的情緒。
+            你只能回答「正向」、「負向」或「中立」其中一個詞，不要任何其他解釋。
+            新聞標題：{title}
+            """
+            try:
+                # 呼叫剛才沙坑測試成功的 AI 模型
+                response = ai_model.generate_content(prompt)
+                ai_result = response.text.strip()
+                
+                # 將 AI 的中文回答對應到前端需要的 CSS 顏色樣式 (type)
+                if "正向" in ai_result:
+                    sentiment_label = "正向"
+                    sentiment_type = "positive"
+                elif "負向" in ai_result:
+                    sentiment_label = "負向"
+                    sentiment_type = "negative"
+                else:
+                    sentiment_label = "中立"
+                    sentiment_type = "neutral"
+                    
+            except Exception as e:
+                print(f"⚠️ AI 分析 {title} 時發生錯誤: {e}")
+                pass 
+                
         analyzed_news.append({
-            "title": item.get("title", "未命名標題"),
-            "url": item.get("url", "#"),
-            "source": item.get("source", "未知"),
-            "date": item.get("date", ""),
-            "sentiment_label": sentiment["label"],
-            "sentiment_type": sentiment["type"]
+            "title": title,
+            "url": url,
+            "source": source,
+            "date": date,
+            "sentiment_label": sentiment_label,
+            "sentiment_type": sentiment_type
         })
 
-    summary = f"（目前為 Placeholder 以下是新聞清單）"
+    summary = f"已完成 {symbol} 最新 {len(news_list)} 篇新聞的真實 AI 情緒分析。"
     
     report = {
         "summary": summary,
