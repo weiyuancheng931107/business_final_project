@@ -4,3 +4,4 @@ matplotlib
 flask
 numpy
 lxml
+google-generativeai
