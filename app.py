@@ -5,6 +5,7 @@ Flask 後端伺服器 — 股票基本面分析工具。
 """
 import json
 import os
+import pandas as pd
 from flask import Flask, jsonify, request, render_template
 
 from analysis.fetcher import (
@@ -139,7 +140,17 @@ def api_stock_info(symbol):
         info = get_stock_info(symbol)
         return jsonify(info)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        print(f"[WARN] stock info endpoint fallback ({symbol}): {e}")
+        return jsonify({
+            "symbol": symbol,
+            "name": symbol,
+            "currency": "N/A",
+            "current_price": None,
+            "pe_ratio": None,
+            "roe": None,
+            "eps": None,
+            "warning": "資料來源暫時無法取得，已顯示降級資訊。",
+        })
 
 
 @app.route("/api/stock/<symbol>/price_chart")
@@ -149,11 +160,14 @@ def api_price_chart(symbol):
     try:
         history = get_price_history(symbol, period=period)
         filename = plot_price_history(history, symbol)
-        if not filename:
-            return jsonify({"error": "無法取得歷史資料"}), 404
         return jsonify({"image": f"/static/images/{filename}"})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        print(f"[WARN] price chart endpoint fallback ({symbol}, {period}): {e}")
+        filename = plot_price_history(pd.DataFrame(), symbol)
+        return jsonify({
+            "image": f"/static/images/{filename}",
+            "warning": "股價資料暫時無法取得，已顯示備援圖表。",
+        })
 
 
 @app.route("/api/stock/<symbol>/pe_river")
@@ -163,11 +177,14 @@ def api_pe_river(symbol):
     try:
         pe_df = get_historical_pe(symbol, period=period)
         filename = plot_pe_river_chart(pe_df, symbol)
-        if not filename:
-            return jsonify({"error": "無法計算歷史本益比（可能 EPS 為負或資料不足）"}), 404
         return jsonify({"image": f"/static/images/{filename}"})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        print(f"[WARN] PE river endpoint fallback ({symbol}, {period}): {e}")
+        filename = plot_pe_river_chart(pd.DataFrame(), symbol)
+        return jsonify({
+            "image": f"/static/images/{filename}",
+            "warning": "估值資料暫時無法取得，已顯示備援圖表。",
+        })
 
 # ────────────────────────────────────────────
 # API: 相關新聞 

@@ -42,6 +42,40 @@ def _save_path_for(filename: str) -> str:
     return os.path.join(IMAGE_DIR, filename)
 
 
+def _plot_placeholder_chart(filename: str, title: str, message: str) -> str:
+    fig, ax = plt.subplots(figsize=(12, 5), facecolor='#E7E5E4')
+    ax.set_facecolor('#E7E5E4')
+    ax.text(
+        0.5,
+        0.55,
+        title,
+        ha="center",
+        va="center",
+        fontsize=16,
+        color="#1E2938",
+        weight="bold",
+        transform=ax.transAxes,
+    )
+    ax.text(
+        0.5,
+        0.43,
+        message,
+        ha="center",
+        va="center",
+        fontsize=11,
+        color="#64748B",
+        transform=ax.transAxes,
+    )
+    ax.set_xticks([])
+    ax.set_yticks([])
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    plt.tight_layout()
+    plt.savefig(_save_path_for(filename), dpi=150)
+    plt.close(fig)
+    return filename
+
+
 def plot_price_history(history: pd.DataFrame, ticker_symbol: str) -> str:
     """
     畫出歷史收盤價折線圖並存為 PNG。
@@ -49,8 +83,13 @@ def plot_price_history(history: pd.DataFrame, ticker_symbol: str) -> str:
     Returns:
         儲存的檔案名稱（相對於 static/images/）
     """
-    if history.empty:
-        return ""
+    filename = f"{ticker_symbol.replace('.', '_')}_price.png"
+    if history.empty or "Close" not in history.columns:
+        return _plot_placeholder_chart(
+            filename,
+            f"{ticker_symbol} 歷史股價走勢",
+            "暫時無法取得即時股價資料，請稍後再試。",
+        )
 
     fig, ax = plt.subplots(figsize=(12, 5), facecolor='#E7E5E4')
     ax.set_facecolor('#E7E5E4')
@@ -95,7 +134,6 @@ def plot_price_history(history: pd.DataFrame, ticker_symbol: str) -> str:
     plt.tight_layout()
 
     # 加上隨機數或期間識別，避免快取問題
-    filename = f"{ticker_symbol.replace('.', '_')}_price.png"
     plt.savefig(_save_path_for(filename), dpi=150)
     plt.close(fig)
     return filename
@@ -114,16 +152,24 @@ def plot_pe_river_chart(pe_df: pd.DataFrame, ticker_symbol: str, current_pe: flo
     Returns:
         儲存的檔案名稱
     """
+    filename = f"{ticker_symbol.replace('.', '_')}_pe_river.png"
     if pe_df.empty or "EPS" not in pe_df.columns:
-        return ""
+        return _plot_placeholder_chart(
+            filename,
+            f"{ticker_symbol} 本益比河流圖",
+            "暫時無法取得估值資料，請稍後再試。",
+        )
 
     fig, ax = plt.subplots(figsize=(12, 5), facecolor='#E7E5E4')
     ax.set_facecolor('#E7E5E4')
 
     pe_values = pe_df["PE"].dropna()
     if pe_values.empty:
-        plt.close(fig)
-        return ""
+        return _plot_placeholder_chart(
+            filename,
+            f"{ticker_symbol} 本益比河流圖",
+            "暫時無法計算本益比河流圖，請稍後再試。",
+        )
 
     # 計算歷史本益比倍數的百分位數
     pe_bands = {
@@ -197,8 +243,6 @@ def plot_pe_river_chart(pe_df: pd.DataFrame, ticker_symbol: str, current_pe: flo
 
     plt.tight_layout()
 
-    filename = f"{ticker_symbol.replace('.', '_')}_pe_river.png"
     plt.savefig(_save_path_for(filename), dpi=150)
     plt.close(fig)
     return filename
-
