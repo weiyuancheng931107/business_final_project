@@ -16,6 +16,7 @@ import numpy as np
 NEWS_LIMIT = 8
 FINMIND_LOOKBACK_DAYS = 7
 MAX_FINMIND_HISTORY_DAYS = 30
+FUNDAMENTAL_LOOKBACK_DAYS = 900
 PERIOD_TO_DAYS = {
     "5d": 5,
     "1mo": 31,
@@ -93,14 +94,16 @@ def get_stock_info(ticker_symbol: str) -> dict:
         if not history.empty and "Close" in history.columns:
             current_price = _to_number(history["Close"].dropna().iloc[-1])
 
+    finmind_fundamentals = _fetch_finmind_stock_fundamentals(ticker_symbol)
+
     return {
         "symbol": ticker_symbol,
         "name": name,
         "currency": info.get("currency", "N/A"),
         "current_price": current_price,
-        "pe_ratio": _to_number(info.get("trailingPE")),
-        "roe": _to_number(info.get("returnOnEquity")),
-        "eps": _to_number(info.get("trailingEps")),
+        "pe_ratio": _first_number(info.get("trailingPE"), finmind_fundamentals.get("pe_ratio")),
+        "roe": _first_number(info.get("returnOnEquity"), finmind_fundamentals.get("roe")),
+        "eps": _first_number(info.get("trailingEps"), finmind_fundamentals.get("eps")),
     }
 
 
@@ -130,6 +133,111 @@ def _period_date_range(period: str) -> tuple[str, str]:
     else:
         start = today - timedelta(days=PERIOD_TO_DAYS.get(period, PERIOD_TO_DAYS["1y"]))
     return start.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d")
+
+
+def _date_range_for_days(days: int) -> tuple[str, str]:
+    today = datetime.now()
+    start = today - timedelta(days=days)
+    return start.strftime("%Y-%m-%d"), today.strftime("%Y-%m-%d")
+
+
+def _fetch_finmind_dataset(dataset: str, stock_id: str, start_date: str, end_date: str | None = None) -> list[dict]:
+    params = {
+        "dataset": dataset,
+        "data_id": stock_id,
+        "start_date": start_date,
+    }
+    if end_date:
+        params["end_date"] = end_date
+
+    url = f"https://api.finmindtrade.com/api/v4/data?{urllib.parse.urlencode(params)}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            res_data = json.loads(response.read().decode("utf-8"))
+    except Exception as e:
+        print(f"[WARN] FinMind dataset fetch failed ({dataset}, {stock_id}): {e}")
+        return []
+
+    if res_data.get("status") != 200:
+        return []
+    data = res_data.get("data", [])
+    return data if isinstance(data, list) else []
+
+
+def _latest_numeric_value(rows: list[dict], value_key: str = "value", type_name: str | None = None):
+    if not rows:
+        return None
+
+    df = pd.DataFrame(rows)
+    if df.empty or "date" not in df.columns or value_key not in df.columns:
+        return None
+    if type_name and "type" in df.columns:
+        df = df[df["type"] == type_name]
+    if df.empty:
+        return None
+
+    df = df.copy()
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df[value_key] = pd.to_numeric(df[value_key], errors="coerce")
+    df = df.dropna(subset=["date", value_key]).sort_values("date")
+    if df.empty:
+        return None
+    return _to_number(df.iloc[-1][value_key])
+
+
+def _ttm_numeric_sum(rows: list[dict], type_name: str, quarters: int = 4):
+    if not rows:
+        return None
+
+    df = pd.DataFrame(rows)
+    if df.empty or not {"date", "type", "value"}.issubset(df.columns):
+        return None
+
+    df = df[df["type"] == type_name].copy()
+    if df.empty:
+        return None
+
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df["value"] = pd.to_numeric(df["value"], errors="coerce")
+    df = df.dropna(subset=["date", "value"]).sort_values("date")
+    if df.empty:
+        return None
+
+    return _to_number(df.tail(quarters)["value"].sum())
+
+
+def _fetch_finmind_stock_fundamentals(ticker_symbol: str) -> dict:
+    stock_id = ticker_symbol.split(".")[0]
+    if not stock_id.isdigit():
+        return {"pe_ratio": None, "eps": None, "roe": None}
+
+    start_date, end_date = _date_range_for_days(FUNDAMENTAL_LOOKBACK_DAYS)
+
+    per_rows = _fetch_finmind_dataset("TaiwanStockPER", stock_id, start_date, end_date)
+    financial_rows = _fetch_finmind_dataset("TaiwanStockFinancialStatements", stock_id, start_date, end_date)
+    balance_rows = _fetch_finmind_dataset("TaiwanStockBalanceSheet", stock_id, start_date, end_date)
+
+    pe_ratio = _latest_numeric_value(per_rows, value_key="PER")
+    eps = _latest_numeric_value(financial_rows, value_key="value", type_name="EPS")
+    ttm_income = _ttm_numeric_sum(financial_rows, "IncomeAfterTaxes")
+    equity = _latest_numeric_value(
+        balance_rows,
+        value_key="value",
+        type_name="EquityAttributableToOwnersOfParent",
+    )
+    if equity is None:
+        equity = _latest_numeric_value(balance_rows, value_key="value", type_name="Equity")
+
+    roe = None
+    if ttm_income is not None and equity not in (None, 0):
+        roe = ttm_income / equity
+
+    return {
+        "pe_ratio": pe_ratio,
+        "eps": eps,
+        "roe": roe,
+    }
 
 
 def _fetch_yfinance_price_history(ticker_symbol: str, period: str) -> pd.DataFrame:

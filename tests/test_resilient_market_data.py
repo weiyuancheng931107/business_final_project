@@ -1,4 +1,5 @@
 import json
+import urllib.parse
 import unittest
 from unittest.mock import patch
 
@@ -9,29 +10,81 @@ from app import app
 
 
 class ResilientMarketDataTests(unittest.TestCase):
+    @patch("analysis.fetcher.urllib.request.urlopen")
     @patch("analysis.fetcher.get_price_history")
     @patch("analysis.fetcher.get_tw_stock_name", return_value="台積電")
     @patch("analysis.fetcher.yf.Ticker")
     def test_stock_info_falls_back_when_yfinance_info_fails(
-        self, mock_ticker, mock_stock_name, mock_price_history
+        self, mock_ticker, mock_stock_name, mock_price_history, mock_urlopen
     ):
         class BrokenTicker:
             @property
             def info(self):
                 raise Exception("ssl failed")
 
+        class FinMindResponse:
+            def __init__(self, payload):
+                self.payload = payload
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, exc_type, exc, tb):
+                return False
+
+            def read(self):
+                return json.dumps(self.payload).encode("utf-8")
+
+        def finmind_response(request, timeout=10):
+            query = urllib.parse.parse_qs(urllib.parse.urlparse(request.full_url).query)
+            dataset = query["dataset"][0]
+            if dataset == "TaiwanStockPER":
+                return FinMindResponse({
+                    "status": 200,
+                    "data": [
+                        {"date": "2026-05-22", "stock_id": "2330", "PER": 30.32, "PBR": 9.93}
+                    ],
+                })
+            if dataset == "TaiwanStockFinancialStatements":
+                return FinMindResponse({
+                    "status": 200,
+                    "data": [
+                        {"date": "2025-06-30", "stock_id": "2330", "type": "IncomeAfterTaxes", "value": 100.0},
+                        {"date": "2025-09-30", "stock_id": "2330", "type": "IncomeAfterTaxes", "value": 200.0},
+                        {"date": "2025-12-31", "stock_id": "2330", "type": "IncomeAfterTaxes", "value": 300.0},
+                        {"date": "2026-03-31", "stock_id": "2330", "type": "IncomeAfterTaxes", "value": 400.0},
+                        {"date": "2026-03-31", "stock_id": "2330", "type": "EPS", "value": 22.08},
+                    ],
+                })
+            if dataset == "TaiwanStockBalanceSheet":
+                return FinMindResponse({
+                    "status": 200,
+                    "data": [
+                        {
+                            "date": "2026-03-31",
+                            "stock_id": "2330",
+                            "type": "EquityAttributableToOwnersOfParent",
+                            "value": 2000.0,
+                        }
+                    ],
+                })
+            raise AssertionError(f"Unexpected dataset: {dataset}")
+
         mock_ticker.return_value = BrokenTicker()
         mock_price_history.return_value = pd.DataFrame(
             {"Close": [888.0]},
             index=pd.to_datetime(["2026-05-25"]),
         )
+        mock_urlopen.side_effect = finmind_response
 
         result = fetcher.get_stock_info("2330.TW")
 
         self.assertEqual(result["symbol"], "2330.TW")
         self.assertEqual(result["name"], "台積電")
         self.assertEqual(result["current_price"], 888.0)
-        self.assertIsNone(result["pe_ratio"])
+        self.assertEqual(result["pe_ratio"], 30.32)
+        self.assertEqual(result["eps"], 22.08)
+        self.assertEqual(result["roe"], 0.5)
 
     @patch("analysis.fetcher.urllib.request.urlopen")
     @patch("analysis.fetcher.yf.Ticker")
