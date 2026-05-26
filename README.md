@@ -117,6 +117,6 @@ python -m unittest discover -s tests
 
 ## Demo
 
-[img1](/imgs/Screenshot%202026-05-26%20164220.png)
-[img2](/imgs/Screenshot%202026-05-26%20164301.png)
-[img3](/imgs/Screenshot%202026-05-26%20164352.png)
+![img1](/imgs/Screenshot%202026-05-26%20164220.png)
+![img2](/imgs/Screenshot%202026-05-26%20164301.png)
+![img3](/imgs/Screenshot%202026-05-26%20164352.png)
