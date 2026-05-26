@@ -568,7 +568,7 @@ def get_stock_news(symbol: str, start_date_str: str = None) -> dict:
 def fetch_article_content(url: str) -> str:
     """
     爬取新聞網頁的 HTML，提取 <p> 段落並過濾廣告/短文字。
-    限制總長度中文約 800 字，英文約 2500 字，回傳做為新聞內文脈絡。
+    不限制總長度，回傳做為新聞內文脈絡。
     """
     if not url or url == "#" or not url.startswith("http"):
         return ""
@@ -620,30 +620,33 @@ def fetch_article_content(url: str) -> str:
                     txt = p.get_text().strip()
                     txt_lower = txt.lower()
                     
-                    # Skip garbage blocks
-                    if len(txt) < 25:
-                        continue
-                    if "cookie" in txt_lower or "copyright" in txt_lower:
-                        continue
-                    if "join 7 million investors" in txt_lower or "find winning stocks" in txt_lower:
-                        continue
-                    if "sign up for free" in txt_lower or "廣告" in txt_lower or "版權所有" in txt_lower:
-                        continue
-                    if "something went wrong" in txt_lower or "oops, something" in txt_lower:
+                    # 1. 事先定義好要過濾的關鍵字清單（放迴圈外效能更好）
+                    GARBAGE_KEYWORDS = [
+                        "cookie", "copyright", "join 7 million investors", "find winning stocks",
+                        "sign up for free", "廣告", "版權所有", "something went wrong", "oops, something",
+                        "earn commission", "link below",
+                        "將 Yahoo 設為首選來源", "在 Google 上查看更多我們的精彩報導",
+                        "The content on this Site is provided for information purposes only",
+                        "Find your next quality investment with",
+
+                    ]
+
+                    # 2. 迴圈內的判斷式
+                    if len(txt) < 25 or any(kw in txt_lower for kw in GARBAGE_KEYWORDS):
                         continue
                         
                     paragraphs.append(txt)
                     accumulated_len += len(txt)
                     
                     # 判斷是否含中文，動態設定長度上限
-                    is_cjk = any('\u4e00' <= char <= '\u9fff' for char in txt)
-                    limit = 800 if is_cjk else 2500
-                    if accumulated_len >= limit:
-                        break
-                    if len(paragraphs) >= 10:  # 安全上限
-                        break
+                    # is_cjk = any('\u4e00' <= char <= '\u9fff' for char in txt)
+                    # limit = 800 if is_cjk else 2500
+                    # if accumulated_len >= limit:
+                    #     break
+                    # if len(paragraphs) >= 10:  # 安全上限
+                    #     break
                         
-                content = " ".join(paragraphs).strip()
+                content = " \\\\ ".join(paragraphs).strip()
                 
                 # Fallback to JSON-LD parsing for JS-heavy or forum sites (like CMoney forum posts)
                 if len(content) < 100:
@@ -674,9 +677,9 @@ def fetch_article_content(url: str) -> str:
                         content = json_ld_content
                         
                 # 最終裁切字數依內容語言決定
-                is_cjk = any('\u4e00' <= char <= '\u9fff' for char in content)
-                limit = 800 if is_cjk else 2500
-                return content[:limit]
+                # is_cjk = any('\u4e00' <= char <= '\u9fff' for char in content)
+                # limit = 800 if is_cjk else 2500
+                return content #[:limit]
             except ImportError:
                 return ""
     except Exception as e:
