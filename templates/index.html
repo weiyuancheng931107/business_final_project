@@ -519,16 +519,60 @@
                 
                 if (!res.ok) throw new Error(data.error || '分析失敗');
 
-                // 渲染 Modal 內容
-                let html = `<p class="analysis-summary">${data.summary}</p><div class="analysis-details">`;
-                data.details.forEach(item => {
+                // 渲染 Modal 內容 - 整體報告卡片
+                let html = `
+                    <div class="overall-card">
+                        <div class="overall-header">
+                            <div class="overall-title">
+                                <i class="fa-solid fa-chart-pie"></i> 整體情緒評估
+                            </div>
+                            <div class="overall-score-indicator score-${data.overall.sentiment_type}">
+                                ${data.overall.score > 0 ? '+' : ''}${data.overall.score}
+                            </div>
+                        </div>
+                        <div class="overall-summary">${data.overall.summary}</div>
+                        <div class="keyword-container">
+                            ${(data.overall.keywords || []).map(kw => `<span class="keyword-badge">${kw}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="analysis-details">
+                `;
+                
+                // 渲染每則新聞細節
+                data.details.forEach((item, idx) => {
+                    // 若有 content_summary 則提供展開按鈕
+                    let summaryToggleHtml = '';
+                    let summaryContentHtml = '';
+                    if (item.content_summary) {
+                        summaryToggleHtml = `
+                            <button class="content-toggle-btn" onclick="document.getElementById('news-content-${idx}').classList.toggle('show')">
+                                <i class="fa-solid fa-align-left"></i> 展開內文摘要
+                            </button>
+                        `;
+                        summaryContentHtml = `
+                            <div id="news-content-${idx}" class="news-content-summary">
+                                ${item.content_summary}
+                            </div>
+                        `;
+                    }
+
                     html += `
                         <div class="analysis-item">
-                            <div class="analysis-item-title"><a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">${item.title}</a></div>
+                            <div class="analysis-item-title">
+                                <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">${item.title}</a>
+                            </div>
                             <div class="analysis-item-meta">
                                 <span class="sentiment-badge sentiment-${item.sentiment_type}">${item.sentiment_label}</span>
                                 <span>${item.source} · ${item.date}</span>
+                                <span class="impact-score impact-${item.impact_score > 0 ? 'positive' : (item.impact_score < 0 ? 'negative' : 'neutral')}">
+                                    影響力: ${item.impact_score > 0 ? '+' : ''}${item.impact_score}
+                                </span>
                             </div>
+                            <div class="analysis-item-reason">
+                                <strong>AI 解析: </strong> ${item.reason}
+                            </div>
+                            ${summaryToggleHtml}
+                            ${summaryContentHtml}
                         </div>
                     `;
                 });

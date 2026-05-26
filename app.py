@@ -5,6 +5,8 @@ Flask 後端伺服器 — 股票基本面分析工具。
 """
 import json
 import os
+import re
+import concurrent.futures
 import pandas as pd
 from flask import Flask, jsonify, request, render_template
 
@@ -17,6 +19,7 @@ from analysis.fetcher import (
     get_historical_pe,
     get_tw_stock_name,
     get_stock_news,
+    fetch_article_content,
 )
 from analysis.plotter import (
     plot_price_history,
@@ -221,74 +224,142 @@ def api_stock_news(symbol):
 @app.route("/api/stock/<symbol>/analyze_news", methods=["POST"])
 def api_analyze_news(symbol):
     """
-    接收前端送來的新聞清單，使用 Gemini 進行真實情緒分析。
+    接收前端送來的新聞清單，並行爬取內文後，交由 LLM 產生結構化 JSON 情緒分析報告。
     """
     data = request.json or {}
     news_list = data.get("news", [])
     
-    analyzed_news = []
-    
-    # 針對每一篇新聞，呼叫 AI 判斷情緒
-    for item in news_list:
-        title = item.get("title", "未命名標題")
-        url = item.get("url", "#")
-        source = item.get("source", "未知")
-        date = item.get("date", "")
-        
-        # 預設值（萬一 AI 判斷失敗或異常，至少保持中立，不要讓網頁當掉）
-        sentiment_label = "中立"
-        sentiment_type = "neutral"
-        
-        if title != "未命名標題":
-            prompt = f"""
-            請以財經分析師的角度，判斷這則新聞標題的情緒。
-            你只能回答「正向」、「負向」或「中立」其中一個詞，不要任何其他解釋。
-            新聞標題：{title}
-            """
-            try:
-                # 呼叫 OpenAI / OpenRouter 相容的 API 模型
-                response = client.chat.completions.create(
-                    model=config.LLM_MODEL,
-                    messages=[
-                        {"role": "user", "content": prompt}
-                    ],
-                    max_tokens=10,
-                    temperature=0.0
-                )
-                ai_result = response.choices[0].message.content.strip()
-                
-                # 將 AI 的中文回答對應到前端需要的 CSS 顏色樣式 (type)
-                if "正向" in ai_result:
-                    sentiment_label = "正向"
-                    sentiment_type = "positive"
-                elif "負向" in ai_result:
-                    sentiment_label = "負向"
-                    sentiment_type = "negative"
-                else:
-                    sentiment_label = "中立"
-                    sentiment_type = "neutral"
-                    
-            except Exception as e:
-                print(f"⚠️ AI 分析 {title} 時發生錯誤: {e}")
-                pass 
-                
-        analyzed_news.append({
-            "title": title,
-            "url": url,
-            "source": source,
-            "date": date,
-            "sentiment_label": sentiment_label,
-            "sentiment_type": sentiment_type
-        })
+    if not news_list:
+        return jsonify({"error": "No news provided"}), 400
 
-    summary = f"已完成 {symbol} 最新 {len(news_list)} 篇新聞的真實 AI 情緒分析。"
+    # 1. 並行抓取新聞內文
+    def enrich_news(idx, item):
+        content = fetch_article_content(item.get("url", ""))
+        return {
+            "index": idx,
+            "title": item.get("title", "未命名標題"),
+            "url": item.get("url", "#"),
+            "source": item.get("source", "未知"),
+            "date": item.get("date", ""),
+            "content": content
+        }
+
+    enriched_news = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        futures = [executor.submit(enrich_news, i, item) for i, item in enumerate(news_list)]
+        for future in concurrent.futures.as_completed(futures):
+            enriched_news.append(future.result())
+            
+    enriched_news.sort(key=lambda x: x["index"])
+
+    # 2. 準備給 LLM 的 Prompt
+    news_text_blocks = []
+    for item in enriched_news:
+        news_text_blocks.append(
+            f"[{item['index']}] 標題: {item['title']} | 來源: {item['source']} | 內文摘錄: {item['content'][:300] if item['content'] else '無'}"
+        )
     
-    report = {
-        "summary": summary,
-        "details": analyzed_news
-    }
-    
-    return jsonify(report)
+    prompt = f"""
+請以資深財經分析師的角度，對以下 {symbol} 相關的新聞進行情緒與影響力分析。
+請輸出嚴格的 JSON 格式（不要加上 markdown 的 ```json 標記，直接輸出 JSON 物件），結構如下：
+
+{{
+  "overall": {{
+    "sentiment_label": "整體情緒標籤（例如：偏向樂觀、中立、強烈悲觀等）",
+    "sentiment_type": "positive 或 neutral 或 negative",
+    "score": 數值 (範圍 -5.0 到 5.0，表示整體情緒，保留一位小數),
+    "summary": "以財經專家口吻撰寫的一段整體分析與後市看法，約 50-80 字",
+    "keywords": ["關鍵字1", "關鍵字2", "關鍵字3"]
+  }},
+  "details": [
+    {{
+      "index": 數字 (對應下方新聞的索引 [0], [1]...),
+      "sentiment_label": "單則情緒（例如：極度利多、輕微偏空等）",
+      "sentiment_type": "positive 或 neutral 或 negative",
+      "impact_score": 數字 (單則影響力分數，範圍 -5 到 5 的整數),
+      "reason": "一兩句話說明這則新聞對該公司或股價的具體影響與原因"
+    }}
+  ]
+}}
+
+以下是 {symbol} 的近期新聞：
+""" + "\n\n".join(news_text_blocks)
+
+    try:
+        response = client.chat.completions.create(
+            model=config.LLM_MODEL,
+            messages=[
+                {"role": "system", "content": "You are a helpful financial assistant that outputs raw, valid JSON."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2
+        )
+        ai_result = response.choices[0].message.content.strip()
+        
+        # 3. 處理並防呆 JSON 解析
+        # 移除可能的 markdown json codeblock
+        ai_result = re.sub(r"^```(?:json)?\s*", "", ai_result)
+        ai_result = re.sub(r"\s*```$", "", ai_result).strip()
+        
+        parsed_result = json.loads(ai_result)
+        
+        # 4. 把原始 URL 和 Meta data 合併回 details
+        details_map = { d.get("index"): d for d in parsed_result.get("details", []) }
+        
+        final_details = []
+        for item in enriched_news:
+            idx = item["index"]
+            d = details_map.get(idx, {})
+            final_details.append({
+                "title": item["title"],
+                "url": item["url"],
+                "source": item["source"],
+                "date": item["date"],
+                "content_summary": item["content"],
+                "sentiment_label": d.get("sentiment_label", "中立"),
+                "sentiment_type": d.get("sentiment_type", "neutral"),
+                "impact_score": d.get("impact_score", 0),
+                "reason": d.get("reason", "無特定分析")
+            })
+            
+        report = {
+            "overall": parsed_result.get("overall", {
+                "sentiment_label": "中立",
+                "sentiment_type": "neutral",
+                "score": 0.0,
+                "summary": "分析報告產生不完整，請稍後再試。",
+                "keywords": []
+            }),
+            "details": final_details
+        }
+        return jsonify(report)
+        
+    except Exception as e:
+        print(f"⚠️ AI 分析時發生錯誤: {e}")
+        # Fallback 回應
+        fallback_details = []
+        for item in enriched_news:
+            fallback_details.append({
+                "title": item["title"],
+                "url": item["url"],
+                "source": item["source"],
+                "date": item["date"],
+                "content_summary": item["content"],
+                "sentiment_label": "分析失敗",
+                "sentiment_type": "neutral",
+                "impact_score": 0,
+                "reason": f"無法分析，錯誤: {str(e)[:50]}"
+            })
+        return jsonify({
+            "overall": {
+                "sentiment_label": "系統錯誤",
+                "sentiment_type": "negative",
+                "score": 0.0,
+                "summary": "AI 分析服務暫時無法使用，或回傳格式異常。",
+                "keywords": ["錯誤", "服務異常"]
+            },
+            "details": fallback_details
+        })
 
 
 # ────────────────────────────────────────────

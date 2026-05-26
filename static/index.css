@@ -1056,3 +1056,125 @@ main {
     color: #ef4444;
     background: rgba(239, 68, 68, 0.1);
 }
+
+/* =========================================
+   AI Analysis Dashboard Additions
+   ========================================= */
+
+/* Overall Report Card */
+.overall-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-raised);
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.overall-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.overall-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.overall-score-indicator {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-pressed-sm);
+}
+.score-positive { color: var(--success-color); }
+.score-neutral { color: var(--text-secondary); }
+.score-negative { color: var(--danger-color); }
+
+.overall-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.keyword-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.keyword-badge {
+    background: var(--surface-color);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-raised-sm);
+    font-weight: 700;
+}
+
+/* Extended Analysis Details */
+.impact-score {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-pressed-sm);
+    margin-left: auto;
+}
+.impact-positive { color: var(--success-color); }
+.impact-negative { color: var(--danger-color); }
+.impact-neutral { color: var(--text-secondary); }
+
+.analysis-item-reason {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding: 12px;
+    background: var(--surface-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-pressed-sm);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Content Toggle */
+.content-toggle-btn {
+    margin-top: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.content-toggle-btn:hover {
+    color: var(--primary-color);
+    background: rgba(0,0,0,0.03);
+}
+.news-content-summary {
+    display: none;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 12px;
+    background: rgba(0,0,0,0.02);
+    border-radius: 8px;
+    border-left: 2px dashed var(--shadow-dark);
+}
+.news-content-summary.show {
+    display: block;
+}

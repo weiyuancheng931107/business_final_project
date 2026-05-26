@@ -562,3 +562,39 @@ def get_stock_news(symbol: str, start_date_str: str = None) -> dict:
         "next_start_date": finmind_data.get("next_start_date"),
         "has_more": finmind_data.get("has_more", False),
     }
+
+
+def fetch_article_content(url: str) -> str:
+    """
+    爬取新聞網頁的 HTML，提取 <p> 段落並過濾廣告/短文字。
+    限制總長度約 600 字，回傳做為新聞內文脈絡。
+    """
+    if not url or url == "#" or not url.startswith("http"):
+        return ""
+        
+    try:
+        req = urllib.request.Request(
+            url, 
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        )
+        with urllib.request.urlopen(req, timeout=3.0) as response:
+            html = response.read().decode('utf-8', errors='ignore')
+            
+            # 使用 bs4 解析
+            try:
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(html, 'html.parser')
+                paragraphs = []
+                for p in soup.find_all('p'):
+                    txt = p.get_text().strip()
+                    # 排除過短或無關的文字 (例如版權宣告、cookie)
+                    if len(txt) > 25 and "cookie" not in txt.lower() and "copyright" not in txt.lower():
+                        paragraphs.append(txt)
+                    if len(paragraphs) >= 4:
+                        break
+                return " ".join(paragraphs)[:600]
+            except ImportError:
+                return ""
+    except Exception as e:
+        print(f"[WARN] Failed to fetch article body from {url}: {e}")
+        return ""
