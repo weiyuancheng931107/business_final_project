@@ -174,6 +174,10 @@
         let newsLoading = false;
         let loadedNewsList = [];
 
+        // AI 分析載入狀態
+        let isAnalyzing = false;
+        let loadingInterval = null;
+
         // 系統初始化
         async function init() {
             await loadPortfolio();
@@ -597,6 +601,102 @@
             document.getElementById('analysis-modal').classList.add('active');
         }
 
+        // 顯示 AI 情緒分析的 Neumorphic Loading UI 與漸進式進度條
+        function showModalLoading() {
+            isAnalyzing = true;
+            const modalContent = document.getElementById('analysis-result-content');
+            modalContent.innerHTML = `
+                <div class="ai-loading-container">
+                    <div class="ai-loading-brain">
+                        <i class="fa-solid fa-brain fa-beat" style="--fa-animation-duration: 2s; color: var(--primary-color); font-size: 3.5rem;"></i>
+                    </div>
+                    <div class="ai-loading-title">AI 正在深度分析新聞情緒</div>
+                    <div class="ai-loading-subtitle">使用大語言模型評估市場情緒與後市看法，這大約需要 2 分鐘</div>
+                    
+                    <div class="neumorphic-progress-wrapper">
+                        <div class="neumorphic-progress-track">
+                            <div id="ai-progress-bar" class="neumorphic-progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <div class="progress-details">
+                            <span id="ai-loading-status">正在啟動分析模組...</span>
+                            <span id="ai-progress-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 顯示 Modal，並隱藏關閉按鈕
+            document.getElementById('analysis-modal').classList.add('active');
+            const closeBtn = document.getElementById('btn-close-modal');
+            if (closeBtn) closeBtn.style.visibility = 'hidden';
+
+            // 進度條模擬邏輯 (預估耗時約 120 秒)
+            let progress = 0;
+            const bar = document.getElementById('ai-progress-bar');
+            const percentText = document.getElementById('ai-progress-percent');
+            const statusText = document.getElementById('ai-loading-status');
+
+            const statusSteps = [
+                { limit: 8, text: '正在讀取已擷取的新聞摘要...' },
+                { limit: 25, text: '正在構建分析 Prompt 與評估維度...' },
+                { limit: 55, text: '正在連線至 LLM 大語言模型情緒分析器...' },
+                { limit: 80, text: '正在由 AI 評估每篇新聞的情緒與影響力分數...' },
+                { limit: 95, text: '正在統整情緒統計與生成最終投資建議報告...' },
+                { limit: 99, text: '快完成了，正在將分析報告寫入伺服器快取...' }
+            ];
+
+            if (loadingInterval) clearInterval(loadingInterval);
+
+            const totalDuration = 120000; // 120 秒
+            const intervalTime = 1200;
+            const stepIncrement = (intervalTime / totalDuration) * 100;
+
+            loadingInterval = setInterval(() => {
+                if (progress < 98) {
+                    const randomFactor = 0.5 + Math.random();
+                    progress = Math.min(98, progress + stepIncrement * randomFactor);
+                    
+                    if (bar) bar.style.width = `${progress.toFixed(0)}%`;
+                    if (percentText) percentText.textContent = `${progress.toFixed(0)}%`;
+
+                    const currentStep = statusSteps.find(s => progress <= s.limit) || statusSteps[statusSteps.length - 1];
+                    if (statusText) statusText.textContent = currentStep.text;
+                }
+            }, intervalTime);
+        }
+
+        // 完成分析 Loading，動畫補滿並顯示報告
+        function finishModalLoading(data) {
+            return new Promise((resolve) => {
+                isAnalyzing = false;
+                if (loadingInterval) clearInterval(loadingInterval);
+                
+                const bar = document.getElementById('ai-progress-bar');
+                const percentText = document.getElementById('ai-progress-percent');
+                const statusText = document.getElementById('ai-loading-status');
+
+                if (bar) bar.style.width = '100%';
+                if (percentText) percentText.textContent = '100%';
+                if (statusText) statusText.textContent = '分析完成！載入報告中...';
+
+                setTimeout(() => {
+                    const closeBtn = document.getElementById('btn-close-modal');
+                    if (closeBtn) closeBtn.style.visibility = 'visible';
+                    renderAnalysisReport(data);
+                    resolve();
+                }, 500);
+            });
+        }
+
+        // 異常中斷或關閉 Loading
+        function hideModalLoading() {
+            isAnalyzing = false;
+            if (loadingInterval) clearInterval(loadingInterval);
+            document.getElementById('analysis-modal').classList.remove('active');
+            const closeBtn = document.getElementById('btn-close-modal');
+            if (closeBtn) closeBtn.style.visibility = 'visible';
+        }
+
         // 處理查看歷史分析點擊
         btnViewSavedAnalysis.addEventListener('click', async () => {
             if (!currentSymbol) return;
@@ -633,9 +733,11 @@
 
             // 進入 Loading 狀態
             btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>分析中...（這可能需要3-5分鐘）';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>分析中...';
 
             try {
+                showModalLoading();
+
                 const res = await fetch(`/api/stock/${currentSymbol}/analyze_news`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -645,13 +747,14 @@
 
                 if (!res.ok) throw new Error(data.error || '分析失敗');
 
-                renderAnalysisReport(data);
+                await finishModalLoading(data);
 
                 // 成功後啟用歷史分析按鈕
                 btnViewSavedAnalysis.disabled = false;
                 btnViewSavedAnalysis.title = '點選查看此股票最新的分析報告';
 
             } catch (err) {
+                hideModalLoading();
                 showToast(err.message, 'error');
             } finally {
                 btn.disabled = false;
@@ -661,9 +764,11 @@
 
         // Modal 關閉事件
         document.getElementById('btn-close-modal').addEventListener('click', () => {
+            if (isAnalyzing) return;
             document.getElementById('analysis-modal').classList.remove('active');
         });
         document.getElementById('analysis-modal').addEventListener('click', (e) => {
+            if (isAnalyzing) return;
             if (e.target.id === 'analysis-modal') {
                 document.getElementById('analysis-modal').classList.remove('active');
             }

@@ -1,0 +1,85 @@
+{
+  "analysis_timestamp": "2026-05-26 17:38:13",
+  "analysis_duration_seconds": 123.05,
+  "overall": {
+    "sentiment_label": "偏向樂觀",
+    "sentiment_type": "positive",
+    "score": 2.5,
+    "summary": "近期地緣風險與資金分散雙重作用下，聯發科受惠於AI需求擴張及外資目標價上調，股價持續創高，整體偏樂觀但需監控短期獲利了結風險。",
+    "keywords": [
+      "聯發科",
+      "目標價上調",
+      "漲停",
+      "地緣風險",
+      "AI需求"
+    ]
+  },
+  "details": [
+    {
+      "title": "Nikki Haley Says If China Controls Taiwan, The Communist Party Gains Leverage Over World's Critical Supply Chain: 'Threat To Global Freedom'",
+      "url": "https://www.yahoo.com/news/politics/articles/nikki-haley-says-china-controls-104637413.html",
+      "source": "Benzinga",
+      "date": "2026-05-23",
+      "content_summary": "Benzinga and Yahoo Finance LLC may earn commission or revenue on some items through the links below. Former U.N. Ambassador Nikki Haley, on Wednesday, raised concerns that Chinese control over Taiwan could result in a global technology market disaster, given the country's strong dominance in the semiconductor sector. In a post on X, Haley stated that Taiwan accounts for about 70% of the world's semiconductor market and more than 90% of the most advanced chips used to power everything from smartphones to autos and AI infrastructure. Some of the leading chip companies based in Taiwan include Taiwan Semiconductor Manufacturing Co Ltd, MediaTek Inc., Realtek Semiconductor and Vanguard International Semiconductor Corporation. A single bad hire can set a startup back years. Here are the 5 hires founders most often misjudge — and why Still Learning the Market? These 50 Must-Know Terms Can Help You Catch Up Fast She argued that \"If China controls Taiwan, the Communist Party gains leverage over the world's most critical tech supply chain.\" This would not just hurt Taiwan's \"23 million people living\", but would be a \"threat to global freedom, security, and the future itself,” she said. Taiwan makes almost 70% of the world's semiconductors and more than 90% of the most advanced chips powering your phone, your car, and the AI race.If China controls Taiwan, the Communist Party gains leverage over the world's most critical tech supply chain. That's not just a… — Nikki Haley (@NikkiHaley) May 20, 2026 Taiwan's economy witnessed the fastest pace of growth in 30 years in the first quarter, with GDP jumping to 13.69% year-on-year from 12.65% growth in the fourth quarter of 2025, driven by higher U.S. demand for the country's AI chips.",
+      "sentiment_label": "偏向悲觀（地緣風險）",
+      "sentiment_type": "negative",
+      "impact_score": -3,
+      "reason": "尼基·黑莉警告中國若控制台灣將威脅全球半導體供應鏈，增加地緣政治不確定性，對台股及聯發科構成下行壓力。"
+    },
+    {
+      "title": "TSMC Trails 140% AI Rallies As Investors Broaden Chip Bets",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/tsmc-trails-140-ai-rallies-085139388.html",
+      "source": "GuruFocus.com",
+      "date": "2026-05-22",
+      "content_summary": "This article first appeared on GuruFocus. Taiwan Semiconductor Manufacturing Co. (NYSE:TSM) is still one of Asia's most important AI beneficiaries, but investors are no longer treating it as the only way to play the Nvidia-driven boom. TSMC shares are up about 46% this year on strong sales and earnings, but that gain now looks modest beside the more than 140% rallies in MediaTek (MDTTF) and Samsung Electronics (SSNLF). The shift suggests traders are moving beyond the most advanced chips TSMC manufactures for Nvidia (NVDA), as AI demand spreads into memory, storage, robotics, CPUs and other hardware tied to the next phase of the buildout. Warning! GuruFocus has detected 9 Warning Signs with AMD. Is MDTTF fairly valued? Test your thesis with our free DCF calculator. That broadening matters because AI spending is possibly moving deeper into inference, where targeted workloads may require a wider hardware stack. MediaTek has become one of the hotter names after helping Alphabet (NASDAQ:GOOG) create application-specific integrated circuits, while Samsung is benefiting from its position as the world's largest memory maker. Samsung has also narrowed its valuation gap with TSMC and joined the $1 trillion club, showing how the AI trade is no longer centered on one dominant Asian proxy. Fund positioning could be adding another layer to the move. Many active funds face a 10% single-stock limit, while TSMC now accounts for more than 40% of Taiwan's Taiex, pushing managers to look for other AI-linked names that can help them keep pace with the index. Some investors are increasing exposure to MediaTek, Samsung, ASE Technology Holding (NYSE:ASX), Chroma ATE (CRMJF), and other Taiwan tech names tied to chip packaging, power management, cooling and printed circuit boards, suggesting the AI trade could be shifting from a single-stock proxy into a broader Asian technology basket.",
+      "sentiment_label": "輕微利多（投資分散利好）",
+      "sentiment_type": "positive",
+      "impact_score": 2,
+      "reason": "投資者開始將資金分散至其他AI晶片股，聯發科作為替代受益，帶動其股價相對表現。"
+    },
+    {
+      "title": "Investors Look Beyond TSMC as AI Boom Spreads to New Winners",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/investors-look-beyond-tsmc-ai-053002545.html",
+      "source": "Bloomberg",
+      "date": "2026-05-22",
+      "content_summary": "(Bloomberg) -- After several years flying high as Asia’s best Nvidia Corp. proxy, Taiwan Semiconductor Manufacturing Co. is increasingly vying with other artificial intelligence stocks for investor attention. Bungie Plans Layoffs After Ending ‘Destiny 2’ Development Spot the Difference: Putin Gets Trump Treatment From Xi in China Iran Says the US’s Latest Proposal Has ‘Narrowed the Gaps’ Iran in Talks With Oman Over Permanent Hormuz Toll System Modi’s Toffee Gift to Meloni Ignites Rally in Wrong Indian Stock Stock traders are chasing a wider array of beneficiaries as mainstream usage of AI creates demand for hardware beyond the most-advanced chips TSMC makes for Nvidia. Subthemes from the deepening memory crunch to advances in robotics are also luring bids. At the same time, investment caps on single stocks are pushing funds to diversify, while retail investors long familiar with TSMC through its American depositary receipts are being offered a broader set of Asian tech alternatives. As a result, TSMC shares are underperforming those of local chip designer MediaTek Inc. by the most on record, on an annual basis. Meanwhile, Samsung Electronics Co., the world’s largest memory maker, has narrowed its market valuation gap with TSMC to join it in the elite $1 trillion club. There’s a “structural diversification away from TSMC,” said Jason Hsu, Boston-based chief investment officer at Rayliant Global Advisors. New capital being raised in funds is “disproportionately going to other tech companies which also benefit from the record AI capex.”",
+      "sentiment_label": "偏向樂觀（廣泛受惠）",
+      "sentiment_type": "positive",
+      "impact_score": 2,
+      "reason": "Bloomberg指出AI需求擴展至記憶體、機器人等領域，聯發科等非台積電的亞洲科技股受惠，資金流向分散。"
+    },
+    {
+      "title": "台股大漲千點衝四萬三！台積電聯發科齊創天價-財經焦點情報站 - CMoney投資網誌",
+      "url": "https://cmnews.com.tw/article/forumnews-f2544f19-5897-11f1-be09-43c580e37c9b",
+      "source": "CMoney投資網誌",
+      "date": "2026-05-26",
+      "content_summary": "匯聚市場最熱絡的討論，提煉出最具價值的交易情報。\n這裡是一個專為投資人打造的資訊集散地。\n我們從每日海量的市場話題中，為您梳理出事件脈絡，並直接對應出關鍵的強勢股標的。\n拋開繁雜的分析師語錄與盲目的跟單建議，提供最直觀的營收表現、主力動向與量價結構提醒，幫助您在熱鬧的市場情緒中保持冷靜，精準掌握下一個佈局關鍵。 在科技大廠來台參與台北國際電腦展（COMPUTEX）的題材帶動下，加上美股多頭氣勢延續，台股加權指數以量價齊揚之姿創下歷史新高。終場大漲1376.43點，漲幅達3.26%，收在43644.40點，單日成交金額放大至約1.3兆元天量，寫下台股史上第五大單日漲點紀錄。 盤面由半導體與AI權值股領軍衝鋒。台積電(2330)開盤後一路走高，終場大漲55元，收在2310元，刷新歷史天價；IC設計龍頭聯發科(2454)開盤即跳空鎖死漲停，強勢突破4000元關卡，收在4245元新高點。此外，受惠先進封裝（FOPLP）需求發酵，封測大廠日月光投控(3711)也攻上漲停617元，連帶推升漢唐(2404)、亞翔(6139)等半導體廠務與無塵室設備族群同步創下歷史新高。 資金外溢效應也擴散至其他電子次產業與傳統產業。被動元件龍頭國巨(2327)受資金簇擁亮燈漲停，帶動華新科(2492)等同族群個股上攻；傳產方面，鋼鐵指標股中鋼(2002)、中鴻(2014)雙雙爆量鎖死漲停，反映資金在電子股外尋找低基期落後補漲標的之趨勢。然而，在指數強勢創高之際，金融股走勢相對疲軟，台新新光金控(2887)單日遭外資大幅賣超逾5.1萬張，股價逆勢下跌2.10%至23.30元，呈現資金板塊兩極化的走勢。 匯聚市場最熱絡的討論，提煉出最具價值的交易情報。\n這裡是一個專為投資人打造的資訊集散地。\n我們從每日海量的市場話題中，為您梳理出事件脈絡，並直接對應出關鍵的強勢股標的。\n拋開繁雜的分析師語錄與盲目的跟單建議",
+      "sentiment_label": "極度利多（漲停創高）",
+      "sentiment_type": "positive",
+      "impact_score": 4,
+      "reason": "台股大漲千點，聯發科開盤即封漲停，創歷史新高，顯示資金強勢追貨與技術面突破。"
+    },
+    {
+      "title": "《半導體》注意股：聯發科 近5日漲24.85% - 富聯網",
+      "url": "https://ww2.money-link.com.tw/realtimenews/NewsContent.aspx?SN=6184774001&PU=1002",
+      "source": "富聯網",
+      "date": "2026-05-26",
+      "content_summary": "【時報-台北電】聯發科(2454)於25日遭證交所列入注意股，原因為最近六個營業日累積收盤價漲幅達28.06%。且六個營業日起迄兩個營業日收盤價價差達845.00元﹝第一款﹞。最近三十個營業日起迄兩個營業日之收盤價漲幅達162.03%。最近九十個營業日起迄兩個營業日之收盤價漲幅達180.26%﹝第二款﹞。六個營業日起迄兩個營業日收盤價價差達845.00元且。25日收盤價為最近六個營業日收盤價最高者﹝第十一款﹞。25日收盤價4245.00元，本益比為67.65。 聯發科(2454)近3日股價漲31.42%，近5日漲24.85%，近5日成交均量1.02萬張，券資比1.03%。近5日三大法人賣超5557張，外資賣超5947張，投信賣超357張，自營商買超747張。(編輯：財經內容中心)",
+      "sentiment_label": "中性偏正（漲幅大但被列注意股）",
+      "sentiment_type": "neutral",
+      "impact_score": 1,
+      "reason": "近五日漲24.85%顯示強勢上漲，但因連續大漲被列為注意股，短期可能面臨獲利了結壓力。"
+    },
+    {
+      "title": "外資大舉上調台積電、聯發科目標價震撼市場 一因素「強力看好」聯發科 - 太報 TaiSounds",
+      "url": "https://www.taisounds.com/news/content/76/258851",
+      "source": "太報 TaiSounds",
+      "date": "2026-05-26",
+      "content_summary": "AI熱潮持續引領半導體市場，台廠台積電（2330）、聯發科（2454）在法人調升目標價下，引起多頭買盤大舉買進，昨日（5/25）台積電狂漲55元，聯發科更強勢攻上漲停板，雙雙刷新歷史收盤新高，外資法人近期紛紛調高目標價，看好未來幾年在伺服器和晶片市場的強勁成長動能。",
+      "sentiment_label": "強烈利多（目標價上調）",
+      "sentiment_type": "positive",
+      "impact_score": 3,
+      "reason": "外資紛紛上調台積電與聯發科目標價，看好伺服器與晶片成長，提升機構買盤預期。"
+    }
+  ]
+}

@@ -556,7 +556,7 @@ def get_stock_news(symbol: str, start_date_str: str = None) -> dict:
     except Exception as e:
         print(f"[WARN] FinMind news fetch failed ({symbol}): {e}")
 
-    combined_news = _dedupe_news(yfinance_news + finmind_data["news"])[:NEWS_LIMIT]
+    combined_news = _dedupe_news(yfinance_news + finmind_data["news"])
 
     return {
         "news": combined_news,
@@ -568,7 +568,7 @@ def get_stock_news(symbol: str, start_date_str: str = None) -> dict:
 def fetch_article_content(url: str) -> str:
     """
     爬取新聞網頁的 HTML，提取 <p> 段落並過濾廣告/短文字。
-    限制總長度約 600 字，回傳做為新聞內文脈絡。
+    限制總長度中文約 800 字，英文約 2500 字，回傳做為新聞內文脈絡。
     """
     if not url or url == "#" or not url.startswith("http"):
         return ""
@@ -615,6 +615,7 @@ def fetch_article_content(url: str) -> str:
                 nodes = container.find_all('p') if container else soup.find_all('p')
                 
                 paragraphs = []
+                accumulated_len = 0
                 for p in nodes:
                     txt = p.get_text().strip()
                     txt_lower = txt.lower()
@@ -632,7 +633,14 @@ def fetch_article_content(url: str) -> str:
                         continue
                         
                     paragraphs.append(txt)
-                    if len(paragraphs) >= 4:
+                    accumulated_len += len(txt)
+                    
+                    # 判斷是否含中文，動態設定長度上限
+                    is_cjk = any('\u4e00' <= char <= '\u9fff' for char in txt)
+                    limit = 800 if is_cjk else 2500
+                    if accumulated_len >= limit:
+                        break
+                    if len(paragraphs) >= 10:  # 安全上限
                         break
                         
                 content = " ".join(paragraphs).strip()
@@ -665,7 +673,10 @@ def fetch_article_content(url: str) -> str:
                     if len(json_ld_content) > len(content):
                         content = json_ld_content
                         
-                return content[:600]
+                # 最終裁切字數依內容語言決定
+                is_cjk = any('\u4e00' <= char <= '\u9fff' for char in content)
+                limit = 800 if is_cjk else 2500
+                return content[:limit]
             except ImportError:
                 return ""
     except Exception as e:

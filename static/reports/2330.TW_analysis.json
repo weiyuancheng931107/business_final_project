@@ -1,15 +1,17 @@
 {
-  "analysis_timestamp": "2026-05-26 16:41:06",
-  "analysis_duration_seconds": 117.88,
+  "analysis_timestamp": "2026-05-26 17:42:50",
+  "analysis_duration_seconds": 125.48,
   "overall": {
     "sentiment_label": "偏向樂觀",
     "sentiment_type": "positive",
-    "score": 0.7,
-    "summary": "台積電近期受惠於台股創新高及市場對半導體需求持續看好，儘管華為挑戰其先進製程領導地位及部分投資者對股價停滯表達不耐，整體情緒仍偏向樂觀，後市有望維持穩健上漲動能。",
+    "score": 3.2,
+    "summary": "台積電受惠AI需求與台股市值升榮，股價創新高，儘管華為挑戰與員工分紅爭議帶來不確定性，整體面仍偏樂觀。並預期後市將持續受惠於半導體週期上行。",
     "keywords": [
       "台積電",
-      "華為挑戰",
-      "台股創高"
+      "AI需求",
+      "股市表現",
+      "股利爭議",
+      "華為挑戰"
     ]
   },
   "details": [
@@ -18,66 +20,66 @@
       "url": "https://finance.yahoo.com/markets/stocks/articles/huawei-chip-push-tests-tsmc-042838932.html",
       "source": "Simply Wall St.",
       "date": "2026-05-26",
-      "content_summary": "Huawei has announced a new push to develop advanced semiconductors without using Taiwan Semiconductor Manufacturing's (NYSE:TSM) cutting edge equipment. The initiative aims to reduce reliance on TSMC's manufacturing capabilities and tools for leading edge chip production. This move could affect long term supply chain relationships and competitive positioning across the global chip industry. Taiwan Semiconductor Manufacturing, trading as NYSE:TSM, is a key contract chip producer for a wide range of global technology companies. Huawei's plan to pursue advanced chips without TSMC's equipment come",
+      "content_summary": "Huawei has announced a new push to develop advanced semiconductors without using Taiwan Semiconductor Manufacturing's (NYSE:TSM) cutting edge equipment. The initiative aims to reduce reliance on TSMC's manufacturing capabilities and tools for leading edge chip production. This move could affect long term supply chain relationships and competitive positioning across the global chip industry. Taiwan Semiconductor Manufacturing, trading as NYSE:TSM, is a key contract chip producer for a wide range of global technology companies. Huawei's plan to pursue advanced chips without TSMC's equipment comes at a time when the industry is already focused on supply chain resilience and access to high end manufacturing. For readers, this adds a new angle to recent discussions that have centered on TSMC's technology position and geographic concentration. Looking ahead, investors may watch how Huawei progresses on advanced manufacturing and how customers and governments react to any credible alternative to TSMC's current role. The key questions will likely center on technology maturity, cost, and whether this effort leads to meaningful shifts in chip sourcing and bargaining power over time. Stay updated on the most important news stories for Taiwan Semiconductor Manufacturing by adding it to your watchlist or portfolio. Alternatively, explore our Community to discover new perspectives on Taiwan Semiconductor Manufacturing. 📰 Beyond the headline: 1 risk and 4 things going right for Taiwan Semiconductor Manufacturing that every investor should see. Huawei’s attempt to build advanced chips without access to Taiwan Semiconductor Manufacturing’s cutting-edge tools directly targets one of TSMC’s core strengths: its role as the go to manufacturer for leading edge nodes. For investors, the key question is whether Huawei can reach competitive yields and scale without the same equipment set that supports TSMC’s 3-nanometer and 2-nanometer processes. If Huawei gets close on performance or cost, some China based demand that might otherwise flow through TSMC could be contained onshore, which may influence TSMC’s long term order mix. At the same time, TSMC still supplies many global AI and high performance computing leaders and is expanding fabs in the U.S. and Japan, so its business model is tied to a broad customer base rather than a single region. This initiative also highlights execution risk on both sides: Huawei needs to prove a new manufacturing playbook, while TSMC needs to keep ",
       "sentiment_label": "輕微偏空",
       "sentiment_type": "negative",
       "impact_score": -2,
-      "reason": "華為試圖自行開發先進晶片，若成功將削弱台積電在領先製程的議價能力。"
+      "reason": "華為嘗試自行開發先進製程，若成功可能分流TSMC訂單，威脅其技術領先與議價能力。"
     },
     {
       "title": "Taiwan Overtakes India as World's Fifth-Largest Stock Market",
       "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-relentless-rise-powers-taiwan-002811874.html",
       "source": "Bloomberg",
       "date": "2026-05-26",
-      "content_summary": "(Bloomberg) -- Taiwan overtook India in stock market value, powered mainly by a breakneck rally in the world’s largest chipmaker Taiwan Semiconductor Manufacturing Co. Nvidia CEO Urges Super Micro to Tighten Up on Compliance Trump Doctor Visit Renews Health Scrutiny as 80th Birthday Nears Trump Says He’ll Announce Negotiated Deal With Iran Shortly",
-      "sentiment_label": "偏向利多",
+      "content_summary": "(Bloomberg) -- Taiwan overtook India in stock market value, powered mainly by a breakneck rally in the world’s largest chipmaker Taiwan Semiconductor Manufacturing Co. Nvidia CEO Urges Super Micro to Tighten Up on Compliance Trump Doctor Visit Renews Health Scrutiny as 80th Birthday Nears Trump Says He’ll Announce Negotiated Deal With Iran Shortly Rubio Sees Good News Coming on Hormuz as Iran Talks Continue US, Iran Inch Toward Deal as Gaps Remain on Uranium, Sanctions The island’s market capitalization climbed to $4.95 trillion as of Monday, according to data compiled by Bloomberg. India’s value has dropped to $4.92 trillion. Taiwan’s stock market is now the fifth largest in the world, behind only the US, mainland China, Japan and Hong Kong. Taiwan’s ascent up the global equity rankings is largely driven by TSMC, which now accounts for about 42% of the benchmark index, representing intense market concentration. The chipmaker’s shares have rallied 49% this year as it has benefited from the artificial intelligence trade, in which its semiconductors have a dominant market position. The surge in the island’s market value highlights intense optimism in AI that is triggering a global rally in tech shares, disproportionately benefiting manufacturing hubs such as Taiwan and South Korea. India, on the other hand, is grappling with surging energy cost, slowing corporate earnings growth and the lack of companies directly linked to the AI buildout. “Taiwan’s rising market capitalization is fundamentally a reflection of its heavy concentration in tech hardware, which is currently at the center of the AI investment cycle,” said Yi Ping Liao, a fund manager at Franklin Templeton. “Markets with limited exposure to tech hardware are increasingly being overshadowed by tech hardware–heavy markets such as Taiwan and Korea.”",
+      "sentiment_label": "強烈利多",
       "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "台股市值超越印度，主要受台積電帶動，顯示市場對其領導地位的信心提升。"
+      "impact_score": 3,
+      "reason": "台股市值超越印度，主要受台積電帶動，顯示資金對AI晶片需求熱絡，利好股價。"
     },
     {
       "title": "Advanced Micro Devices, Inc. (AMD) Plans to Invest more than $10B in Taiwan’s AI Market",
       "url": "https://finance.yahoo.com/markets/stocks/articles/advanced-micro-devices-inc-amd-180652879.html",
       "source": "Insider Monkey",
       "date": "2026-05-25",
-      "content_summary": "Advanced Micro Devices, Inc. (NASDAQ:AMD) is one of the Best Performing Stocks. On May 21, Reuters reported that Advanced Micro Devices, Inc. (NASDAQ:AMD) plans to invest in Taiwan, committing over $10 billion to its AI sector to expand chip production capacity and deepen partnerships. The company said it will work with Taiwanese packaging and testing provider ASE and its unit SPIL to make more power-efficient technology for AI systems and processors. It will also be working with PTI, Sanmina, Wiwynn, Wistron, and Inventec. Advanced Micro Devices, Inc. (NASDAQ:AMD)’s Chief Executive Officer Li",
-      "sentiment_label": "輕微利多",
+      "content_summary": "Advanced Micro Devices, Inc. (NASDAQ:AMD) is one of the Best Performing Stocks. On May 21, Reuters reported that Advanced Micro Devices, Inc. (NASDAQ:AMD) plans to invest in Taiwan, committing over $10 billion to its AI sector to expand chip production capacity and deepen partnerships. The company said it will work with Taiwanese packaging and testing provider ASE and its unit SPIL to make more power-efficient technology for AI systems and processors. It will also be working with PTI, Sanmina, Wiwynn, Wistron, and Inventec. Advanced Micro Devices, Inc. (NASDAQ:AMD)’s Chief Executive Officer Lisa Su said, “As AI adoption accelerates, our global customers are rapidly scaling AI infrastructure to meet growing compute demand,” adding that the effort allows “integrated, rack-scale AI infrastructure.” The company said the technology will support its Venice CPUs built on TSMC’s 2-nanometer process, while also stating it has started stepping up production of those chips. As of May 19, the stock is up by 85.28% year to date. Advanced Micro Devices, Inc. (NASDAQ:AMD) is a leading semiconductor company working in high-performance computing and graphics solutions. Its portfolio includes microprocessors, graphics processors, and system-on-chip solutions designed for data centers, gaming, and embedded systems. While we acknowledge the potential of AMD as an investment, we believe certain AI stocks offer greater upside potential and carry less downside risk. If you're looking for an extremely undervalued AI stock that also stands to benefit significantly from Trump-era tariffs and the onshoring trend, see our free report on the best short-term AI stock. READ NEXT: 33 Stocks That Should Double in 3 Years and Cathie Wood 2026 Portfolio: 10 Best Stocks to Buy. Disclosure: None. Follow Insider Monkey on Google News.",
+      "sentiment_label": "中度利多",
       "sentiment_type": "positive",
-      "impact_score": 1,
-      "reason": "AMD宣布將於台投資超過10億美元於AI產業，將提升對晶圓代工的需求，間接利好台積電。"
+      "impact_score": 2,
+      "reason": "AMD宣布將逾10億美元投資台灣AI產業，將增加對台積電先進製程的需求，正面提振長期成長預期。"
     },
     {
-      "title": "台積電（2330）股價卡太久要不換股？網勸：沒耐心可下車別吃碗內看碗外 - UDN",
-      "url": "https://udn.com/news/story/12806/9523298",
+      "title": "台股大漲千點衝四萬三！台積電聯發科齊創天價-財經焦點情報站 - CMoney投資網誌",
+      "url": "https://cmnews.com.tw/article/forumnews-f2544f19-5897-11f1-be09-43c580e37c9b",
+      "source": "CMoney投資網誌",
+      "date": "2026-05-26",
+      "content_summary": "匯聚市場最熱絡的討論，提煉出最具價值的交易情報。\n這裡是一個專為投資人打造的資訊集散地。\n我們從每日海量的市場話題中，為您梳理出事件脈絡，並直接對應出關鍵的強勢股標的。\n拋開繁雜的分析師語錄與盲目的跟單建議，提供最直觀的營收表現、主力動向與量價結構提醒，幫助您在熱鬧的市場情緒中保持冷靜，精準掌握下一個佈局關鍵。 在科技大廠來台參與台北國際電腦展（COMPUTEX）的題材帶動下，加上美股多頭氣勢延續，台股加權指數以量價齊揚之姿創下歷史新高。終場大漲1376.43點，漲幅達3.26%，收在43644.40點，單日成交金額放大至約1.3兆元天量，寫下台股史上第五大單日漲點紀錄。 盤面由半導體與AI權值股領軍衝鋒。台積電(2330)開盤後一路走高，終場大漲55元，收在2310元，刷新歷史天價；IC設計龍頭聯發科(2454)開盤即跳空鎖死漲停，強勢突破4000元關卡，收在4245元新高點。此外，受惠先進封裝（FOPLP）需求發酵，封測大廠日月光投控(3711)也攻上漲停617元，連帶推升漢唐(2404)、亞翔(6139)等半導體廠務與無塵室設備族群同步創下歷史新高。 資金外溢效應也擴散至其他電子次產業與傳統產業。被動元件龍頭國巨(2327)受資金簇擁亮燈漲停，帶動華新科(2492)等同族群個股上攻；傳產方面，鋼鐵指標股中鋼(2002)、中鴻(2014)雙雙爆量鎖死漲停，反映資金在電子股外尋找低基期落後補漲標的之趨勢。然而，在指數強勢創高之際，金融股走勢相對疲軟，台新新光金控(2887)單日遭外資大幅賣超逾5.1萬張，股價逆勢下跌2.10%至23.30元，呈現資金板塊兩極化的走勢。 匯聚市場最熱絡的討論，提煉出最具價值的交易情報。\n這裡是一個專為投資人打造的資訊集散地。\n我們從每日海量的市場話題中，為您梳理出事件脈絡，並直接對應出關鍵的強勢股標的。\n拋開繁雜的分析師語錄與盲目的跟單建議",
+      "sentiment_label": "極度利多",
+      "sentiment_type": "positive",
+      "impact_score": 4,
+      "reason": "台積電股價創歷史新高，盤面由半導體AI權值股領軍，顯示市場對其領導地位與盈餘成長高度樂觀。"
+    },
+    {
+      "title": "台積電（2330）爆「砍15%分紅」惹怒員工？股東反力挺：是利多 - UDN",
+      "url": "https://udn.com/news/story/12806/9524308",
       "source": "UDN",
-      "date": "2026-05-25",
-      "content_summary": "台股強勢行情下，不少中小型股與題材股輪番大漲，也讓部分台積電持股人開始動搖。一名網友表示，台積電持股比例第二，但獲利率普通，讓他猶豫是否該換股。 原PO在Dcard發文指出，台積電「實在卡太久了」，看到其他股票都在大漲，反觀自己持有的台積電雖然占比不低，獲利卻不算亮眼，因此詢問是否應該換股。 討論中，有人認為台積電本來就不是短線飆股，適合長期持有；也有人建議若追求更高報酬，就要接受更高波動，甚至轉往正二、權證、選擇權或其他強勢個股。 支持續抱的一派認為，台積電整理久不代表基本面變差，反而是因為股價相對穩定，才沒有像其他高波動股票一樣大起大落。有網友提醒「到時候GG漲了你又要哭哭了」、「你也知道台積電整理很久了 其他標的都在漲 那怎麼還會想去追高其他標的」。",
-      "sentiment_label": "輕微偏空",
-      "sentiment_type": "negative",
-      "impact_score": -1,
-      "reason": "網友討論顯示部分投資者對台積電股價長期橫向整理感到不耐，可能導致短線抛售壓力。"
+      "date": "2026-05-26",
+      "content_summary": "台積電近日遭爆料將大砍15%員工分紅，引發內部員工不滿，甚至傳出有人揚言效仿南韓三星發動罷工。不過，台積電25日正式出面澄清，強調「有信心今年分紅將超過去年」，並表示隨著公司持續穩健成長，未來員工分紅也會持續增加。 消息最初源自臉書社團「TSMC大小事」，有員工抱怨高層「想改就改、毫無誠信」，認為公司在獲利暴增之際卻縮減分紅比例，加上長期高工時、高壓環境，導致基層不滿情緒升高。對此，台積電回應指出，公司清楚認知自身在台灣肩負越來越大的社會責任，因此未來在盈餘分配上，也會加大對社會永續資源的投入。 不過，公司這番說法並未完全平息爭議，因為不少網友發現，台積電雖強調「分紅總額會增加」，卻沒有正面否認「分紅比例下降」的傳言，因此引發更多討論。 PTT網友就分析，「比例下降跟分紅增加本來就不衝突」，若今年獲利大幅成長，即使公司降低分紅比例，員工實際領到的金額還是可能比去年多。有人舉例，「如果獲利增加50%，但分紅只增加20%，那就是比例下降、金額增加」。 也有不少股民站在股東立場直言，「砍分紅對股東是利多」，認為公司應該把更多資金投入擴廠與資本支出，而不是發給員工。甚至有人直白表示，「員工離不開GG」、「現在台灣還是沒有對手」，認為即使分紅調整，多數工程師仍會選擇留下。 但也有部分網友替台積電員工抱不平，指出台積電能維持高良率與全球競爭力，背後正是大量工程師長期高壓輪班撐起來的成果，「給員工高分紅本來就是應得的」。另一派人則認為，這波風波其實反映出台積電進入全球化擴張後的壓力。近年美國、日本廠持續擴建，加上AI需求帶動資本支出暴增，公司勢必需要重新調整獲利分配結構。 此外，推文中也有不少人點出關鍵其實在「考績制度」。有工程師透露，即使整體分紅總額增加，公司仍可能透過調整考績分布，例如提高S-比例、壓低一般員工績效等方式，讓部分基層實際領到的獎金縮水。",
+      "sentiment_label": "中性偏謹慎",
+      "sentiment_type": "neutral",
+      "impact_score": 0,
+      "reason": "員工分紅爭議引發內部不滿，但管理層保證分紅總額將增加，對股東可能為利多，整體影響中性。"
     },
     {
-      "title": "快訊／台積電漲45元至2300　台股開盤大漲逾千點刷新高 - ETtoday財經雲",
-      "url": "https://finance.ettoday.net/news/3171459",
-      "source": "ETtoday財經雲",
-      "date": "2026-05-25",
-      "content_summary": "▲台股今天上漲。（圖／ETtoday新聞雲資料照） 美股上周五（22日）日收高，亞股今（25日）早日股開盤甫創高，台股今也開高，以上漲399.9點、42667.87點開盤，漲勢擴大，指數大漲逾千點，衝高至43328.79點，刷歷史新高。 今日盤面焦點個股開盤後表現，台積電（2330）上漲20元來到2275元，漲幅0.89％，後續衝上2300元；鴻海（2317）上漲5元至255元；聯發科（2454）上漲385元至4245元；廣達（2382）上漲6元來到322元；長榮（2603）上漲1元至220元。 美股主要指數在前一交易日全面收漲，道瓊工業指數終場上漲294.04點或0.58％，收在50579.7點；標準普爾500指數上漲27.75點或0.37％，收7473.47點；那斯達克指數上漲50.87點或0.19％，收在26343.97點；費城半導體指數上漲238.45點或1.99％，收12202.54點。",
-      "sentiment_label": "明顯利多",
-      "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "台積電盤中漲45元至2300元，帶動台股指數創歷史新高，顯示資金面強勁。"
-    },
-    {
-      "title": "台股大漲1114點 台積電漲45元 加權、櫃買同創新高 - 東森電視",
-      "url": "https://fnc.ebc.net.tw/fncnews/stock/211388",
-      "source": "東森電視",
-      "date": "2026-05-25",
-      "content_summary": "台股今（25）日早盤開高震盪，上漲1114點，來到43328點衝破4萬3大關，漲幅2.42%，預估成交量1.8兆，櫃買指數則開高震盪，早盤來到434.26點，上漲11.08點，漲幅2.62%。 權值股部分，台積電（2330）早盤開高震盪，來到2300元，上漲45元，漲幅2%，鴻海（2317）早盤來到257.5元，漲7.5元，漲幅3%，台達電來到2230元，漲130元，漲幅6.21%，聯發科則開盤就漲停，來到4245元。 ★【理財達人秀】創高續攻 還有空間 電腦展壓境 補漲新地圖 ★ ★【理財達人秀】創高續攻 還有空間 電腦展壓境 補漲新地圖 ★",
-      "sentiment_label": "明顯利多",
-      "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "台股大漲1114點，台積電同上漲45元（約2%），反映多頭情緒高漲。"
+      "title": "台積電（2330）爆「砍15%分紅」惹怒員工？股東反力挺：是利多| 台股雜談| 股市 - UDN",
+      "url": "https://udn.com/news/story/12806/9524308?list_ch2_index",
+      "source": "UDN",
+      "date": "2026-05-26",
+      "content_summary": "台積電近日遭爆料將大砍15%員工分紅，引發內部員工不滿，甚至傳出有人揚言效仿南韓三星發動罷工。不過，台積電25日正式出面澄清，強調「有信心今年分紅將超過去年」，並表示隨著公司持續穩健成長，未來員工分紅也會持續增加。 消息最初源自臉書社團「TSMC大小事」，有員工抱怨高層「想改就改、毫無誠信」，認為公司在獲利暴增之際卻縮減分紅比例，加上長期高工時、高壓環境，導致基層不滿情緒升高。對此，台積電回應指出，公司清楚認知自身在台灣肩負越來越大的社會責任，因此未來在盈餘分配上，也會加大對社會永續資源的投入。 不過，公司這番說法並未完全平息爭議，因為不少網友發現，台積電雖強調「分紅總額會增加」，卻沒有正面否認「分紅比例下降」的傳言，因此引發更多討論。 PTT網友就分析，「比例下降跟分紅增加本來就不衝突」，若今年獲利大幅成長，即使公司降低分紅比例，員工實際領到的金額還是可能比去年多。有人舉例，「如果獲利增加50%，但分紅只增加20%，那就是比例下降、金額增加」。 也有不少股民站在股東立場直言，「砍分紅對股東是利多」，認為公司應該把更多資金投入擴廠與資本支出，而不是發給員工。甚至有人直白表示，「員工離不開GG」、「現在台灣還是沒有對手」，認為即使分紅調整，多數工程師仍會選擇留下。 但也有部分網友替台積電員工抱不平，指出台積電能維持高良率與全球競爭力，背後正是大量工程師長期高壓輪班撐起來的成果，「給員工高分紅本來就是應得的」。另一派人則認為，這波風波其實反映出台積電進入全球化擴張後的壓力。近年美國、日本廠持續擴建，加上AI需求帶動資本支出暴增，公司勢必需要重新調整獲利分配結構。 此外，推文中也有不少人點出關鍵其實在「考績制度」。有工程師透露，即使整體分紅總額增加，公司仍可能透過調整考績分布，例如提高S-比例、壓低一般員工績效等方式，讓部分基層實際領到的獎金縮水。",
+      "sentiment_label": "中性偏謹慎",
+      "sentiment_type": "neutral",
+      "impact_score": 0,
+      "reason": "與前則內容相同，股東觀點認為減少分紅利於再投資，員工則担心福利降低，市場反應有限。"
     }
   ]
 }
