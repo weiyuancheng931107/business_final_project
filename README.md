@@ -8,17 +8,19 @@
 - 自選股管理：新增、移除並持久化台股清單。
 - 基本面資訊：顯示目前股價、本益比 P/E、每股盈餘 EPS、ROE。
 - 圖表分析：產生歷史股價走勢圖與本益比河流圖。
-- 相關新聞：從真實新聞來源載入個股相關新聞，支援載入更多。
+- 相關新聞與 AI 情緒分析：整合 yfinance 與 FinMind 新聞，自動抓取內文，並串接 LLM (OpenRouter/OpenAI) 進行量化情緒評分與生成個股分析報告。
 - 穩定 fallback：當 yfinance 因 SSL、網路或資料缺漏失敗時，改用 FinMind 或備援圖表，避免前端 500/404。
 
 ## 資料來源與穩定性更新
 
 本專案已將原本容易失敗或模擬的資料流程改為真實資料來源：
 
-- 新聞資料：
+- 新聞資料與 AI 分析：
   - 優先讀取 yfinance 內建 Yahoo Finance 新聞。
   - 同時整合 FinMind `TaiwanStockNews`。
+  - 會自動抓取新聞內文摘要提供給 AI 進行進階分析。
   - 回傳資料會正規化成前端固定格式：`title`、`source`、`date`、`url`。
+  - AI 分析報告持久化儲存於 `static/reports/`，包含情緒分數、摘要與執行耗時資訊。
   - 若 yfinance 因本機 SSL 憑證問題失敗，會自動 fallback 到 FinMind，不讓新聞 API 中斷。
 
 - 股價資料：
@@ -48,11 +50,14 @@ business_final_project/
 │   └── index.html      # 網頁前端模板
 ├── static/
 │   ├── index.css       # 前端樣式 (Neumorphism 風格)
-│   └── images/         # 動態產生的圖表暫存
+│   ├── images/         # 動態產生的圖表暫存
+│   └── reports/        # AI 產生的新聞情緒分析報告
 ├── docs/
 │   └── SKILL.md        # 前端設計規範參考 (Neumorphism Design System)
+├── imgs/               # Demo 截圖
 ├── tests/              # 新聞、股價、基本面 fallback 的回歸測試
 ├── app.py              # Flask 後端伺服器
+├── config.py           # API 與模型相關設定
 ├── portfolio.json      # 自選股清單 (持久化)
 └── requirements.txt
 ```
@@ -109,3 +114,9 @@ python -m unittest discover -s tests
 - yfinance 股價失敗時改用 FinMind 股價。
 - yfinance 基本面失敗時改用 FinMind P/E、EPS、ROE。
 - 圖表與 API 在資料來源失敗時仍回 200，不回 500/404。
+
+## Demo
+
+[img1](/imgs/Screenshot%202026-05-26%20164220.png)
+[img2](/imgs/Screenshot%202026-05-26%20164301.png)
+[img3](/imgs/Screenshot%202026-05-26%20164352.png)

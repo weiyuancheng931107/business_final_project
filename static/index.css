@@ -901,7 +901,6 @@ main {
     background: var(--surface-color);
     color: var(--primary-color);
     box-shadow: var(--shadow-raised);
-    margin-left: auto;
     font-weight: 500;
 }
 .analyze-btn:hover {
@@ -912,6 +911,24 @@ main {
     opacity: 0.7;
     cursor: not-allowed;
     box-shadow: var(--shadow-pressed);
+}
+
+/* View Saved Analysis Button */
+.view-saved-btn {
+    background: var(--surface-color);
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-raised);
+    font-weight: 500;
+}
+.view-saved-btn:hover:not(:disabled) {
+    color: var(--primary-color);
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+}
+.view-saved-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: var(--shadow-pressed-sm);
+    color: #94a3b8;
 }
 
 /* Modal Overlay */

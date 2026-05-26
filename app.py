@@ -6,6 +6,8 @@ Flask 後端伺服器 — 股票基本面分析工具。
 import json
 import os
 import re
+import time
+from datetime import datetime
 import concurrent.futures
 import pandas as pd
 from flask import Flask, jsonify, request, render_template
@@ -35,6 +37,8 @@ client = OpenAI(
 app = Flask(__name__)
 
 PORTFOLIO_FILE = os.path.join(os.path.dirname(__file__), "portfolio.json")
+REPORTS_DIR = os.path.join(os.path.dirname(__file__), "static", "reports")
+os.makedirs(REPORTS_DIR, exist_ok=True)
 
 
 # ────────────────────────────────────────────
@@ -150,9 +154,12 @@ def api_stock_info(symbol):
     """取得單一股票的基本面資訊。"""
     try:
         info = get_stock_info(symbol)
+        report_file = os.path.join(REPORTS_DIR, f"{symbol.upper()}_analysis.json")
+        info["has_saved_analysis"] = os.path.exists(report_file)
         return jsonify(info)
     except Exception as e:
         print(f"[WARN] stock info endpoint fallback ({symbol}): {e}")
+        report_file = os.path.join(REPORTS_DIR, f"{symbol.upper()}_analysis.json")
         return jsonify({
             "symbol": symbol,
             "name": symbol,
@@ -161,6 +168,7 @@ def api_stock_info(symbol):
             "pe_ratio": None,
             "roe": None,
             "eps": None,
+            "has_saved_analysis": os.path.exists(report_file),
             "warning": "資料來源暫時無法取得，已顯示降級資訊。",
         })
 
@@ -203,13 +211,23 @@ def api_pe_river(symbol):
 # ────────────────────────────────────────────
 @app.route("/api/stock/<symbol>/news")
 def api_stock_news(symbol):
-    """取得股票相關新聞。支持分頁加載。"""
+    """取得股票相關新聞。支持分頁加載，並預先抓取內文摘要。"""
     start_date = request.args.get("start_date")
     try:
         news_data = get_stock_news(symbol, start_date)
+        
+        # 並行抓取內文摘要
+        def enrich_news(item):
+            content = fetch_article_content(item.get("url", ""))
+            item["content_summary"] = content
+            return item
+            
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+            enriched_news = list(executor.map(enrich_news, news_data["news"]))
+            
         return jsonify({
             "symbol": symbol,
-            "news": news_data["news"],
+            "news": enriched_news,
             "next_start_date": news_data["next_start_date"],
             "has_more": news_data["has_more"],
             "note": ""
@@ -224,33 +242,26 @@ def api_stock_news(symbol):
 @app.route("/api/stock/<symbol>/analyze_news", methods=["POST"])
 def api_analyze_news(symbol):
     """
-    接收前端送來的新聞清單，並行爬取內文後，交由 LLM 產生結構化 JSON 情緒分析報告。
+    接收前端傳來已包含內文摘要的新聞清單，交由 LLM 產生結構化 JSON 情緒分析報告。
     """
+    start_time = time.time()
     data = request.json or {}
     news_list = data.get("news", [])
     
     if not news_list:
         return jsonify({"error": "No news provided"}), 400
 
-    # 1. 並行抓取新聞內文
-    def enrich_news(idx, item):
-        content = fetch_article_content(item.get("url", ""))
-        return {
-            "index": idx,
+    # 整理前端傳來的新聞資料
+    enriched_news = []
+    for i, item in enumerate(news_list):
+        enriched_news.append({
+            "index": i,
             "title": item.get("title", "未命名標題"),
             "url": item.get("url", "#"),
             "source": item.get("source", "未知"),
             "date": item.get("date", ""),
-            "content": content
-        }
-
-    enriched_news = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-        futures = [executor.submit(enrich_news, i, item) for i, item in enumerate(news_list)]
-        for future in concurrent.futures.as_completed(futures):
-            enriched_news.append(future.result())
-            
-    enriched_news.sort(key=lambda x: x["index"])
+            "content": item.get("content_summary", "")
+        })
 
     # 2. 準備給 LLM 的 Prompt
     news_text_blocks = []
@@ -294,63 +305,109 @@ def api_analyze_news(symbol):
             ],
             temperature=0.2
         )
-        ai_result = response.choices[0].message.content.strip()
         
+        if not response or not hasattr(response, 'choices') or not response.choices:
+            raise ValueError("LLM 沒有回傳有效的 choices，可能為 API 限制或服務異常。")
+            
+        ai_result = response.choices[0].message.content
+        if not ai_result:
+            raise ValueError("LLM 回傳內容為空。")
+            
         # 3. 處理並防呆 JSON 解析
         # 移除可能的 markdown json codeblock
+        ai_result = ai_result.strip()
         ai_result = re.sub(r"^```(?:json)?\s*", "", ai_result)
         ai_result = re.sub(r"\s*```$", "", ai_result).strip()
         
-        parsed_result = json.loads(ai_result)
+        try:
+            parsed_result = json.loads(ai_result)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"LLM 回傳非有效 JSON 格式: {str(e)}")
+            
+        if not isinstance(parsed_result, dict):
+            if isinstance(parsed_result, list) and len(parsed_result) > 0 and isinstance(parsed_result[0], dict):
+                parsed_result = {"details": parsed_result, "overall": {}}
+            else:
+                parsed_result = {}
         
         # 4. 把原始 URL 和 Meta data 合併回 details
-        details_map = { d.get("index"): d for d in parsed_result.get("details", []) }
+        details_list = parsed_result.get("details", [])
+        if not isinstance(details_list, list):
+            details_list = []
+            
+        details_map = {}
+        for d in details_list:
+            if isinstance(d, dict) and "index" in d:
+                details_map[d["index"]] = d
         
         final_details = []
         for item in enriched_news:
             idx = item["index"]
             d = details_map.get(idx, {})
+            if not isinstance(d, dict):
+                d = {}
+                
             final_details.append({
-                "title": item["title"],
-                "url": item["url"],
-                "source": item["source"],
-                "date": item["date"],
-                "content_summary": item["content"],
+                "title": item.get("title", "未命名"),
+                "url": item.get("url", "#"),
+                "source": item.get("source", "未知"),
+                "date": item.get("date", ""),
+                "content_summary": item.get("content", ""),
                 "sentiment_label": d.get("sentiment_label", "中立"),
                 "sentiment_type": d.get("sentiment_type", "neutral"),
                 "impact_score": d.get("impact_score", 0),
                 "reason": d.get("reason", "無特定分析")
             })
             
+        end_time = time.time()
+        
+        overall_data = parsed_result.get("overall", {})
+        if not isinstance(overall_data, dict):
+            overall_data = {}
+            
         report = {
-            "overall": parsed_result.get("overall", {
-                "sentiment_label": "中立",
-                "sentiment_type": "neutral",
-                "score": 0.0,
-                "summary": "分析報告產生不完整，請稍後再試。",
-                "keywords": []
-            }),
+            "analysis_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "analysis_duration_seconds": round(end_time - start_time, 2),
+            "overall": {
+                "sentiment_label": overall_data.get("sentiment_label", "中立"),
+                "sentiment_type": overall_data.get("sentiment_type", "neutral"),
+                "score": overall_data.get("score", 0.0),
+                "summary": overall_data.get("summary", "分析完成。"),
+                "keywords": overall_data.get("keywords", [])
+            },
             "details": final_details
         }
+        
+        # Save analysis report to file
+        try:
+            report_file = os.path.join(REPORTS_DIR, f"{symbol.upper()}_analysis.json")
+            with open(report_file, "w", encoding="utf-8") as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+        except Exception as save_err:
+            print(f"[WARN] Failed to save analysis report for {symbol}: {save_err}")
+            
         return jsonify(report)
         
     except Exception as e:
         print(f"⚠️ AI 分析時發生錯誤: {e}")
+        end_time = time.time()
         # Fallback 回應
         fallback_details = []
         for item in enriched_news:
             fallback_details.append({
-                "title": item["title"],
-                "url": item["url"],
-                "source": item["source"],
-                "date": item["date"],
-                "content_summary": item["content"],
+                "title": item.get("title", ""),
+                "url": item.get("url", ""),
+                "source": item.get("source", ""),
+                "date": item.get("date", ""),
+                "content_summary": item.get("content", ""),
                 "sentiment_label": "分析失敗",
                 "sentiment_type": "neutral",
                 "impact_score": 0,
                 "reason": f"無法分析，錯誤: {str(e)[:50]}"
             })
         return jsonify({
+            "analysis_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "analysis_duration_seconds": round(end_time - start_time, 2),
             "overall": {
                 "sentiment_label": "系統錯誤",
                 "sentiment_type": "negative",

@@ -7,13 +7,14 @@ import os
 import urllib.parse
 import urllib.request
 import re
+import ssl
 from datetime import datetime, timedelta, timezone
 import yfinance as yf
 import pandas as pd
 import numpy as np
 from typing import Optional
 
-NEWS_LIMIT = 8
+NEWS_LIMIT = 3
 FINMIND_LOOKBACK_DAYS = 7
 MAX_FINMIND_HISTORY_DAYS = 30
 FUNDAMENTAL_LOOKBACK_DAYS = 900
@@ -573,28 +574,101 @@ def fetch_article_content(url: str) -> str:
         return ""
         
     try:
-        req = urllib.request.Request(
-            url, 
-            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        )
-        with urllib.request.urlopen(req, timeout=3.0) as response:
+        # Create unverified SSL context to fix [SSL: CERTIFICATE_VERIFY_FAILED]
+        context = ssl._create_unverified_context()
+        
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive',
+        }
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=2.0, context=context) as response:
             html = response.read().decode('utf-8', errors='ignore')
             
             # 使用 bs4 解析
             try:
                 from bs4 import BeautifulSoup
                 soup = BeautifulSoup(html, 'html.parser')
+                
+                # Check for bot block or garbage templates in the raw HTML
+                html_lower = html.lower()
+                if "robot check" in html_lower or \
+                   "enable javascript" in html_lower or \
+                   "access denied" in html_lower:
+                    return ""
+                
+                # Priority: search for actual article body containers
+                container = None
+                selectors = ['article', '.article-content', '.story', '.post-content', '.news-content', '[itemprop="articleBody"]', '.news_content', '.article_content', '#article-body', '.entry-content']
+                for selector in selectors:
+                    elements = soup.select(selector)
+                    for el in elements:
+                        if len(el.find_all('p')) >= 2:
+                            container = el
+                            break
+                    if container:
+                        break
+                
+                # If no container is found, fallback to the entire document
+                nodes = container.find_all('p') if container else soup.find_all('p')
+                
                 paragraphs = []
-                for p in soup.find_all('p'):
+                for p in nodes:
                     txt = p.get_text().strip()
-                    # 排除過短或無關的文字 (例如版權宣告、cookie)
-                    if len(txt) > 25 and "cookie" not in txt.lower() and "copyright" not in txt.lower():
-                        paragraphs.append(txt)
+                    txt_lower = txt.lower()
+                    
+                    # Skip garbage blocks
+                    if len(txt) < 25:
+                        continue
+                    if "cookie" in txt_lower or "copyright" in txt_lower:
+                        continue
+                    if "join 7 million investors" in txt_lower or "find winning stocks" in txt_lower:
+                        continue
+                    if "sign up for free" in txt_lower or "廣告" in txt_lower or "版權所有" in txt_lower:
+                        continue
+                    if "something went wrong" in txt_lower or "oops, something" in txt_lower:
+                        continue
+                        
+                    paragraphs.append(txt)
                     if len(paragraphs) >= 4:
                         break
-                return " ".join(paragraphs)[:600]
+                        
+                content = " ".join(paragraphs).strip()
+                
+                # Fallback to JSON-LD parsing for JS-heavy or forum sites (like CMoney forum posts)
+                if len(content) < 100:
+                    json_ld_content = ""
+                    for script in soup.find_all('script', type='application/ld+json'):
+                        try:
+                            if not script.string:
+                                continue
+                            data = json.loads(script.string)
+                            items = data if isinstance(data, list) else [data]
+                            for item in items:
+                                if not isinstance(item, dict):
+                                    continue
+                                t = item.get('@type')
+                                if t in ('DiscussionForumPosting', 'NewsArticle', 'BlogPosting', 'Article'):
+                                    for field in ('articleBody', 'text', 'description'):
+                                        val = item.get(field)
+                                        if val and isinstance(val, str) and len(val.strip()) > 30:
+                                            json_ld_content = val.strip()
+                                            break
+                                if json_ld_content:
+                                    break
+                            if json_ld_content:
+                                break
+                        except Exception:
+                            pass
+                    if len(json_ld_content) > len(content):
+                        content = json_ld_content
+                        
+                return content[:600]
             except ImportError:
                 return ""
     except Exception as e:
         print(f"[WARN] Failed to fetch article body from {url}: {e}")
         return ""
+

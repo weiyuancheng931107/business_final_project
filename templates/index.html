@@ -110,9 +110,15 @@
                         <div class="section-label">
                             <i class="fa-solid fa-newspaper"></i> 相關新聞
                         </div>
-                        <button id="btn-analyze-news" class="action-btn analyze-btn" style="margin-left: auto;">
-                            <i class="fa-solid fa-brain"></i> AI 產生分析報告
-                        </button>
+                        <div class="news-header-actions" style="margin-left: auto; display: flex; gap: 12px;">
+                            <button id="btn-view-saved-analysis" class="action-btn view-saved-btn" disabled
+                                title="尚無歷史分析報告">
+                                <i class="fa-solid fa-history"></i> 查看歷史分析
+                            </button>
+                            <button id="btn-analyze-news" class="action-btn analyze-btn">
+                                <i class="fa-solid fa-brain"></i> AI 產生分析報告
+                            </button>
+                        </div>
                     </div>
                     <div class="news-list" id="news-list">
                         <!-- 動態載入新聞項目 -->
@@ -156,6 +162,8 @@
         const chartImg = document.getElementById('chart-img');
         const chartPeriods = document.getElementById('chart-periods');
 
+        const btnViewSavedAnalysis = document.getElementById('btn-view-saved-analysis');
+
         let currentSymbol = null;
         let currentTab = 'price'; // 'price' or 'river'
         let currentPeriod = '1y'; // '6mo', '1y', '3y', '5y'
@@ -164,6 +172,7 @@
         let newsNextStartDate = null;
         let newsHasMore = false;
         let newsLoading = false;
+        let loadedNewsList = [];
 
         // 系統初始化
         async function init() {
@@ -285,7 +294,9 @@
             emptyState.style.display = 'none';
             dashboardContent.style.display = 'block';
 
-            // 重設新聞分頁狀態
+            // 重設按鈕與分頁狀態
+            btnViewSavedAnalysis.disabled = true;
+            btnViewSavedAnalysis.title = '載入中...';
             newsNextStartDate = null;
             newsHasMore = false;
             newsLoading = false;
@@ -316,6 +327,15 @@
                     document.getElementById('val-roe').textContent = 'N/A';
                 }
 
+                // 更新歷史分析按鈕狀態
+                if (data.has_saved_analysis) {
+                    btnViewSavedAnalysis.disabled = false;
+                    btnViewSavedAnalysis.title = '點選查看此股票最新的分析報告';
+                } else {
+                    btnViewSavedAnalysis.disabled = true;
+                    btnViewSavedAnalysis.title = '尚無歷史分析報告';
+                }
+
                 // 2. 載入圖表
                 loadChart();
 
@@ -324,6 +344,8 @@
 
             } catch (err) {
                 showToast('讀取基本面資料失敗', 'error');
+                btnViewSavedAnalysis.disabled = true;
+                btnViewSavedAnalysis.title = '讀取基本面資料失敗';
             }
         }
 
@@ -346,8 +368,8 @@
             }
 
             try {
-                const url = isLoadMore && newsNextStartDate 
-                    ? `/api/stock/${symbol}/news?start_date=${newsNextStartDate}` 
+                const url = isLoadMore && newsNextStartDate
+                    ? `/api/stock/${symbol}/news?start_date=${newsNextStartDate}`
                     : `/api/stock/${symbol}/news`;
 
                 const res = await fetch(url);
@@ -357,10 +379,25 @@
 
                 if (!isLoadMore) {
                     newsListEl.innerHTML = '';
+                    loadedNewsList = [];
                 }
 
                 if (data.news && data.news.length > 0) {
                     data.news.forEach(item => {
+                        loadedNewsList.push(item);
+
+                        let summaryHtml = '';
+                        if (item.content_summary) {
+                            summaryHtml = `
+                                <button class="content-toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                                    <i class="fa-solid fa-align-left"></i> 展開內文摘要
+                                </button>
+                                <div class="news-content-summary">
+                                    ${item.content_summary}
+                                </div>
+                            `;
+                        }
+
                         const newsItem = document.createElement('div');
                         newsItem.className = 'news-item';
                         newsItem.innerHTML = `
@@ -371,6 +408,7 @@
                                 <span class="news-source">${item.source}</span>
                                 <span class="news-date">${item.date}</span>
                             </div>
+                            ${summaryHtml}
                         `;
                         newsListEl.appendChild(newsItem);
                     });
@@ -474,13 +512,111 @@
         });
 
         // 監聽 main 區塊滾動事件以支援自動載入
-        const mainEl = document.querySelector('main');
-        mainEl.addEventListener('scroll', () => {
-            if (newsHasMore && !newsLoading && currentSymbol) {
-                const threshold = 50; // 距離底部 50px 時觸發
-                if (mainEl.scrollHeight - mainEl.scrollTop - mainEl.clientHeight < threshold) {
-                    loadNews(currentSymbol, true);
+        // const mainEl = document.querySelector('main');
+        // mainEl.addEventListener('scroll', () => {
+        //     if (newsHasMore && !newsLoading && currentSymbol) {
+        //         const threshold = 50; // 距離底部 50px 時觸發
+        //         if (mainEl.scrollHeight - mainEl.scrollTop - mainEl.clientHeight < threshold) {
+        //             loadNews(currentSymbol, true);
+        //         }
+        //     }
+        // });
+
+        // 渲染分析報告至 Modal
+        function renderAnalysisReport(data) {
+            let metaHtml = '';
+            if (data.analysis_timestamp || data.analysis_duration_seconds) {
+                const ts = data.analysis_timestamp || '未知';
+                const dur = data.analysis_duration_seconds !== undefined ? `${data.analysis_duration_seconds} 秒` : '未知';
+                metaHtml = `
+                    <div class="analysis-meta-info" style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 12px; display: flex; gap: 16px; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                        <span><i class="fa-regular fa-clock"></i> 報告分析時間：${ts}</span>
+                        <span><i class="fa-solid fa-stopwatch"></i> 報告產生耗時：${dur}</span>
+                    </div>
+                `;
+            }
+
+            let html = `
+                ${metaHtml}
+                <div class="overall-card">
+                    <div class="overall-header">
+                        <div class="overall-title">
+                            <i class="fa-solid fa-chart-pie"></i> 整體情緒評估
+                        </div>
+                        <div class="overall-score-indicator score-${data.overall.sentiment_type}">
+                            ${data.overall.score > 0 ? '+' : ''}${data.overall.score}
+                        </div>
+                    </div>
+                    <div class="overall-summary">${data.overall.summary}</div>
+                    <div class="keyword-container">
+                        ${(data.overall.keywords || []).map(kw => `<span class="keyword-badge">${kw}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="analysis-details">
+            `;
+
+            data.details.forEach((item, idx) => {
+                let summaryToggleHtml = '';
+                let summaryContentHtml = '';
+                if (item.content_summary) {
+                    summaryToggleHtml = `
+                        <button class="content-toggle-btn" onclick="document.getElementById('news-content-${idx}').classList.toggle('show')">
+                            <i class="fa-solid fa-align-left"></i> 展開內文摘要
+                        </button>
+                    `;
+                    summaryContentHtml = `
+                        <div id="news-content-${idx}" class="news-content-summary">
+                            ${item.content_summary}
+                        </div>
+                    `;
                 }
+
+                html += `
+                    <div class="analysis-item">
+                        <div class="analysis-item-title">
+                            <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">${item.title}</a>
+                        </div>
+                        <div class="analysis-item-meta">
+                            <span class="sentiment-badge sentiment-${item.sentiment_type}">${item.sentiment_label}</span>
+                            <span>${item.source} · ${item.date}</span>
+                            <span class="impact-score impact-${item.impact_score > 0 ? 'positive' : (item.impact_score < 0 ? 'negative' : 'neutral')}">
+                                影響力: ${item.impact_score > 0 ? '+' : ''}${item.impact_score}
+                            </span>
+                        </div>
+                        <div class="analysis-item-reason">
+                            <strong>AI 解析: </strong> ${item.reason}
+                        </div>
+                        ${summaryToggleHtml}
+                        ${summaryContentHtml}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            document.getElementById('analysis-result-content').innerHTML = html;
+            document.getElementById('analysis-modal').classList.add('active');
+        }
+
+        // 處理查看歷史分析點擊
+        btnViewSavedAnalysis.addEventListener('click', async () => {
+            if (!currentSymbol) return;
+            const originalHTML = btnViewSavedAnalysis.innerHTML;
+            btnViewSavedAnalysis.disabled = true;
+            btnViewSavedAnalysis.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 載入中...';
+
+            try {
+                const timestamp = new Date().getTime();
+                const res = await fetch(`/static/reports/${currentSymbol.toUpperCase()}_analysis.json?t=${timestamp}`);
+                if (!res.ok) {
+                    throw new Error('無法讀取歷史分析報告，檔案可能不存在或損毀');
+                }
+                const data = await res.json();
+                renderAnalysisReport(data);
+            } catch (err) {
+                showToast(err.message, 'error');
+            } finally {
+                btnViewSavedAnalysis.disabled = false;
+                btnViewSavedAnalysis.innerHTML = originalHTML;
             }
         });
 
@@ -489,97 +625,31 @@
             if (!currentSymbol) return;
             const btn = document.getElementById('btn-analyze-news');
             const originalHTML = btn.innerHTML;
-            
-            // 抓取目前畫面上已渲染的新聞
-            const newsItems = Array.from(document.querySelectorAll('#news-list .news-item')).map(item => {
-                return {
-                    title: item.querySelector('.news-title').textContent,
-                    url: item.querySelector('a').href,
-                    source: item.querySelector('.news-source').textContent,
-                    date: item.querySelector('.news-date').textContent
-                };
-            });
 
-            if (newsItems.length === 0) {
+            if (loadedNewsList.length === 0) {
                 showToast('目前沒有新聞可以分析', 'warning');
                 return;
             }
 
             // 進入 Loading 狀態
             btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 分析中...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>分析中...（這可能需要3-5分鐘）';
 
             try {
                 const res = await fetch(`/api/stock/${currentSymbol}/analyze_news`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ news: newsItems })
+                    body: JSON.stringify({ news: loadedNewsList })
                 });
                 const data = await res.json();
-                
+
                 if (!res.ok) throw new Error(data.error || '分析失敗');
 
-                // 渲染 Modal 內容 - 整體報告卡片
-                let html = `
-                    <div class="overall-card">
-                        <div class="overall-header">
-                            <div class="overall-title">
-                                <i class="fa-solid fa-chart-pie"></i> 整體情緒評估
-                            </div>
-                            <div class="overall-score-indicator score-${data.overall.sentiment_type}">
-                                ${data.overall.score > 0 ? '+' : ''}${data.overall.score}
-                            </div>
-                        </div>
-                        <div class="overall-summary">${data.overall.summary}</div>
-                        <div class="keyword-container">
-                            ${(data.overall.keywords || []).map(kw => `<span class="keyword-badge">${kw}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div class="analysis-details">
-                `;
-                
-                // 渲染每則新聞細節
-                data.details.forEach((item, idx) => {
-                    // 若有 content_summary 則提供展開按鈕
-                    let summaryToggleHtml = '';
-                    let summaryContentHtml = '';
-                    if (item.content_summary) {
-                        summaryToggleHtml = `
-                            <button class="content-toggle-btn" onclick="document.getElementById('news-content-${idx}').classList.toggle('show')">
-                                <i class="fa-solid fa-align-left"></i> 展開內文摘要
-                            </button>
-                        `;
-                        summaryContentHtml = `
-                            <div id="news-content-${idx}" class="news-content-summary">
-                                ${item.content_summary}
-                            </div>
-                        `;
-                    }
+                renderAnalysisReport(data);
 
-                    html += `
-                        <div class="analysis-item">
-                            <div class="analysis-item-title">
-                                <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">${item.title}</a>
-                            </div>
-                            <div class="analysis-item-meta">
-                                <span class="sentiment-badge sentiment-${item.sentiment_type}">${item.sentiment_label}</span>
-                                <span>${item.source} · ${item.date}</span>
-                                <span class="impact-score impact-${item.impact_score > 0 ? 'positive' : (item.impact_score < 0 ? 'negative' : 'neutral')}">
-                                    影響力: ${item.impact_score > 0 ? '+' : ''}${item.impact_score}
-                                </span>
-                            </div>
-                            <div class="analysis-item-reason">
-                                <strong>AI 解析: </strong> ${item.reason}
-                            </div>
-                            ${summaryToggleHtml}
-                            ${summaryContentHtml}
-                        </div>
-                    `;
-                });
-                html += '</div>';
-
-                document.getElementById('analysis-result-content').innerHTML = html;
-                document.getElementById('analysis-modal').classList.add('active');
+                // 成功後啟用歷史分析按鈕
+                btnViewSavedAnalysis.disabled = false;
+                btnViewSavedAnalysis.title = '點選查看此股票最新的分析報告';
 
             } catch (err) {
                 showToast(err.message, 'error');
