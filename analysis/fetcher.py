@@ -614,23 +614,22 @@ def fetch_article_content(url: str) -> str:
                 # If no container is found, fallback to the entire document
                 nodes = container.find_all('p') if container else soup.find_all('p')
                 
+                # 1. 事先定義好要過濾的關鍵字清單（放迴圈外效能更好）
+                GARBAGE_KEYWORDS = [
+                    "cookie", "copyright", "join 7 million investors", "find winning stocks",
+                    "sign up for free", "廣告", "版權所有", "something went wrong", "oops, something",
+                    "earn commission", "link below",
+                    "將 Yahoo 設為首選來源", "在 Google 上查看更多我們的精彩報導",
+                    "The content on this Site is provided for information purposes only",
+                    "Find your next quality investment with",
+                ]
+
                 paragraphs = []
                 accumulated_len = 0
                 for p in nodes:
                     txt = p.get_text().strip()
                     txt_lower = txt.lower()
                     
-                    # 1. 事先定義好要過濾的關鍵字清單（放迴圈外效能更好）
-                    GARBAGE_KEYWORDS = [
-                        "cookie", "copyright", "join 7 million investors", "find winning stocks",
-                        "sign up for free", "廣告", "版權所有", "something went wrong", "oops, something",
-                        "earn commission", "link below",
-                        "將 Yahoo 設為首選來源", "在 Google 上查看更多我們的精彩報導",
-                        "The content on this Site is provided for information purposes only",
-                        "Find your next quality investment with",
-
-                    ]
-
                     # 2. 迴圈內的判斷式
                     if len(txt) < 25 or any(kw in txt_lower for kw in GARBAGE_KEYWORDS):
                         continue

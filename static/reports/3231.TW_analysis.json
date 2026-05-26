@@ -1,0 +1,118 @@
+{
+  "analysis_timestamp": "2026-05-26 19:41:41",
+  "analysis_duration_seconds": 216.42,
+  "overall": {
+    "sentiment_label": "偏向樂觀",
+    "sentiment_type": "positive",
+    "score": 0.3,
+    "summary": "近期新聞顯示 AMD 對台灣 AI 產業的超過 100 億美元投資將直接帶給緯創訂單成長，同時量子運算政策與法人說明會也提升關注度；惟近期爆量下跌反映市場對毛利率下滑與獲利品質的擔憂，整體偏正但需監控獲利結構是否改善。",
+    "keywords": [
+      "AMD 投資",
+      "緯創",
+      "毛利率",
+      "量子運算",
+      "法人說明會"
+    ]
+  },
+  "details": [
+    {
+      "title": "Advanced Micro Devices, Inc. (AMD) Plans to Invest more than $10B in Taiwan’s AI Market",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/advanced-micro-devices-inc-amd-180652879.html",
+      "source": "Insider Monkey",
+      "date": "2026-05-25",
+      "content_summary": "Advanced Micro Devices, Inc. (NASDAQ:AMD) is one of the Best Performing Stocks. \\\\ On May 21, Reuters reported that Advanced Micro Devices, Inc. (NASDAQ:AMD) plans to invest in Taiwan, committing over $10 billion to its AI sector to expand chip production capacity and deepen partnerships. \\\\ The company said it will work with Taiwanese packaging and testing provider ASE and its unit SPIL to make more power-efficient technology for AI systems and processors. It will also be working with PTI, Sanmina, Wiwynn, Wistron, and Inventec. \\\\ Advanced Micro Devices, Inc. (NASDAQ:AMD)’s Chief Executive Officer Lisa Su said, “As AI adoption accelerates, our global customers are rapidly scaling AI infrastructure to meet growing compute demand,” adding that the effort allows “integrated, rack-scale AI infrastructure.” \\\\ The company said the technology will support its Venice CPUs built on TSMC’s 2-nanometer process, while also stating it has started stepping up production of those chips. \\\\ As of May 19, the stock is up by 85.28% year to date. \\\\ Advanced Micro Devices, Inc. (NASDAQ:AMD) is a leading semiconductor company working in high-performance computing and graphics solutions. Its portfolio includes microprocessors, graphics processors, and system-on-chip solutions designed for data centers, gaming, and embedded systems. \\\\ While we acknowledge the potential of AMD as an investment, we believe certain AI stocks offer greater upside potential and carry less downside risk. If you're looking for an extremely undervalued AI stock that also stands to benefit significantly from Trump-era tariffs and the onshoring trend, see our free report on the best short-term AI stock. \\\\ READ NEXT: 33 Stocks That Should Double in 3 Years and Cathie Wood 2026 Portfolio: 10 Best Stocks to Buy. \\\\ Disclosure: None. Follow Insider Monkey on Google News.",
+      "sentiment_label": "偏向樂觀",
+      "sentiment_type": "positive",
+      "impact_score": 3,
+      "reason": "AMD 宣布將投資超過 100 億美元於台灣 AI 產業，並點名緯創為合作夥伴，預期將提升其 AI 伺服器訂單與長期成長動能。"
+    },
+    {
+      "title": "AMD Stock Investors Just Got $10 Billion News",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-investors-just-got-132732646.html",
+      "source": "GuruFocus.com",
+      "date": "2026-05-22",
+      "content_summary": "This article first appeared on GuruFocus. \\\\ Advanced Micro Devices (NASDAQ:AMD) said on Thursday it will invest more than $10 billion across Taiwan's semiconductor ecosystem to deepen partnerships and expand advanced packaging capacity for future AI infrastructure. AMD said the move is meant to help meet rising compute demand and speed deployment of next-generation systems. \\\\ AMD said the effort will involve ODM partners Sanmina, Wiwynn, Wistron and Inventec, which are helping build Helios-based systems powered by Instinct MI450X GPUs, 6th Gen EPYC CPUs, networking gear and the ROCm software stack. AMD said the work is intended to move the platform from design into high-volume manufacturing. \\\\ Warning! GuruFocus has detected 9 Warning Signs with AMD. \\\\ Is AMD fairly valued? Test your thesis with our free DCF calculator. \\\\ AMD also said it is working with Taiwan-based ASE and SPIL, along with other partners, to qualify next-generation wafer-based 2.5D bridge interconnect technology. AMD said the architecture, called EFB, is designed to improve bandwidth and power efficiency for its Venice CPUs. \\\\ AMD said Helios rack-scale platform deployment remains on track for the second half of 2026.",
+      "sentiment_label": "偏向樂觀",
+      "sentiment_type": "positive",
+      "impact_score": 3,
+      "reason": "AMD 表示將深化台灣半導體生態系合作，涉及緯創等 ODM 夥伴，顯示其在先進封裝與測試領域的需求將增加。"
+    },
+    {
+      "title": "AMD plans to invest over $10 billion across Taiwan's AI sector",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/amd-says-invest-over-10-060508010.html",
+      "source": "Reuters",
+      "date": "2026-05-21",
+      "content_summary": "May 21 (Reuters) - Advanced Micro Devices said on Thursday it would invest more than $10 billion in Taiwan's ‌AI sector to deepen strategic partnerships and boost its ‌capacity to build and assemble advanced AI chips. \\\\ Analysts and investors see AMD ​as a leading challenger to Nvidia's dominance in the AI chip market. \\\\ • The U.S. chipmaker said it will collaborate with Taiwanese chip packaging and testing provider ASE ‌and its unit SPIL ⁠to develop more power-efficient technology for AI systems and processors. \\\\ • The new power-efficient technology will support ⁠AMD's Venice CPUs, which are being built on Taiwan Semiconductor Manufacturing Co's (TSMC) advanced 2 nanometer process technology. \\\\ • AMD said it ​was also ​working with Taiwanese partners including ​PTI, Sanmina, Wiwynn, Wistron ‌and Inventec. \\\\ • \"As AI adoption accelerates, our global customers are rapidly scaling AI infrastructure to meet growing compute demand,\" AMD CEO Lisa Su said. \\\\ • \"By combining AMD leadership in high-performance computing with the Taiwan ecosystem and our strategic global partners, we are ‌enabling integrated, rack-scale AI infrastructure ​that helps customers accelerate deployment of ​next-generation AI systems,\" she ​added. \\\\ • Taiwan plays a pivotal role in the ‌global AI supply chain for ​companies including Nvidia ​and Apple . Its position is anchored by the world's largest contract chipmaker, TSMC. \\\\ • In a separate statement, AMD ​also said that ‌it had started ramping up production of the Venice ​CPUs. \\\\ (Reporting by Ananya Palyekar in Bengaluru; Editing by ​Mrigank Dhaniwala and Sherry Jacob-Phillips)",
+      "sentiment_label": "偏向樂觀",
+      "sentiment_type": "positive",
+      "impact_score": 3,
+      "reason": "路透報導確認 AMD 將投資超過 100 億美元於台灣 AI 產業，並強調與緯創等合作發展節能技術，對緯創形成正面預期。"
+    },
+    {
+      "title": "川普政府力挺量子運算鴻海、緯創、仁寶卡位商機| 經濟日報 - LINE TODAY",
+      "url": "https://today.line.me/tw/v3/article/7N1QmMm",
+      "source": "LINE TODAY",
+      "date": "2026-05-25",
+      "content_summary": "川普政府力挺量子運算，為產業後市背書，鴻海（2317）、仁寶（2324）、金寶（2312）、緯創（3231）、廣達（2382）等台灣重量級大廠也都動起來，全力卡位量子商機。 \\\\ 鴻海很早就跨入量子電腦研究，旗下鴻海研究院2021年成立離子阱量子計算實驗室，2023年10月啟用，為台灣首座產業全資挹注量子計算研發實驗室，目標今年推出二個量子位元邏輯運算成果，2027年打造出五到十個量子位元可編成的量子電腦原型。 \\\\ 仁寶及金寶同屬台灣量子國家隊成員，並且都是輝達量子電腦重要夥伴。其中，仁寶採用輝達CUDA-Q技術開發「CGA-QZ平台」，模擬與加速量子最佳化技術。仁寶研發量子啟發運算服務「Compal GPU Annealer」正與台灣量子國家隊在不同領域研究量子運算應用，全力卡位量子電腦商機。金寶與輝達不約而同投資量子硬體製造商SEEQC，金寶並與SEEQC共同開發以SEEQC的SFQ控制晶片設計的常溫電子設備，躍輝達衝量子電腦第一梯隊夥伴。 \\\\ 緯創也積極投入量子電腦前期布局，並開始啟動量子電腦建置，預期將透過提前研發，在未來攻入量子電腦商機。",
+      "sentiment_label": "偏向樂觀",
+      "sentiment_type": "positive",
+      "impact_score": 2,
+      "reason": "川普政府力挺量子運算，並點名緯創參與量子國家隊，預示未來在高附加值量子計算領域的商機。"
+    },
+    {
+      "title": "《電週邊》緯創受邀參加4場法說 - 富聯網",
+      "url": "https://ww2.money-link.com.tw/RealtimeNews/NewsContent.aspx?sn=6184283001&pu=News_0002_3",
+      "source": "富聯網",
+      "date": "2026-05-25",
+      "content_summary": "【時報-台北電】緯創(3231)受邀參加4場法說，說明業務簡介及現況說明。 \\\\ 5月28日9時受邀參加摩根士丹利舉辦之法人說明會，地點於台北東方文華酒店。 \\\\ 6月1日9時受邀參加匯豐證券舉辦之法人說明會，地點於台北君悅酒店。 \\\\ 6月2日9時受邀參加美商高盛亞洲證券舉辦之法人說明會，地點於台北W飯店。 \\\\ 6月4日9時受邀參加花旗環球證券舉辦之法人說明會，地點於台北W飯店。（編輯：林家祺）",
+      "sentiment_label": "偏向樂觀",
+      "sentiment_type": "positive",
+      "impact_score": 1,
+      "reason": "緯創受邀參加四場國際投資法人說明會，顯示機構關注度上升，有助提升股票流動性與正面預期。"
+    },
+    {
+      "title": "緯創(3231)- - 券商分點進出買賣統計-股市爆料同學會 - CMoney",
+      "url": "https://www.cmoney.tw/forum/stock/3231?s=broker&agent=585U",
+      "source": "CMoney",
+      "date": "2026-05-25",
+      "content_summary": "3231\n               \n                緯創",
+      "sentiment_label": "中立",
+      "sentiment_type": "neutral",
+      "impact_score": 0,
+      "reason": "該則新聞僅為標題與簡易資料表，缺乏實質內容，對緯創無明顯影響。"
+    },
+    {
+      "title": "緯創爆量下跌，市場其實在重估哪一種風險？-蘇宛真 - CMoney投資網誌",
+      "url": "https://cmnews.com.tw/article/suwanzhen-df667eaf-5722-11f1-abb5-5708e5d668f5",
+      "source": "CMoney投資網誌",
+      "date": "2026-05-24",
+      "content_summary": "上班族出身，自己看盤、做功課好幾年。主要看籌碼面，技術面當輔助——法人在搬什麼、誰在偷偷加碼，常常比題材本身更值得追蹤。話直接，被忽略的訊號會拉出來講；判斷不一定次次都對，但至少不會講那種「萬無一失」的話。 \\\\ 緯創 3231 這一波股價重挫，搭配成交量放大到 11.5 萬張，表面上看起來像是賣壓湧現，但如果往深一層看，市場多半不是只在反應「有人想賣」，而是在重新定價毛利率下滑的風險。 \\\\ 這裡有個很重要的觀念。營收成長，其實不等於獲利改善；尤其當成長來自低毛利產品時，數字看起來更大，利潤卻可能更薄。這也是為什麼當第四季毛利率、營益率低於預期時，市場關注的焦點會從「AI 伺服器出貨有多快」轉到「這樣的成長，到底能不能真正賺到錢？」 \\\\ 毛利率往下，通常不是單一原因，而是幾個壓力一起出現： \\\\ :1. 產品組合變化：低毛利產品比重提高，會直接壓縮整體獲利空間。\n:2. 成本結構壓力：如果生產、物流、零組件成本沒有跟著效率改善，利潤自然被吃掉。\n:3. 議價能力變弱：當客戶端要求更高、競爭更激烈，代工廠能保留的空間就會被壓縮。 \\\\ 市場對緯創 3231 的疑慮，主要就在這裡。像 GB 系列等低毛利產品比重提高，再加上子公司營運效率波動，外界就會開始問：這一輪看起來很強的成長，會不會其實是低毛利放量？ \\\\ 這不代表 AI 伺服器前景消失了。不是這樣。比較像是市場在提醒我們，高營收不一定帶來高報酬，如果毛利率跟不上，估值本來能接受的期待，就可能被往下修正。 \\\\ 成交量突然放大，常見的情況不是單一資金方向，而是多空在同一時間重新分配籌碼。裡面可能同時包含： \\\\ :1. 短線停損的賣盤\n:2. 法人部位調整\n:3. 長線資金暫時觀望 \\\\ 所以，比起急著問「到底是誰在賣」，我覺得更重要的是判斷：這究竟只是短期財報壓力，還是已經開始反映結構性獲利能力下修？ \\\\ 如果只是單季毛利率承壓，但後面 AI 伺服器出貨持續擴大、產品組合慢慢改善，那市場有機會重新評價。但如果毛利率長期回不來，市場對緯創 3231 的風險定價，就很可能一直維持保守。 \\\\ 很多人看到爆量下跌，第一反應是想知道接下來會不會反彈。但從投資角度，我覺得更重要的是先問自己： \\\\ 因為成長本身不是終點，獲利品質才是。若一家公司營收衝得很快，但毛利率一路被壓縮，那市場遲早會把這個風險反映進價格裡。這就是為什麼我們看財報時，不能只看營收年增率，也要看毛利率、營益率、產品組合與資產配置背後的代價。 \\\\ 如果你也在觀察緯創 3231，或許可以先把問題拆成三件事： \\\\ :1. AI 伺服器的成長，是否真的帶來更好的獲利結構？\n:2. 低毛利產品比重上升，是短期還是趨勢？\n:3. 市場現在定價的，是一季壓力，還是一段時間的獲利修正？ \\\\ 把這些問題想清楚，通常比追著股價的上下波動更有幫助。 \\\\ 上班族出身，自己看盤、做功課好幾年。主要看籌碼面，技術面當輔助——法人在搬什麼、誰在偷偷加碼，常常比題材本身更值得追蹤。話直接，被忽略的訊號會拉出來講；判斷不一定次次都對，但至少不會講那種「萬無一失」的話。 \\\\ 元太全彩電子紙的下一步：大型看板放量後，毛利與 ASP 會怎麼走？ \\\\ 00402A能不能放長線？先別問商品，先問你的投資框架 \\\\ 友達2409漲停，是市場先買夢，還是買到轉型的門票？ \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP \\\\ 【台股盤後】加權一度強闖 4.4 萬點，高檔爆天量 \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【00991A】05/26 操作日報｜新建倉台灣晶技，資金強攻散熱雙雄 \\\\ 【00982A】05/26 操作日報｜經理人今天全在賣！南電砍逾9成 \\\\ 元太全彩電子紙的下一步：大型看板放量後，毛利與 ASP 會怎麼走？ \\\\ 00402A能不能放長線？先別問商品，先問你的投資框架 \\\\ 友達2409漲停，是市場先買夢，還是買到轉型的門票？ \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP",
+      "sentiment_label": "偏向悲觀",
+      "sentiment_type": "negative",
+      "impact_score": -3,
+      "reason": "爆量下跌顯示市場擔憂緯創毛利率因低毛利產品比重上升而受壓，獲利品質受質疑，導致賣壓加大。"
+    },
+    {
+      "title": "緯創爆量到11.5萬張，市場其實在怕什麼？-蔡昀庭 - CMoney投資網誌",
+      "url": "https://cmnews.com.tw/article/caiyunting-9e6aeb4d-5729-11f1-be37-3404d551128d",
+      "source": "CMoney投資網誌",
+      "date": "2026-05-24",
+      "content_summary": "記了好幾年投資筆記，賺過也賠過——賠的時候靈感特別多。操作上以技術面為主、基本面為輔，線型看，公司體質也看。內容混合市場觀察、個股紀錄與操作回顧；看好就講原因，看錯就回頭檢討，順便提醒自己下次別再踩同一個坑。 \\\\ 星期六下午我在想一件事，股價有時候跌得兇，真正被重新定價的，往往不是情緒，而是獲利品質。緯創3231這次重挫、成交量一下子放大到11.5萬張，市場看的不只是賣壓，而是毛利率會不會守不住。這件事很像我們常說的，營收看起來長得漂亮，不代表最後真的有賺到錢，這兩件事差很大。 \\\\ 因為成長如果主要來自低毛利產品，表面是放量，骨子裡可能是獲利被稀釋。緯創現在被放大的疑慮，正是GB系列這類低毛利產品比重提高，再加上子公司營運效率有波動，讓市場開始擔心，AI伺服器的成長，會不會變成「忙得很兇，卻不太好賺」。 \\\\ 這也是我一直覺得很有意思的地方。大家都喜歡聽成長故事，可是高營收不等於高報酬，如果毛利率跟不上，估值自然會被重新想一遍。市場不是不愛AI，而是開始問：這種成長，最後能不能真的變成錢？ \\\\ 爆量重挫，常常不是單一原因，而是多空一起在換手。有人停損，有人獲利了結，有人覺得財報不夠漂亮，乾脆先觀望。這種時候，比起一直猜「到底是誰在賣」，我反而覺得更重要的是分辨，這只是短期財報壓力，還是獲利能力真的開始結構性下修。 \\\\ 如果後面AI伺服器出貨還能繼續放大，產品組合也慢慢改善，那市場未必不會再給一次評價。可是如果毛利率長期回不來，那風險定價就會一直偏保守。這很現實，也很商學院，呵呵。 \\\\ 我這幾天還在頂尖商學院上課，教授一直提醒我們，市場最怕的不是變慢，而是變忙卻不賺錢。這句話放在緯創身上，真的很有感。 \\\\ Q：爆量11.5萬張，一定是法人在跑嗎？ 也不一定，短線停損、獲利了結、資金換手，常常會一起出現。 \\\\ Q：毛利率失守，最該盯什麼？ 我會先看產品組合有沒有一直往低毛利那邊傾斜，還有這件事會不會繼續壓到未來獲利。 \\\\ Q：AI伺服器的成長，能不能扛住這些壓力？ 有機會，但前提是成長不能只長營收，還要一起把獲利結構墊高。 \\\\ 說到底，市場不是只看你跑多快，還要看你是不是跑得有利潤。這種時候，時間通常比熱鬧更誠實．．． \\\\ 記了好幾年投資筆記，賺過也賠過——賠的時候靈感特別多。操作上以技術面為主、基本面為輔，線型看，公司體質也看。內容混合市場觀察、個股紀錄與操作回顧；看好就講原因，看錯就回頭檢討，順便提醒自己下次別再踩同一個坑。 \\\\ 合晶(6182)這一跌，該怕還是該看懂？從籌碼轉弱到矽晶圓長線的兩難 \\\\ 富喬（1815）206元目標價，市場到底先算了什麼？ \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP \\\\ 【台股盤後】加權一度強闖 4.4 萬點，高檔爆天量 \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【00991A】05/26 操作日報｜新建倉台灣晶技，資金強攻散熱雙雄 \\\\ 【00982A】05/26 操作日報｜經理人今天全在賣！南電砍逾9成 \\\\ 合晶(6182)這一跌，該怕還是該看懂？從籌碼轉弱到矽晶圓長線的兩難 \\\\ 富喬（1815）206元目標價，市場到底先算了什麼？ \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP",
+      "sentiment_label": "偏向悲觀",
+      "sentiment_type": "negative",
+      "impact_score": -3,
+      "reason": "成交量放大伴隨股價重挫，反映投資者對營收成長無法轉化為利潤的擔心，尤其關注毛利率是否能守住。"
+    },
+    {
+      "title": "緯創爆量11.5萬張，市場其實在怕什麼？-黃詠晴 - CMoney投資網誌",
+      "url": "https://cmnews.com.tw/article/huangyongqing-9527c5a4-5742-11f1-9edb-f6f740161bda",
+      "source": "CMoney投資網誌",
+      "date": "2026-05-24",
+      "content_summary": "從小資族一路存到現在，存錢加長期投資十幾年。聊的東西貼近一般讀者：怎麼分配薪資、怎麼挑能放著不太會睡不著的標的、怎麼面對市場大跌。每一段建議都從自己實際走過的路出發。 \\\\ 緯創3231股價重挫，成交量一下放大到11.5萬張，這時候市場在定價的，往往不是單純的賣盤，而是毛利率失守這件事。營收有成長，真的就代表賺更多嗎？不一定，因為如果成長主要來自低毛利產品，獲利品質反而可能變差。第四季毛利率、營益率低於預期，市場自然會把焦點從「AI伺服器成長多快」轉成「這樣的成長能不能留下利潤？」 \\\\ 我常說，高營收不等於高報酬。毛利率下降，通常是產品組合、成本控制、議價能力，至少有一項出了壓力。緯創3231現在讓市場擔心的，就是GB系列等低毛利產品比重拉高，加上子公司營運效率波動，外界會懷疑，這種成長是不是變成「放量，但不太賺錢」。AI伺服器前景未必轉弱，可是估值會不會被修正，關鍵就在獲利能不能跟上。 \\\\ 爆量下跌，通常代表籌碼在重新分配，可能有短線停損、法人調整，也可能是長線資金先觀望。這時候與其一直問「誰在賣」，不如先問自己：這是短期財報壓力，還是結構性的獲利能力下修？如果後面AI伺服器出貨還能持續放大，產品組合也慢慢改善，市場還有機會重新評價；但如果毛利率一直回不來，風險定價就會維持保守。 \\\\ Q：爆量11.5萬張，就一定是法人在出貨嗎？ 不一定，停損、獲利了結、換手，常常會一起出現？ \\\\ Q：毛利率失守，最該盯什麼？ 盯產品組合有沒有一直偏向低毛利，還有未來獲利能不能守住？ \\\\ Q：AI伺服器成長能不能消化壓力？ 有機會，但前提是成長不能只看營收，還要看獲利結構有沒有一起變好。 \\\\ 從小資族一路存到現在，存錢加長期投資十幾年。聊的東西貼近一般讀者：怎麼分配薪資、怎麼挑能放著不太會睡不著的標的、怎麼面對市場大跌。每一段建議都從自己實際走過的路出發。 \\\\ 合晶(6182)籌碼鬆動怎麼看？大戶賣超下，撿便宜前先想清楚這件事 \\\\ 智原 AI ASIC 會不會一路走下去？我看三個重點就夠了 \\\\ 元太全彩電子紙如果放大到看板市場，ASP 與毛利率會怎麼走？ \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP \\\\ 【台股盤後】加權一度強闖 4.4 萬點，高檔爆天量 \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【00991A】05/26 操作日報｜新建倉台灣晶技，資金強攻散熱雙雄 \\\\ 【00982A】05/26 操作日報｜經理人今天全在賣！南電砍逾9成 \\\\ 合晶(6182)籌碼鬆動怎麼看？大戶賣超下，撿便宜前先想清楚這件事 \\\\ 智原 AI ASIC 會不會一路走下去？我看三個重點就夠了 \\\\ 元太全彩電子紙如果放大到看板市場，ASP 與毛利率會怎麼走？ \\\\ 【00981A】05/26 操作日報｜經理人重押AI伺服器，出清優群 \\\\ 【00403A】05/26 操作日報｜經理人重手新建倉景碩與半導體 \\\\ 【台股盤後】台積領軍續軋 1,376 點，史上第 5 大漲點！ \\\\ 下一波新題材來了？！川普砸20億押注量子運算，台廠概念股誰最受惠？ \\\\ 【每日簽到領獎】開戶就送 30 天籌碼 K 線 VIP",
+      "sentiment_label": "偏向悲觀",
+      "sentiment_type": "negative",
+      "impact_score": -3,
+      "reason": "市場重新定價緯創，焦點從出貨速度轉向獲利能力，因毛利率下滑風險而引發大量賣盤。"
+    }
+  ]
+}

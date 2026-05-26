@@ -24,8 +24,8 @@
     --shadow-pressed-sm: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
     
     /* Font Families */
-    --font-primary: 'Space Mono', monospace;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-primary: 'Space Mono', "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+    --font-mono: 'JetBrains Mono', "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", monospace;
 }
 
 * {

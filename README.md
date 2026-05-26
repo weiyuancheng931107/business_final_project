@@ -44,22 +44,25 @@
 ```
 business_final_project/
 ├── analysis/           # 核心功能模組
+│   ├── ai_analyzer.py  # LLM 新聞情緒分析與報告生成
 │   ├── fetcher.py      # yfinance + FinMind 資料抓取、fallback 與資料正規化
 │   └── plotter.py      # matplotlib 圖表與 placeholder 圖表產生
-├── templates/
-│   └── index.html      # 網頁前端模板
+├── docs/
+│   └── SKILL.md        # 前端設計規範參考 (Neumorphism Design System)
+├── imgs/               # Demo 截圖
 ├── static/
 │   ├── index.css       # 前端樣式 (Neumorphism 風格)
 │   ├── images/         # 動態產生的圖表暫存
 │   └── reports/        # AI 產生的新聞情緒分析報告
-├── docs/
-│   └── SKILL.md        # 前端設計規範參考 (Neumorphism Design System)
-├── imgs/               # Demo 截圖
+├── templates/
+│   └── index.html      # 網頁前端模板
 ├── tests/              # 新聞、股價、基本面 fallback 的回歸測試
+├── .env.example        # API 環境變數範例
+├── .gitignore          # Git 忽略設定
 ├── app.py              # Flask 後端伺服器
 ├── config.py           # API 與模型相關設定
 ├── portfolio.json      # 自選股清單 (持久化)
-└── requirements.txt
+└── requirements.txt    # 專案套件需求
 ```
 
 ## 開發環境設置

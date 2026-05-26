@@ -172,11 +172,11 @@ def api_price_chart(symbol):
     period = request.args.get("period", "1y")
     try:
         history = get_price_history(symbol, period=period)
-        filename = plot_price_history(history, symbol)
+        filename = plot_price_history(history, symbol, period=period)
         return jsonify({"image": f"/static/images/{filename}"})
     except Exception as e:
         print(f"[WARN] price chart endpoint fallback ({symbol}, {period}): {e}")
-        filename = plot_price_history(pd.DataFrame(), symbol)
+        filename = plot_price_history(pd.DataFrame(), symbol, period=period)
         return jsonify({
             "image": f"/static/images/{filename}",
             "warning": "股價資料暫時無法取得，已顯示備援圖表。",
@@ -189,11 +189,11 @@ def api_pe_river(symbol):
     period = request.args.get("period", "3y")
     try:
         pe_df = get_historical_pe(symbol, period=period)
-        filename = plot_pe_river_chart(pe_df, symbol)
+        filename = plot_pe_river_chart(pe_df, symbol, period=period)
         return jsonify({"image": f"/static/images/{filename}"})
     except Exception as e:
         print(f"[WARN] PE river endpoint fallback ({symbol}, {period}): {e}")
-        filename = plot_pe_river_chart(pd.DataFrame(), symbol)
+        filename = plot_pe_river_chart(pd.DataFrame(), symbol, period=period)
         return jsonify({
             "image": f"/static/images/{filename}",
             "warning": "估值資料暫時無法取得，已顯示備援圖表。",

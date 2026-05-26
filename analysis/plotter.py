@@ -4,6 +4,7 @@ plotter.py
 所有圖表預設輸出至 static/images/ 目錄供 Flask 前端讀取。
 """
 import os
+import time
 import matplotlib
 matplotlib.use("Agg")
 
@@ -76,14 +77,20 @@ def _plot_placeholder_chart(filename: str, title: str, message: str) -> str:
     return filename
 
 
-def plot_price_history(history: pd.DataFrame, ticker_symbol: str) -> str:
+def plot_price_history(history: pd.DataFrame, ticker_symbol: str, period: str = "1y") -> str:
     """
     畫出歷史收盤價折線圖並存為 PNG。
 
     Returns:
         儲存的檔案名稱（相對於 static/images/）
     """
-    filename = f"{ticker_symbol.replace('.', '_')}_price.png"
+    filename = f"{ticker_symbol.replace('.', '_')}_{period}_price.png"
+    save_path = _save_path_for(filename)
+    
+    if os.path.exists(save_path):
+        if time.time() - os.path.getmtime(save_path) < 3600:
+            return filename
+
     if history.empty or "Close" not in history.columns:
         return _plot_placeholder_chart(
             filename,
@@ -139,7 +146,7 @@ def plot_price_history(history: pd.DataFrame, ticker_symbol: str) -> str:
     return filename
 
 
-def plot_pe_river_chart(pe_df: pd.DataFrame, ticker_symbol: str, current_pe: float = None) -> str:
+def plot_pe_river_chart(pe_df: pd.DataFrame, ticker_symbol: str, current_pe: float = None, period: str = "3y") -> str:
     """
     繪製本益比河流圖 (P/E Band Chart)。
     以隨 EPS 波動的顏色區塊（河流）標示「偏低、合理、偏高」的歷史本益比區間。
@@ -152,7 +159,13 @@ def plot_pe_river_chart(pe_df: pd.DataFrame, ticker_symbol: str, current_pe: flo
     Returns:
         儲存的檔案名稱
     """
-    filename = f"{ticker_symbol.replace('.', '_')}_pe_river.png"
+    filename = f"{ticker_symbol.replace('.', '_')}_{period}_pe_river.png"
+    save_path = _save_path_for(filename)
+    
+    if os.path.exists(save_path):
+        if time.time() - os.path.getmtime(save_path) < 3600:
+            return filename
+
     if pe_df.empty or "EPS" not in pe_df.columns:
         return _plot_placeholder_chart(
             filename,

@@ -113,7 +113,7 @@ class NewsFetcherTests(unittest.TestCase):
         self.assertEqual(result["news"][0]["title"], "TSMC news")
 
     @patch("analysis.fetcher.urllib.request.urlopen")
-    def test_fetch_article_content_limits_by_language(self, mock_urlopen):
+    def test_fetch_article_content_without_limits(self, mock_urlopen):
         class MockResponse:
             def __init__(self, text):
                 self.text = text
@@ -127,20 +127,22 @@ class NewsFetcherTests(unittest.TestCase):
             def read(self):
                 return self.text.encode("utf-8")
 
-        # 1. 測試中文網頁 (限制 800 字)
-        chinese_p = "這是一段很長很長的中文測試段落，用來測試中文網頁的字數限制是否正確運作。" * 50
-        mock_urlopen.return_value = MockResponse(f"<html><body><article><p>{chinese_p}</p><p>{chinese_p}</p></article></body></html>")
+        # 1. 測試中文網頁 (不限字數，使用 \\ 區隔段落)
+        p1 = "這是一段非常長而且大於二十五個字元的中文測試段落一，用來避免被過濾。"
+        p2 = "這是一段非常長而且大於二十五個字元的中文測試段落二，用來避免被過濾。"
+        mock_urlopen.return_value = MockResponse(f"<html><body><article><p>{p1}</p><p>{p2}</p></article></body></html>")
         
         result_zh = fetcher.fetch_article_content("https://example.com/zh")
-        self.assertEqual(len(result_zh), 800)
+        self.assertEqual(result_zh, f"{p1} \\\\ {p2}")
         self.assertTrue(any('\u4e00' <= char <= '\u9fff' for char in result_zh))
 
-        # 2. 測試英文網頁 (限制 2500 字)
-        english_p = "This is a very long English paragraph used to test if the character limit works correctly for non-CJK text." * 50
-        mock_urlopen.return_value = MockResponse(f"<html><body><article><p>{english_p}</p><p>{english_p}</p></article></body></html>")
+        # 2. 測試英文網頁
+        p_en1 = "This is a very long English paragraph one that is longer than twenty five characters."
+        p_en2 = "This is a very long English paragraph two that is longer than twenty five characters."
+        mock_urlopen.return_value = MockResponse(f"<html><body><article><p>{p_en1}</p><p>{p_en2}</p></article></body></html>")
         
         result_en = fetcher.fetch_article_content("https://example.com/en")
-        self.assertEqual(len(result_en), 2500)
+        self.assertEqual(result_en, f"{p_en1} \\\\ {p_en2}")
         self.assertFalse(any('\u4e00' <= char <= '\u9fff' for char in result_en))
 
 

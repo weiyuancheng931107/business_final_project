@@ -167,6 +167,7 @@
         let currentSymbol = null;
         let currentTab = 'price'; // 'price' or 'river'
         let currentPeriod = '1y'; // '6mo', '1y', '3y', '5y'
+        let chartRequestId = 0; // 用於防範前端競態條件
 
         // 新聞分頁狀態
         let newsNextStartDate = null;
@@ -485,6 +486,8 @@
         async function loadChart() {
             chartImg.classList.remove('loaded');
             chartLoader.classList.add('active');
+            
+            const myRequestId = ++chartRequestId;
 
             const endpoint = currentTab === 'price'
                 ? `/api/stock/${currentSymbol}/price_chart?period=${currentPeriod}`
@@ -493,16 +496,20 @@
             try {
                 const res = await fetch(endpoint);
                 const data = await res.json();
+                
+                if (myRequestId !== chartRequestId) return;
 
                 if (!res.ok) throw new Error(data.error);
 
                 // 加上時間戳防止瀏覽器快取舊圖
                 chartImg.src = `${data.image}?t=${new Date().getTime()}`;
                 chartImg.onload = () => {
+                    if (myRequestId !== chartRequestId) return;
                     chartLoader.classList.remove('active');
                     chartImg.classList.add('loaded');
                 };
             } catch (err) {
+                if (myRequestId !== chartRequestId) return;
                 chartLoader.classList.remove('active');
                 showToast(err.message, 'error');
             }
@@ -602,8 +609,18 @@
         }
 
         // 顯示 AI 情緒分析的 Neumorphic Loading UI 與漸進式進度條
-        function showModalLoading() {
+        function showModalLoading(newsCount) {
             isAnalyzing = true;
+
+            const totalDuration = 24.5553 * newsCount * 1000;
+            const minutes = Math.floor(totalDuration / 60000);
+            const seconds = Math.round((totalDuration % 60000) / 1000);
+            let timeStr = "";
+            if (minutes > 0) {
+                timeStr += `${minutes} 分 `;
+            }
+            timeStr += `${seconds} 秒`;
+
             const modalContent = document.getElementById('analysis-result-content');
             modalContent.innerHTML = `
                 <div class="ai-loading-container">
@@ -611,7 +628,7 @@
                         <i class="fa-solid fa-brain fa-beat" style="--fa-animation-duration: 2s; color: var(--primary-color); font-size: 3.5rem;"></i>
                     </div>
                     <div class="ai-loading-title">AI 正在深度分析新聞情緒</div>
-                    <div class="ai-loading-subtitle">使用大語言模型評估市場情緒與後市看法，這大約需要 2 分鐘</div>
+                    <div class="ai-loading-subtitle">使用大語言模型評估 ${newsCount} 則新聞之情緒與後市看法，預計需時約 ${timeStr}</div>
                     
                     <div class="neumorphic-progress-wrapper">
                         <div class="neumorphic-progress-track">
@@ -624,13 +641,13 @@
                     </div>
                 </div>
             `;
-            
+
             // 顯示 Modal，並隱藏關閉按鈕
             document.getElementById('analysis-modal').classList.add('active');
             const closeBtn = document.getElementById('btn-close-modal');
             if (closeBtn) closeBtn.style.visibility = 'hidden';
 
-            // 進度條模擬邏輯 (預估耗時約 120 秒)
+            // 進度條模擬邏輯
             let progress = 0;
             const bar = document.getElementById('ai-progress-bar');
             const percentText = document.getElementById('ai-progress-percent');
@@ -647,15 +664,14 @@
 
             if (loadingInterval) clearInterval(loadingInterval);
 
-            const totalDuration = 120000; // 120 秒
-            const intervalTime = 1200;
+            const intervalTime = 1000; // 每秒更新一次
             const stepIncrement = (intervalTime / totalDuration) * 100;
 
             loadingInterval = setInterval(() => {
                 if (progress < 98) {
-                    const randomFactor = 0.5 + Math.random();
+                    const randomFactor = 0.6 + Math.random() * 0.8;
                     progress = Math.min(98, progress + stepIncrement * randomFactor);
-                    
+
                     if (bar) bar.style.width = `${progress.toFixed(0)}%`;
                     if (percentText) percentText.textContent = `${progress.toFixed(0)}%`;
 
@@ -670,7 +686,7 @@
             return new Promise((resolve) => {
                 isAnalyzing = false;
                 if (loadingInterval) clearInterval(loadingInterval);
-                
+
                 const bar = document.getElementById('ai-progress-bar');
                 const percentText = document.getElementById('ai-progress-percent');
                 const statusText = document.getElementById('ai-loading-status');
@@ -736,7 +752,7 @@
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>分析中...';
 
             try {
-                showModalLoading();
+                showModalLoading(loadedNewsList.length);
 
                 const res = await fetch(`/api/stock/${currentSymbol}/analyze_news`, {
                     method: 'POST',
