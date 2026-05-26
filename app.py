@@ -8,7 +8,8 @@ import os
 import pandas as pd
 from flask import Flask, jsonify, request, render_template
 
-import google.generativeai as genai
+from openai import OpenAI
+import config
 
 from analysis.fetcher import (
     get_stock_info,
@@ -22,8 +23,11 @@ from analysis.plotter import (
     plot_pe_river_chart,
 )
 
-genai.configure(api_key="請替換")
-ai_model = genai.GenerativeModel('gemini-3.5-flash')
+# 初始化 OpenAI / OpenRouter 客戶端
+client = OpenAI(
+    api_key=config.OPENAI_API_KEY,
+    base_url=config.OPENAI_API_BASE
+)
 
 app = Flask(__name__)
 
@@ -242,9 +246,16 @@ def api_analyze_news(symbol):
             新聞標題：{title}
             """
             try:
-                # 呼叫剛才沙坑測試成功的 AI 模型
-                response = ai_model.generate_content(prompt)
-                ai_result = response.text.strip()
+                # 呼叫 OpenAI / OpenRouter 相容的 API 模型
+                response = client.chat.completions.create(
+                    model=config.LLM_MODEL,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=10,
+                    temperature=0.0
+                )
+                ai_result = response.choices[0].message.content.strip()
                 
                 # 將 AI 的中文回答對應到前端需要的 CSS 顏色樣式 (type)
                 if "正向" in ai_result:

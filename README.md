@@ -74,6 +74,17 @@ business_final_project/
    pip install -r requirements.txt
    ```
 
+4. **設定環境變數 (.env)**
+   專案使用 `.env` 來管理 LLM 模型的 API 設定。請複製範例設定檔，並填入您的 API 金鑰與設定：
+     ```bash
+     cp .env.example .env
+     ```
+   
+   複製後，打開 `.env` 進行編輯：
+   - `OPENAI_API_KEY`: 填入您的 OpenAI API 金鑰或 OpenRouter API 金鑰等。
+   - `OPENAI_API_BASE`: 若使用 OpenRouter，請填寫 `https://openrouter.ai/api/v1`；若為官方 OpenAI，請填寫 `https://api.openai.com/v1`。
+   - `LLM_MODEL`: 您要呼叫的模型名稱。例如 `gpt-4o-mini`，或 OpenRouter 上的免費模型如 `nvidia/nemotron-3-super-120b-a12b:free`。
+
 ## 執行程式
 
 啟動 Flask 網頁伺服器：
