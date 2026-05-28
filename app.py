@@ -30,42 +30,8 @@ from utils.twse_fetcher import fetch_stock_list
 
 app = Flask(__name__)
 
-PORTFOLIO_FILE = os.path.join(os.path.dirname(__file__), "portfolio.json")
 REPORTS_DIR = os.path.join(os.path.dirname(__file__), "static", "reports")
 os.makedirs(REPORTS_DIR, exist_ok=True)
-
-
-# ────────────────────────────────────────────
-# 持久化工具函式
-# ────────────────────────────────────────────
-def _load_portfolio() -> list[dict]:
-    """從 JSON 檔案讀取自選股清單。若為舊版字串陣列，則自動升級中文化。"""
-    if not os.path.exists(PORTFOLIO_FILE):
-        return []
-    try:
-        with open(PORTFOLIO_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        stocks = data.get("stocks", [])
-
-        # 舊版格式相容移轉 (Migration: list[str] -> list[dict])
-        if isinstance(stocks, list) and len(stocks) > 0 and isinstance(stocks[0], str):
-            migrated_stocks = []
-            for s in stocks:
-                name = get_tw_stock_name(s)
-                migrated_stocks.append({"symbol": s, "name": name})
-            _save_portfolio(migrated_stocks)
-            return migrated_stocks
-
-        return stocks
-    except Exception as e:
-        print(f"⚠️ 載入 portfolio 發生錯誤: {e}")
-        return []
-
-
-def _save_portfolio(stocks: list[dict]):
-    """將自選股清單寫入 JSON 檔案。"""
-    with open(PORTFOLIO_FILE, "w", encoding="utf-8") as f:
-        json.dump({"stocks": stocks}, f, ensure_ascii=False, indent=2)
 
 
 # ────────────────────────────────────────────
@@ -81,70 +47,6 @@ def api_get_stock_list():
     """取得台股代號與名稱清單（用於前端搜尋）。"""
     stocks = fetch_stock_list()
     return jsonify(stocks)
-
-
-# ────────────────────────────────────────────
-# API: 自選股管理
-# ────────────────────────────────────────────
-@app.route("/api/portfolio", methods=["GET"])
-def api_get_portfolio():
-    """取得目前的自選股清單。"""
-    stocks = _load_portfolio()
-    return jsonify({"stocks": stocks})
-
-
-@app.route("/api/portfolio", methods=["POST"])
-def api_add_stock():
-    """新增一檔股票到清單，並自動進行中文名稱解析。"""
-    data = request.get_json()
-    symbol = data.get("symbol", "").strip().upper()
-
-    if not symbol:
-        return jsonify({"error": "請提供股票代號"}), 400
-
-    # 自動補上 .TW 後綴（如果使用者只輸入數字）
-    if symbol.isdigit():
-        symbol = symbol + ".TW"
-
-    stocks = _load_portfolio()
-    if any(s["symbol"] == symbol for s in stocks):
-        return jsonify({"error": f"{symbol} 已在清單中"}), 409
-
-    try:
-        # 自動抓取中文簡稱
-        name = get_tw_stock_name(symbol)
-        
-        # 測試是否能正常查詢
-        info = get_stock_info(symbol)
-        if not info.get("current_price"):
-            return jsonify({"error": f"找不到 {symbol} 的股價資料，請檢查代號是否正確"}), 404
-
-        new_stock = {"symbol": symbol, "name": name}
-        stocks.append(new_stock)
-        _save_portfolio(stocks)
-        return jsonify({"stocks": stocks, "added": symbol, "name": name})
-    except Exception as e:
-        return jsonify({"error": f"新增失敗: {str(e)}"}), 500
-
-
-@app.route("/api/portfolio/<symbol>", methods=["DELETE"])
-def api_remove_stock(symbol):
-    """從清單移除一檔股票。"""
-    symbol = symbol.upper()
-    stocks = _load_portfolio()
-    
-    target = None
-    for s in stocks:
-        if s["symbol"] == symbol:
-            target = s
-            break
-
-    if not target:
-        return jsonify({"error": f"{symbol} 不在清單中"}), 404
-
-    stocks.remove(target)
-    _save_portfolio(stocks)
-    return jsonify({"stocks": stocks, "removed": symbol})
 
 
 # ────────────────────────────────────────────

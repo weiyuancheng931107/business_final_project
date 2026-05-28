@@ -5,7 +5,7 @@
 
 ## 主要功能
 
-- 自選股管理：新增、移除並持久化台股清單。
+- 自選股管理：新增、移除並儲存於瀏覽器 (localStorage)，無需登入即可使用。
 - 基本面資訊：顯示目前股價、本益比 P/E、每股盈餘 EPS、ROE。
 - 圖表分析：產生歷史股價走勢圖與本益比河流圖。
 - 相關新聞與 AI 情緒分析：整合 yfinance 與 FinMind 新聞，自動抓取內文，並串接 LLM (OpenRouter/OpenAI) 進行量化情緒評分與生成個股分析報告。
@@ -61,7 +61,6 @@ business_final_project/
 ├── .gitignore          # Git 忽略設定
 ├── app.py              # Flask 後端伺服器
 ├── config.py           # API 與模型相關設定
-├── portfolio.json      # 自選股清單 (持久化)
 └── requirements.txt    # 專案套件需求
 ```
 

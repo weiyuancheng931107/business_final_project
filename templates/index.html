@@ -361,15 +361,43 @@
             }, 3000);
         }
 
+        // 預設自選股清單 (首次載入使用)
+        const DEFAULT_PORTFOLIO = [
+            { symbol: '2330.TW', name: '台積電' },
+            { symbol: '2317.TW', name: '鴻海' },
+            { symbol: '2454.TW', name: '聯發科' },
+            { symbol: '2308.TW', name: '台達電' },
+            { symbol: '2382.TW', name: '廣達' },
+            { symbol: '2881.TW', name: '富邦金' },
+            { symbol: '2353.TW', name: '宏碁' }
+        ];
+
         // 載入自選股清單
-        async function loadPortfolio() {
+        function getLocalPortfolio() {
+            const data = localStorage.getItem('user_portfolio');
+            let stocks = [];
             try {
-                const res = await fetch('/api/portfolio');
-                const data = await res.json();
-                renderPortfolio(data.stocks);
-            } catch (err) {
-                showToast('無法載入自選股清單', 'error');
+                stocks = data ? JSON.parse(data) : [];
+            } catch (e) {
+                console.error('解析 localStorage 失敗，回歸預設值:', e);
+                stocks = [];
             }
+
+            // 若清單為空，則載入預設值並儲存
+            if (stocks.length === 0) {
+                stocks = [...DEFAULT_PORTFOLIO];
+                saveLocalPortfolio(stocks);
+            }
+            return stocks;
+        }
+
+        function saveLocalPortfolio(stocks) {
+            localStorage.setItem('user_portfolio', JSON.stringify(stocks));
+        }
+
+        async function loadPortfolio() {
+            const stocks = getLocalPortfolio();
+            renderPortfolio(stocks);
         }
 
         // 渲染自選股清單
@@ -413,44 +441,52 @@
         // 新增股票
         addStockForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const symbol = stockInput.value.trim();
-            if (!symbol) return;
+            const inputVal = stockInput.value.trim().toUpperCase();
+            if (!inputVal) return;
 
-            try {
-                const res = await fetch('/api/portfolio', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ symbol })
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error || '新增失敗');
+            // 1. 驗證代號：優先從 allStocks 中比對
+            // 使用者可能輸入 2330 或 2330.TW
+            const cleanSymbol = inputVal.split('.')[0];
+            const matched = allStocks.find(s => s.symbol === cleanSymbol);
 
-                stockInput.value = '';
-                showToast(`已新增 ${data.name} (${data.added})`);
-                await loadPortfolio();
-                loadStockAnalysis(data.added);
-            } catch (err) {
-                showToast(err.message, 'error');
+            if (!matched) {
+                showToast(`找不到股票 ${inputVal}，請檢查代號是否正確`, 'error');
+                return;
             }
+
+            const symbolWithSuffix = matched.symbol + '.TW';
+            const stocks = getLocalPortfolio();
+
+            if (stocks.some(s => s.symbol === symbolWithSuffix)) {
+                showToast(`${symbolWithSuffix} 已在清單中`, 'error');
+                return;
+            }
+
+            // 2. 存入 localStorage
+            const newStock = { symbol: symbolWithSuffix, name: matched.name };
+            stocks.push(newStock);
+            saveLocalPortfolio(stocks);
+
+            // 3. 更新介面
+            stockInput.value = '';
+            showToast(`已新增 ${newStock.name} (${newStock.symbol})`);
+            renderPortfolio(stocks);
+            loadStockAnalysis(newStock.symbol);
         });
 
         // 刪除股票
-        async function removeStock(symbol) {
-            try {
-                const res = await fetch(`/api/portfolio/${symbol}`, { method: 'DELETE' });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error);
+        function removeStock(symbol) {
+            let stocks = getLocalPortfolio();
+            const filtered = stocks.filter(s => s.symbol !== symbol);
+            
+            saveLocalPortfolio(filtered);
+            showToast(`已成功移除股票`);
+            renderPortfolio(filtered);
 
-                showToast(`已成功移除股票`);
-                await loadPortfolio();
-
-                if (currentSymbol === symbol) {
-                    currentSymbol = null;
-                    emptyState.style.display = 'flex';
-                    dashboardContent.style.display = 'none';
-                }
-            } catch (err) {
-                showToast(err.message, 'error');
+            if (currentSymbol === symbol) {
+                currentSymbol = null;
+                emptyState.style.display = 'flex';
+                dashboardContent.style.display = 'none';
             }
         }
 
