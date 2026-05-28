@@ -13,6 +13,65 @@
     <link rel="stylesheet" href="/static/index.css">
     <!-- 引入 FontAwesome 圖示 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 搜尋下拉選單 Neumorphism 風格 */
+        .search-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: var(--surface-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-raised);
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            padding: 8px;
+        }
+
+        .search-dropdown.active {
+            display: block;
+            animation: fadeInDown 0.2s ease-out;
+        }
+
+        .search-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-item:hover, .search-item.highlight {
+            background: var(--surface-color);
+            box-shadow: var(--shadow-pressed-sm);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .search-item .symbol-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        /* 修正表單容器以利下拉選單定位 */
+        .search-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+        }
+        
+        .add-stock-form {
+            position: relative;
+            overflow: visible !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +85,10 @@
             </div>
 
             <form id="add-stock-form" class="add-stock-form">
-                <input type="text" id="stock-input" placeholder="輸入代號 (例: 2330)" autocomplete="off" aria-label="輸入台股代號">
+                <div class="search-container">
+                    <input type="text" id="stock-input" placeholder="輸入代號或名稱" autocomplete="off" aria-label="輸入台股代號">
+                    <div id="search-dropdown" class="search-dropdown"></div>
+                </div>
                 <button type="submit" title="新增自選股" aria-label="新增自選股">
                     <i class="fa-solid fa-plus"></i>
                 </button>
@@ -154,6 +216,7 @@
         const portfolioListEl = document.getElementById('portfolio-list');
         const addStockForm = document.getElementById('add-stock-form');
         const stockInput = document.getElementById('stock-input');
+        const searchDropdown = document.getElementById('search-dropdown');
 
         const emptyState = document.getElementById('empty-state');
         const dashboardContent = document.getElementById('dashboard-content');
@@ -179,10 +242,108 @@
         let isAnalyzing = false;
         let loadingInterval = null;
 
+        // 全域股票清單 (台股代號與名稱)
+        let allStocks = [];
+        let highlightedIndex = -1;
+
         // 系統初始化
         async function init() {
             await loadPortfolio();
+            await fetchStockList();
         }
+
+        // 獲取台股代號與名稱清單
+        async function fetchStockList() {
+            try {
+                const res = await fetch('/api/get_stock_list');
+                allStocks = await res.json();
+                console.log(`已載入 ${allStocks.length} 檔股票清單`);
+            } catch (err) {
+                console.error('無法獲取股票清單:', err);
+            }
+        }
+
+        // 監聽輸入框變動 (動態搜尋)
+        stockInput.addEventListener('input', () => {
+            const query = stockInput.value.trim().toLowerCase();
+            if (!query) {
+                hideSearchDropdown();
+                return;
+            }
+
+            // 過濾符合代號或名稱的股票 (限制顯示 10 筆)
+            const matches = allStocks.filter(s => 
+                s.symbol.includes(query) || s.name.toLowerCase().includes(query)
+            ).slice(0, 10);
+
+            if (matches.length > 0) {
+                renderSearchResults(matches);
+            } else {
+                hideSearchDropdown();
+            }
+        });
+
+        // 監聽鍵盤事件 (上下切換與 Enter)
+        stockInput.addEventListener('keydown', (e) => {
+            const items = searchDropdown.querySelectorAll('.search-item');
+            if (!searchDropdown.classList.contains('active')) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                highlightedIndex = (highlightedIndex + 1) % items.length;
+                updateHighlight(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                highlightedIndex = (highlightedIndex - 1 + items.length) % items.length;
+                updateHighlight(items);
+            } else if (e.key === 'Enter' && highlightedIndex > -1) {
+                e.preventDefault();
+                items[highlightedIndex].click();
+            } else if (e.key === 'Escape') {
+                hideSearchDropdown();
+            }
+        });
+
+        function updateHighlight(items) {
+            items.forEach((item, idx) => {
+                item.classList.toggle('highlight', idx === highlightedIndex);
+                if (idx === highlightedIndex) item.scrollIntoView({ block: 'nearest' });
+            });
+        }
+
+        function renderSearchResults(matches) {
+            searchDropdown.innerHTML = '';
+            highlightedIndex = -1;
+            
+            matches.forEach(stock => {
+                const div = document.createElement('div');
+                div.className = 'search-item';
+                div.innerHTML = `
+                    <span>${stock.name}</span>
+                    <span class="symbol-tag">${stock.symbol}</span>
+                `;
+                div.onclick = () => {
+                    stockInput.value = stock.symbol;
+                    hideSearchDropdown();
+                    addStockForm.dispatchEvent(new Event('submit'));
+                };
+                searchDropdown.appendChild(div);
+            });
+            
+            searchDropdown.classList.add('active');
+        }
+
+        function hideSearchDropdown() {
+            searchDropdown.classList.remove('active');
+            highlightedIndex = -1;
+        }
+
+        // 點擊外部隱藏下拉選單
+        document.addEventListener('click', (e) => {
+            if (!addStockForm.contains(e.target)) {
+                hideSearchDropdown();
+            }
+        });
 
         // 顯示通知
         function showToast(message, type = 'success') {
@@ -612,7 +773,8 @@
         function showModalLoading(newsCount) {
             isAnalyzing = true;
 
-            const totalDuration = 24.5553 * newsCount * 1000;
+            // 將 24.5553 改成符合 Groq 速度的 1.8 秒（可依體感自行調整）
+            const totalDuration = 1.8 * newsCount * 1000;
             const minutes = Math.floor(totalDuration / 60000);
             const seconds = Math.round((totalDuration % 60000) / 1000);
             let timeStr = "";

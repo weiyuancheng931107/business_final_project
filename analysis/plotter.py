@@ -8,6 +8,7 @@ import time
 import matplotlib
 matplotlib.use("Agg")
 
+import glob 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.font_manager as fm
@@ -23,8 +24,11 @@ if system == "Windows":
 elif system == "Darwin":
     plt.rcParams["font.sans-serif"] = ["PingFang TC", "Apple LiGothic", "sans-serif"]
 else:
-    _font_path = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
-    if os.path.exists(_font_path):
+    # 讓 Python 自動去 /usr/share/fonts 底下搜尋 NotoSansCJK 的 Regular 字體
+    font_files = glob.glob("/usr/share/fonts/**/NotoSansCJK*-Regular.*", recursive=True)
+    
+    if font_files:
+        _font_path = font_files[0]  # 直接拿找到的第一個確切路徑
         fm.fontManager.addfont(_font_path)
         plt.rcParams["font.family"] = fm.FontProperties(fname=_font_path).get_name()
     else:

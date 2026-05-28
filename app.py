@@ -26,6 +26,7 @@ from analysis.plotter import (
     plot_price_history,
     plot_pe_river_chart,
 )
+from utils.twse_fetcher import fetch_stock_list
 
 app = Flask(__name__)
 
@@ -73,6 +74,13 @@ def _save_portfolio(stocks: list[dict]):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/api/get_stock_list")
+def api_get_stock_list():
+    """取得台股代號與名稱清單（用於前端搜尋）。"""
+    stocks = fetch_stock_list()
+    return jsonify(stocks)
 
 
 # ────────────────────────────────────────────
@@ -267,4 +275,4 @@ def api_analyze_news(symbol):
 # 啟動伺服器
 # ────────────────────────────────────────────
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=2330, debug=True)
+    app.run(host="0.0.0.0", port=2330, debug=True)

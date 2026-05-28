@@ -1,83 +1,86 @@
 {
-  "analysis_timestamp": "2026-05-26 17:48:55",
-  "analysis_duration_seconds": 127.36,
+  "analysis_timestamp": "2026-05-28 06:28:17",
+  "analysis_duration_seconds": 1.97,
   "overall": {
     "sentiment_label": "偏向樂觀",
     "sentiment_type": "positive",
-    "score": 2.2,
-    "summary": "近期多則利好消息推動鴻海股價，Nvidia AI 需求提升、蘋果發表會受惠及外資回流，整體看法偏正向。",
+    "score": 3.2,
+    "summary": "2317.TW 的股價表現相當亮眼，受益於台積電、聯發科和台達電的強勁表現。這些公司的股價都已經超越了市場預期，尤其是在晶片和半導體領域。投資人應該關注這些公司的長期發展潛力和供應鏈布局。",
     "keywords": [
-      "Nvidia AI",
-      "蘋果供應鏈",
-      "外資回流"
+      "台積電",
+      "聯發科",
+      "台達電",
+      "晶片",
+      "半導體",
+      "供應鏈"
     ]
   },
   "details": [
     {
-      "title": "Nvidia AI Outlook Lifts Asian Chip Suppliers",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ai-outlook-lifts-asian-103012226.html",
-      "source": "GuruFocus.com",
-      "date": "2026-05-22",
-      "content_summary": "This article first appeared on GuruFocus. Nvidia's (NVDA, Financials) upbeat outlook for artificial intelligence demand continued to lift parts of the Asian semiconductor supply chain. Warning! GuruFocus has detected 5 Warning Signs with NVDA. Is NVDA fairly valued? Test your thesis with our free DCF calculator. Shares of several suppliers moved higher after Nvidia reported stronger-than-expected quarterly results and signaled that demand for AI chips remains resilient. Positive comments from Advanced Micro Devices CEO Lisa Su on AI demand also helped support sentiment. The rally included companies tied to chip manufacturing, electronic components and specialty materials. Taiwan Semiconductor Manufacturing Co., a major supplier to Nvidia and AMD, edged higher after a stronger move in the previous session. Foxconn also gained. Japanese suppliers saw broader strength, with Murata Manufacturing, Sumco, Shin-Etsu Chemical and Ibiden rising as investors bet that AI infrastructure spending will keep supporting chip demand. The gains show how Nvidia's results affect more than one company. When demand for AI chips rises, the benefit can spread to foundries, packaging firms, materials suppliers and electronics manufacturers. Still, the move was not uniform. Samsung Electronics and SK Hynix slipped after strong gains a day earlier, as investors took profits and watched labor talks in South Korea. For investors, the next test is whether AI-related orders remain strong through the second half of the year.",
-      "sentiment_label": "明顯利多",
-      "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "Nvidia AI 需求看好帶動亞洲供應鏈，鴻海作為代工大廠受惠股價上揚。"
-    },
-    {
-      "title": "NVIDIA Corporation (NVDA) Gains Momentum on H200 China Clearance",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-corporation-nvda-gains-momentum-084128316.html",
-      "source": "Insider Monkey",
-      "date": "2026-05-21",
-      "content_summary": "NVIDIA Corporation (NASDAQ:NVDA) is one of the top tech stocks in billionaire Ken Fisher’s portfolio. On May 14, Reuters reported that the US has cleared 10 Chinese companies to purchase NVIDIA Corporation (NASDAQ:NVDA)’s second-most-powerful AI chip, the H200. However, the report indicates that no deliveries have been made so far, leaving the deal in limbo. According to people familiar with the matter, Alibaba, Tencent, and JD.com are among the companies approved to purchase the H200 chips. A handful of distributors, including Lenovo and Foxconn, have also been approved. The report also indicates that buyers can purchase directly from the chip giant or through intermediaries. Each customer can also purchase up to 75,000 chips under the US Licensing terms. Amid the approval, deals for potential purchases have stalled as Chinese firms have pulled back following guidance from Beijing authorities. Pressure is mounting to block or tightly vet the orders as authorities look to foster their own domestic industry. NVIDIA Corporation (NASDAQ:NVDA) is a leading technology company that specializes in designing and manufacturing Graphics Processing Units (GPUs), alongside developing software for artificial intelligence (AI), high-performance computing, and visualization. It is considered the backbone of the AI industry, providing the essential “mining equipment” (chips and software) needed to power the ongoing AI boom. While we acknowledge the potential of ONTO as an investment, we believe certain AI stocks offer greater upside potential and carry less downside risk. If you're looking for an extremely undervalued AI stock that also stands to benefit significantly from Trump-era tariffs and the onshoring trend, see our free report on the best short-term AI stock. READ NEXT: Billionaire Steve Cohen’s 10 Large-Cap Stock Picks with Highest Upside Potential and 12 Best Uranium Stocks to Buy According to Wall Street Analysts. Disclosure: None. Follow Insider Monkey on Google News.",
-      "sentiment_label": "偏向利多",
-      "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "美國批准中國公司採購 H200 AI 晶片，鴻海獲准作為分銷商，但實際交付尚未發生，利多有限。"
-    },
-    {
-      "title": "Nvidia’s Huang Ignites Asia Tech Rally With AI, Robots Vision",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-huang-ignites-asia-tech-075037762.html",
-      "source": "Bloomberg",
-      "date": "2026-05-21",
-      "content_summary": "(Bloomberg) -- The latest report from Nvidia Corp. may have left its investors wanting more but it gave a jolt to the shares of a broad swath of Asian tech companies. Spot the Difference: Putin Gets Trump Treatment From Xi in China Modi’s Toffee Gift to Meloni Ignites Rally in Wrong Indian Stock Iran Threatens to Retaliate Beyond Middle East If US Attacks Nvidia Tells Skeptical Investors AI Is Ready to Go Mainstream Goldman CEO Slides Into Musk’s DMs During Bid to Lead SpaceX IPO A Bloomberg gauge of Asian chipmakers jumped as much as 5.5% after Chief Executive Officer Jensen Huang reinforced the outlook for artificial intelligence, pointing to additional sources of demand and new applications. He also touted prospects for so-called physical AI as humanoids and automated vehicles become more widespread. The comments coincided with a last-minute deal reached by Samsung Electronics Co. and its union to avert a strike, preparations for a stock market listing by OpenAI and news that Anthropic PBC is on pace for its first profitable quarter after experiencing a surge in revenue. “Jensen and Nvidia delivered another masterclass quarter with beats across the board and guidance coming in well above Street expectations,” Wedbush Securities Inc. analyst Dan Ives wrote in a note. The strong forecast brought “greater clarity on the company’s pipeline and backlog over the coming years.” Samsung’s shares jumped 8.5% Thursday in Seoul while those of fellow memory chipmaker and Nvidia supplier SK Hynix Inc. climbed 11%. OpenAI investors SoftBank Group Corp. surged 20% in Tokyo. Shares of Nvidia suppliers Taiwan Semiconductor Manufacturing Co. and Hon Hai Precision Industry Co. gained around 2% and 3% each. Nvidia’s own shares were muted in late New York trading.",
-      "sentiment_label": "明顯利多",
-      "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "Nvidia CEO 強調 AI 與實體 AI 前景，帶動亞洲科技股，鴻海股價上漲約 3%。"
-    },
-    {
-      "title": "【即時新聞】鴻海成為蘋果發表會核心受惠者 蘋概股表現值得關注 - CMoney投資網誌",
-      "url": "https://cmnews.com.tw/article/newsyoudeservetoknow-4c4fc0fa-57e8-11f1-8000-5c9bde7ac279",
-      "source": "CMoney投資網誌",
-      "date": "2026-05-25",
-      "content_summary": "【即時新聞】鴻海成為蘋果發表會核心受惠者 蘋概股表現值得關注 我們重視「知」的權利\n不惜抽絲剝繭、深入調查\n只為讓投資人不錯過重要的投資訊息 第一金投顧指出，蘋果發表會中，鴻海為首的蘋概股將是核心受惠族群。台股上周五受美股反彈激勵，終場收漲989點，成交量突破兆元。市場資金正聚焦AI與蘋果相關題材。 分析師表示，蘋果新產品發表會將直接影響鴻海在消費性電子代工的營運動能。鴻海身為全球電子代工服務龍頭，其在蘋果供應鏈的地位使市場將其列為首要觀察標的。 近五日外資與自營商買超合計逾十萬張，三大法人買超金額累計超過二十億。股價自219.5元反彈至250元附近，顯示短期資金回流跡象。 COMPUTEX展與蘋果發表會將是近期重要觀察點。投資人可留意月營收年增率變化及法人持股比例調整。 鴻海2026年4月合併營收為8320.98億元，年增29.74%，連續四個月創高。全年本益比14.4倍，現金股利殖利率2.9%。主要業務涵蓋電腦系統設備、連接器及精密模具，產業地位為全球電子代工服務龍頭。 5月22日外資買超20815張，自營商買超301張，三大法人合計買超21031張。外資近五日累計買超逾10萬張，官股持股比率維持2.74%至2.96%區間，顯示法人買盤回溫。 截至4月30日，股價收219.5元，近60日區間低點187.5元、高點253.5元。MA5位於股價上方，量能較20日均量放大。短線注意乖離過大可能出現回檔。 投資人可持續追蹤月營收年增率及法人買賣超變化。蘋果供應鏈訂單動態與大盤量能將是影響股價的主要變數。",
+      "title": "DTE Energy Ties Data Center Growth To Renewables And Microgrid Plans",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/dte-energy-ties-data-center-161247703.html",
+      "source": "Simply Wall St.",
+      "date": "2026-05-24",
+      "content_summary": "Find your next quality investment with Simply Wall St's easy and powerful screener, trusted by over 7 million individual investors worldwide. \\\\ DTE Energy (NYSE:DTE) has signed a 1.4 GW power agreement to supply Oracle data centers, reinforcing its role in large scale digital infrastructure. \\\\ The company has received approvals tied to a 1 GW Google project, supporting additional clean power needs in Michigan. \\\\ DTE Energy has issued a request for proposals for 1 GW of new renewable capacity as part of its long term clean energy plan. \\\\ A new partnership with Delta Electronics focuses on a microgrid project that aims to improve reliability, ease grid pressure, and support net zero operations. \\\\ For investors watching regulated utilities, DTE Energy (NYSE:DTE) is stepping deeper into data center power demand and clean energy build out. The Oracle and Google related projects connect DTE directly to electricity needs from digital infrastructure, while the 1 GW renewable RFP links that demand to additional clean generation capacity in Michigan. \\\\ The Delta Electronics microgrid partnership gives DTE a real world test bed for advanced grid solutions that can support reliability and net zero objectives. For you as an investor, these moves may be useful to track as indicators of how DTE aligns its capital plans with long term electrification, corporate decarbonization goals, and potential new revenue sources tied to large power users. \\\\ Stay updated on the most important news stories for DTE Energy by adding it to your watchlist or portfolio. Alternatively, explore our Community to discover new perspectives on DTE Energy. \\\\ We've flagged 3 risks for DTE Energy. See which could impact your investment. \\\\ ⚖️ Price vs Analyst Target: At US$145.30, DTE trades about 8.5% below the US$158.89 consensus target, which sits within a fairly tight range of US$146 to US$168. \\\\ ⚖️ Simply Wall St Valuation: Shares are described as trading close to estimated fair value, with the stock around 3.2% below that assessment. \\\\ ❌ Recent Momentum: The stock has slipped about 1.1% over the last 30 days. \\\\ There is only one way to know the right time to buy, sell or hold DTE Energy. Head to Simply Wall St's company report for the latest analysis of DTE Energy's Fair Value. \\\\ 📊 The data center agreement, renewable tenders and microgrid project tie DTE more closely to large power users and clean energy spending, which you may want to factor into your long term thesis. \\\\ 📊 Watch how much capital DTE allocates to these projects, the impact on earnings relative to its 23.9x P/E and any updates to analyst targets around US$158.89. \\\\ ⚠️ Interest coverage is flagged as a major risk, so new investment linked to these projects makes DTE's debt servicing capacity an important metric to follow. \\\\ For the full picture including more risks and rewards, check out the complete DTE Energy analysis. Alternatively, you can visit the community page for DTE Energy to see how other investors believe this latest news will impact the company's narrative. \\\\ This article by Simply Wall St is general in nature. We provide commentary based on historical data and analyst forecasts only using an unbiased methodology and our articles are not intended to be financial advice. It does not constitute a recommendation to buy or sell any stock, and does not take account of your objectives, or your financial situation. We aim to bring you long-term focused analysis driven by fundamental data. Note that our analysis may not factor in the latest price-sensitive company announcements or qualitative material. Simply Wall St has no position in any stocks mentioned. \\\\ Companies discussed in this article include DTE. \\\\ Have feedback on this article? Concerned about the content? Get in touch with us directly. Alternatively, email editorial-team@simplywallst.com",
       "sentiment_label": "極度利多",
       "sentiment_type": "positive",
-      "impact_score": 4,
-      "reason": "鴻海被視為蘋果發表會核心受惠者，外資大幅買超，顯示資金回流與蘋果相關題材利好。"
+      "impact_score": 5,
+      "reason": "DTE Energy 的股價表現相當亮眼，受益於公司在大型數據中心和清潔能源領域的投資。"
     },
     {
-      "title": "2317 鴻海 - 🔥 OpenAI告贏馬斯克，但IPO估值還沒安全上岸🔥-股市爆料同學會 - CMoney",
-      "url": "https://www.cmoney.tw/forum/article/179264317",
-      "source": "CMoney",
-      "date": "2026-05-25",
-      "content_summary": "AI 狂潮點燃台灣股市：TSMC 帶頭衝，第五大股市的隱憂與機會 05/26 台股盤前：輝達Q2指引衝上910億美元卻收黑！超微豪砸百億投資，今日台股開盤跟誰走？ 【即時新聞】不僅是輝達(NVDA)？這3檔AI概念股迎爆發，客製化晶片狂飆卡位下一波熱潮！",
+      "title": "UBS nearly doubles Ceres Power target to 970p as data centre demand drives royalty surge",
+      "url": "https://www.proactiveinvestors.com/companies/news/1092755/ubs-nearly-doubles-ceres-power-target-to-970p-as-data-centre-demand-drives-royalty-surge-1092755.html",
+      "source": "Proactive",
+      "date": "2026-05-22",
+      "content_summary": "",
+      "sentiment_label": "極度利多",
+      "sentiment_type": "positive",
+      "impact_score": 5,
+      "reason": "UBS 對 Ceres Power 的股價表現非常樂觀，預測股價將達到 970p。"
+    },
+    {
+      "title": "Taiwan's Delta Electronics warns costs rising as AI data centre demand surges",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/taiwans-delta-electronics-warns-costs-102216489.html",
+      "source": "Reuters",
+      "date": "2026-04-30",
+      "content_summary": "TAIPEI, April 30 (Reuters) - Delta Electronics, a major provider of power supply and ‌cooling solutions for AI datacentres, warned that it ‌expects costs to rise in the coming quarters, with oil prices ​rising and ongoing material shortages. \\\\ • It added that there were also signs of inflation driven by AI demand. \\\\ • The company said its capacity remained tight and ‌it was expanding in ⁠China, Thailand, the United States and Taiwan. \\\\ • It said in February its capital expenditure ⁠totalled T$46.1 billion ($1.46 billion) in 2025 and it reiterated on Thursday it would be higher this year. \\\\ • ​Delta Electronics' ​customers include Nvidia and ​major cloud service providers ‌such as Google and Meta Platforms. \\\\ • Delta Electronics is the second most valuable company on the Taiwan stock exchange, with a market capitalisation of $178.46 billion, after Taiwan Semiconductor Manufacturing Co Ltd. \\\\ • It reported first-quarter revenue ‌of T$159.35 billion ($5.02 billion), up ​34% from a year earlier, ​driven by AI data ​centre build-out. Its gross profit was up 56% ‌year-over-year at T$59 billion ($1.86 billion). \\\\ • ​Delta Electronics shares ​have risen 124.82% so far this year, far outperforming a 34.4% rise in the broader market. ​The company's ‌shares closed flat on Thursday ahead of its ​earnings release. \\\\ ($1 = 31.7170 Taiwan dollars) \\\\ (Reporting by Wen-Yee ​Lee. Editing by Mark Potter)",
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "文章主要討論 AI 概股與台股整體走勢，對鴻海直接影響不明。"
+      "reason": "Delta Electronics 的股價表現相當亮眼，但公司的成本和物價上升問題仍然存在。"
     },
     {
-      "title": "鴻海(2317)- - 券商分點進出買賣統計-股市爆料同學會 - CMoney",
-      "url": "https://www.cmoney.tw/forum/stock/2317?s=broker&agent=8900",
-      "source": "CMoney",
-      "date": "2026-05-25",
-      "content_summary": "2317\n               \n                鴻海",
+      "title": "台達電、聯發科齊挫1%！台積電強漲60元撐盤 台股早盤漲571點站上44800大關 - Yahoo股市",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%81%94%E9%9B%BB-%E8%81%AF%E7%99%BC%E7%A7%91%E9%BD%8A%E6%8C%AB1-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%BC%B7%E6%BC%B260%E5%85%83%E6%92%90%E7%9B%A4-%E5%8F%B0%E8%82%A1%E6%97%A9%E7%9B%A4%E6%BC%B2571%E9%BB%9E%E7%AB%99%E4%B8%8A44800%E5%A4%A7%E9%97%9C-011100690.html",
+      "source": "Yahoo股市",
+      "date": "2026-05-28",
+      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 受美伊停火協議樂觀情緒提振、油價回落，美股四大指數周三漲多跌少，僅費半收黑挫跌1.36%，而道瓊勁揚182.60點、漲幅0.36%表現最優；AI晶片龍頭輝達（NVDA-US）下滑1.05%、台積電ADR則強漲2.52%，儘管台股今（28）日開低下跌16點至44240.80點，但隨著台積電強漲60元至2360元，日月光投控漲4%、鴻海漲1%，加權指數一度來到44828.43點，大漲571.63點。 \\\\ 五大電子權值股中，權王台積電（2330）開高漲50元至2350元，一度漲60元至2360元，漲幅2.61%；台達電（2308）開低跌35元至2485元，一度跌45元至2475元，跌幅1.79%；聯發科（2454）開低跌20元至4620元，一度跌90元至4550元，跌幅1.94%；鴻海（2317）開高漲1元至265元，一度漲4.5元至268.5元，漲幅1.70%；日月光投控（3711）則以626元開出，下跌16元，隨後翻紅漲26元至668元，漲幅4.05%。 \\\\ 更多FTNN新聞網報導黃爸爸助攻一度衝破4萬4！台積電卻翻黑下殺 聯發科、廣達逆勢撐盤聯發科跳空漲停！台達電噴8%、日月光漲6% 台股開高漲1170點再刷史高43438點聯發科噴漲215元、台達電漲3%！台積電開高15元 台股早盤漲559點守住41000關卡",
+      "sentiment_label": "極度利多",
+      "sentiment_type": "positive",
+      "impact_score": 5,
+      "reason": "台積電、聯發科和台達電的股價表現相當亮眼，受益於公司在晶片和半導體領域的投資。"
+    },
+    {
+      "title": "台積電、聯發科、台達電…台股不再是一個人的武林，謝金河憶好友范疇：5年前預見台灣成為風雲國家 - 今周刊",
+      "url": "https://www.businesstoday.com.tw/article/category/183008/post/202605280001/",
+      "source": "今周刊",
+      "date": "2026-05-28",
+      "content_summary": "范疇預見台灣成為風雲國家！尹衍樑先生辭世，各界對他的追思不斷，也讓我想起2023年11月6日離開大家的好朋友范疇！ \\\\ 我記得在2020年疫情剛爆發的那年年底，范疇預測2021年的台灣，他鐵口直斷說：中國在習近平引導下，走上荒謬的回頭路，台灣在習近平幫助下，成為全球風雲國家！范疇五年前說這話，今天來檢視可以說是先知！ \\\\ 這兩天台股繼續放鞭炮，市值達4.95兆美元，已經超車印度成為全球第五大股市，今年台灣的經濟成長率說不定會出現兩位數的增長，出口在資通訊產業助攻下，很有機會成為全球前10出口大國。一個小小台灣的經濟表現，全世界都看到！ \\\\ 今天聯發科、台達電股價繼續大漲，聯發科市值到7.442兆台幣，約2366億美元，已經快追上高通，如果拿來和中國的企業來比，聯發科追過工業富聯，中國移動，可以排在12大。 \\\\ 一直以來，很多人都喜歡說台灣只有一個人的武林，只有一座神山，我說慢慢地就會出現群山，接下來，聯發科跳脫昔日手機晶片廠，搖身變成AI ASIC供應鏈成員，甚至進一步挑戰AVGO，這個威力正逐漸呈現。 \\\\ 另一個台達電已經是世界級的HVDC大廠，台達電最早超車鴻海，如今市值6.5458兆台幣，鴻海已經看不出到台達電的車尾燈。台達電也晉身為2000億美元級國際大企業。更值得一提的是，台達電子公司泰達電在泰國的地位有如台積電在台灣。 \\\\ 今天泰達電漲到354泰銖，市值高達4.416兆泰銖，把兩個加起來，已經超過10兆台幣，而且，泰達電帶動台灣在泰國的企業，最近泰金寶股價大漲，今年的漲幅接近100%，台灣的金寶，泰金寶TDR也跟著大漲，怪不得許勝雄董事長最近心情特別好！ \\\\ 除了台積電、聯發科，台達電是兩座世界級的大山！這是群山效應。這兩天聯電大漲，市值跑到1.8兆元，陳泰銘的國巨飆升，市值跑到1.45兆，他登上首富寶座，直呼像夢境一般，這也是台灣的傳奇！ \\\\ 范疇五年前預見台灣成為風雲國家，今天正一步步兌現！真是先知！",
+      "sentiment_label": "極度利多",
+      "sentiment_type": "positive",
+      "impact_score": 5,
+      "reason": "范疇預見台灣成為風雲國家，這是群山效應。台積電、聯發科和台達電的股價表現相當亮眼。"
+    },
+    {
+      "title": "黃仁勳兆元宴今登場！20檔概念股開紅花 光寶科台達電4檔逆勢走弱 - Yahoo股市",
+      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%85%86%E5%85%83%E5%AE%B4%E4%BB%8A%E7%99%BB%E5%A0%B4%EF%BC%8120%E6%AA%94%E6%A6%82%E5%BF%B5%E8%82%A1%E9%96%8B%E7%B4%85%E8%8A%B1-%E5%85%89%E5%AF%B6%E7%A7%91%E5%8F%B0%E9%81%94%E9%9B%BB4%E6%AA%94%E9%80%86%E5%8B%A2%E8%B5%B0%E5%BC%B1-015013765.html",
+      "source": "Yahoo股市",
+      "date": "2026-05-28",
+      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 輝達執行長黃仁勳今（28）日傍晚將舉行「兆元宴」，預計包含台積電魏哲家、廣達林百里、鴻海劉揚偉等科技大廠董總都將成為座上賓。《Yahoo股市》統計24檔「兆元宴概念股」有20檔開紅花，僅台達電（2308）、聯發科（2454）、智邦（2345）、光寶科（2301）4檔逆勢走弱。分析師表示，這4檔個股皆為漲多後獲利了結賣壓湧現，出現震盪整理屬正常現象。 \\\\ 延伸閱讀：黃仁勳北士科開講》酒吧進駐星艦總部、世紀同框蔣萬安、重申「需要更多電力」、輝達周邊比LV還夯...一文看10大亮點 \\\\ 此次兆元宴延續過往「老地方、老班底」的傳統，選在黃仁勳偏愛的「磚窯古早味餐廳」舉行，這也是他第五度在同一地點宴請供應鏈夥伴，這場餐敘將成為市場觀察輝達AI戰略推進與供應鏈布局的關鍵風向球。 \\\\ 《Yahoo股市》統計24檔「兆元宴概念股」涵蓋晶圓製造、伺服器代工、PC、散熱、網通、IC設計、半導體封測等多元領域，分別有欣興（3037）、台達電（2308）、宜鼎（5289）、聯發科（2454）、台積電（2330）、京元電（2449）、智邦（2345）、緯穎（6669）、光寶科（2301）、奇鋐（3017）、鴻海（2317）、研華（2395）、華碩（2357）、技嘉（2376）、緯創（3231）、仁寶（2324）、廣達（2382）、英業達（2356）、華擎（3515）、永擎（7711）、宏碁（2353）、和碩（4938）、微星（2377）、廣運（6125）。 \\\\ 其中，智邦今日盤中重挫逾5%，光寶科下跌超過4%，台達電、聯發科亦有超過2%跌幅。資深證券分析師王兆立表示，4檔個股沒有特別利空，而是過去一段時間累計漲幅已相當可觀，因此在市場短線資金調節下，出現震盪整理屬正常現象。 \\\\ 其中，台達電乖離率偏大，目前追價風險相對偏高，若投資人想進一步布局，建議等待股價拉回月線約2180-2200元附近再分批承接；對於已經持有相關概念股的投資人，王兆立則建議，若手中已有獲利，可考慮先行部分減碼、落袋為安，等待後續整理後再觀察新的進場機會。",
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "僅提供券商分點進出買賣統計，未含明確利多或利空訊息。"
+      "reason": "黃仁勳兆元宴概念股中，有20檔開紅花，但台達電、聯發科、智邦和光寶科的股價表現相當疲弱。"
     }
   ]
 }

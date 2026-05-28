@@ -1,15 +1,18 @@
 {
-  "analysis_timestamp": "2026-05-26 20:05:00",
-  "analysis_duration_seconds": 181.68,
+  "analysis_timestamp": "2026-05-28 04:51:07",
+  "analysis_duration_seconds": 2.44,
   "overall": {
-    "sentiment_label": "偏向樂觀",
-    "sentiment_type": "positive",
-    "score": 2.5,
-    "summary": "台達電近期受惠於 AI 數據中心需求旺盛，股價屢創新高，儘管有成本上升警訊，整體面仍呈強勢上揚，後市有望持續受惠於雲端與 AI 基礎建設擴張。",
+    "sentiment_label": "偏向中立",
+    "sentiment_type": "neutral",
+    "score": 0.2,
+    "summary": "2308.TW 的股價表現相對穩定，受到多個因素的影響，包括 DTE Energy 的新能源計畫、Delta Electronics 的成本增加和台積電的強漲。整體而言，市場對 2308.TW 的看法是中立的。",
     "keywords": [
-      "台達電",
-      "AI 數據中心",
-      "股價創高"
+      "DTE Energy",
+      "Delta Electronics",
+      "台積電",
+      "新能源計畫",
+      "成本增加",
+      "股價表現"
     ]
   },
   "details": [
@@ -19,10 +22,10 @@
       "source": "Simply Wall St.",
       "date": "2026-05-24",
       "content_summary": "Find your next quality investment with Simply Wall St's easy and powerful screener, trusted by over 7 million individual investors worldwide. \\\\ DTE Energy (NYSE:DTE) has signed a 1.4 GW power agreement to supply Oracle data centers, reinforcing its role in large scale digital infrastructure. \\\\ The company has received approvals tied to a 1 GW Google project, supporting additional clean power needs in Michigan. \\\\ DTE Energy has issued a request for proposals for 1 GW of new renewable capacity as part of its long term clean energy plan. \\\\ A new partnership with Delta Electronics focuses on a microgrid project that aims to improve reliability, ease grid pressure, and support net zero operations. \\\\ For investors watching regulated utilities, DTE Energy (NYSE:DTE) is stepping deeper into data center power demand and clean energy build out. The Oracle and Google related projects connect DTE directly to electricity needs from digital infrastructure, while the 1 GW renewable RFP links that demand to additional clean generation capacity in Michigan. \\\\ The Delta Electronics microgrid partnership gives DTE a real world test bed for advanced grid solutions that can support reliability and net zero objectives. For you as an investor, these moves may be useful to track as indicators of how DTE aligns its capital plans with long term electrification, corporate decarbonization goals, and potential new revenue sources tied to large power users. \\\\ Stay updated on the most important news stories for DTE Energy by adding it to your watchlist or portfolio. Alternatively, explore our Community to discover new perspectives on DTE Energy. \\\\ We've flagged 3 risks for DTE Energy. See which could impact your investment. \\\\ ⚖️ Price vs Analyst Target: At US$145.30, DTE trades about 8.5% below the US$158.89 consensus target, which sits within a fairly tight range of US$146 to US$168. \\\\ ⚖️ Simply Wall St Valuation: Shares are described as trading close to estimated fair value, with the stock around 3.2% below that assessment. \\\\ ❌ Recent Momentum: The stock has slipped about 1.1% over the last 30 days. \\\\ There is only one way to know the right time to buy, sell or hold DTE Energy. Head to Simply Wall St's company report for the latest analysis of DTE Energy's Fair Value. \\\\ 📊 The data center agreement, renewable tenders and microgrid project tie DTE more closely to large power users and clean energy spending, which you may want to factor into your long term thesis. \\\\ 📊 Watch how much capital DTE allocates to these projects, the impact on earnings relative to its 23.9x P/E and any updates to analyst targets around US$158.89. \\\\ ⚠️ Interest coverage is flagged as a major risk, so new investment linked to these projects makes DTE's debt servicing capacity an important metric to follow. \\\\ For the full picture including more risks and rewards, check out the complete DTE Energy analysis. Alternatively, you can visit the community page for DTE Energy to see how other investors believe this latest news will impact the company's narrative. \\\\ This article by Simply Wall St is general in nature. We provide commentary based on historical data and analyst forecasts only using an unbiased methodology and our articles are not intended to be financial advice. It does not constitute a recommendation to buy or sell any stock, and does not take account of your objectives, or your financial situation. We aim to bring you long-term focused analysis driven by fundamental data. Note that our analysis may not factor in the latest price-sensitive company announcements or qualitative material. Simply Wall St has no position in any stocks mentioned. \\\\ Companies discussed in this article include DTE. \\\\ Have feedback on this article? Concerned about the content? Get in touch with us directly. Alternatively, email editorial-team@simplywallst.com",
-      "sentiment_label": "輕微利多",
+      "sentiment_label": "極度利多",
       "sentiment_type": "positive",
-      "impact_score": 1,
-      "reason": "DTE 與 Delta 合作微電網項目，顯示 Delta 在數據基礎設施中的合作機會。"
+      "impact_score": 4,
+      "reason": "DTE Energy 的新能源計畫將對 2308.TW 的股價表現產生正面影響"
     },
     {
       "title": "UBS nearly doubles Ceres Power target to 970p as data centre demand drives royalty surge",
@@ -33,7 +36,7 @@
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "新聞僅關於 Ceres Power 與 UBS 評等，未提及台達電。"
+      "reason": "UBS 對 Ceres Power 的評估沒有直接影響 2308.TW 的股價表現"
     },
     {
       "title": "Taiwan's Delta Electronics warns costs rising as AI data centre demand surges",
@@ -41,109 +44,43 @@
       "source": "Reuters",
       "date": "2026-04-30",
       "content_summary": "TAIPEI, April 30 (Reuters) - Delta Electronics, a major provider of power supply and ‌cooling solutions for AI datacentres, warned that it ‌expects costs to rise in the coming quarters, with oil prices ​rising and ongoing material shortages. \\\\ • It added that there were also signs of inflation driven by AI demand. \\\\ • The company said its capacity remained tight and ‌it was expanding in ⁠China, Thailand, the United States and Taiwan. \\\\ • It said in February its capital expenditure ⁠totalled T$46.1 billion ($1.46 billion) in 2025 and it reiterated on Thursday it would be higher this year. \\\\ • ​Delta Electronics' ​customers include Nvidia and ​major cloud service providers ‌such as Google and Meta Platforms. \\\\ • Delta Electronics is the second most valuable company on the Taiwan stock exchange, with a market capitalisation of $178.46 billion, after Taiwan Semiconductor Manufacturing Co Ltd. \\\\ • It reported first-quarter revenue ‌of T$159.35 billion ($5.02 billion), up ​34% from a year earlier, ​driven by AI data ​centre build-out. Its gross profit was up 56% ‌year-over-year at T$59 billion ($1.86 billion). \\\\ • ​Delta Electronics shares ​have risen 124.82% so far this year, far outperforming a 34.4% rise in the broader market. ​The company's ‌shares closed flat on Thursday ahead of its ​earnings release. \\\\ ($1 = 31.7170 Taiwan dollars) \\\\ (Reporting by Wen-Yee ​Lee. Editing by Mark Potter)",
-      "sentiment_label": "謹慎樂觀",
-      "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "雖警告成本上升，但 AI 數據中心需求強勁，收入及毛利顯著成長。"
-    },
-    {
-      "title": "《台北股市》聯發科、台達電攻史上新高 台股首見四萬四！ - 富聯網",
-      "url": "https://ww2.money-link.com.tw/realtimenews/NewsContent.aspx?SN=6184906001&PU=1002",
-      "source": "富聯網",
-      "date": "2026-05-26",
-      "content_summary": "【時報-台北電】陣亡將士紀念日，美股休市一日。韓股今開高再創史上新高。台積電(2330)率AI電子權值股開高，台股早盤開高後一度漲逾400點，攻上44000點之上再締新猷。 \\\\ 美國宣揚重開荷姆茲海峽，美國原油和布蘭特原油雙雙下挫，提振市場氣氛。台積電開盤後上攻蓄勢挑戰新高，聯發科(2454)、台達電(2308)續創史高，以及高價電子股續攻，台股早盤最高漲453點至44097點，並首度攻上4萬4千點新高。不過，台積電拉回至平盤，台股指數漲點收斂。9時12分，台股漲72點至43717，台積電跌10元，聯電則續逆勢強攻新高。 \\\\ 美股因陣亡將士紀念日休市一天。中東和談進展並未中斷，據報美伊兩國有望於本周內達成為期60天的停火協議，並計畫在協議達成後第30日後將荷姆茲海峽恢復至戰前自由通行的狀態，國際油價回落幅度擴大。 \\\\ 國票投顧表示，台股指數近三日強漲逾三千點，若後續國際油價能隨和談進行持續走低，且對通膨敏感之長天期債券殖利率一同回落，台股應有望於Computex前夕持續攻高。 \\\\ 群益投顧指出，短線影響市場浮動的美伊談判，本質上是「事件」的推波，本波股市未因此「利空」事件而下跌，反屢創新高，以此可看出資金積極追逐股市、怕失去機會的追價心態濃烈。指數區間估41800點~44000點上下。（編輯：沈培華）",
-      "sentiment_label": "強烈利多",
-      "sentiment_type": "positive",
-      "impact_score": 4,
-      "reason": "台達電股價創歷史新高，帶動台股突破 44000 點，顯示市場熱情高漲。"
-    },
-    {
-      "title": "聯發科、台達電攻史上新高 台股首見四萬四！ - 旺得富理財網",
-      "url": "https://wantrich.chinatimes.com/news/20260526900231-420101",
-      "source": "旺得富理財網",
-      "date": "2026-05-26",
-      "content_summary": "",
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "內容為空，僅重複標題，無實質資訊。"
+      "reason": "Delta Electronics 的成本增加對 2308.TW 的股價表現沒有直接影響"
     },
     {
-      "title": "台達電4天狂漲25%...今寫2410元新天價 專家看法出爐 - Yahoo股市",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%81%94%E9%9B%BB4%E5%A4%A9%E7%8B%82%E6%BC%B225%E4%BB%8A%E5%AF%AB2410%E5%85%83%E6%96%B0%E5%A4%A9%E5%83%B9-%E5%B0%88%E5%AE%B6%E7%9C%8B%E6%B3%95%E5%87%BA%E7%88%90-030810178.html",
+      "title": "台達電、聯發科齊挫1%！台積電強漲60元撐盤 台股早盤漲571點站上44800大關 - Yahoo股市",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E9%81%94%E9%9B%BB-%E8%81%AF%E7%99%BC%E7%A7%91%E9%BD%8A%E6%8C%AB1-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%BC%B7%E6%BC%B260%E5%85%83%E6%92%90%E7%9B%A4-%E5%8F%B0%E8%82%A1%E6%97%A9%E7%9B%A4%E6%BC%B2571%E9%BB%9E%E7%AB%99%E4%B8%8A44800%E5%A4%A7%E9%97%9C-011100690.html",
       "source": "Yahoo股市",
-      "date": "2026-05-26",
-      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 電源供應器龍頭廠台達電（2308）今日股價再度創下新高，早盤一度衝上2410元新天價，漲幅達5.2%，也讓台達電在短短4個交易日中股價漲幅來到25%。大來國際投顧分析師陳玠儒就表示，台達電今日創高拉回其實是受盤面氣氛影響，並非基本面出現疑慮，雖然短線上急漲不建議追入，但若拉回5日線量縮不破，並且再帶量向上，就會是一個不錯的進場獲利機會。 \\\\ 延伸閱讀：國巨「關禁閉」一度重挫8%...分析師曝一關鍵看多：看看聯發科 \\\\ 陳玠儒表示，台達電今日創高拉回其實是受到大盤漲多拉回的影響，畢竟台股指數4天大漲4000點，創高後就會受到市場賣壓的影響，也因此台達電也被波及。 \\\\ 不過陳玠儒也指出，台達電的基本面並沒有改變，僅是受到盤面氛圍的影響，若要介入的話建議短線急漲不要追，量縮拉回靠近5日均線時，不跌破且後續出量轉強，就有機會是另一次相對安全、有利可圖的買點。 \\\\ 整體來說，陳玠儒表示，因為台達電具有輝達的概念，也有低軌衛星的概念，在雙題材的加持下，在接下來台北國際電腦展以及SpaceX掛牌，都會有熱度在這邊，短線市場信心強，不用過度擔心。",
-      "sentiment_label": "偏向利多",
-      "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "短短四日股價漲逾 25%，創新天價，專家認為回測五日均線後仍有進場機會。"
-    },
-    {
-      "title": "聯發科跳空漲停！台達電噴8%、日月光漲6% 台股開高漲1170點再刷史高43438點 - Yahoo股市",
-      "url": "https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91%E8%B7%B3%E7%A9%BA%E6%BC%B2%E5%81%9C-%E5%8F%B0%E9%81%94%E9%9B%BB%E5%99%B48-%E6%97%A5%E6%9C%88%E5%85%89%E6%BC%B26-%E5%8F%B0%E8%82%A1%E9%96%8B%E9%AB%98%E6%BC%B21170%E9%BB%9E%E5%86%8D%E5%88%B7%E5%8F%B2%E9%AB%9843438%E9%BB%9E-011100136.html",
-      "source": "Yahoo股市",
-      "date": "2026-05-25",
-      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 由於美國公債殖利率走低，美股四大指數上周五全面收紅，道瓊漲294點、漲幅0.58%，費半更勁揚1.99%；不過AI晶片龍頭輝達（NVDA-US）挫跌1.90%、台積電ADR也下滑0.65%。而上周五收歷史新高的台股，今（25）日開高大漲399.9點至42667.87點，隨著台積電開盤大漲50元至2305元；聯發科跳空漲停，台達電漲8%、日月光投控漲6%，加權指數一度來到43438.13點，暴漲1170.16點。 \\\\ 五大電子權值股中，權王台積電（2330）開高漲20元至2275元，一度漲50元至2305元，漲幅2.22%；台達電（2308）開高大漲110元至2205元，一度漲185元至2280元，漲幅8.83%；聯發科（2454）開高至4245元跳空漲停；鴻海（2317）開高漲5元至255元，一度漲9.5元至259.5元，漲幅3.80%；日月光投控（3711）則以598元開出，上漲37元，一度漲38元至599元，漲幅6.77%。 \\\\ 更多FTNN新聞網報導斬獲台積電手握200億訂單！「半導體材料大廠」目標價喊480元 先進製程、晶圓擴廠引爆動能目標價喊1310元！「光阻領域大廠」卡位獨特供應鏈EPS上看22.91元 大客戶先進製程引爆動能聯發科噴漲215元、台達電漲3%！台積電開高15元 台股早盤漲559點守住41000關卡",
-      "sentiment_label": "利多",
-      "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "台達電單日漲幅 8%，帶動台股再創史高，顯示資金積極追逐。"
-    },
-    {
-      "title": "焦點股》台達電：黃仁勳來台再掀AI旋風 帶量大漲 - 自由財經",
-      "url": "https://ec.ltn.com.tw/article/breakingnews/5448343",
-      "source": "自由財經",
-      "date": "2026-05-25",
-      "content_summary": "隨著AI產品占比提升，台達電看好今年合併毛利率表現可望優於去年，有機會逐季增溫。（資料照） \\\\ 〔記者方韋傑／台北報導〕電源供應器大廠台達電（2308）全面卡位新一波AI基礎建設升級商機，受惠於終端大客戶輝達（NVIDIA）執行長黃仁勳來台參加台北國際電腦展（Computex），AI供應鏈持續受到買盤搶進，台達電今日股價跳空開高，截至上午9時13分暫報2260元，漲幅7.88%，成交量3187張。 \\\\ 台達電隨著AI伺服器電源架構走向模組化，強力布局電源機櫃與電池備援單元（BBU），未來隨整體架構普及，相關產品出貨可望同步放量。此外，±400V直流電產品預計今年開始量產出貨，800V直流電架構主要配合新一代AI平台，預計2027年起逐步放量。隨著AI產品占比提升，今年合併毛利率表現可望優於去年，有機會逐季增溫。 \\\\ 在新成長動能方面，台達電亦積極推進模組化資料中心解決方案，初期鎖定共置型機房業者，並已與中鼎工程合作導入智慧工程應用，未來將進一步拓展至企業客戶市場。另也持續投入固態氧化物燃料電池（SOFC）技術，產品最高效率可達85%，今年已交付樣品進行測試，預計2027年完成試產線建置並逐步導入量產，開拓AI資料中心能源供應新模式。 \\\\ 一手掌握經濟脈動\n    點我訂閱自由財經Youtube頻道 \\\\ 不用抽 不用搶 現在用APP看新聞 保證天天中獎　\n    點我下載APP　\n    按我看活動辦法",
-      "sentiment_label": "利多",
-      "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "黃仁勳來台帶動 AI 供應鏈熱度，台達電受惠於 AI 伺服器電源需求。"
-    },
-    {
-      "title": "股價緊逼台積電！台達電強漲近9%挑戰2300元大關 分析師曝「創高關鍵」 - Yahoo股市",
-      "url": "https://tw.stock.yahoo.com/news/%E8%82%A1%E5%83%B9%E7%B7%8A%E9%80%BC%E5%8F%B0%E7%A9%8D%E9%9B%BB%EF%BC%81%E5%8F%B0%E9%81%94%E9%9B%BB%E5%BC%B7%E6%BC%B2%E8%BF%919%E6%8C%91%E6%88%B02300%E5%85%83%E5%A4%A7%E9%97%9C-%E5%88%86%E6%9E%90%E5%B8%AB%E6%9B%9D%E3%80%8C%E5%89%B5%E9%AB%98%E9%97%9C%E9%8D%B5%E3%80%8D-022544932.html",
-      "source": "Yahoo股市",
-      "date": "2026-05-25",
-      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 台達電復活了！台股市值老三、電源供應器龍頭廠台達電（2308）今（25）日終於交出亮眼漲幅，早盤一度觸及2280元、漲幅達到8.8%。顧德投顧分析師張家豪受訪表示，若台達電本身可以站穩今日高點2280元，那後續幾天將有望去挑戰前波歷史高點2370元，今日操作上可以分批先進一半，若能站穩高點價，明日可順勢再加碼。 \\\\ 延伸閱讀：櫃買指數漲逾3%衝436點再創史上新高！分析師：別急著追高 \\\\ 台股市值第三大企業台達電經歷一波修整後，近日在台股氛圍逐步回溫後，今日終於再度回到2300元大關之前，有望對歷史高點2370元發起衝擊。 \\\\ 張家豪指出，台達電股價的確是漲得比較高，先前經歷一波壓回，以今日股價來看，早盤高點在2280元的位置，這是一個關鍵點位，若今日能順利收到這個價格以上，後續幾日就有望創高。 \\\\ 張家豪也建議，在操作上應該「先求有、再求好」，反倒可以利用零股來操作這種高價股，強勢行情之下，可以在今日伺機進場一批資金，若明日延續強勢走勢，則再順勢加碼，避免大量套牢也防止被行情軋空手。",
-      "sentiment_label": "強烈利多",
-      "sentiment_type": "positive",
-      "impact_score": 4,
-      "reason": "股價逼近 2300 元大關，分析師看好突破歷史高點 2370 元的可能。"
-    },
-    {
-      "title": "台達電(2308) 個股概覽 | 個股 - 股市 - CMoney",
-      "url": "https://www.cmoney.tw/finance/2308/f00025",
-      "source": "CMoney",
-      "date": "2026-05-24",
-      "content_summary": "",
+      "date": "2026-05-28",
+      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 受美伊停火協議樂觀情緒提振、油價回落，美股四大指數周三漲多跌少，僅費半收黑挫跌1.36%，而道瓊勁揚182.60點、漲幅0.36%表現最優；AI晶片龍頭輝達（NVDA-US）下滑1.05%、台積電ADR則強漲2.52%，儘管台股今（28）日開低下跌16點至44240.80點，但隨著台積電強漲60元至2360元，日月光投控漲4%、鴻海漲1%，加權指數一度來到44828.43點，大漲571.63點。 \\\\ 五大電子權值股中，權王台積電（2330）開高漲50元至2350元，一度漲60元至2360元，漲幅2.61%；台達電（2308）開低跌35元至2485元，一度跌45元至2475元，跌幅1.79%；聯發科（2454）開低跌20元至4620元，一度跌90元至4550元，跌幅1.94%；鴻海（2317）開高漲1元至265元，一度漲4.5元至268.5元，漲幅1.70%；日月光投控（3711）則以626元開出，下跌16元，隨後翻紅漲26元至668元，漲幅4.05%。 \\\\ 更多FTNN新聞網報導黃爸爸助攻一度衝破4萬4！台積電卻翻黑下殺 聯發科、廣達逆勢撐盤聯發科跳空漲停！台達電噴8%、日月光漲6% 台股開高漲1170點再刷史高43438點聯發科噴漲215元、台達電漲3%！台積電開高15元 台股早盤漲559點守住41000關卡",
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "僅提供個股概覽頁面，無具體新聞內容。"
+      "reason": "台股早盤漲幅對 2308.TW 的股價表現沒有直接影響"
     },
     {
-      "title": "台達電、奇鋐 挑逾100天 - 經濟日報",
-      "url": "https://money.udn.com/money/story/5739/9522764?from=edn_search_tag_result",
-      "source": "經濟日報",
-      "date": "2026-05-24",
-      "content_summary": "美商全球電子製造服務巨頭Flex最新財報優於預期。法人指出，由Flex第4季財報來看，AI基礎設施支出將持續增加，相關台廠則按讚台達電（2308）、奇鋐（3017）等給予「優於大盤」評等，相關權證可伺機操作。 \\\\ 法人表示，Flex計劃在2027年第1季前，將雲端與電源基礎設施（CPI）部門分拆為獨立上市公司，預計CPI部門2027會計年度營收將年增65%至75%，2028會計年度年增幅更可望突破80%。 \\\\ 法人分析，從此次Flex法說會中觀察，看好Flex於CPI業務的強勁成長前景，以及與超大規模雲端業者的合作進展，AI基礎設施的相關支出可望維持高檔，至少延續至2028至2029年，與近期亞洲電源與散熱供應鏈業者的看法一致，奇鋐可望成為受惠股之一。 \\\\ 為AI資料中心提供「端到端」電源與散熱解決方案，成亞洲供應鏈重要趨勢，如台達電與鴻海皆積極布局模組化資料中心解決方案。值得注意的是，外資大摩近期給予台達電目標價1,976元、奇鋐維持2,750元，均為「優於大盤」評等。 \\\\ 法人補充，Flex在電源供應器相關產品領域，為台達電與光寶科的競爭對手；在散熱產品方面，則與奇鋐、雙鴻等廠商互別苗頭。事實上，台達電今年第1季獲利表現亮眼，整體上是強勁的財報。展望後市，預期2026年至2027年獲利持續成長，兩年內獲利有望翻倍以上，市場近期也可望再掀起一波獲利預估上修潮。 \\\\ 權證發行商建議，看好台達電、奇鋐等相關權證後市表現的投資人，可挑相關認購權證進行布局。挑選標準，則以價內外10%以內、剩餘天數超過100天以上等條件為主，藉以放大槓桿利潤。 \\\\ ※ 歡迎用「轉貼」或「分享」的方式轉傳文章連結；未經授權，請勿複製轉貼文章內容",
-      "sentiment_label": "利多",
+      "title": "台積電、聯發科、台達電…台股不再是一個人的武林，謝金河憶好友范疇：5年前預見台灣成為風雲國家 - 今周刊",
+      "url": "https://www.businesstoday.com.tw/article/category/183008/post/202605280001/",
+      "source": "今周刊",
+      "date": "2026-05-28",
+      "content_summary": "范疇預見台灣成為風雲國家！尹衍樑先生辭世，各界對他的追思不斷，也讓我想起2023年11月6日離開大家的好朋友范疇！ \\\\ 我記得在2020年疫情剛爆發的那年年底，范疇預測2021年的台灣，他鐵口直斷說：中國在習近平引導下，走上荒謬的回頭路，台灣在習近平幫助下，成為全球風雲國家！范疇五年前說這話，今天來檢視可以說是先知！ \\\\ 這兩天台股繼續放鞭炮，市值達4.95兆美元，已經超車印度成為全球第五大股市，今年台灣的經濟成長率說不定會出現兩位數的增長，出口在資通訊產業助攻下，很有機會成為全球前10出口大國。一個小小台灣的經濟表現，全世界都看到！ \\\\ 今天聯發科、台達電股價繼續大漲，聯發科市值到7.442兆台幣，約2366億美元，已經快追上高通，如果拿來和中國的企業來比，聯發科追過工業富聯，中國移動，可以排在12大。 \\\\ 一直以來，很多人都喜歡說台灣只有一個人的武林，只有一座神山，我說慢慢地就會出現群山，接下來，聯發科跳脫昔日手機晶片廠，搖身變成AI ASIC供應鏈成員，甚至進一步挑戰AVGO，這個威力正逐漸呈現。 \\\\ 另一個台達電已經是世界級的HVDC大廠，台達電最早超車鴻海，如今市值6.5458兆台幣，鴻海已經看不出到台達電的車尾燈。台達電也晉身為2000億美元級國際大企業。更值得一提的是，台達電子公司泰達電在泰國的地位有如台積電在台灣。 \\\\ 今天泰達電漲到354泰銖，市值高達4.416兆泰銖，把兩個加起來，已經超過10兆台幣，而且，泰達電帶動台灣在泰國的企業，最近泰金寶股價大漲，今年的漲幅接近100%，台灣的金寶，泰金寶TDR也跟著大漲，怪不得許勝雄董事長最近心情特別好！ \\\\ 除了台積電、聯發科，台達電是兩座世界級的大山！這是群山效應。這兩天聯電大漲，市值跑到1.8兆元，陳泰銘的國巨飆升，市值跑到1.45兆，他登上首富寶座，直呼像夢境一般，這也是台灣的傳奇！ \\\\ 范疇五年前預見台灣成為風雲國家，今天正一步步兌現！真是先知！",
+      "sentiment_label": "極度利多",
       "sentiment_type": "positive",
-      "impact_score": 3,
-      "reason": "Flex 展望顯示 AI 基礎設施支出持續成長，外資給予台達電目標價 1976 元，評等優於大盤。"
+      "impact_score": 5,
+      "reason": "范疇預見台灣成為風雲國家，對 2308.TW 的股價表現產生正面影響"
     },
     {
-      "title": "2308 台達電 - 指數43600的時候這裡2280 現在指數快44000了這邊...-股市爆料同學會 - CMoney",
-      "url": "https://www.cmoney.tw/forum/article/179233540",
-      "source": "CMoney",
-      "date": "2026-05-24",
-      "content_summary": "指數43600的時候這裡2280 現在指數快44000了這邊少30 又是哪來的廢物在那邊針對台積電和台達電\n2250剛才那麼多張都被買完了這群賤畜又卡70張在那邊耶 要不要臉\n如果像國巨或日月光那樣沒賤畜阻礙的漲 現在就是2500以上了",
+      "title": "黃仁勳兆元宴今登場！20檔概念股開紅花 光寶科台達電4檔逆勢走弱 - Yahoo股市",
+      "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%85%86%E5%85%83%E5%AE%B4%E4%BB%8A%E7%99%BB%E5%A0%B4%EF%BC%8120%E6%AA%94%E6%A6%82%E5%BF%B5%E8%82%A1%E9%96%8B%E7%B4%85%E8%8A%B1-%E5%85%89%E5%AF%B6%E7%A7%91%E5%8F%B0%E9%81%94%E9%9B%BB4%E6%AA%94%E9%80%86%E5%8B%A2%E8%B5%B0%E5%BC%B1-015013765.html",
+      "source": "Yahoo股市",
+      "date": "2026-05-28",
+      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 輝達執行長黃仁勳今（28）日傍晚將舉行「兆元宴」，預計包含台積電魏哲家、廣達林百里、鴻海劉揚偉等科技大廠董總都將成為座上賓。《Yahoo股市》統計24檔「兆元宴概念股」有20檔開紅花，僅台達電（2308）、聯發科（2454）、智邦（2345）、光寶科（2301）4檔逆勢走弱。分析師表示，這4檔個股皆為漲多後獲利了結賣壓湧現，出現震盪整理屬正常現象。 \\\\ 延伸閱讀：黃仁勳北士科開講》酒吧進駐星艦總部、世紀同框蔣萬安、重申「需要更多電力」、輝達周邊比LV還夯...一文看10大亮點 \\\\ 此次兆元宴延續過往「老地方、老班底」的傳統，選在黃仁勳偏愛的「磚窯古早味餐廳」舉行，這也是他第五度在同一地點宴請供應鏈夥伴，這場餐敘將成為市場觀察輝達AI戰略推進與供應鏈布局的關鍵風向球。 \\\\ 《Yahoo股市》統計24檔「兆元宴概念股」涵蓋晶圓製造、伺服器代工、PC、散熱、網通、IC設計、半導體封測等多元領域，分別有欣興（3037）、台達電（2308）、宜鼎（5289）、聯發科（2454）、台積電（2330）、京元電（2449）、智邦（2345）、緯穎（6669）、光寶科（2301）、奇鋐（3017）、鴻海（2317）、研華（2395）、華碩（2357）、技嘉（2376）、緯創（3231）、仁寶（2324）、廣達（2382）、英業達（2356）、華擎（3515）、永擎（7711）、宏碁（2353）、和碩（4938）、微星（2377）、廣運（6125）。 \\\\ 其中，智邦今日盤中重挫逾5%，光寶科下跌超過4%，台達電、聯發科亦有超過2%跌幅。資深證券分析師王兆立表示，4檔個股沒有特別利空，而是過去一段時間累計漲幅已相當可觀，因此在市場短線資金調節下，出現震盪整理屬正常現象。 \\\\ 其中，台達電乖離率偏大，目前追價風險相對偏高，若投資人想進一步布局，建議等待股價拉回月線約2180-2200元附近再分批承接；對於已經持有相關概念股的投資人，王兆立則建議，若手中已有獲利，可考慮先行部分減碼、落袋為安，等待後續整理後再觀察新的進場機會。",
       "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "內容為抱怨式發言，未提供明確利多或利空資訊。"
+      "reason": "黃仁勳兆元宴對 2308.TW 的股價表現沒有直接影響"
     }
   ]
 }

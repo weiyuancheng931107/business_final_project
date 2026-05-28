@@ -1,0 +1,5262 @@
+[
+  {
+    "symbol": "1101",
+    "name": "台泥",
+    "display": "1101 台泥"
+  },
+  {
+    "symbol": "1102",
+    "name": "亞泥",
+    "display": "1102 亞泥"
+  },
+  {
+    "symbol": "1103",
+    "name": "嘉泥",
+    "display": "1103 嘉泥"
+  },
+  {
+    "symbol": "1104",
+    "name": "環泥",
+    "display": "1104 環泥"
+  },
+  {
+    "symbol": "1108",
+    "name": "幸福",
+    "display": "1108 幸福"
+  },
+  {
+    "symbol": "1109",
+    "name": "信大",
+    "display": "1109 信大"
+  },
+  {
+    "symbol": "1110",
+    "name": "東泥",
+    "display": "1110 東泥"
+  },
+  {
+    "symbol": "1201",
+    "name": "味全",
+    "display": "1201 味全"
+  },
+  {
+    "symbol": "1203",
+    "name": "味王",
+    "display": "1203 味王"
+  },
+  {
+    "symbol": "1210",
+    "name": "大成",
+    "display": "1210 大成"
+  },
+  {
+    "symbol": "1213",
+    "name": "大飲",
+    "display": "1213 大飲"
+  },
+  {
+    "symbol": "1215",
+    "name": "卜蜂",
+    "display": "1215 卜蜂"
+  },
+  {
+    "symbol": "1216",
+    "name": "統一",
+    "display": "1216 統一"
+  },
+  {
+    "symbol": "1217",
+    "name": "愛之味",
+    "display": "1217 愛之味"
+  },
+  {
+    "symbol": "1218",
+    "name": "泰山",
+    "display": "1218 泰山"
+  },
+  {
+    "symbol": "1219",
+    "name": "福壽",
+    "display": "1219 福壽"
+  },
+  {
+    "symbol": "1220",
+    "name": "台榮",
+    "display": "1220 台榮"
+  },
+  {
+    "symbol": "1225",
+    "name": "福懋油",
+    "display": "1225 福懋油"
+  },
+  {
+    "symbol": "1227",
+    "name": "佳格",
+    "display": "1227 佳格"
+  },
+  {
+    "symbol": "1229",
+    "name": "聯華",
+    "display": "1229 聯華"
+  },
+  {
+    "symbol": "1231",
+    "name": "聯華食",
+    "display": "1231 聯華食"
+  },
+  {
+    "symbol": "1232",
+    "name": "大統益",
+    "display": "1232 大統益"
+  },
+  {
+    "symbol": "1233",
+    "name": "天仁",
+    "display": "1233 天仁"
+  },
+  {
+    "symbol": "1234",
+    "name": "黑松",
+    "display": "1234 黑松"
+  },
+  {
+    "symbol": "1235",
+    "name": "興泰",
+    "display": "1235 興泰"
+  },
+  {
+    "symbol": "1236",
+    "name": "宏亞",
+    "display": "1236 宏亞"
+  },
+  {
+    "symbol": "1256",
+    "name": "鮮活果汁-KY",
+    "display": "1256 鮮活果汁-KY"
+  },
+  {
+    "symbol": "1301",
+    "name": "台塑",
+    "display": "1301 台塑"
+  },
+  {
+    "symbol": "1303",
+    "name": "南亞",
+    "display": "1303 南亞"
+  },
+  {
+    "symbol": "1304",
+    "name": "台聚",
+    "display": "1304 台聚"
+  },
+  {
+    "symbol": "1305",
+    "name": "華夏",
+    "display": "1305 華夏"
+  },
+  {
+    "symbol": "1307",
+    "name": "三芳",
+    "display": "1307 三芳"
+  },
+  {
+    "symbol": "1308",
+    "name": "亞聚",
+    "display": "1308 亞聚"
+  },
+  {
+    "symbol": "1309",
+    "name": "台達化",
+    "display": "1309 台達化"
+  },
+  {
+    "symbol": "1310",
+    "name": "台苯",
+    "display": "1310 台苯"
+  },
+  {
+    "symbol": "1312",
+    "name": "國喬",
+    "display": "1312 國喬"
+  },
+  {
+    "symbol": "1313",
+    "name": "聯成",
+    "display": "1313 聯成"
+  },
+  {
+    "symbol": "1314",
+    "name": "中石化",
+    "display": "1314 中石化"
+  },
+  {
+    "symbol": "1315",
+    "name": "達新",
+    "display": "1315 達新"
+  },
+  {
+    "symbol": "1316",
+    "name": "上曜",
+    "display": "1316 上曜"
+  },
+  {
+    "symbol": "1319",
+    "name": "東陽",
+    "display": "1319 東陽"
+  },
+  {
+    "symbol": "1321",
+    "name": "大洋",
+    "display": "1321 大洋"
+  },
+  {
+    "symbol": "1323",
+    "name": "永裕",
+    "display": "1323 永裕"
+  },
+  {
+    "symbol": "1324",
+    "name": "地球",
+    "display": "1324 地球"
+  },
+  {
+    "symbol": "1325",
+    "name": "恆大",
+    "display": "1325 恆大"
+  },
+  {
+    "symbol": "1326",
+    "name": "台化",
+    "display": "1326 台化"
+  },
+  {
+    "symbol": "1337",
+    "name": "再生-KY",
+    "display": "1337 再生-KY"
+  },
+  {
+    "symbol": "1338",
+    "name": "廣華-KY",
+    "display": "1338 廣華-KY"
+  },
+  {
+    "symbol": "1339",
+    "name": "昭輝",
+    "display": "1339 昭輝"
+  },
+  {
+    "symbol": "1340",
+    "name": "勝悅-KY",
+    "display": "1340 勝悅-KY"
+  },
+  {
+    "symbol": "1341",
+    "name": "富林-KY",
+    "display": "1341 富林-KY"
+  },
+  {
+    "symbol": "1342",
+    "name": "八貫",
+    "display": "1342 八貫"
+  },
+  {
+    "symbol": "1402",
+    "name": "遠東新",
+    "display": "1402 遠東新"
+  },
+  {
+    "symbol": "1409",
+    "name": "新纖",
+    "display": "1409 新纖"
+  },
+  {
+    "symbol": "1410",
+    "name": "南染",
+    "display": "1410 南染"
+  },
+  {
+    "symbol": "1413",
+    "name": "宏洲",
+    "display": "1413 宏洲"
+  },
+  {
+    "symbol": "1414",
+    "name": "東和",
+    "display": "1414 東和"
+  },
+  {
+    "symbol": "1416",
+    "name": "廣豐",
+    "display": "1416 廣豐"
+  },
+  {
+    "symbol": "1417",
+    "name": "嘉裕",
+    "display": "1417 嘉裕"
+  },
+  {
+    "symbol": "1418",
+    "name": "東華",
+    "display": "1418 東華"
+  },
+  {
+    "symbol": "1419",
+    "name": "新紡",
+    "display": "1419 新紡"
+  },
+  {
+    "symbol": "1423",
+    "name": "利華",
+    "display": "1423 利華"
+  },
+  {
+    "symbol": "1432",
+    "name": "大魯閣",
+    "display": "1432 大魯閣"
+  },
+  {
+    "symbol": "1434",
+    "name": "福懋",
+    "display": "1434 福懋"
+  },
+  {
+    "symbol": "1435",
+    "name": "中福",
+    "display": "1435 中福"
+  },
+  {
+    "symbol": "1436",
+    "name": "華友聯",
+    "display": "1436 華友聯"
+  },
+  {
+    "symbol": "1437",
+    "name": "勤益控",
+    "display": "1437 勤益控"
+  },
+  {
+    "symbol": "1438",
+    "name": "三地開發",
+    "display": "1438 三地開發"
+  },
+  {
+    "symbol": "1439",
+    "name": "雋揚",
+    "display": "1439 雋揚"
+  },
+  {
+    "symbol": "1440",
+    "name": "南紡",
+    "display": "1440 南紡"
+  },
+  {
+    "symbol": "1441",
+    "name": "大東",
+    "display": "1441 大東"
+  },
+  {
+    "symbol": "1442",
+    "name": "名軒",
+    "display": "1442 名軒"
+  },
+  {
+    "symbol": "1443",
+    "name": "立益物流",
+    "display": "1443 立益物流"
+  },
+  {
+    "symbol": "1444",
+    "name": "力麗",
+    "display": "1444 力麗"
+  },
+  {
+    "symbol": "1445",
+    "name": "大宇",
+    "display": "1445 大宇"
+  },
+  {
+    "symbol": "1446",
+    "name": "宏和",
+    "display": "1446 宏和"
+  },
+  {
+    "symbol": "1447",
+    "name": "力鵬",
+    "display": "1447 力鵬"
+  },
+  {
+    "symbol": "1449",
+    "name": "佳和",
+    "display": "1449 佳和"
+  },
+  {
+    "symbol": "1451",
+    "name": "年興",
+    "display": "1451 年興"
+  },
+  {
+    "symbol": "1452",
+    "name": "宏益",
+    "display": "1452 宏益"
+  },
+  {
+    "symbol": "1453",
+    "name": "大將",
+    "display": "1453 大將"
+  },
+  {
+    "symbol": "1454",
+    "name": "台富",
+    "display": "1454 台富"
+  },
+  {
+    "symbol": "1455",
+    "name": "集盛",
+    "display": "1455 集盛"
+  },
+  {
+    "symbol": "1456",
+    "name": "怡華",
+    "display": "1456 怡華"
+  },
+  {
+    "symbol": "1457",
+    "name": "宜進",
+    "display": "1457 宜進"
+  },
+  {
+    "symbol": "1459",
+    "name": "聯發",
+    "display": "1459 聯發"
+  },
+  {
+    "symbol": "1460",
+    "name": "宏遠",
+    "display": "1460 宏遠"
+  },
+  {
+    "symbol": "1463",
+    "name": "強盛新",
+    "display": "1463 強盛新"
+  },
+  {
+    "symbol": "1464",
+    "name": "得力",
+    "display": "1464 得力"
+  },
+  {
+    "symbol": "1465",
+    "name": "偉全",
+    "display": "1465 偉全"
+  },
+  {
+    "symbol": "1466",
+    "name": "聚隆",
+    "display": "1466 聚隆"
+  },
+  {
+    "symbol": "1467",
+    "name": "南緯",
+    "display": "1467 南緯"
+  },
+  {
+    "symbol": "1468",
+    "name": "昶和",
+    "display": "1468 昶和"
+  },
+  {
+    "symbol": "1470",
+    "name": "大統新創",
+    "display": "1470 大統新創"
+  },
+  {
+    "symbol": "1471",
+    "name": "首利",
+    "display": "1471 首利"
+  },
+  {
+    "symbol": "1472",
+    "name": "三洋實業",
+    "display": "1472 三洋實業"
+  },
+  {
+    "symbol": "1473",
+    "name": "台南",
+    "display": "1473 台南"
+  },
+  {
+    "symbol": "1474",
+    "name": "弘裕",
+    "display": "1474 弘裕"
+  },
+  {
+    "symbol": "1475",
+    "name": "業旺",
+    "display": "1475 業旺"
+  },
+  {
+    "symbol": "1476",
+    "name": "儒鴻",
+    "display": "1476 儒鴻"
+  },
+  {
+    "symbol": "1477",
+    "name": "聚陽",
+    "display": "1477 聚陽"
+  },
+  {
+    "symbol": "1503",
+    "name": "士電",
+    "display": "1503 士電"
+  },
+  {
+    "symbol": "1504",
+    "name": "東元",
+    "display": "1504 東元"
+  },
+  {
+    "symbol": "1506",
+    "name": "正道",
+    "display": "1506 正道"
+  },
+  {
+    "symbol": "1512",
+    "name": "瑞利",
+    "display": "1512 瑞利"
+  },
+  {
+    "symbol": "1513",
+    "name": "中興電",
+    "display": "1513 中興電"
+  },
+  {
+    "symbol": "1514",
+    "name": "亞力",
+    "display": "1514 亞力"
+  },
+  {
+    "symbol": "1515",
+    "name": "力山",
+    "display": "1515 力山"
+  },
+  {
+    "symbol": "1516",
+    "name": "川飛",
+    "display": "1516 川飛"
+  },
+  {
+    "symbol": "1517",
+    "name": "利奇",
+    "display": "1517 利奇"
+  },
+  {
+    "symbol": "1519",
+    "name": "華城",
+    "display": "1519 華城"
+  },
+  {
+    "symbol": "1521",
+    "name": "大億",
+    "display": "1521 大億"
+  },
+  {
+    "symbol": "1522",
+    "name": "堤維西",
+    "display": "1522 堤維西"
+  },
+  {
+    "symbol": "1524",
+    "name": "耿鼎",
+    "display": "1524 耿鼎"
+  },
+  {
+    "symbol": "1525",
+    "name": "江申",
+    "display": "1525 江申"
+  },
+  {
+    "symbol": "1526",
+    "name": "日馳",
+    "display": "1526 日馳"
+  },
+  {
+    "symbol": "1527",
+    "name": "鑽全",
+    "display": "1527 鑽全"
+  },
+  {
+    "symbol": "1528",
+    "name": "恩德",
+    "display": "1528 恩德"
+  },
+  {
+    "symbol": "1529",
+    "name": "樂事綠能",
+    "display": "1529 樂事綠能"
+  },
+  {
+    "symbol": "1530",
+    "name": "亞崴",
+    "display": "1530 亞崴"
+  },
+  {
+    "symbol": "1531",
+    "name": "高林股",
+    "display": "1531 高林股"
+  },
+  {
+    "symbol": "1532",
+    "name": "勤美",
+    "display": "1532 勤美"
+  },
+  {
+    "symbol": "1533",
+    "name": "車王電",
+    "display": "1533 車王電"
+  },
+  {
+    "symbol": "1535",
+    "name": "中宇",
+    "display": "1535 中宇"
+  },
+  {
+    "symbol": "1536",
+    "name": "和大",
+    "display": "1536 和大"
+  },
+  {
+    "symbol": "1537",
+    "name": "廣隆",
+    "display": "1537 廣隆"
+  },
+  {
+    "symbol": "1538",
+    "name": "正峰",
+    "display": "1538 正峰"
+  },
+  {
+    "symbol": "1539",
+    "name": "巨庭",
+    "display": "1539 巨庭"
+  },
+  {
+    "symbol": "1540",
+    "name": "喬福",
+    "display": "1540 喬福"
+  },
+  {
+    "symbol": "1541",
+    "name": "錩泰",
+    "display": "1541 錩泰"
+  },
+  {
+    "symbol": "1558",
+    "name": "伸興",
+    "display": "1558 伸興"
+  },
+  {
+    "symbol": "1560",
+    "name": "中砂",
+    "display": "1560 中砂"
+  },
+  {
+    "symbol": "1563",
+    "name": "巧新",
+    "display": "1563 巧新"
+  },
+  {
+    "symbol": "1568",
+    "name": "倉佑",
+    "display": "1568 倉佑"
+  },
+  {
+    "symbol": "1582",
+    "name": "信錦",
+    "display": "1582 信錦"
+  },
+  {
+    "symbol": "1583",
+    "name": "程泰",
+    "display": "1583 程泰"
+  },
+  {
+    "symbol": "1587",
+    "name": "吉茂",
+    "display": "1587 吉茂"
+  },
+  {
+    "symbol": "1589",
+    "name": "永冠-KY",
+    "display": "1589 永冠-KY"
+  },
+  {
+    "symbol": "1590",
+    "name": "亞德客-KY",
+    "display": "1590 亞德客-KY"
+  },
+  {
+    "symbol": "1597",
+    "name": "直得",
+    "display": "1597 直得"
+  },
+  {
+    "symbol": "1598",
+    "name": "岱宇",
+    "display": "1598 岱宇"
+  },
+  {
+    "symbol": "1603",
+    "name": "華電",
+    "display": "1603 華電"
+  },
+  {
+    "symbol": "1604",
+    "name": "聲寶",
+    "display": "1604 聲寶"
+  },
+  {
+    "symbol": "1605",
+    "name": "華新",
+    "display": "1605 華新"
+  },
+  {
+    "symbol": "1608",
+    "name": "華榮",
+    "display": "1608 華榮"
+  },
+  {
+    "symbol": "1609",
+    "name": "大亞",
+    "display": "1609 大亞"
+  },
+  {
+    "symbol": "1611",
+    "name": "中電",
+    "display": "1611 中電"
+  },
+  {
+    "symbol": "1612",
+    "name": "宏泰",
+    "display": "1612 宏泰"
+  },
+  {
+    "symbol": "1614",
+    "name": "三洋電",
+    "display": "1614 三洋電"
+  },
+  {
+    "symbol": "1615",
+    "name": "大山",
+    "display": "1615 大山"
+  },
+  {
+    "symbol": "1616",
+    "name": "億泰",
+    "display": "1616 億泰"
+  },
+  {
+    "symbol": "1617",
+    "name": "榮星",
+    "display": "1617 榮星"
+  },
+  {
+    "symbol": "1618",
+    "name": "合機",
+    "display": "1618 合機"
+  },
+  {
+    "symbol": "1623",
+    "name": "大東電",
+    "display": "1623 大東電"
+  },
+  {
+    "symbol": "1626",
+    "name": "艾美特-KY",
+    "display": "1626 艾美特-KY"
+  },
+  {
+    "symbol": "1702",
+    "name": "南僑",
+    "display": "1702 南僑"
+  },
+  {
+    "symbol": "1707",
+    "name": "葡萄王",
+    "display": "1707 葡萄王"
+  },
+  {
+    "symbol": "1708",
+    "name": "東鹼",
+    "display": "1708 東鹼"
+  },
+  {
+    "symbol": "1709",
+    "name": "和益",
+    "display": "1709 和益"
+  },
+  {
+    "symbol": "1710",
+    "name": "東聯",
+    "display": "1710 東聯"
+  },
+  {
+    "symbol": "1711",
+    "name": "永光",
+    "display": "1711 永光"
+  },
+  {
+    "symbol": "1712",
+    "name": "興農",
+    "display": "1712 興農"
+  },
+  {
+    "symbol": "1713",
+    "name": "國化",
+    "display": "1713 國化"
+  },
+  {
+    "symbol": "1714",
+    "name": "和桐",
+    "display": "1714 和桐"
+  },
+  {
+    "symbol": "1717",
+    "name": "長興",
+    "display": "1717 長興"
+  },
+  {
+    "symbol": "1718",
+    "name": "中纖",
+    "display": "1718 中纖"
+  },
+  {
+    "symbol": "1720",
+    "name": "生達",
+    "display": "1720 生達"
+  },
+  {
+    "symbol": "1721",
+    "name": "三晃",
+    "display": "1721 三晃"
+  },
+  {
+    "symbol": "1722",
+    "name": "台肥",
+    "display": "1722 台肥"
+  },
+  {
+    "symbol": "1723",
+    "name": "中碳",
+    "display": "1723 中碳"
+  },
+  {
+    "symbol": "1725",
+    "name": "元禎",
+    "display": "1725 元禎"
+  },
+  {
+    "symbol": "1726",
+    "name": "永記",
+    "display": "1726 永記"
+  },
+  {
+    "symbol": "1727",
+    "name": "中華化",
+    "display": "1727 中華化"
+  },
+  {
+    "symbol": "1730",
+    "name": "花仙子",
+    "display": "1730 花仙子"
+  },
+  {
+    "symbol": "1731",
+    "name": "美吾華",
+    "display": "1731 美吾華"
+  },
+  {
+    "symbol": "1732",
+    "name": "毛寶",
+    "display": "1732 毛寶"
+  },
+  {
+    "symbol": "1733",
+    "name": "五鼎",
+    "display": "1733 五鼎"
+  },
+  {
+    "symbol": "1734",
+    "name": "杏輝",
+    "display": "1734 杏輝"
+  },
+  {
+    "symbol": "1735",
+    "name": "日勝化",
+    "display": "1735 日勝化"
+  },
+  {
+    "symbol": "1736",
+    "name": "喬山",
+    "display": "1736 喬山"
+  },
+  {
+    "symbol": "1737",
+    "name": "臺鹽",
+    "display": "1737 臺鹽"
+  },
+  {
+    "symbol": "1752",
+    "name": "南光",
+    "display": "1752 南光"
+  },
+  {
+    "symbol": "1760",
+    "name": "寶齡富錦",
+    "display": "1760 寶齡富錦"
+  },
+  {
+    "symbol": "1762",
+    "name": "中化生",
+    "display": "1762 中化生"
+  },
+  {
+    "symbol": "1773",
+    "name": "勝一",
+    "display": "1773 勝一"
+  },
+  {
+    "symbol": "1776",
+    "name": "展宇",
+    "display": "1776 展宇"
+  },
+  {
+    "symbol": "1783",
+    "name": "和康生",
+    "display": "1783 和康生"
+  },
+  {
+    "symbol": "1786",
+    "name": "科妍",
+    "display": "1786 科妍"
+  },
+  {
+    "symbol": "1789",
+    "name": "神隆",
+    "display": "1789 神隆"
+  },
+  {
+    "symbol": "1795",
+    "name": "美時",
+    "display": "1795 美時"
+  },
+  {
+    "symbol": "1802",
+    "name": "台玻",
+    "display": "1802 台玻"
+  },
+  {
+    "symbol": "1805",
+    "name": "寶徠",
+    "display": "1805 寶徠"
+  },
+  {
+    "symbol": "1806",
+    "name": "冠軍",
+    "display": "1806 冠軍"
+  },
+  {
+    "symbol": "1808",
+    "name": "潤隆",
+    "display": "1808 潤隆"
+  },
+  {
+    "symbol": "1809",
+    "name": "中釉",
+    "display": "1809 中釉"
+  },
+  {
+    "symbol": "1810",
+    "name": "和成",
+    "display": "1810 和成"
+  },
+  {
+    "symbol": "1817",
+    "name": "凱撒衛",
+    "display": "1817 凱撒衛"
+  },
+  {
+    "symbol": "1903",
+    "name": "士紙",
+    "display": "1903 士紙"
+  },
+  {
+    "symbol": "1904",
+    "name": "正隆",
+    "display": "1904 正隆"
+  },
+  {
+    "symbol": "1905",
+    "name": "華紙",
+    "display": "1905 華紙"
+  },
+  {
+    "symbol": "1906",
+    "name": "寶隆",
+    "display": "1906 寶隆"
+  },
+  {
+    "symbol": "1907",
+    "name": "永豐餘",
+    "display": "1907 永豐餘"
+  },
+  {
+    "symbol": "1909",
+    "name": "榮成",
+    "display": "1909 榮成"
+  },
+  {
+    "symbol": "2002",
+    "name": "中鋼",
+    "display": "2002 中鋼"
+  },
+  {
+    "symbol": "2006",
+    "name": "東和鋼鐵",
+    "display": "2006 東和鋼鐵"
+  },
+  {
+    "symbol": "2007",
+    "name": "燁興",
+    "display": "2007 燁興"
+  },
+  {
+    "symbol": "2008",
+    "name": "高興昌",
+    "display": "2008 高興昌"
+  },
+  {
+    "symbol": "2009",
+    "name": "第一銅",
+    "display": "2009 第一銅"
+  },
+  {
+    "symbol": "2010",
+    "name": "春源",
+    "display": "2010 春源"
+  },
+  {
+    "symbol": "2012",
+    "name": "春雨",
+    "display": "2012 春雨"
+  },
+  {
+    "symbol": "2013",
+    "name": "中鋼構",
+    "display": "2013 中鋼構"
+  },
+  {
+    "symbol": "2014",
+    "name": "中鴻",
+    "display": "2014 中鴻"
+  },
+  {
+    "symbol": "2015",
+    "name": "豐興",
+    "display": "2015 豐興"
+  },
+  {
+    "symbol": "2017",
+    "name": "官田鋼",
+    "display": "2017 官田鋼"
+  },
+  {
+    "symbol": "2020",
+    "name": "美亞",
+    "display": "2020 美亞"
+  },
+  {
+    "symbol": "2022",
+    "name": "聚亨",
+    "display": "2022 聚亨"
+  },
+  {
+    "symbol": "2023",
+    "name": "燁輝",
+    "display": "2023 燁輝"
+  },
+  {
+    "symbol": "2024",
+    "name": "志聯",
+    "display": "2024 志聯"
+  },
+  {
+    "symbol": "2025",
+    "name": "千興",
+    "display": "2025 千興"
+  },
+  {
+    "symbol": "2027",
+    "name": "大成鋼",
+    "display": "2027 大成鋼"
+  },
+  {
+    "symbol": "2028",
+    "name": "威致",
+    "display": "2028 威致"
+  },
+  {
+    "symbol": "2029",
+    "name": "盛餘",
+    "display": "2029 盛餘"
+  },
+  {
+    "symbol": "2030",
+    "name": "彰源",
+    "display": "2030 彰源"
+  },
+  {
+    "symbol": "2031",
+    "name": "新光鋼",
+    "display": "2031 新光鋼"
+  },
+  {
+    "symbol": "2032",
+    "name": "新鋼",
+    "display": "2032 新鋼"
+  },
+  {
+    "symbol": "2033",
+    "name": "佳大",
+    "display": "2033 佳大"
+  },
+  {
+    "symbol": "2034",
+    "name": "允強",
+    "display": "2034 允強"
+  },
+  {
+    "symbol": "2038",
+    "name": "海光",
+    "display": "2038 海光"
+  },
+  {
+    "symbol": "2049",
+    "name": "上銀",
+    "display": "2049 上銀"
+  },
+  {
+    "symbol": "2059",
+    "name": "川湖",
+    "display": "2059 川湖"
+  },
+  {
+    "symbol": "2062",
+    "name": "橋椿",
+    "display": "2062 橋椿"
+  },
+  {
+    "symbol": "2069",
+    "name": "運錩",
+    "display": "2069 運錩"
+  },
+  {
+    "symbol": "2072",
+    "name": "世紀風電",
+    "display": "2072 世紀風電"
+  },
+  {
+    "symbol": "2101",
+    "name": "南港",
+    "display": "2101 南港"
+  },
+  {
+    "symbol": "2102",
+    "name": "泰豐",
+    "display": "2102 泰豐"
+  },
+  {
+    "symbol": "2103",
+    "name": "台橡",
+    "display": "2103 台橡"
+  },
+  {
+    "symbol": "2104",
+    "name": "國際中橡",
+    "display": "2104 國際中橡"
+  },
+  {
+    "symbol": "2105",
+    "name": "正新",
+    "display": "2105 正新"
+  },
+  {
+    "symbol": "2106",
+    "name": "建大",
+    "display": "2106 建大"
+  },
+  {
+    "symbol": "2107",
+    "name": "厚生",
+    "display": "2107 厚生"
+  },
+  {
+    "symbol": "2108",
+    "name": "南帝",
+    "display": "2108 南帝"
+  },
+  {
+    "symbol": "2109",
+    "name": "華豐",
+    "display": "2109 華豐"
+  },
+  {
+    "symbol": "2114",
+    "name": "鑫永銓",
+    "display": "2114 鑫永銓"
+  },
+  {
+    "symbol": "2115",
+    "name": "六暉-KY",
+    "display": "2115 六暉-KY"
+  },
+  {
+    "symbol": "2201",
+    "name": "裕隆",
+    "display": "2201 裕隆"
+  },
+  {
+    "symbol": "2204",
+    "name": "中華",
+    "display": "2204 中華"
+  },
+  {
+    "symbol": "2206",
+    "name": "三陽工業",
+    "display": "2206 三陽工業"
+  },
+  {
+    "symbol": "2207",
+    "name": "和泰車",
+    "display": "2207 和泰車"
+  },
+  {
+    "symbol": "2208",
+    "name": "台船",
+    "display": "2208 台船"
+  },
+  {
+    "symbol": "2211",
+    "name": "長榮鋼",
+    "display": "2211 長榮鋼"
+  },
+  {
+    "symbol": "2227",
+    "name": "裕日車",
+    "display": "2227 裕日車"
+  },
+  {
+    "symbol": "2228",
+    "name": "劍麟",
+    "display": "2228 劍麟"
+  },
+  {
+    "symbol": "2231",
+    "name": "為升",
+    "display": "2231 為升"
+  },
+  {
+    "symbol": "2233",
+    "name": "宇隆",
+    "display": "2233 宇隆"
+  },
+  {
+    "symbol": "2236",
+    "name": "百達-KY",
+    "display": "2236 百達-KY"
+  },
+  {
+    "symbol": "2239",
+    "name": "英利-KY",
+    "display": "2239 英利-KY"
+  },
+  {
+    "symbol": "2241",
+    "name": "艾姆勒",
+    "display": "2241 艾姆勒"
+  },
+  {
+    "symbol": "2243",
+    "name": "宏旭-KY",
+    "display": "2243 宏旭-KY"
+  },
+  {
+    "symbol": "2247",
+    "name": "汎德永業",
+    "display": "2247 汎德永業"
+  },
+  {
+    "symbol": "2248",
+    "name": "華勝-KY",
+    "display": "2248 華勝-KY"
+  },
+  {
+    "symbol": "2250",
+    "name": "IKKA-KY",
+    "display": "2250 IKKA-KY"
+  },
+  {
+    "symbol": "2301",
+    "name": "光寶科",
+    "display": "2301 光寶科"
+  },
+  {
+    "symbol": "2302",
+    "name": "麗正",
+    "display": "2302 麗正"
+  },
+  {
+    "symbol": "2303",
+    "name": "聯電",
+    "display": "2303 聯電"
+  },
+  {
+    "symbol": "2305",
+    "name": "全友",
+    "display": "2305 全友"
+  },
+  {
+    "symbol": "2308",
+    "name": "台達電",
+    "display": "2308 台達電"
+  },
+  {
+    "symbol": "2312",
+    "name": "金寶",
+    "display": "2312 金寶"
+  },
+  {
+    "symbol": "2313",
+    "name": "華通",
+    "display": "2313 華通"
+  },
+  {
+    "symbol": "2314",
+    "name": "台揚",
+    "display": "2314 台揚"
+  },
+  {
+    "symbol": "2316",
+    "name": "楠梓電",
+    "display": "2316 楠梓電"
+  },
+  {
+    "symbol": "2317",
+    "name": "鴻海",
+    "display": "2317 鴻海"
+  },
+  {
+    "symbol": "2321",
+    "name": "東訊",
+    "display": "2321 東訊"
+  },
+  {
+    "symbol": "2323",
+    "name": "中環",
+    "display": "2323 中環"
+  },
+  {
+    "symbol": "2324",
+    "name": "仁寶",
+    "display": "2324 仁寶"
+  },
+  {
+    "symbol": "2327",
+    "name": "國巨*",
+    "display": "2327 國巨*"
+  },
+  {
+    "symbol": "2328",
+    "name": "廣宇",
+    "display": "2328 廣宇"
+  },
+  {
+    "symbol": "2329",
+    "name": "華泰",
+    "display": "2329 華泰"
+  },
+  {
+    "symbol": "2330",
+    "name": "台積電",
+    "display": "2330 台積電"
+  },
+  {
+    "symbol": "2331",
+    "name": "精英",
+    "display": "2331 精英"
+  },
+  {
+    "symbol": "2332",
+    "name": "友訊",
+    "display": "2332 友訊"
+  },
+  {
+    "symbol": "2337",
+    "name": "旺宏",
+    "display": "2337 旺宏"
+  },
+  {
+    "symbol": "2338",
+    "name": "光罩",
+    "display": "2338 光罩"
+  },
+  {
+    "symbol": "2340",
+    "name": "台亞",
+    "display": "2340 台亞"
+  },
+  {
+    "symbol": "2342",
+    "name": "茂矽",
+    "display": "2342 茂矽"
+  },
+  {
+    "symbol": "2344",
+    "name": "華邦電",
+    "display": "2344 華邦電"
+  },
+  {
+    "symbol": "2345",
+    "name": "智邦",
+    "display": "2345 智邦"
+  },
+  {
+    "symbol": "2347",
+    "name": "聯強",
+    "display": "2347 聯強"
+  },
+  {
+    "symbol": "2348",
+    "name": "海悅",
+    "display": "2348 海悅"
+  },
+  {
+    "symbol": "2349",
+    "name": "錸德",
+    "display": "2349 錸德"
+  },
+  {
+    "symbol": "2351",
+    "name": "順德",
+    "display": "2351 順德"
+  },
+  {
+    "symbol": "2352",
+    "name": "佳世達",
+    "display": "2352 佳世達"
+  },
+  {
+    "symbol": "2353",
+    "name": "宏��",
+    "display": "2353 宏��"
+  },
+  {
+    "symbol": "2354",
+    "name": "鴻準",
+    "display": "2354 鴻準"
+  },
+  {
+    "symbol": "2355",
+    "name": "敬鵬",
+    "display": "2355 敬鵬"
+  },
+  {
+    "symbol": "2356",
+    "name": "英業達",
+    "display": "2356 英業達"
+  },
+  {
+    "symbol": "2357",
+    "name": "華碩",
+    "display": "2357 華碩"
+  },
+  {
+    "symbol": "2359",
+    "name": "所羅門",
+    "display": "2359 所羅門"
+  },
+  {
+    "symbol": "2360",
+    "name": "致茂",
+    "display": "2360 致茂"
+  },
+  {
+    "symbol": "2362",
+    "name": "藍天",
+    "display": "2362 藍天"
+  },
+  {
+    "symbol": "2363",
+    "name": "矽統",
+    "display": "2363 矽統"
+  },
+  {
+    "symbol": "2364",
+    "name": "倫飛",
+    "display": "2364 倫飛"
+  },
+  {
+    "symbol": "2365",
+    "name": "昆盈",
+    "display": "2365 昆盈"
+  },
+  {
+    "symbol": "2367",
+    "name": "燿華",
+    "display": "2367 燿華"
+  },
+  {
+    "symbol": "2368",
+    "name": "金像電",
+    "display": "2368 金像電"
+  },
+  {
+    "symbol": "2369",
+    "name": "菱生",
+    "display": "2369 菱生"
+  },
+  {
+    "symbol": "2371",
+    "name": "大同",
+    "display": "2371 大同"
+  },
+  {
+    "symbol": "2373",
+    "name": "震旦行",
+    "display": "2373 震旦行"
+  },
+  {
+    "symbol": "2374",
+    "name": "佳能",
+    "display": "2374 佳能"
+  },
+  {
+    "symbol": "2375",
+    "name": "凱美",
+    "display": "2375 凱美"
+  },
+  {
+    "symbol": "2376",
+    "name": "技嘉",
+    "display": "2376 技嘉"
+  },
+  {
+    "symbol": "2377",
+    "name": "微星",
+    "display": "2377 微星"
+  },
+  {
+    "symbol": "2379",
+    "name": "瑞昱",
+    "display": "2379 瑞昱"
+  },
+  {
+    "symbol": "2380",
+    "name": "虹光",
+    "display": "2380 虹光"
+  },
+  {
+    "symbol": "2382",
+    "name": "廣達",
+    "display": "2382 廣達"
+  },
+  {
+    "symbol": "2383",
+    "name": "台光電",
+    "display": "2383 台光電"
+  },
+  {
+    "symbol": "2385",
+    "name": "群光",
+    "display": "2385 群光"
+  },
+  {
+    "symbol": "2387",
+    "name": "精元",
+    "display": "2387 精元"
+  },
+  {
+    "symbol": "2388",
+    "name": "威盛",
+    "display": "2388 威盛"
+  },
+  {
+    "symbol": "2390",
+    "name": "云辰",
+    "display": "2390 云辰"
+  },
+  {
+    "symbol": "2392",
+    "name": "正崴",
+    "display": "2392 正崴"
+  },
+  {
+    "symbol": "2393",
+    "name": "億光",
+    "display": "2393 億光"
+  },
+  {
+    "symbol": "2395",
+    "name": "研華",
+    "display": "2395 研華"
+  },
+  {
+    "symbol": "2397",
+    "name": "友通",
+    "display": "2397 友通"
+  },
+  {
+    "symbol": "2399",
+    "name": "映泰",
+    "display": "2399 映泰"
+  },
+  {
+    "symbol": "2401",
+    "name": "凌陽",
+    "display": "2401 凌陽"
+  },
+  {
+    "symbol": "2402",
+    "name": "毅嘉",
+    "display": "2402 毅嘉"
+  },
+  {
+    "symbol": "2404",
+    "name": "漢唐",
+    "display": "2404 漢唐"
+  },
+  {
+    "symbol": "2405",
+    "name": "輔信",
+    "display": "2405 輔信"
+  },
+  {
+    "symbol": "2406",
+    "name": "國碩",
+    "display": "2406 國碩"
+  },
+  {
+    "symbol": "2408",
+    "name": "南亞科",
+    "display": "2408 南亞科"
+  },
+  {
+    "symbol": "2409",
+    "name": "友達",
+    "display": "2409 友達"
+  },
+  {
+    "symbol": "2412",
+    "name": "中華電",
+    "display": "2412 中華電"
+  },
+  {
+    "symbol": "2413",
+    "name": "環科",
+    "display": "2413 環科"
+  },
+  {
+    "symbol": "2414",
+    "name": "精技",
+    "display": "2414 精技"
+  },
+  {
+    "symbol": "2415",
+    "name": "錩新",
+    "display": "2415 錩新"
+  },
+  {
+    "symbol": "2417",
+    "name": "圓剛",
+    "display": "2417 圓剛"
+  },
+  {
+    "symbol": "2419",
+    "name": "仲琦",
+    "display": "2419 仲琦"
+  },
+  {
+    "symbol": "2420",
+    "name": "新巨",
+    "display": "2420 新巨"
+  },
+  {
+    "symbol": "2421",
+    "name": "建準",
+    "display": "2421 建準"
+  },
+  {
+    "symbol": "2423",
+    "name": "固緯",
+    "display": "2423 固緯"
+  },
+  {
+    "symbol": "2424",
+    "name": "隴華",
+    "display": "2424 隴華"
+  },
+  {
+    "symbol": "2425",
+    "name": "承啟",
+    "display": "2425 承啟"
+  },
+  {
+    "symbol": "2426",
+    "name": "鼎元",
+    "display": "2426 鼎元"
+  },
+  {
+    "symbol": "2427",
+    "name": "三商電",
+    "display": "2427 三商電"
+  },
+  {
+    "symbol": "2428",
+    "name": "興勤",
+    "display": "2428 興勤"
+  },
+  {
+    "symbol": "2429",
+    "name": "銘旺科",
+    "display": "2429 銘旺科"
+  },
+  {
+    "symbol": "2430",
+    "name": "燦坤",
+    "display": "2430 燦坤"
+  },
+  {
+    "symbol": "2431",
+    "name": "聯昌",
+    "display": "2431 聯昌"
+  },
+  {
+    "symbol": "2433",
+    "name": "互盛電",
+    "display": "2433 互盛電"
+  },
+  {
+    "symbol": "2434",
+    "name": "統懋",
+    "display": "2434 統懋"
+  },
+  {
+    "symbol": "2436",
+    "name": "偉詮電",
+    "display": "2436 偉詮電"
+  },
+  {
+    "symbol": "2438",
+    "name": "翔耀",
+    "display": "2438 翔耀"
+  },
+  {
+    "symbol": "2439",
+    "name": "美律",
+    "display": "2439 美律"
+  },
+  {
+    "symbol": "2440",
+    "name": "太空梭",
+    "display": "2440 太空梭"
+  },
+  {
+    "symbol": "2441",
+    "name": "超豐",
+    "display": "2441 超豐"
+  },
+  {
+    "symbol": "2442",
+    "name": "新美齊",
+    "display": "2442 新美齊"
+  },
+  {
+    "symbol": "2444",
+    "name": "兆勁",
+    "display": "2444 兆勁"
+  },
+  {
+    "symbol": "2449",
+    "name": "京元電子",
+    "display": "2449 京元電子"
+  },
+  {
+    "symbol": "2450",
+    "name": "神腦",
+    "display": "2450 神腦"
+  },
+  {
+    "symbol": "2451",
+    "name": "創見",
+    "display": "2451 創見"
+  },
+  {
+    "symbol": "2453",
+    "name": "凌群",
+    "display": "2453 凌群"
+  },
+  {
+    "symbol": "2454",
+    "name": "聯發科",
+    "display": "2454 聯發科"
+  },
+  {
+    "symbol": "2455",
+    "name": "全新",
+    "display": "2455 全新"
+  },
+  {
+    "symbol": "2457",
+    "name": "飛宏",
+    "display": "2457 飛宏"
+  },
+  {
+    "symbol": "2458",
+    "name": "義隆",
+    "display": "2458 義隆"
+  },
+  {
+    "symbol": "2459",
+    "name": "敦吉",
+    "display": "2459 敦吉"
+  },
+  {
+    "symbol": "2460",
+    "name": "建通",
+    "display": "2460 建通"
+  },
+  {
+    "symbol": "2461",
+    "name": "光群雷",
+    "display": "2461 光群雷"
+  },
+  {
+    "symbol": "2462",
+    "name": "良得電",
+    "display": "2462 良得電"
+  },
+  {
+    "symbol": "2464",
+    "name": "盟立",
+    "display": "2464 盟立"
+  },
+  {
+    "symbol": "2465",
+    "name": "麗臺",
+    "display": "2465 麗臺"
+  },
+  {
+    "symbol": "2466",
+    "name": "冠西電",
+    "display": "2466 冠西電"
+  },
+  {
+    "symbol": "2467",
+    "name": "志聖",
+    "display": "2467 志聖"
+  },
+  {
+    "symbol": "2468",
+    "name": "華經",
+    "display": "2468 華經"
+  },
+  {
+    "symbol": "2471",
+    "name": "資通",
+    "display": "2471 資通"
+  },
+  {
+    "symbol": "2472",
+    "name": "立隆電",
+    "display": "2472 立隆電"
+  },
+  {
+    "symbol": "2474",
+    "name": "可成",
+    "display": "2474 可成"
+  },
+  {
+    "symbol": "2476",
+    "name": "鉅祥",
+    "display": "2476 鉅祥"
+  },
+  {
+    "symbol": "2477",
+    "name": "美隆電",
+    "display": "2477 美隆電"
+  },
+  {
+    "symbol": "2478",
+    "name": "大毅",
+    "display": "2478 大毅"
+  },
+  {
+    "symbol": "2480",
+    "name": "敦陽科",
+    "display": "2480 敦陽科"
+  },
+  {
+    "symbol": "2481",
+    "name": "強茂",
+    "display": "2481 強茂"
+  },
+  {
+    "symbol": "2482",
+    "name": "連宇",
+    "display": "2482 連宇"
+  },
+  {
+    "symbol": "2483",
+    "name": "百容",
+    "display": "2483 百容"
+  },
+  {
+    "symbol": "2484",
+    "name": "希華",
+    "display": "2484 希華"
+  },
+  {
+    "symbol": "2485",
+    "name": "兆赫",
+    "display": "2485 兆赫"
+  },
+  {
+    "symbol": "2486",
+    "name": "一詮",
+    "display": "2486 一詮"
+  },
+  {
+    "symbol": "2488",
+    "name": "漢平",
+    "display": "2488 漢平"
+  },
+  {
+    "symbol": "2489",
+    "name": "瑞軒",
+    "display": "2489 瑞軒"
+  },
+  {
+    "symbol": "2491",
+    "name": "吉祥全",
+    "display": "2491 吉祥全"
+  },
+  {
+    "symbol": "2492",
+    "name": "華新科",
+    "display": "2492 華新科"
+  },
+  {
+    "symbol": "2493",
+    "name": "揚博",
+    "display": "2493 揚博"
+  },
+  {
+    "symbol": "2495",
+    "name": "普安",
+    "display": "2495 普安"
+  },
+  {
+    "symbol": "2496",
+    "name": "卓越",
+    "display": "2496 卓越"
+  },
+  {
+    "symbol": "2497",
+    "name": "怡利電",
+    "display": "2497 怡利電"
+  },
+  {
+    "symbol": "2498",
+    "name": "宏達電",
+    "display": "2498 宏達電"
+  },
+  {
+    "symbol": "2501",
+    "name": "國建",
+    "display": "2501 國建"
+  },
+  {
+    "symbol": "2504",
+    "name": "國產",
+    "display": "2504 國產"
+  },
+  {
+    "symbol": "2505",
+    "name": "國揚",
+    "display": "2505 國揚"
+  },
+  {
+    "symbol": "2506",
+    "name": "太設",
+    "display": "2506 太設"
+  },
+  {
+    "symbol": "2509",
+    "name": "全坤建",
+    "display": "2509 全坤建"
+  },
+  {
+    "symbol": "2511",
+    "name": "太子",
+    "display": "2511 太子"
+  },
+  {
+    "symbol": "2514",
+    "name": "龍邦",
+    "display": "2514 龍邦"
+  },
+  {
+    "symbol": "2515",
+    "name": "中工",
+    "display": "2515 中工"
+  },
+  {
+    "symbol": "2516",
+    "name": "新建",
+    "display": "2516 新建"
+  },
+  {
+    "symbol": "2520",
+    "name": "冠德",
+    "display": "2520 冠德"
+  },
+  {
+    "symbol": "2524",
+    "name": "京城",
+    "display": "2524 京城"
+  },
+  {
+    "symbol": "2527",
+    "name": "宏璟",
+    "display": "2527 宏璟"
+  },
+  {
+    "symbol": "2528",
+    "name": "皇普",
+    "display": "2528 皇普"
+  },
+  {
+    "symbol": "2530",
+    "name": "華建",
+    "display": "2530 華建"
+  },
+  {
+    "symbol": "2534",
+    "name": "宏盛",
+    "display": "2534 宏盛"
+  },
+  {
+    "symbol": "2535",
+    "name": "達欣工",
+    "display": "2535 達欣工"
+  },
+  {
+    "symbol": "2536",
+    "name": "宏普",
+    "display": "2536 宏普"
+  },
+  {
+    "symbol": "2537",
+    "name": "聯上發",
+    "display": "2537 聯上發"
+  },
+  {
+    "symbol": "2538",
+    "name": "基泰",
+    "display": "2538 基泰"
+  },
+  {
+    "symbol": "2539",
+    "name": "櫻花建",
+    "display": "2539 櫻花建"
+  },
+  {
+    "symbol": "2540",
+    "name": "愛山林",
+    "display": "2540 愛山林"
+  },
+  {
+    "symbol": "2542",
+    "name": "興富發",
+    "display": "2542 興富發"
+  },
+  {
+    "symbol": "2543",
+    "name": "皇昌",
+    "display": "2543 皇昌"
+  },
+  {
+    "symbol": "2545",
+    "name": "皇翔",
+    "display": "2545 皇翔"
+  },
+  {
+    "symbol": "2546",
+    "name": "根基",
+    "display": "2546 根基"
+  },
+  {
+    "symbol": "2547",
+    "name": "日勝生",
+    "display": "2547 日勝生"
+  },
+  {
+    "symbol": "2548",
+    "name": "華固",
+    "display": "2548 華固"
+  },
+  {
+    "symbol": "2597",
+    "name": "潤弘",
+    "display": "2597 潤弘"
+  },
+  {
+    "symbol": "2601",
+    "name": "益航",
+    "display": "2601 益航"
+  },
+  {
+    "symbol": "2603",
+    "name": "長榮",
+    "display": "2603 長榮"
+  },
+  {
+    "symbol": "2605",
+    "name": "新興",
+    "display": "2605 新興"
+  },
+  {
+    "symbol": "2606",
+    "name": "裕民",
+    "display": "2606 裕民"
+  },
+  {
+    "symbol": "2607",
+    "name": "榮運",
+    "display": "2607 榮運"
+  },
+  {
+    "symbol": "2608",
+    "name": "嘉里大榮",
+    "display": "2608 嘉里大榮"
+  },
+  {
+    "symbol": "2609",
+    "name": "陽明",
+    "display": "2609 陽明"
+  },
+  {
+    "symbol": "2610",
+    "name": "華航",
+    "display": "2610 華航"
+  },
+  {
+    "symbol": "2611",
+    "name": "志信",
+    "display": "2611 志信"
+  },
+  {
+    "symbol": "2612",
+    "name": "中航",
+    "display": "2612 中航"
+  },
+  {
+    "symbol": "2613",
+    "name": "中櫃",
+    "display": "2613 中櫃"
+  },
+  {
+    "symbol": "2614",
+    "name": "東森",
+    "display": "2614 東森"
+  },
+  {
+    "symbol": "2615",
+    "name": "萬海",
+    "display": "2615 萬海"
+  },
+  {
+    "symbol": "2616",
+    "name": "山隆",
+    "display": "2616 山隆"
+  },
+  {
+    "symbol": "2617",
+    "name": "台航",
+    "display": "2617 台航"
+  },
+  {
+    "symbol": "2618",
+    "name": "長榮航",
+    "display": "2618 長榮航"
+  },
+  {
+    "symbol": "2630",
+    "name": "亞航",
+    "display": "2630 亞航"
+  },
+  {
+    "symbol": "2633",
+    "name": "台灣高鐵",
+    "display": "2633 台灣高鐵"
+  },
+  {
+    "symbol": "2634",
+    "name": "漢翔",
+    "display": "2634 漢翔"
+  },
+  {
+    "symbol": "2636",
+    "name": "台驊控股",
+    "display": "2636 台驊控股"
+  },
+  {
+    "symbol": "2637",
+    "name": "慧洋-KY",
+    "display": "2637 慧洋-KY"
+  },
+  {
+    "symbol": "2642",
+    "name": "宅配通",
+    "display": "2642 宅配通"
+  },
+  {
+    "symbol": "2645",
+    "name": "長榮航太",
+    "display": "2645 長榮航太"
+  },
+  {
+    "symbol": "2646",
+    "name": "星宇航空",
+    "display": "2646 星宇航空"
+  },
+  {
+    "symbol": "2701",
+    "name": "萬企",
+    "display": "2701 萬企"
+  },
+  {
+    "symbol": "2702",
+    "name": "華園",
+    "display": "2702 華園"
+  },
+  {
+    "symbol": "2704",
+    "name": "國賓",
+    "display": "2704 國賓"
+  },
+  {
+    "symbol": "2705",
+    "name": "六福",
+    "display": "2705 六福"
+  },
+  {
+    "symbol": "2706",
+    "name": "第一店",
+    "display": "2706 第一店"
+  },
+  {
+    "symbol": "2707",
+    "name": "晶華",
+    "display": "2707 晶華"
+  },
+  {
+    "symbol": "2712",
+    "name": "遠雄來",
+    "display": "2712 遠雄來"
+  },
+  {
+    "symbol": "2722",
+    "name": "夏都",
+    "display": "2722 夏都"
+  },
+  {
+    "symbol": "2723",
+    "name": "美食-KY",
+    "display": "2723 美食-KY"
+  },
+  {
+    "symbol": "2727",
+    "name": "王品",
+    "display": "2727 王品"
+  },
+  {
+    "symbol": "2731",
+    "name": "雄獅",
+    "display": "2731 雄獅"
+  },
+  {
+    "symbol": "2739",
+    "name": "寒舍",
+    "display": "2739 寒舍"
+  },
+  {
+    "symbol": "2748",
+    "name": "雲品",
+    "display": "2748 雲品"
+  },
+  {
+    "symbol": "2753",
+    "name": "八方雲集",
+    "display": "2753 八方雲集"
+  },
+  {
+    "symbol": "2762",
+    "name": "世界健身-KY",
+    "display": "2762 世界健身-KY"
+  },
+  {
+    "symbol": "2801",
+    "name": "彰銀",
+    "display": "2801 彰銀"
+  },
+  {
+    "symbol": "2812",
+    "name": "台中銀",
+    "display": "2812 台中銀"
+  },
+  {
+    "symbol": "2816",
+    "name": "旺旺保",
+    "display": "2816 旺旺保"
+  },
+  {
+    "symbol": "2820",
+    "name": "華票",
+    "display": "2820 華票"
+  },
+  {
+    "symbol": "2832",
+    "name": "台產",
+    "display": "2832 台產"
+  },
+  {
+    "symbol": "2834",
+    "name": "臺企銀",
+    "display": "2834 臺企銀"
+  },
+  {
+    "symbol": "2836",
+    "name": "高雄銀",
+    "display": "2836 高雄銀"
+  },
+  {
+    "symbol": "2838",
+    "name": "聯邦銀",
+    "display": "2838 聯邦銀"
+  },
+  {
+    "symbol": "2845",
+    "name": "遠東銀",
+    "display": "2845 遠東銀"
+  },
+  {
+    "symbol": "2849",
+    "name": "安泰銀",
+    "display": "2849 安泰銀"
+  },
+  {
+    "symbol": "2850",
+    "name": "新產",
+    "display": "2850 新產"
+  },
+  {
+    "symbol": "2851",
+    "name": "中再保",
+    "display": "2851 中再保"
+  },
+  {
+    "symbol": "2852",
+    "name": "第一保",
+    "display": "2852 第一保"
+  },
+  {
+    "symbol": "2855",
+    "name": "統一證",
+    "display": "2855 統一證"
+  },
+  {
+    "symbol": "2867",
+    "name": "三商壽",
+    "display": "2867 三商壽"
+  },
+  {
+    "symbol": "2880",
+    "name": "華南金",
+    "display": "2880 華南金"
+  },
+  {
+    "symbol": "2881",
+    "name": "富邦金",
+    "display": "2881 富邦金"
+  },
+  {
+    "symbol": "2882",
+    "name": "國泰金",
+    "display": "2882 國泰金"
+  },
+  {
+    "symbol": "2883",
+    "name": "凱基金",
+    "display": "2883 凱基金"
+  },
+  {
+    "symbol": "2884",
+    "name": "玉山金",
+    "display": "2884 玉山金"
+  },
+  {
+    "symbol": "2885",
+    "name": "元大金",
+    "display": "2885 元大金"
+  },
+  {
+    "symbol": "2886",
+    "name": "兆豐金",
+    "display": "2886 兆豐金"
+  },
+  {
+    "symbol": "2887",
+    "name": "台新新光金",
+    "display": "2887 台新新光金"
+  },
+  {
+    "symbol": "2889",
+    "name": "國票金",
+    "display": "2889 國票金"
+  },
+  {
+    "symbol": "2890",
+    "name": "永豐金",
+    "display": "2890 永豐金"
+  },
+  {
+    "symbol": "2891",
+    "name": "中信金",
+    "display": "2891 中信金"
+  },
+  {
+    "symbol": "2892",
+    "name": "第一金",
+    "display": "2892 第一金"
+  },
+  {
+    "symbol": "2897",
+    "name": "王道銀行",
+    "display": "2897 王道銀行"
+  },
+  {
+    "symbol": "2901",
+    "name": "欣欣",
+    "display": "2901 欣欣"
+  },
+  {
+    "symbol": "2903",
+    "name": "遠百",
+    "display": "2903 遠百"
+  },
+  {
+    "symbol": "2904",
+    "name": "匯僑",
+    "display": "2904 匯僑"
+  },
+  {
+    "symbol": "2905",
+    "name": "三商",
+    "display": "2905 三商"
+  },
+  {
+    "symbol": "2906",
+    "name": "高林",
+    "display": "2906 高林"
+  },
+  {
+    "symbol": "2908",
+    "name": "特力",
+    "display": "2908 特力"
+  },
+  {
+    "symbol": "2910",
+    "name": "統領",
+    "display": "2910 統領"
+  },
+  {
+    "symbol": "2911",
+    "name": "麗嬰房",
+    "display": "2911 麗嬰房"
+  },
+  {
+    "symbol": "2912",
+    "name": "統一超",
+    "display": "2912 統一超"
+  },
+  {
+    "symbol": "2913",
+    "name": "農林",
+    "display": "2913 農林"
+  },
+  {
+    "symbol": "2915",
+    "name": "潤泰全",
+    "display": "2915 潤泰全"
+  },
+  {
+    "symbol": "2923",
+    "name": "鼎固-KY",
+    "display": "2923 鼎固-KY"
+  },
+  {
+    "symbol": "2929",
+    "name": "淘帝-KY",
+    "display": "2929 淘帝-KY"
+  },
+  {
+    "symbol": "2939",
+    "name": "永邑-KY",
+    "display": "2939 永邑-KY"
+  },
+  {
+    "symbol": "2945",
+    "name": "三商家購",
+    "display": "2945 三商家購"
+  },
+  {
+    "symbol": "3002",
+    "name": "歐格",
+    "display": "3002 歐格"
+  },
+  {
+    "symbol": "3003",
+    "name": "健和興",
+    "display": "3003 健和興"
+  },
+  {
+    "symbol": "3004",
+    "name": "豐達科",
+    "display": "3004 豐達科"
+  },
+  {
+    "symbol": "3005",
+    "name": "神基",
+    "display": "3005 神基"
+  },
+  {
+    "symbol": "3006",
+    "name": "晶豪科",
+    "display": "3006 晶豪科"
+  },
+  {
+    "symbol": "3008",
+    "name": "大立光",
+    "display": "3008 大立光"
+  },
+  {
+    "symbol": "3010",
+    "name": "華立",
+    "display": "3010 華立"
+  },
+  {
+    "symbol": "3011",
+    "name": "今皓",
+    "display": "3011 今皓"
+  },
+  {
+    "symbol": "3013",
+    "name": "晟銘電",
+    "display": "3013 晟銘電"
+  },
+  {
+    "symbol": "3014",
+    "name": "聯陽",
+    "display": "3014 聯陽"
+  },
+  {
+    "symbol": "3015",
+    "name": "全漢",
+    "display": "3015 全漢"
+  },
+  {
+    "symbol": "3016",
+    "name": "嘉晶",
+    "display": "3016 嘉晶"
+  },
+  {
+    "symbol": "3017",
+    "name": "奇鋐",
+    "display": "3017 奇鋐"
+  },
+  {
+    "symbol": "3018",
+    "name": "隆銘綠能",
+    "display": "3018 隆銘綠能"
+  },
+  {
+    "symbol": "3019",
+    "name": "亞光",
+    "display": "3019 亞光"
+  },
+  {
+    "symbol": "3021",
+    "name": "鴻名",
+    "display": "3021 鴻名"
+  },
+  {
+    "symbol": "3022",
+    "name": "威強電",
+    "display": "3022 威強電"
+  },
+  {
+    "symbol": "3023",
+    "name": "信邦",
+    "display": "3023 信邦"
+  },
+  {
+    "symbol": "3024",
+    "name": "憶聲",
+    "display": "3024 憶聲"
+  },
+  {
+    "symbol": "3025",
+    "name": "星通",
+    "display": "3025 星通"
+  },
+  {
+    "symbol": "3026",
+    "name": "禾伸堂",
+    "display": "3026 禾伸堂"
+  },
+  {
+    "symbol": "3027",
+    "name": "盛達",
+    "display": "3027 盛達"
+  },
+  {
+    "symbol": "3028",
+    "name": "增你強",
+    "display": "3028 增你強"
+  },
+  {
+    "symbol": "3029",
+    "name": "零壹",
+    "display": "3029 零壹"
+  },
+  {
+    "symbol": "3030",
+    "name": "德律",
+    "display": "3030 德律"
+  },
+  {
+    "symbol": "3031",
+    "name": "佰鴻",
+    "display": "3031 佰鴻"
+  },
+  {
+    "symbol": "3032",
+    "name": "偉訓",
+    "display": "3032 偉訓"
+  },
+  {
+    "symbol": "3033",
+    "name": "威健",
+    "display": "3033 威健"
+  },
+  {
+    "symbol": "3034",
+    "name": "聯詠",
+    "display": "3034 聯詠"
+  },
+  {
+    "symbol": "3035",
+    "name": "智原",
+    "display": "3035 智原"
+  },
+  {
+    "symbol": "3036",
+    "name": "文曄",
+    "display": "3036 文曄"
+  },
+  {
+    "symbol": "3037",
+    "name": "欣興",
+    "display": "3037 欣興"
+  },
+  {
+    "symbol": "3038",
+    "name": "全台",
+    "display": "3038 全台"
+  },
+  {
+    "symbol": "3040",
+    "name": "遠見",
+    "display": "3040 遠見"
+  },
+  {
+    "symbol": "3041",
+    "name": "揚智",
+    "display": "3041 揚智"
+  },
+  {
+    "symbol": "3042",
+    "name": "晶技",
+    "display": "3042 晶技"
+  },
+  {
+    "symbol": "3043",
+    "name": "科風",
+    "display": "3043 科風"
+  },
+  {
+    "symbol": "3044",
+    "name": "健鼎",
+    "display": "3044 健鼎"
+  },
+  {
+    "symbol": "3045",
+    "name": "台灣大",
+    "display": "3045 台灣大"
+  },
+  {
+    "symbol": "3046",
+    "name": "建��",
+    "display": "3046 建��"
+  },
+  {
+    "symbol": "3047",
+    "name": "訊舟",
+    "display": "3047 訊舟"
+  },
+  {
+    "symbol": "3048",
+    "name": "益登",
+    "display": "3048 益登"
+  },
+  {
+    "symbol": "3049",
+    "name": "精金",
+    "display": "3049 精金"
+  },
+  {
+    "symbol": "3050",
+    "name": "鈺德",
+    "display": "3050 鈺德"
+  },
+  {
+    "symbol": "3051",
+    "name": "力特",
+    "display": "3051 力特"
+  },
+  {
+    "symbol": "3052",
+    "name": "夆典",
+    "display": "3052 夆典"
+  },
+  {
+    "symbol": "3054",
+    "name": "立萬利",
+    "display": "3054 立萬利"
+  },
+  {
+    "symbol": "3055",
+    "name": "蔚華科",
+    "display": "3055 蔚華科"
+  },
+  {
+    "symbol": "3056",
+    "name": "富華新",
+    "display": "3056 富華新"
+  },
+  {
+    "symbol": "3057",
+    "name": "喬鼎",
+    "display": "3057 喬鼎"
+  },
+  {
+    "symbol": "3058",
+    "name": "立德",
+    "display": "3058 立德"
+  },
+  {
+    "symbol": "3059",
+    "name": "華晶科",
+    "display": "3059 華晶科"
+  },
+  {
+    "symbol": "3060",
+    "name": "銘異",
+    "display": "3060 銘異"
+  },
+  {
+    "symbol": "3062",
+    "name": "建漢",
+    "display": "3062 建漢"
+  },
+  {
+    "symbol": "3090",
+    "name": "日電貿",
+    "display": "3090 日電貿"
+  },
+  {
+    "symbol": "3092",
+    "name": "鴻碩",
+    "display": "3092 鴻碩"
+  },
+  {
+    "symbol": "3094",
+    "name": "聯傑",
+    "display": "3094 聯傑"
+  },
+  {
+    "symbol": "3130",
+    "name": "一零四",
+    "display": "3130 一零四"
+  },
+  {
+    "symbol": "3135",
+    "name": "凌航",
+    "display": "3135 凌航"
+  },
+  {
+    "symbol": "3138",
+    "name": "耀登",
+    "display": "3138 耀登"
+  },
+  {
+    "symbol": "3149",
+    "name": "正達",
+    "display": "3149 正達"
+  },
+  {
+    "symbol": "3164",
+    "name": "景岳",
+    "display": "3164 景岳"
+  },
+  {
+    "symbol": "3167",
+    "name": "大量",
+    "display": "3167 大量"
+  },
+  {
+    "symbol": "3168",
+    "name": "眾福科",
+    "display": "3168 眾福科"
+  },
+  {
+    "symbol": "3189",
+    "name": "景碩",
+    "display": "3189 景碩"
+  },
+  {
+    "symbol": "3209",
+    "name": "全科",
+    "display": "3209 全科"
+  },
+  {
+    "symbol": "3229",
+    "name": "晟鈦",
+    "display": "3229 晟鈦"
+  },
+  {
+    "symbol": "3231",
+    "name": "緯創",
+    "display": "3231 緯創"
+  },
+  {
+    "symbol": "3257",
+    "name": "虹冠電",
+    "display": "3257 虹冠電"
+  },
+  {
+    "symbol": "3266",
+    "name": "昇陽",
+    "display": "3266 昇陽"
+  },
+  {
+    "symbol": "3296",
+    "name": "勝德",
+    "display": "3296 勝德"
+  },
+  {
+    "symbol": "3305",
+    "name": "昇貿",
+    "display": "3305 昇貿"
+  },
+  {
+    "symbol": "3308",
+    "name": "聯德",
+    "display": "3308 聯德"
+  },
+  {
+    "symbol": "3311",
+    "name": "閎暉",
+    "display": "3311 閎暉"
+  },
+  {
+    "symbol": "3312",
+    "name": "弘憶股",
+    "display": "3312 弘憶股"
+  },
+  {
+    "symbol": "3321",
+    "name": "同泰",
+    "display": "3321 同泰"
+  },
+  {
+    "symbol": "3338",
+    "name": "泰碩",
+    "display": "3338 泰碩"
+  },
+  {
+    "symbol": "3346",
+    "name": "麗清",
+    "display": "3346 麗清"
+  },
+  {
+    "symbol": "3356",
+    "name": "奇偶",
+    "display": "3356 奇偶"
+  },
+  {
+    "symbol": "3376",
+    "name": "新日興",
+    "display": "3376 新日興"
+  },
+  {
+    "symbol": "3380",
+    "name": "明泰",
+    "display": "3380 明泰"
+  },
+  {
+    "symbol": "3406",
+    "name": "玉晶光",
+    "display": "3406 玉晶光"
+  },
+  {
+    "symbol": "3413",
+    "name": "京鼎",
+    "display": "3413 京鼎"
+  },
+  {
+    "symbol": "3416",
+    "name": "融程電",
+    "display": "3416 融程電"
+  },
+  {
+    "symbol": "3419",
+    "name": "譁裕",
+    "display": "3419 譁裕"
+  },
+  {
+    "symbol": "3432",
+    "name": "台端",
+    "display": "3432 台端"
+  },
+  {
+    "symbol": "3437",
+    "name": "榮創",
+    "display": "3437 榮創"
+  },
+  {
+    "symbol": "3443",
+    "name": "創意",
+    "display": "3443 創意"
+  },
+  {
+    "symbol": "3447",
+    "name": "展達",
+    "display": "3447 展達"
+  },
+  {
+    "symbol": "3450",
+    "name": "聯鈞",
+    "display": "3450 聯鈞"
+  },
+  {
+    "symbol": "3481",
+    "name": "群創",
+    "display": "3481 群創"
+  },
+  {
+    "symbol": "3494",
+    "name": "誠研",
+    "display": "3494 誠研"
+  },
+  {
+    "symbol": "3501",
+    "name": "維熹",
+    "display": "3501 維熹"
+  },
+  {
+    "symbol": "3504",
+    "name": "揚明光",
+    "display": "3504 揚明光"
+  },
+  {
+    "symbol": "3515",
+    "name": "華擎",
+    "display": "3515 華擎"
+  },
+  {
+    "symbol": "3518",
+    "name": "柏騰",
+    "display": "3518 柏騰"
+  },
+  {
+    "symbol": "3528",
+    "name": "安馳",
+    "display": "3528 安馳"
+  },
+  {
+    "symbol": "3530",
+    "name": "晶相光",
+    "display": "3530 晶相光"
+  },
+  {
+    "symbol": "3532",
+    "name": "台勝科",
+    "display": "3532 台勝科"
+  },
+  {
+    "symbol": "3533",
+    "name": "嘉澤",
+    "display": "3533 嘉澤"
+  },
+  {
+    "symbol": "3535",
+    "name": "晶彩科",
+    "display": "3535 晶彩科"
+  },
+  {
+    "symbol": "3543",
+    "name": "州巧",
+    "display": "3543 州巧"
+  },
+  {
+    "symbol": "3545",
+    "name": "敦泰",
+    "display": "3545 敦泰"
+  },
+  {
+    "symbol": "3550",
+    "name": "聯穎",
+    "display": "3550 聯穎"
+  },
+  {
+    "symbol": "3557",
+    "name": "嘉威",
+    "display": "3557 嘉威"
+  },
+  {
+    "symbol": "3563",
+    "name": "牧德",
+    "display": "3563 牧德"
+  },
+  {
+    "symbol": "3576",
+    "name": "聯合再生",
+    "display": "3576 聯合再生"
+  },
+  {
+    "symbol": "3583",
+    "name": "辛耘",
+    "display": "3583 辛耘"
+  },
+  {
+    "symbol": "3588",
+    "name": "通嘉",
+    "display": "3588 通嘉"
+  },
+  {
+    "symbol": "3591",
+    "name": "艾笛森",
+    "display": "3591 艾笛森"
+  },
+  {
+    "symbol": "3592",
+    "name": "瑞鼎",
+    "display": "3592 瑞鼎"
+  },
+  {
+    "symbol": "3593",
+    "name": "力銘",
+    "display": "3593 力銘"
+  },
+  {
+    "symbol": "3596",
+    "name": "智易",
+    "display": "3596 智易"
+  },
+  {
+    "symbol": "3605",
+    "name": "宏致",
+    "display": "3605 宏致"
+  },
+  {
+    "symbol": "3607",
+    "name": "谷崧",
+    "display": "3607 谷崧"
+  },
+  {
+    "symbol": "3617",
+    "name": "碩天",
+    "display": "3617 碩天"
+  },
+  {
+    "symbol": "3622",
+    "name": "洋華",
+    "display": "3622 洋華"
+  },
+  {
+    "symbol": "3645",
+    "name": "達邁",
+    "display": "3645 達邁"
+  },
+  {
+    "symbol": "3652",
+    "name": "精聯",
+    "display": "3652 精聯"
+  },
+  {
+    "symbol": "3653",
+    "name": "健策",
+    "display": "3653 健策"
+  },
+  {
+    "symbol": "3661",
+    "name": "世芯-KY",
+    "display": "3661 世芯-KY"
+  },
+  {
+    "symbol": "3665",
+    "name": "貿聯-KY",
+    "display": "3665 貿聯-KY"
+  },
+  {
+    "symbol": "3669",
+    "name": "圓展",
+    "display": "3669 圓展"
+  },
+  {
+    "symbol": "3673",
+    "name": "TPK-KY",
+    "display": "3673 TPK-KY"
+  },
+  {
+    "symbol": "3679",
+    "name": "新至陞",
+    "display": "3679 新至陞"
+  },
+  {
+    "symbol": "3686",
+    "name": "達能",
+    "display": "3686 達能"
+  },
+  {
+    "symbol": "3694",
+    "name": "海華",
+    "display": "3694 海華"
+  },
+  {
+    "symbol": "3701",
+    "name": "大眾控",
+    "display": "3701 大眾控"
+  },
+  {
+    "symbol": "3702",
+    "name": "大聯大",
+    "display": "3702 大聯大"
+  },
+  {
+    "symbol": "3703",
+    "name": "欣陸",
+    "display": "3703 欣陸"
+  },
+  {
+    "symbol": "3704",
+    "name": "合勤控",
+    "display": "3704 合勤控"
+  },
+  {
+    "symbol": "3705",
+    "name": "永信",
+    "display": "3705 永信"
+  },
+  {
+    "symbol": "3706",
+    "name": "神達",
+    "display": "3706 神達"
+  },
+  {
+    "symbol": "3708",
+    "name": "上緯投控",
+    "display": "3708 上緯投控"
+  },
+  {
+    "symbol": "3711",
+    "name": "日月光投控",
+    "display": "3711 日月光投控"
+  },
+  {
+    "symbol": "3712",
+    "name": "永崴投控",
+    "display": "3712 永崴投控"
+  },
+  {
+    "symbol": "3714",
+    "name": "富采",
+    "display": "3714 富采"
+  },
+  {
+    "symbol": "3715",
+    "name": "定穎投控",
+    "display": "3715 定穎投控"
+  },
+  {
+    "symbol": "3716",
+    "name": "中化控股",
+    "display": "3716 中化控股"
+  },
+  {
+    "symbol": "3717",
+    "name": "聯嘉投控",
+    "display": "3717 聯嘉投控"
+  },
+  {
+    "symbol": "4104",
+    "name": "佳醫",
+    "display": "4104 佳醫"
+  },
+  {
+    "symbol": "4106",
+    "name": "雃博",
+    "display": "4106 雃博"
+  },
+  {
+    "symbol": "4108",
+    "name": "懷特",
+    "display": "4108 懷特"
+  },
+  {
+    "symbol": "4119",
+    "name": "旭富",
+    "display": "4119 旭富"
+  },
+  {
+    "symbol": "4133",
+    "name": "亞諾法",
+    "display": "4133 亞諾法"
+  },
+  {
+    "symbol": "4137",
+    "name": "麗豐-KY",
+    "display": "4137 麗豐-KY"
+  },
+  {
+    "symbol": "4142",
+    "name": "國光生",
+    "display": "4142 國光生"
+  },
+  {
+    "symbol": "4148",
+    "name": "全宇生技-KY",
+    "display": "4148 全宇生技-KY"
+  },
+  {
+    "symbol": "4155",
+    "name": "訊映",
+    "display": "4155 訊映"
+  },
+  {
+    "symbol": "4164",
+    "name": "承業醫",
+    "display": "4164 承業醫"
+  },
+  {
+    "symbol": "4169",
+    "name": "泰宗",
+    "display": "4169 泰宗"
+  },
+  {
+    "symbol": "4178",
+    "name": "永笙-KY",
+    "display": "4178 永笙-KY"
+  },
+  {
+    "symbol": "4190",
+    "name": "佐登-KY",
+    "display": "4190 佐登-KY"
+  },
+  {
+    "symbol": "4306",
+    "name": "炎洲",
+    "display": "4306 炎洲"
+  },
+  {
+    "symbol": "4414",
+    "name": "如興",
+    "display": "4414 如興"
+  },
+  {
+    "symbol": "4426",
+    "name": "利勤",
+    "display": "4426 利勤"
+  },
+  {
+    "symbol": "4438",
+    "name": "廣越",
+    "display": "4438 廣越"
+  },
+  {
+    "symbol": "4439",
+    "name": "冠星-KY",
+    "display": "4439 冠星-KY"
+  },
+  {
+    "symbol": "4440",
+    "name": "宜新實業",
+    "display": "4440 宜新實業"
+  },
+  {
+    "symbol": "4441",
+    "name": "振大環球",
+    "display": "4441 振大環球"
+  },
+  {
+    "symbol": "4526",
+    "name": "東台",
+    "display": "4526 東台"
+  },
+  {
+    "symbol": "4532",
+    "name": "瑞智",
+    "display": "4532 瑞智"
+  },
+  {
+    "symbol": "4536",
+    "name": "拓凱",
+    "display": "4536 拓凱"
+  },
+  {
+    "symbol": "4540",
+    "name": "全球傳動",
+    "display": "4540 全球傳動"
+  },
+  {
+    "symbol": "4545",
+    "name": "銘鈺",
+    "display": "4545 銘鈺"
+  },
+  {
+    "symbol": "4551",
+    "name": "智伸科",
+    "display": "4551 智伸科"
+  },
+  {
+    "symbol": "4552",
+    "name": "力達-KY",
+    "display": "4552 力達-KY"
+  },
+  {
+    "symbol": "4555",
+    "name": "氣立",
+    "display": "4555 氣立"
+  },
+  {
+    "symbol": "4557",
+    "name": "永新-KY",
+    "display": "4557 永新-KY"
+  },
+  {
+    "symbol": "4560",
+    "name": "強信-KY",
+    "display": "4560 強信-KY"
+  },
+  {
+    "symbol": "4562",
+    "name": "穎漢",
+    "display": "4562 穎漢"
+  },
+  {
+    "symbol": "4564",
+    "name": "元翎",
+    "display": "4564 元翎"
+  },
+  {
+    "symbol": "4566",
+    "name": "時碩工業",
+    "display": "4566 時碩工業"
+  },
+  {
+    "symbol": "4569",
+    "name": "六方科-KY",
+    "display": "4569 六方科-KY"
+  },
+  {
+    "symbol": "4571",
+    "name": "鈞興-KY",
+    "display": "4571 鈞興-KY"
+  },
+  {
+    "symbol": "4572",
+    "name": "駐龍",
+    "display": "4572 駐龍"
+  },
+  {
+    "symbol": "4576",
+    "name": "大銀微系統",
+    "display": "4576 大銀微系統"
+  },
+  {
+    "symbol": "4581",
+    "name": "光隆精密-KY",
+    "display": "4581 光隆精密-KY"
+  },
+  {
+    "symbol": "4583",
+    "name": "台灣精銳",
+    "display": "4583 台灣精銳"
+  },
+  {
+    "symbol": "4585",
+    "name": "達明",
+    "display": "4585 達明"
+  },
+  {
+    "symbol": "4588",
+    "name": "玖鼎電力",
+    "display": "4588 玖鼎電力"
+  },
+  {
+    "symbol": "4720",
+    "name": "德淵",
+    "display": "4720 德淵"
+  },
+  {
+    "symbol": "4722",
+    "name": "國精化",
+    "display": "4722 國精化"
+  },
+  {
+    "symbol": "4736",
+    "name": "泰博",
+    "display": "4736 泰博"
+  },
+  {
+    "symbol": "4737",
+    "name": "華廣",
+    "display": "4737 華廣"
+  },
+  {
+    "symbol": "4739",
+    "name": "康普",
+    "display": "4739 康普"
+  },
+  {
+    "symbol": "4746",
+    "name": "台耀",
+    "display": "4746 台耀"
+  },
+  {
+    "symbol": "4755",
+    "name": "三福化",
+    "display": "4755 三福化"
+  },
+  {
+    "symbol": "4763",
+    "name": "材料*-KY",
+    "display": "4763 材料*-KY"
+  },
+  {
+    "symbol": "4764",
+    "name": "雙鍵",
+    "display": "4764 雙鍵"
+  },
+  {
+    "symbol": "4766",
+    "name": "南寶",
+    "display": "4766 南寶"
+  },
+  {
+    "symbol": "4770",
+    "name": "上品",
+    "display": "4770 上品"
+  },
+  {
+    "symbol": "4771",
+    "name": "望隼",
+    "display": "4771 望隼"
+  },
+  {
+    "symbol": "4807",
+    "name": "日成-KY",
+    "display": "4807 日成-KY"
+  },
+  {
+    "symbol": "4904",
+    "name": "遠傳",
+    "display": "4904 遠傳"
+  },
+  {
+    "symbol": "4906",
+    "name": "正文",
+    "display": "4906 正文"
+  },
+  {
+    "symbol": "4912",
+    "name": "聯德控股-KY",
+    "display": "4912 聯德控股-KY"
+  },
+  {
+    "symbol": "4915",
+    "name": "致伸",
+    "display": "4915 致伸"
+  },
+  {
+    "symbol": "4916",
+    "name": "事欣科",
+    "display": "4916 事欣科"
+  },
+  {
+    "symbol": "4919",
+    "name": "新唐",
+    "display": "4919 新唐"
+  },
+  {
+    "symbol": "4927",
+    "name": "泰鼎-KY",
+    "display": "4927 泰鼎-KY"
+  },
+  {
+    "symbol": "4930",
+    "name": "燦星網",
+    "display": "4930 燦星網"
+  },
+  {
+    "symbol": "4934",
+    "name": "太極",
+    "display": "4934 太極"
+  },
+  {
+    "symbol": "4935",
+    "name": "茂林-KY",
+    "display": "4935 茂林-KY"
+  },
+  {
+    "symbol": "4938",
+    "name": "和碩",
+    "display": "4938 和碩"
+  },
+  {
+    "symbol": "4942",
+    "name": "嘉彰",
+    "display": "4942 嘉彰"
+  },
+  {
+    "symbol": "4943",
+    "name": "康控-KY",
+    "display": "4943 康控-KY"
+  },
+  {
+    "symbol": "4949",
+    "name": "有成精密",
+    "display": "4949 有成精密"
+  },
+  {
+    "symbol": "4952",
+    "name": "凌通",
+    "display": "4952 凌通"
+  },
+  {
+    "symbol": "4956",
+    "name": "光鋐",
+    "display": "4956 光鋐"
+  },
+  {
+    "symbol": "4958",
+    "name": "臻鼎-KY",
+    "display": "4958 臻鼎-KY"
+  },
+  {
+    "symbol": "4960",
+    "name": "誠美材",
+    "display": "4960 誠美材"
+  },
+  {
+    "symbol": "4961",
+    "name": "天鈺",
+    "display": "4961 天鈺"
+  },
+  {
+    "symbol": "4967",
+    "name": "十銓",
+    "display": "4967 十銓"
+  },
+  {
+    "symbol": "4968",
+    "name": "立積",
+    "display": "4968 立積"
+  },
+  {
+    "symbol": "4976",
+    "name": "佳凌",
+    "display": "4976 佳凌"
+  },
+  {
+    "symbol": "4977",
+    "name": "眾達-KY",
+    "display": "4977 眾達-KY"
+  },
+  {
+    "symbol": "4989",
+    "name": "榮科",
+    "display": "4989 榮科"
+  },
+  {
+    "symbol": "4994",
+    "name": "傳奇",
+    "display": "4994 傳奇"
+  },
+  {
+    "symbol": "4999",
+    "name": "鑫禾",
+    "display": "4999 鑫禾"
+  },
+  {
+    "symbol": "5007",
+    "name": "三星",
+    "display": "5007 三星"
+  },
+  {
+    "symbol": "5203",
+    "name": "訊連",
+    "display": "5203 訊連"
+  },
+  {
+    "symbol": "5215",
+    "name": "科嘉-KY",
+    "display": "5215 科嘉-KY"
+  },
+  {
+    "symbol": "5222",
+    "name": "全訊",
+    "display": "5222 全訊"
+  },
+  {
+    "symbol": "5225",
+    "name": "東科-KY",
+    "display": "5225 東科-KY"
+  },
+  {
+    "symbol": "5234",
+    "name": "達興材料",
+    "display": "5234 達興材料"
+  },
+  {
+    "symbol": "5243",
+    "name": "乙盛-KY",
+    "display": "5243 乙盛-KY"
+  },
+  {
+    "symbol": "5244",
+    "name": "弘凱",
+    "display": "5244 弘凱"
+  },
+  {
+    "symbol": "5258",
+    "name": "虹堡",
+    "display": "5258 虹堡"
+  },
+  {
+    "symbol": "5269",
+    "name": "祥碩",
+    "display": "5269 祥碩"
+  },
+  {
+    "symbol": "5283",
+    "name": "禾聯碩",
+    "display": "5283 禾聯碩"
+  },
+  {
+    "symbol": "5284",
+    "name": "jpp-KY",
+    "display": "5284 jpp-KY"
+  },
+  {
+    "symbol": "5285",
+    "name": "界霖",
+    "display": "5285 界霖"
+  },
+  {
+    "symbol": "5288",
+    "name": "豐祥-KY",
+    "display": "5288 豐祥-KY"
+  },
+  {
+    "symbol": "5292",
+    "name": "華懋",
+    "display": "5292 華懋"
+  },
+  {
+    "symbol": "5306",
+    "name": "桂盟",
+    "display": "5306 桂盟"
+  },
+  {
+    "symbol": "5388",
+    "name": "中磊",
+    "display": "5388 中磊"
+  },
+  {
+    "symbol": "5434",
+    "name": "崇越",
+    "display": "5434 崇越"
+  },
+  {
+    "symbol": "5469",
+    "name": "瀚宇博",
+    "display": "5469 瀚宇博"
+  },
+  {
+    "symbol": "5471",
+    "name": "松翰",
+    "display": "5471 松翰"
+  },
+  {
+    "symbol": "5484",
+    "name": "慧友",
+    "display": "5484 慧友"
+  },
+  {
+    "symbol": "5515",
+    "name": "建國",
+    "display": "5515 建國"
+  },
+  {
+    "symbol": "5519",
+    "name": "隆大",
+    "display": "5519 隆大"
+  },
+  {
+    "symbol": "5521",
+    "name": "工信",
+    "display": "5521 工信"
+  },
+  {
+    "symbol": "5522",
+    "name": "遠雄",
+    "display": "5522 遠雄"
+  },
+  {
+    "symbol": "5525",
+    "name": "順天",
+    "display": "5525 順天"
+  },
+  {
+    "symbol": "5531",
+    "name": "鄉林",
+    "display": "5531 鄉林"
+  },
+  {
+    "symbol": "5533",
+    "name": "皇鼎",
+    "display": "5533 皇鼎"
+  },
+  {
+    "symbol": "5534",
+    "name": "長虹",
+    "display": "5534 長虹"
+  },
+  {
+    "symbol": "5538",
+    "name": "東明-KY",
+    "display": "5538 東明-KY"
+  },
+  {
+    "symbol": "5546",
+    "name": "永固-KY",
+    "display": "5546 永固-KY"
+  },
+  {
+    "symbol": "5607",
+    "name": "遠雄港",
+    "display": "5607 遠雄港"
+  },
+  {
+    "symbol": "5608",
+    "name": "四維航",
+    "display": "5608 四維航"
+  },
+  {
+    "symbol": "5706",
+    "name": "鳳凰",
+    "display": "5706 鳳凰"
+  },
+  {
+    "symbol": "5871",
+    "name": "中租-KY",
+    "display": "5871 中租-KY"
+  },
+  {
+    "symbol": "5876",
+    "name": "上海商銀",
+    "display": "5876 上海商銀"
+  },
+  {
+    "symbol": "5880",
+    "name": "合庫金",
+    "display": "5880 合庫金"
+  },
+  {
+    "symbol": "5906",
+    "name": "台南-KY",
+    "display": "5906 台南-KY"
+  },
+  {
+    "symbol": "5907",
+    "name": "大洋-KY",
+    "display": "5907 大洋-KY"
+  },
+  {
+    "symbol": "6005",
+    "name": "群益證",
+    "display": "6005 群益證"
+  },
+  {
+    "symbol": "6024",
+    "name": "群益期",
+    "display": "6024 群益期"
+  },
+  {
+    "symbol": "6108",
+    "name": "競國",
+    "display": "6108 競國"
+  },
+  {
+    "symbol": "6112",
+    "name": "邁達特",
+    "display": "6112 邁達特"
+  },
+  {
+    "symbol": "6115",
+    "name": "鎰勝",
+    "display": "6115 鎰勝"
+  },
+  {
+    "symbol": "6116",
+    "name": "彩晶",
+    "display": "6116 彩晶"
+  },
+  {
+    "symbol": "6117",
+    "name": "迎廣",
+    "display": "6117 迎廣"
+  },
+  {
+    "symbol": "6120",
+    "name": "達運",
+    "display": "6120 達運"
+  },
+  {
+    "symbol": "6128",
+    "name": "上福",
+    "display": "6128 上福"
+  },
+  {
+    "symbol": "6133",
+    "name": "金橋",
+    "display": "6133 金橋"
+  },
+  {
+    "symbol": "6136",
+    "name": "富爾特",
+    "display": "6136 富爾特"
+  },
+  {
+    "symbol": "6139",
+    "name": "亞翔",
+    "display": "6139 亞翔"
+  },
+  {
+    "symbol": "6141",
+    "name": "柏承",
+    "display": "6141 柏承"
+  },
+  {
+    "symbol": "6142",
+    "name": "友勁",
+    "display": "6142 友勁"
+  },
+  {
+    "symbol": "6152",
+    "name": "百一",
+    "display": "6152 百一"
+  },
+  {
+    "symbol": "6153",
+    "name": "嘉聯益",
+    "display": "6153 嘉聯益"
+  },
+  {
+    "symbol": "6155",
+    "name": "鈞寶",
+    "display": "6155 鈞寶"
+  },
+  {
+    "symbol": "6164",
+    "name": "華興",
+    "display": "6164 華興"
+  },
+  {
+    "symbol": "6165",
+    "name": "浪凡",
+    "display": "6165 浪凡"
+  },
+  {
+    "symbol": "6166",
+    "name": "凌華",
+    "display": "6166 凌華"
+  },
+  {
+    "symbol": "6168",
+    "name": "宏齊",
+    "display": "6168 宏齊"
+  },
+  {
+    "symbol": "6176",
+    "name": "瑞儀",
+    "display": "6176 瑞儀"
+  },
+  {
+    "symbol": "6177",
+    "name": "達麗",
+    "display": "6177 達麗"
+  },
+  {
+    "symbol": "6183",
+    "name": "關貿",
+    "display": "6183 關貿"
+  },
+  {
+    "symbol": "6184",
+    "name": "大豐電",
+    "display": "6184 大豐電"
+  },
+  {
+    "symbol": "6189",
+    "name": "豐藝",
+    "display": "6189 豐藝"
+  },
+  {
+    "symbol": "6191",
+    "name": "精成科",
+    "display": "6191 精成科"
+  },
+  {
+    "symbol": "6192",
+    "name": "巨路",
+    "display": "6192 巨路"
+  },
+  {
+    "symbol": "6196",
+    "name": "帆宣",
+    "display": "6196 帆宣"
+  },
+  {
+    "symbol": "6197",
+    "name": "佳必琪",
+    "display": "6197 佳必琪"
+  },
+  {
+    "symbol": "6201",
+    "name": "亞弘電",
+    "display": "6201 亞弘電"
+  },
+  {
+    "symbol": "6202",
+    "name": "盛群",
+    "display": "6202 盛群"
+  },
+  {
+    "symbol": "6205",
+    "name": "詮欣",
+    "display": "6205 詮欣"
+  },
+  {
+    "symbol": "6206",
+    "name": "飛捷",
+    "display": "6206 飛捷"
+  },
+  {
+    "symbol": "6209",
+    "name": "今國光",
+    "display": "6209 今國光"
+  },
+  {
+    "symbol": "6213",
+    "name": "聯茂",
+    "display": "6213 聯茂"
+  },
+  {
+    "symbol": "6214",
+    "name": "精誠",
+    "display": "6214 精誠"
+  },
+  {
+    "symbol": "6215",
+    "name": "和椿",
+    "display": "6215 和椿"
+  },
+  {
+    "symbol": "6216",
+    "name": "居易",
+    "display": "6216 居易"
+  },
+  {
+    "symbol": "6224",
+    "name": "聚鼎",
+    "display": "6224 聚鼎"
+  },
+  {
+    "symbol": "6225",
+    "name": "天瀚",
+    "display": "6225 天瀚"
+  },
+  {
+    "symbol": "6226",
+    "name": "光鼎",
+    "display": "6226 光鼎"
+  },
+  {
+    "symbol": "6230",
+    "name": "尼得科超眾",
+    "display": "6230 尼得科超眾"
+  },
+  {
+    "symbol": "6235",
+    "name": "華孚",
+    "display": "6235 華孚"
+  },
+  {
+    "symbol": "6239",
+    "name": "力成",
+    "display": "6239 力成"
+  },
+  {
+    "symbol": "6243",
+    "name": "迅杰",
+    "display": "6243 迅杰"
+  },
+  {
+    "symbol": "6257",
+    "name": "矽格",
+    "display": "6257 矽格"
+  },
+  {
+    "symbol": "6269",
+    "name": "台郡",
+    "display": "6269 台郡"
+  },
+  {
+    "symbol": "6271",
+    "name": "同欣電",
+    "display": "6271 同欣電"
+  },
+  {
+    "symbol": "6272",
+    "name": "驊陞",
+    "display": "6272 驊陞"
+  },
+  {
+    "symbol": "6277",
+    "name": "宏正",
+    "display": "6277 宏正"
+  },
+  {
+    "symbol": "6278",
+    "name": "台表科",
+    "display": "6278 台表科"
+  },
+  {
+    "symbol": "6281",
+    "name": "全國電",
+    "display": "6281 全國電"
+  },
+  {
+    "symbol": "6282",
+    "name": "康舒",
+    "display": "6282 康舒"
+  },
+  {
+    "symbol": "6283",
+    "name": "淳安",
+    "display": "6283 淳安"
+  },
+  {
+    "symbol": "6285",
+    "name": "啟��",
+    "display": "6285 啟��"
+  },
+  {
+    "symbol": "6405",
+    "name": "悅城",
+    "display": "6405 悅城"
+  },
+  {
+    "symbol": "6409",
+    "name": "旭隼",
+    "display": "6409 旭隼"
+  },
+  {
+    "symbol": "6412",
+    "name": "群電",
+    "display": "6412 群電"
+  },
+  {
+    "symbol": "6414",
+    "name": "樺漢",
+    "display": "6414 樺漢"
+  },
+  {
+    "symbol": "6415",
+    "name": "矽力*-KY",
+    "display": "6415 矽力*-KY"
+  },
+  {
+    "symbol": "6416",
+    "name": "瑞祺電通",
+    "display": "6416 瑞祺電通"
+  },
+  {
+    "symbol": "6426",
+    "name": "統新",
+    "display": "6426 統新"
+  },
+  {
+    "symbol": "6431",
+    "name": "光麗-KY",
+    "display": "6431 光麗-KY"
+  },
+  {
+    "symbol": "6438",
+    "name": "迅得",
+    "display": "6438 迅得"
+  },
+  {
+    "symbol": "6442",
+    "name": "光聖",
+    "display": "6442 光聖"
+  },
+  {
+    "symbol": "6443",
+    "name": "元晶",
+    "display": "6443 元晶"
+  },
+  {
+    "symbol": "6446",
+    "name": "藥華藥",
+    "display": "6446 藥華藥"
+  },
+  {
+    "symbol": "6449",
+    "name": "鈺邦",
+    "display": "6449 鈺邦"
+  },
+  {
+    "symbol": "6451",
+    "name": "訊芯-KY",
+    "display": "6451 訊芯-KY"
+  },
+  {
+    "symbol": "6456",
+    "name": "GIS-KY",
+    "display": "6456 GIS-KY"
+  },
+  {
+    "symbol": "6464",
+    "name": "台數科",
+    "display": "6464 台數科"
+  },
+  {
+    "symbol": "6472",
+    "name": "保瑞",
+    "display": "6472 保瑞"
+  },
+  {
+    "symbol": "6477",
+    "name": "安集",
+    "display": "6477 安集"
+  },
+  {
+    "symbol": "6491",
+    "name": "晶碩",
+    "display": "6491 晶碩"
+  },
+  {
+    "symbol": "6504",
+    "name": "南六",
+    "display": "6504 南六"
+  },
+  {
+    "symbol": "6505",
+    "name": "台塑化",
+    "display": "6505 台塑化"
+  },
+  {
+    "symbol": "6515",
+    "name": "穎崴",
+    "display": "6515 穎崴"
+  },
+  {
+    "symbol": "6525",
+    "name": "捷敏-KY",
+    "display": "6525 捷敏-KY"
+  },
+  {
+    "symbol": "6526",
+    "name": "達發",
+    "display": "6526 達發"
+  },
+  {
+    "symbol": "6531",
+    "name": "愛普*",
+    "display": "6531 愛普*"
+  },
+  {
+    "symbol": "6533",
+    "name": "晶心科",
+    "display": "6533 晶心科"
+  },
+  {
+    "symbol": "6541",
+    "name": "泰福-KY",
+    "display": "6541 泰福-KY"
+  },
+  {
+    "symbol": "6550",
+    "name": "北極星藥業-KY",
+    "display": "6550 北極星藥業-KY"
+  },
+  {
+    "symbol": "6552",
+    "name": "易華電",
+    "display": "6552 易華電"
+  },
+  {
+    "symbol": "6558",
+    "name": "興能高",
+    "display": "6558 興能高"
+  },
+  {
+    "symbol": "6573",
+    "name": "虹揚-KY",
+    "display": "6573 虹揚-KY"
+  },
+  {
+    "symbol": "6579",
+    "name": "研揚",
+    "display": "6579 研揚"
+  },
+  {
+    "symbol": "6581",
+    "name": "鋼聯",
+    "display": "6581 鋼聯"
+  },
+  {
+    "symbol": "6582",
+    "name": "申豐",
+    "display": "6582 申豐"
+  },
+  {
+    "symbol": "6585",
+    "name": "鼎基",
+    "display": "6585 鼎基"
+  },
+  {
+    "symbol": "6589",
+    "name": "台康生技",
+    "display": "6589 台康生技"
+  },
+  {
+    "symbol": "6591",
+    "name": "動力-KY",
+    "display": "6591 動力-KY"
+  },
+  {
+    "symbol": "6592",
+    "name": "和潤企業",
+    "display": "6592 和潤企業"
+  },
+  {
+    "symbol": "6598",
+    "name": "ABC-KY",
+    "display": "6598 ABC-KY"
+  },
+  {
+    "symbol": "6605",
+    "name": "帝寶",
+    "display": "6605 帝寶"
+  },
+  {
+    "symbol": "6606",
+    "name": "建德工業",
+    "display": "6606 建德工業"
+  },
+  {
+    "symbol": "6614",
+    "name": "資拓宏宇",
+    "display": "6614 資拓宏宇"
+  },
+  {
+    "symbol": "6625",
+    "name": "必應",
+    "display": "6625 必應"
+  },
+  {
+    "symbol": "6641",
+    "name": "基士德-KY",
+    "display": "6641 基士德-KY"
+  },
+  {
+    "symbol": "6655",
+    "name": "科定",
+    "display": "6655 科定"
+  },
+  {
+    "symbol": "6657",
+    "name": "華安",
+    "display": "6657 華安"
+  },
+  {
+    "symbol": "6658",
+    "name": "聯策",
+    "display": "6658 聯策"
+  },
+  {
+    "symbol": "6666",
+    "name": "羅麗芬-KY",
+    "display": "6666 羅麗芬-KY"
+  },
+  {
+    "symbol": "6668",
+    "name": "中揚光",
+    "display": "6668 中揚光"
+  },
+  {
+    "symbol": "6669",
+    "name": "緯穎",
+    "display": "6669 緯穎"
+  },
+  {
+    "symbol": "6670",
+    "name": "復盛應用",
+    "display": "6670 復盛應用"
+  },
+  {
+    "symbol": "6671",
+    "name": "三能-KY",
+    "display": "6671 三能-KY"
+  },
+  {
+    "symbol": "6672",
+    "name": "騰輝電子-KY",
+    "display": "6672 騰輝電子-KY"
+  },
+  {
+    "symbol": "6674",
+    "name": "鋐寶科技",
+    "display": "6674 鋐寶科技"
+  },
+  {
+    "symbol": "6689",
+    "name": "伊雲谷",
+    "display": "6689 伊雲谷"
+  },
+  {
+    "symbol": "6691",
+    "name": "洋基工程",
+    "display": "6691 洋基工程"
+  },
+  {
+    "symbol": "6695",
+    "name": "芯鼎",
+    "display": "6695 芯鼎"
+  },
+  {
+    "symbol": "6698",
+    "name": "旭暉應材",
+    "display": "6698 旭暉應材"
+  },
+  {
+    "symbol": "6706",
+    "name": "惠特",
+    "display": "6706 惠特"
+  },
+  {
+    "symbol": "6715",
+    "name": "嘉基",
+    "display": "6715 嘉基"
+  },
+  {
+    "symbol": "6719",
+    "name": "力智",
+    "display": "6719 力智"
+  },
+  {
+    "symbol": "6722",
+    "name": "輝創",
+    "display": "6722 輝創"
+  },
+  {
+    "symbol": "6742",
+    "name": "澤米",
+    "display": "6742 澤米"
+  },
+  {
+    "symbol": "6743",
+    "name": "安普新",
+    "display": "6743 安普新"
+  },
+  {
+    "symbol": "6753",
+    "name": "龍德造船",
+    "display": "6753 龍德造船"
+  },
+  {
+    "symbol": "6754",
+    "name": "匯僑設計",
+    "display": "6754 匯僑設計"
+  },
+  {
+    "symbol": "6756",
+    "name": "威鋒電子",
+    "display": "6756 威鋒電子"
+  },
+  {
+    "symbol": "6757",
+    "name": "台灣虎航",
+    "display": "6757 台灣虎航"
+  },
+  {
+    "symbol": "6768",
+    "name": "志強-KY",
+    "display": "6768 志強-KY"
+  },
+  {
+    "symbol": "6770",
+    "name": "力積電",
+    "display": "6770 力積電"
+  },
+  {
+    "symbol": "6776",
+    "name": "展�眥篕�",
+    "display": "6776 展�眥篕�"
+  },
+  {
+    "symbol": "6781",
+    "name": "AES-KY",
+    "display": "6781 AES-KY"
+  },
+  {
+    "symbol": "6782",
+    "name": "視陽",
+    "display": "6782 視陽"
+  },
+  {
+    "symbol": "6789",
+    "name": "采鈺",
+    "display": "6789 采鈺"
+  },
+  {
+    "symbol": "6790",
+    "name": "永豐實",
+    "display": "6790 永豐實"
+  },
+  {
+    "symbol": "6792",
+    "name": "詠業",
+    "display": "6792 詠業"
+  },
+  {
+    "symbol": "6794",
+    "name": "向榮生技",
+    "display": "6794 向榮生技"
+  },
+  {
+    "symbol": "6796",
+    "name": "晉弘",
+    "display": "6796 晉弘"
+  },
+  {
+    "symbol": "6799",
+    "name": "來頡",
+    "display": "6799 來頡"
+  },
+  {
+    "symbol": "6805",
+    "name": "富世達",
+    "display": "6805 富世達"
+  },
+  {
+    "symbol": "6806",
+    "name": "森崴能源",
+    "display": "6806 森崴能源"
+  },
+  {
+    "symbol": "6807",
+    "name": "峰源-KY",
+    "display": "6807 峰源-KY"
+  },
+  {
+    "symbol": "6830",
+    "name": "汎銓",
+    "display": "6830 汎銓"
+  },
+  {
+    "symbol": "6831",
+    "name": "邁科",
+    "display": "6831 邁科"
+  },
+  {
+    "symbol": "6834",
+    "name": "天二科技",
+    "display": "6834 天二科技"
+  },
+  {
+    "symbol": "6835",
+    "name": "圓裕",
+    "display": "6835 圓裕"
+  },
+  {
+    "symbol": "6838",
+    "name": "台新藥",
+    "display": "6838 台新藥"
+  },
+  {
+    "symbol": "6861",
+    "name": "睿生光電",
+    "display": "6861 睿生光電"
+  },
+  {
+    "symbol": "6862",
+    "name": "三集瑞-KY",
+    "display": "6862 三集瑞-KY"
+  },
+  {
+    "symbol": "6863",
+    "name": "永道-KY",
+    "display": "6863 永道-KY"
+  },
+  {
+    "symbol": "6869",
+    "name": "雲豹能源",
+    "display": "6869 雲豹能源"
+  },
+  {
+    "symbol": "6873",
+    "name": "泓德能源",
+    "display": "6873 泓德能源"
+  },
+  {
+    "symbol": "6885",
+    "name": "全福生技",
+    "display": "6885 全福生技"
+  },
+  {
+    "symbol": "6887",
+    "name": "寶綠特-KY",
+    "display": "6887 寶綠特-KY"
+  },
+  {
+    "symbol": "6890",
+    "name": "來億-KY",
+    "display": "6890 來億-KY"
+  },
+  {
+    "symbol": "6901",
+    "name": "鑽石投資",
+    "display": "6901 鑽石投資"
+  },
+  {
+    "symbol": "6902",
+    "name": "GOGOLOOK",
+    "display": "6902 GOGOLOOK"
+  },
+  {
+    "symbol": "6906",
+    "name": "現觀科",
+    "display": "6906 現觀科"
+  },
+  {
+    "symbol": "6909",
+    "name": "創控",
+    "display": "6909 創控"
+  },
+  {
+    "symbol": "6914",
+    "name": "阜爾運通",
+    "display": "6914 阜爾運通"
+  },
+  {
+    "symbol": "6916",
+    "name": "華凌",
+    "display": "6916 華凌"
+  },
+  {
+    "symbol": "6918",
+    "name": "愛派司",
+    "display": "6918 愛派司"
+  },
+  {
+    "symbol": "6919",
+    "name": "康霈*",
+    "display": "6919 康霈*"
+  },
+  {
+    "symbol": "6923",
+    "name": "中台",
+    "display": "6923 中台"
+  },
+  {
+    "symbol": "6928",
+    "name": "攸泰科技",
+    "display": "6928 攸泰科技"
+  },
+  {
+    "symbol": "6931",
+    "name": "青松健康",
+    "display": "6931 青松健康"
+  },
+  {
+    "symbol": "6933",
+    "name": "AMAX-KY",
+    "display": "6933 AMAX-KY"
+  },
+  {
+    "symbol": "6934",
+    "name": "心誠鎂",
+    "display": "6934 心誠鎂"
+  },
+  {
+    "symbol": "6936",
+    "name": "永鴻生技",
+    "display": "6936 永鴻生技"
+  },
+  {
+    "symbol": "6937",
+    "name": "天虹",
+    "display": "6937 天虹"
+  },
+  {
+    "symbol": "6944",
+    "name": "兆聯實業",
+    "display": "6944 兆聯實業"
+  },
+  {
+    "symbol": "6952",
+    "name": "大武山",
+    "display": "6952 大武山"
+  },
+  {
+    "symbol": "6957",
+    "name": "裕慶-KY",
+    "display": "6957 裕慶-KY"
+  },
+  {
+    "symbol": "6958",
+    "name": "日盛台駿",
+    "display": "6958 日盛台駿"
+  },
+  {
+    "symbol": "6962",
+    "name": "奕力-KY",
+    "display": "6962 奕力-KY"
+  },
+  {
+    "symbol": "6965",
+    "name": "中傑-KY",
+    "display": "6965 中傑-KY"
+  },
+  {
+    "symbol": "6994",
+    "name": "富威電力",
+    "display": "6994 富威電力"
+  },
+  {
+    "symbol": "7705",
+    "name": "三商餐飲",
+    "display": "7705 三商餐飲"
+  },
+  {
+    "symbol": "7711",
+    "name": "永擎",
+    "display": "7711 永擎"
+  },
+  {
+    "symbol": "7721",
+    "name": "微程式",
+    "display": "7721 微程式"
+  },
+  {
+    "symbol": "7722",
+    "name": "LINEPAY",
+    "display": "7722 LINEPAY"
+  },
+  {
+    "symbol": "7732",
+    "name": "金興精密",
+    "display": "7732 金興精密"
+  },
+  {
+    "symbol": "7736",
+    "name": "虎山",
+    "display": "7736 虎山"
+  },
+  {
+    "symbol": "7749",
+    "name": "意騰-KY",
+    "display": "7749 意騰-KY"
+  },
+  {
+    "symbol": "7750",
+    "name": "新代",
+    "display": "7750 新代"
+  },
+  {
+    "symbol": "7760",
+    "name": "享溫馨",
+    "display": "7760 享溫馨"
+  },
+  {
+    "symbol": "7765",
+    "name": "中華資安",
+    "display": "7765 中華資安"
+  },
+  {
+    "symbol": "7768",
+    "name": "頌勝科技",
+    "display": "7768 頌勝科技"
+  },
+  {
+    "symbol": "7769",
+    "name": "鴻勁",
+    "display": "7769 鴻勁"
+  },
+  {
+    "symbol": "7780",
+    "name": "大研生醫*",
+    "display": "7780 大研生醫*"
+  },
+  {
+    "symbol": "7786",
+    "name": "東方風能",
+    "display": "7786 東方風能"
+  },
+  {
+    "symbol": "7788",
+    "name": "松川精密",
+    "display": "7788 松川精密"
+  },
+  {
+    "symbol": "7791",
+    "name": "皇家可口",
+    "display": "7791 皇家可口"
+  },
+  {
+    "symbol": "7795",
+    "name": "長廣",
+    "display": "7795 長廣"
+  },
+  {
+    "symbol": "7799",
+    "name": "禾榮科",
+    "display": "7799 禾榮科"
+  },
+  {
+    "symbol": "7818",
+    "name": "溢泰實業",
+    "display": "7818 溢泰實業"
+  },
+  {
+    "symbol": "7821",
+    "name": "神數",
+    "display": "7821 神數"
+  },
+  {
+    "symbol": "7822",
+    "name": "倍利科",
+    "display": "7822 倍利科"
+  },
+  {
+    "symbol": "8011",
+    "name": "台通",
+    "display": "8011 台通"
+  },
+  {
+    "symbol": "8016",
+    "name": "矽創",
+    "display": "8016 矽創"
+  },
+  {
+    "symbol": "8021",
+    "name": "尖點",
+    "display": "8021 尖點"
+  },
+  {
+    "symbol": "8028",
+    "name": "昇陽半導體",
+    "display": "8028 昇陽半導體"
+  },
+  {
+    "symbol": "8033",
+    "name": "雷虎",
+    "display": "8033 雷虎"
+  },
+  {
+    "symbol": "8039",
+    "name": "台虹",
+    "display": "8039 台虹"
+  },
+  {
+    "symbol": "8045",
+    "name": "達運光電",
+    "display": "8045 達運光電"
+  },
+  {
+    "symbol": "8046",
+    "name": "南電",
+    "display": "8046 南電"
+  },
+  {
+    "symbol": "8070",
+    "name": "長華*",
+    "display": "8070 長華*"
+  },
+  {
+    "symbol": "8072",
+    "name": "陞泰",
+    "display": "8072 陞泰"
+  },
+  {
+    "symbol": "8081",
+    "name": "致新",
+    "display": "8081 致新"
+  },
+  {
+    "symbol": "8101",
+    "name": "華冠",
+    "display": "8101 華冠"
+  },
+  {
+    "symbol": "8103",
+    "name": "瀚荃",
+    "display": "8103 瀚荃"
+  },
+  {
+    "symbol": "8104",
+    "name": "錸寶",
+    "display": "8104 錸寶"
+  },
+  {
+    "symbol": "8105",
+    "name": "凌巨",
+    "display": "8105 凌巨"
+  },
+  {
+    "symbol": "8110",
+    "name": "華東",
+    "display": "8110 華東"
+  },
+  {
+    "symbol": "8112",
+    "name": "至上",
+    "display": "8112 至上"
+  },
+  {
+    "symbol": "8114",
+    "name": "振樺電",
+    "display": "8114 振樺電"
+  },
+  {
+    "symbol": "8131",
+    "name": "福懋科",
+    "display": "8131 福懋科"
+  },
+  {
+    "symbol": "8150",
+    "name": "南茂",
+    "display": "8150 南茂"
+  },
+  {
+    "symbol": "8163",
+    "name": "達方",
+    "display": "8163 達方"
+  },
+  {
+    "symbol": "8201",
+    "name": "無敵",
+    "display": "8201 無敵"
+  },
+  {
+    "symbol": "8210",
+    "name": "勤誠",
+    "display": "8210 勤誠"
+  },
+  {
+    "symbol": "8213",
+    "name": "志超",
+    "display": "8213 志超"
+  },
+  {
+    "symbol": "8215",
+    "name": "明基材",
+    "display": "8215 明基材"
+  },
+  {
+    "symbol": "8222",
+    "name": "寶一",
+    "display": "8222 寶一"
+  },
+  {
+    "symbol": "8249",
+    "name": "菱光",
+    "display": "8249 菱光"
+  },
+  {
+    "symbol": "8261",
+    "name": "富鼎",
+    "display": "8261 富鼎"
+  },
+  {
+    "symbol": "8271",
+    "name": "宇瞻",
+    "display": "8271 宇瞻"
+  },
+  {
+    "symbol": "8341",
+    "name": "日友",
+    "display": "8341 日友"
+  },
+  {
+    "symbol": "8367",
+    "name": "建新國際",
+    "display": "8367 建新國際"
+  },
+  {
+    "symbol": "8374",
+    "name": "羅昇",
+    "display": "8374 羅昇"
+  },
+  {
+    "symbol": "8404",
+    "name": "百和興業-KY",
+    "display": "8404 百和興業-KY"
+  },
+  {
+    "symbol": "8411",
+    "name": "福貞-KY",
+    "display": "8411 福貞-KY"
+  },
+  {
+    "symbol": "8422",
+    "name": "可寧衛*",
+    "display": "8422 可寧衛*"
+  },
+  {
+    "symbol": "8429",
+    "name": "金麗-KY",
+    "display": "8429 金麗-KY"
+  },
+  {
+    "symbol": "8438",
+    "name": "昶昕",
+    "display": "8438 昶昕"
+  },
+  {
+    "symbol": "8442",
+    "name": "威宏-KY",
+    "display": "8442 威宏-KY"
+  },
+  {
+    "symbol": "8443",
+    "name": "阿瘦",
+    "display": "8443 阿瘦"
+  },
+  {
+    "symbol": "8454",
+    "name": "富邦媒",
+    "display": "8454 富邦媒"
+  },
+  {
+    "symbol": "8462",
+    "name": "柏文",
+    "display": "8462 柏文"
+  },
+  {
+    "symbol": "8463",
+    "name": "潤泰材",
+    "display": "8463 潤泰材"
+  },
+  {
+    "symbol": "8464",
+    "name": "億豐",
+    "display": "8464 億豐"
+  },
+  {
+    "symbol": "8466",
+    "name": "美吉吉-KY",
+    "display": "8466 美吉吉-KY"
+  },
+  {
+    "symbol": "8467",
+    "name": "波力-KY",
+    "display": "8467 波力-KY"
+  },
+  {
+    "symbol": "8473",
+    "name": "山林水",
+    "display": "8473 山林水"
+  },
+  {
+    "symbol": "8476",
+    "name": "台境*",
+    "display": "8476 台境*"
+  },
+  {
+    "symbol": "8478",
+    "name": "東哥遊艇",
+    "display": "8478 東哥遊艇"
+  },
+  {
+    "symbol": "8481",
+    "name": "政伸",
+    "display": "8481 政伸"
+  },
+  {
+    "symbol": "8482",
+    "name": "商億-KY",
+    "display": "8482 商億-KY"
+  },
+  {
+    "symbol": "8488",
+    "name": "吉源-KY",
+    "display": "8488 吉源-KY"
+  },
+  {
+    "symbol": "8499",
+    "name": "鼎炫-KY",
+    "display": "8499 鼎炫-KY"
+  },
+  {
+    "symbol": "8926",
+    "name": "台汽電",
+    "display": "8926 台汽電"
+  },
+  {
+    "symbol": "8940",
+    "name": "新天地",
+    "display": "8940 新天地"
+  },
+  {
+    "symbol": "8996",
+    "name": "高力",
+    "display": "8996 高力"
+  },
+  {
+    "symbol": "9802",
+    "name": "鈺齊-KY",
+    "display": "9802 鈺齊-KY"
+  },
+  {
+    "symbol": "9902",
+    "name": "台火",
+    "display": "9902 台火"
+  },
+  {
+    "symbol": "9904",
+    "name": "寶成",
+    "display": "9904 寶成"
+  },
+  {
+    "symbol": "9905",
+    "name": "大華",
+    "display": "9905 大華"
+  },
+  {
+    "symbol": "9906",
+    "name": "欣巴巴",
+    "display": "9906 欣巴巴"
+  },
+  {
+    "symbol": "9907",
+    "name": "統一實",
+    "display": "9907 統一實"
+  },
+  {
+    "symbol": "9908",
+    "name": "大台北",
+    "display": "9908 大台北"
+  },
+  {
+    "symbol": "9910",
+    "name": "豐泰",
+    "display": "9910 豐泰"
+  },
+  {
+    "symbol": "9911",
+    "name": "櫻花",
+    "display": "9911 櫻花"
+  },
+  {
+    "symbol": "9912",
+    "name": "偉聯",
+    "display": "9912 偉聯"
+  },
+  {
+    "symbol": "9914",
+    "name": "美利達",
+    "display": "9914 美利達"
+  },
+  {
+    "symbol": "9917",
+    "name": "中保科",
+    "display": "9917 中保科"
+  },
+  {
+    "symbol": "9918",
+    "name": "欣天然",
+    "display": "9918 欣天然"
+  },
+  {
+    "symbol": "9919",
+    "name": "康那香",
+    "display": "9919 康那香"
+  },
+  {
+    "symbol": "9921",
+    "name": "巨大",
+    "display": "9921 巨大"
+  },
+  {
+    "symbol": "9924",
+    "name": "福興",
+    "display": "9924 福興"
+  },
+  {
+    "symbol": "9925",
+    "name": "新保",
+    "display": "9925 新保"
+  },
+  {
+    "symbol": "9926",
+    "name": "新海",
+    "display": "9926 新海"
+  },
+  {
+    "symbol": "9927",
+    "name": "泰銘",
+    "display": "9927 泰銘"
+  },
+  {
+    "symbol": "9928",
+    "name": "中視",
+    "display": "9928 中視"
+  },
+  {
+    "symbol": "9929",
+    "name": "秋雨",
+    "display": "9929 秋雨"
+  },
+  {
+    "symbol": "9930",
+    "name": "中聯資源",
+    "display": "9930 中聯資源"
+  },
+  {
+    "symbol": "9931",
+    "name": "欣高",
+    "display": "9931 欣高"
+  },
+  {
+    "symbol": "9933",
+    "name": "中鼎",
+    "display": "9933 中鼎"
+  },
+  {
+    "symbol": "9934",
+    "name": "成霖",
+    "display": "9934 成霖"
+  },
+  {
+    "symbol": "9935",
+    "name": "慶豐富",
+    "display": "9935 慶豐富"
+  },
+  {
+    "symbol": "9937",
+    "name": "全國",
+    "display": "9937 全國"
+  },
+  {
+    "symbol": "9938",
+    "name": "百和",
+    "display": "9938 百和"
+  },
+  {
+    "symbol": "9939",
+    "name": "宏全",
+    "display": "9939 宏全"
+  },
+  {
+    "symbol": "9940",
+    "name": "信義",
+    "display": "9940 信義"
+  },
+  {
+    "symbol": "9941",
+    "name": "裕融",
+    "display": "9941 裕融"
+  },
+  {
+    "symbol": "9942",
+    "name": "茂順",
+    "display": "9942 茂順"
+  },
+  {
+    "symbol": "9943",
+    "name": "好樂迪",
+    "display": "9943 好樂迪"
+  },
+  {
+    "symbol": "9944",
+    "name": "新麗",
+    "display": "9944 新麗"
+  },
+  {
+    "symbol": "9945",
+    "name": "潤泰新",
+    "display": "9945 潤泰新"
+  },
+  {
+    "symbol": "9946",
+    "name": "三發地產",
+    "display": "9946 三發地產"
+  },
+  {
+    "symbol": "9955",
+    "name": "佳龍",
+    "display": "9955 佳龍"
+  },
+  {
+    "symbol": "9958",
+    "name": "世紀鋼",
+    "display": "9958 世紀鋼"
+  }
+]
