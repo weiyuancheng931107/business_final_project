@@ -8,8 +8,73 @@
 - 自選股管理：新增、移除並儲存於瀏覽器 (localStorage)，無需登入即可使用。
 - 基本面資訊：顯示目前股價、本益比 P/E、每股盈餘 EPS、ROE。
 - 圖表分析：產生歷史股價走勢圖與本益比河流圖。
-- 相關新聞與 AI 情緒分析：整合 yfinance 與 FinMind 新聞，自動抓取內文，並串接 LLM (OpenRouter/OpenAI) 進行量化情緒評分與生成個股分析報告。
+- 相關新聞與 AI 情緒分析：整合 yfinance 與 FinMind 新聞，自動抓取內文，並串接 LLM (OpenRouter/Groq) 進行量化情緒評分與生成個股分析報告。
+- 回測系統：自動蒐集歷史新聞，透過 LLM 分析情緒並與實際股價走勢比對，評估預測準確度。
 - 穩定 fallback：當 yfinance 因 SSL、網路或資料缺漏失敗時，改用 FinMind 或備援圖表，避免前端 500/404。
+
+## 系統架構
+
+```mermaid
+graph TB
+    subgraph Frontend["🖥️ 前端 (Browser)"]
+        UI["index.html + index.css"]
+        LS["localStorage<br/>自選股管理"]
+    end
+
+    subgraph Flask["🐍 Flask 後端 (app.py)"]
+        API_INFO["/api/stock/:symbol/info"]
+        API_PRICE["/api/stock/:symbol/price_chart"]
+        API_PE["/api/stock/:symbol/pe_river"]
+        API_NEWS["/api/stock/:symbol/news"]
+        API_ANALYZE["/api/stock/:symbol/analyze_news"]
+        API_LIST["/api/get_stock_list"]
+    end
+
+    subgraph Analysis["📊 分析模組 (analysis/)"]
+        FETCHER["fetcher.py<br/>資料抓取 + Fallback"]
+        PLOTTER["plotter.py<br/>matplotlib 圖表"]
+        AI["ai_analyzer.py<br/>CRISPE Prompt<br/>情緒分析"]
+    end
+
+    subgraph DataSources["🌐 外部資料來源"]
+        YF["yfinance<br/>Yahoo Finance"]
+        FM["FinMind API<br/>台股新聞 + 基本面"]
+        TWSE["TWSE<br/>證交所股票清單"]
+    end
+
+    subgraph LLM["🤖 LLM API"]
+        GROQ["Groq API"]
+        OR["OpenRouter"]
+    end
+
+    subgraph Backtest["🧪 回測系統 (tests/)"]
+        BD["build_dataset.py<br/>蒐集歷史新聞 + AI 分析"]
+        BE["backtest_engine.py<br/>比對股價走勢"]
+        EP["evaluate_prediction.py<br/>準確度評估"]
+        VP["visualize_prediction.py<br/>視覺化結果"]
+    end
+
+    UI -->|HTTP| API_INFO & API_PRICE & API_PE & API_NEWS & API_ANALYZE & API_LIST
+
+    API_INFO --> FETCHER
+    API_PRICE --> FETCHER --> PLOTTER
+    API_PE --> FETCHER
+    API_NEWS --> FETCHER
+    API_ANALYZE --> AI
+    API_LIST --> TWSE
+
+    FETCHER -->|優先| YF
+    FETCHER -->|Fallback| FM
+
+    AI -->|CRISPE Prompt| GROQ
+    AI -.->|備選| OR
+
+    BD -->|歷史新聞| FETCHER
+    BD -->|情緒分析| AI
+    BD -->|sentiment_dataset.json| BE
+    BE -->|prediction_results.csv| EP
+    EP --> VP
+```
 
 ## 資料來源與穩定性更新
 
@@ -43,25 +108,33 @@
 
 ```
 business_final_project/
-├── analysis/           # 核心功能模組
-│   ├── ai_analyzer.py  # LLM 新聞情緒分析與報告生成
-│   ├── fetcher.py      # yfinance + FinMind 資料抓取、fallback 與資料正規化
-│   └── plotter.py      # matplotlib 圖表與 placeholder 圖表產生
+├── analysis/               # 核心功能模組
+│   ├── ai_analyzer.py      # LLM 新聞情緒分析 (CRISPE Prompt)
+│   ├── fetcher.py          # yfinance + FinMind 資料抓取、fallback 與資料正規化
+│   └── plotter.py          # matplotlib 圖表與 placeholder 圖表產生
 ├── docs/
-│   └── SKILL.md        # 前端設計規範參考 (Neumorphism Design System)
-├── imgs/               # Demo 截圖
+│   └── SKILL.md            # 前端設計規範參考 (Neumorphism Design System)
+├── imgs/                   # Demo 截圖
 ├── static/
-│   ├── index.css       # 前端樣式 (Neumorphism 風格)
-│   ├── images/         # 動態產生的圖表暫存
-│   └── reports/        # AI 產生的新聞情緒分析報告
+│   ├── index.css           # 前端樣式 (Neumorphism 風格)
+│   ├── images/             # 動態產生的圖表暫存
+│   └── reports/            # AI 產生的新聞情緒分析報告
 ├── templates/
-│   └── index.html      # 網頁前端模板
-├── tests/              # 新聞、股價、基本面 fallback 的回歸測試
-├── .env.example        # API 環境變數範例
-├── .gitignore          # Git 忽略設定
-├── app.py              # Flask 後端伺服器
-├── config.py           # API 與模型相關設定
-└── requirements.txt    # 專案套件需求
+│   └── index.html          # 網頁前端模板
+├── tests/                  # 回測系統與回歸測試
+│   ├── build_dataset.py    # 自動蒐集歷史新聞 + AI 情緒分析 → sentiment_dataset.json
+│   ├── backtest_engine.py  # 比對 AI 情緒與實際股價走勢，計算準確率
+│   ├── evaluate_prediction.py  # 回測結果評估與報告
+│   ├── visualize_prediction.py # 回測結果視覺化圖表
+│   ├── utils.py            # 回測共用工具（Wilson CI、方向映射、色彩等）
+│   ├── test_fetcher_news.py    # 新聞功能回歸測試
+│   └── test_resilient_market_data.py  # 股價/基本面 fallback 測試
+├── .env.example            # API 環境變數範例
+├── .gitignore              # Git 忽略設定
+├── app.py                  # Flask 後端伺服器
+├── config.py               # API 與模型相關設定
+├── portfolio.json          # 預設自選股清單（回測使用）
+└── requirements.txt        # 專案套件需求
 ```
 
 ## 開發環境設置
@@ -102,6 +175,8 @@ business_final_project/
 
 ## 測試
 
+### 回歸測試
+
 執行所有回歸測試：
 
 ```bash
@@ -116,6 +191,35 @@ python -m unittest discover -s tests
 - yfinance 股價失敗時改用 FinMind 股價。
 - yfinance 基本面失敗時改用 FinMind P/E、EPS、ROE。
 - 圖表與 API 在資料來源失敗時仍回 200，不回 500/404。
+
+### AI 情緒預測回測系統
+
+回測系統用於評估 AI 新聞情緒分析的預測準確度。
+
+**Step 1: 建立資料集**（蒐集歷史新聞 + AI 情緒分析）
+```bash
+# 使用 portfolio.json 中的所有股票，回溯一年
+python tests/build_dataset.py --start-date 2025-01-01 --end-date 2025-12-31
+
+# 只分析特定股票
+python tests/build_dataset.py --symbols 2330.TW 2454.TW --start-date 2025-06-01 --end-date 2025-12-31
+```
+
+**Step 2: 執行回測**（比對 AI 情緒 vs. 實際股價走勢）
+```bash
+python tests/evaluate_prediction.py
+```
+
+**Step 3: 視覺化結果**
+```bash
+python tests/visualize_prediction.py
+```
+
+回測結果將輸出至 `tests/results/` 資料夾：
+- `prediction_results.csv` — 每則新聞的預測與實際方向
+- `prediction_metrics.json` — 各時間跨度 (1/3/5/10/20/60天) 的準確率、F1 等指標
+- `stock_metrics.csv` — 各股票的個別表現
+- `classification_report.txt` — sklearn 分類報告
 
 ## Demo
 

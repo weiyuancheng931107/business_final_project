@@ -1,16 +1,15 @@
 {
-  "analysis_timestamp": "2026-05-28 07:30:33",
-  "analysis_duration_seconds": 2.28,
+  "analysis_timestamp": "2026-05-28 17:02:53",
+  "analysis_duration_seconds": 36.46,
   "overall": {
     "sentiment_label": "偏向樂觀",
     "sentiment_type": "positive",
-    "score": 2.5,
-    "summary": "台積電近期表現穩健，ADR收新高，溢價率達15.4%，顯示海外投資人追價力道仍強，對公司前景看好。",
+    "score": 2.3,
+    "summary": "近期台積電受惠美股半導體走強、3奈米報價上調與ADR創新高，市場情緒偏正面；雖有投資者情緒討論，但整體資金流向仍支撐股價上行，短期建議逢回檔布局。",
     "keywords": [
-      "台積電",
-      "ADR",
-      "溢價率",
-      "樂觀"
+      "3奈米報價上調",
+      "ADR溢價",
+      "半導體需求"
     ]
   },
   "details": [
@@ -20,10 +19,10 @@
       "source": "Motley Fool",
       "date": "2026-05-28",
       "content_summary": "Micron's (MU +3.50%) scorching hot run isn't over yet. \\\\ The memory chip stock jumped 19.3% on Tuesday after UBS lifted its price target to $1,650 on the stock, more than double from where it was trading before the hike. Micron has now topped $1 trillion in market value, putting it in an elite stock club along with the \"Magnificent Seven\" and chip stock peers like Broadcom and Taiwan Semiconductor. \\\\ The stock added to those gains on Wednesday, topping $900 per share, and nearly eclipsed $1,000 for the first time in pre-market trading, making its individual shares among the highest-priced on the market. \\\\ At this point, with the stock continuing to soar, investors are likely wondering if a stock split is in its future. It's a good question. Let's take a look at what the prospects are for a Micron stock split. \\\\ Image source: Getty Images. \\\\ Micron hasn't split its stock since the dot-com era. The company has issued three stock splits in its history as follows. \\\\ If you had one share before 1994, then you would have 10 shares after the splits. \\\\ The pause in stock splits following the dot-com bubble bursting with other tech stocks as splits were common during the dot-com era, though the collapse seemed to chasten companies away from it. \\\\ However, as Micron approaches $1,000 a share, the case for a stock split is getting stronger, as its share price has never been higher before. \\\\ Stock splits don't change the fundamentals of a stock. It's just splitting the pie into more pieces, but they can affect the stock in other ways, and investors generally respond favorably to them. \\\\ First, they act as a sign that management expects the stock to go higher. After all, companies control the timing of stock splits, and it only makes sense to do them if management expects the stock to go higher. \\\\ Micron has a lot of bullish momentum at the moment. In fact, the stock jumped nearly 20% just on a price target hike to $1,650, implying that when it was issued, the stock could double. Micron said its results are expected to continue to soar with revenue jumping 194% this fiscal year to $110 billion and climbing another 58% in fiscal 2027, according to the analyst consensus. \\\\ In recent quarters, the company has trounced estimates, and management hinted that would continue when it reports earnings in June, as it recently said that its financial performance has improved since its previous earnings call and that demand continues to outstrip supply. \\\\ A stock split from the company would likely send the stock soaring, and with the share price already above $900, doing a 5-for-1 or even a 10-for-1 split would be reasonable. Doing so would make the stock more accessible to retail investors and send a signal of confidence from management. \\\\ Stock splits are difficult to predict as the decision to do so is completely in the hands of management. Memory chip stocks are notoriously cyclical, which may be one reason why the company would hold off on a split. If supply/demand dynamics change, the stock could crash as profits would likely come down sharply. However, there's no sign of that happening, and CEO Sanjay Mehrotra said the company is only able to meet about 60% of demand. \\\\ There's no reason for Micron management to rush into the decision, but if the stock continues to move higher, calls for a split will grow louder.",
-      "sentiment_label": "中立",
+      "sentiment_label": "中性偏正面",
       "sentiment_type": "neutral",
-      "impact_score": 0,
-      "reason": "Micron的股價表現與台積電無直接關係，對台積電影響不大。"
+      "impact_score": 1,
+      "reason": "Micron 股價大漲與分割討論屬美國記憶體板塊熱度，對台積電影響有限，僅顯示整體晶片需求強勁。"
     },
     {
       "title": "Dow Jones Futures Waver, Snowflake Surges On Earnings; Fed Inflation Data Due",
@@ -31,10 +30,10 @@
       "source": "Investor's Business Daily",
       "date": "2026-05-28",
       "content_summary": "Dow Jones futures were little changed overnight, while S&P 500 futures and Nasdaq futures edged lower. Oil prices rose somewhat. Marvell Technology (MRVL) edged lower overnight on earnings while Snowflake (SNOW) surged. The Fed's favorite inflation gauge, the core PCE price index, is due early Thursday. The stock market was slightly higher on the major indexes on Wednesday, all near…",
-      "sentiment_label": "中立",
+      "sentiment_label": "中性",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "Dow Jones Futures的表現與台積電無直接關係，對台積電影響不大。"
+      "reason": "報導聚焦美國指數與其他公司，未直接提及台積電，影響力極小。"
     },
     {
       "title": "Can Nvidia’s $150 Billion Bet on Taiwan Succeed Despite Rising Geopolitical Tensions?",
@@ -42,10 +41,10 @@
       "source": "Barrons.com",
       "date": "2026-05-27",
       "content_summary": "",
-      "sentiment_label": "中立",
+      "sentiment_label": "資訊缺失",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "Nvidia的投資計畫與台積電無直接關係，對台積電影響不大。"
+      "reason": "內容空白，無法評估對台積電的影響。"
     },
     {
       "title": "重壓台積電（2330）賺近千萬⋯他獲利114%竟賺輸0050！挨酸：假抱怨真炫耀| 存股族愛ETF | 股市 - UDN",
@@ -53,10 +52,10 @@
       "source": "UDN",
       "date": "2026-05-28",
       "content_summary": "台積電股價漲不停！一名網友在Dcard發文表示，自己兩年前聽從朋友與投資名師建議，選擇重壓台積電，沒想到近期績效卻跑輸朋友持有的0050與其他熱門飆股，因此感到後悔。貼文曝光後迅速引發熱議，但由於原PO同時曬出持股獲利超過900萬元、報酬率高達114%的對帳單，不少網友認為根本是「假抱怨真炫耀」，討論焦點也逐漸從台積電表現轉向投資心態。 \\\\ 原PO表示，自己兩年前才開始接觸股票，當時聽信「存0050不如存台積電」的說法，因此選擇一路重壓台積電至今。不過他認為，近來台積電股價雖有上漲，但漲幅與波動表現不如正二ETF、台達電、聯發科等熱門標的，感嘆自己「賭的是高風險高報酬，結果變成高風險低報酬」，甚至直言想回到過去「給自己一棒」。但隨文附上的截圖顯示，其持股目前帳面獲利已超過960萬元，引發大量關注。 \\\\ 不少網友認為，原PO真正後悔的並非賠錢，而是「沒賺更多」。有人直言「都賺114%了還在哭」、「一堆人連本金都沒有，你這根本炫耀文」，還有人調侃「股票綠茶」、「無病呻吟」。許多人也指出，台積電本來就屬於穩健型大型權值股，與高波動飆股相比，本來就難有短時間翻數倍的表現，「不是台積不好，是他的快樂小夥伴太飆了」。 \\\\ 另一派網友則替台積電平反，認為近年台積電績效其實並不差，甚至有人質疑原PO「怎麼會跑輸0050」。不少人強調，台積電適合長期持有與資產配置，「買台積是求穩」、「有賺就該偷笑」，並提醒牛市期間容易出現大量「少年股神」，但真正遇到空頭市場時，高風險投資未必能全身而退。也有投資人分享自身經驗，坦言過去太早賣出台積電，如今看到股價持續走高感到相當後悔。 \\\\ 此外，也有不少留言延伸到投資策略與市場氛圍。有網友認為，問題並不在標的，而是「聽別人說就All in」的投資方式過於衝動，強調應自行研究與分散風險。另有人指出，現在市場資金明顯偏好高成長與高題材個股，因此台積電這類大型權值股短期較難出現爆發性漲勢。不過也有投資人仍看好台積電後市，認為未來仍有機會挑戰更高價位，呼籲原PO別太早下定論。",
-      "sentiment_label": "偏空",
-      "sentiment_type": "negative",
-      "impact_score": -1,
-      "reason": "網友對台積電的表現感到不滿，認為漲幅不如其他熱門標的，可能對公司股價產生負面影響。"
+      "sentiment_label": "輕微正面",
+      "sentiment_type": "positive",
+      "impact_score": 1,
+      "reason": "社群討論凸顯台積電長期穩健，雖有短期表現比較，但整體正向形象提升投資者信心。"
     },
     {
       "title": "重壓台積電（2330）賺近千萬⋯他獲利114%竟賺輸0050！挨酸：假抱怨真炫耀 - UDN",
@@ -64,10 +63,10 @@
       "source": "UDN",
       "date": "2026-05-28",
       "content_summary": "台積電股價漲不停！一名網友在Dcard發文表示，自己兩年前聽從朋友與投資名師建議，選擇重壓台積電，沒想到近期績效卻跑輸朋友持有的0050與其他熱門飆股，因此感到後悔。貼文曝光後迅速引發熱議，但由於原PO同時曬出持股獲利超過900萬元、報酬率高達114%的對帳單，不少網友認為根本是「假抱怨真炫耀」，討論焦點也逐漸從台積電表現轉向投資心態。 \\\\ 原PO表示，自己兩年前才開始接觸股票，當時聽信「存0050不如存台積電」的說法，因此選擇一路重壓台積電至今。不過他認為，近來台積電股價雖有上漲，但漲幅與波動表現不如正二ETF、台達電、聯發科等熱門標的，感嘆自己「賭的是高風險高報酬，結果變成高風險低報酬」，甚至直言想回到過去「給自己一棒」。但隨文附上的截圖顯示，其持股目前帳面獲利已超過960萬元，引發大量關注。 \\\\ 不少網友認為，原PO真正後悔的並非賠錢，而是「沒賺更多」。有人直言「都賺114%了還在哭」、「一堆人連本金都沒有，你這根本炫耀文」，還有人調侃「股票綠茶」、「無病呻吟」。許多人也指出，台積電本來就屬於穩健型大型權值股，與高波動飆股相比，本來就難有短時間翻數倍的表現，「不是台積不好，是他的快樂小夥伴太飆了」。 \\\\ 另一派網友則替台積電平反，認為近年台積電績效其實並不差，甚至有人質疑原PO「怎麼會跑輸0050」。不少人強調，台積電適合長期持有與資產配置，「買台積是求穩」、「有賺就該偷笑」，並提醒牛市期間容易出現大量「少年股神」，但真正遇到空頭市場時，高風險投資未必能全身而退。也有投資人分享自身經驗，坦言過去太早賣出台積電，如今看到股價持續走高感到相當後悔。 \\\\ 此外，也有不少留言延伸到投資策略與市場氛圍。有網友認為，問題並不在標的，而是「聽別人說就All in」的投資方式過於衝動，強調應自行研究與分散風險。另有人指出，現在市場資金明顯偏好高成長與高題材個股，因此台積電這類大型權值股短期較難出現爆發性漲勢。不過也有投資人仍看好台積電後市，認為未來仍有機會挑戰更高價位，呼籲原PO別太早下定論。",
-      "sentiment_label": "偏空",
-      "sentiment_type": "negative",
-      "impact_score": -1,
-      "reason": "網友對台積電的表現感到不滿，認為漲幅不如其他熱門標的，可能對公司股價產生負面影響。"
+      "sentiment_label": "輕微正面",
+      "sentiment_type": "positive",
+      "impact_score": 1,
+      "reason": "與[3]內容相同，重申台積電穩健定位，對股價形成正向輿論。"
     },
     {
       "title": "台積電ADR收新高　溢價15.4％、折合台股約2655元 - ETtoday財經雲",
@@ -75,10 +74,43 @@
       "source": "ETtoday財經雲",
       "date": "2026-05-28",
       "content_summary": "台積電ADR（TSM）美東時間27日上漲2.5%，收在422.73美元，收在歷史新高。台積電ADR與台北現股相比，溢價幅度約15.4%，顯示海外投資人追價力道仍強。 \\\\ 美股27日道瓊工業指數漲182.60點或0.36%，收報50644.28點；標普500指數漲1.24點或0.02%，收在7520.36點；那斯達克指數漲18.55點或0.07%，收26674.73點；費城半導體指數跌174.72點或1.36%，收12702.19點。 \\\\ 台積電ADR收在歷史新高422.73美元，相較台股27日台積電（2330）收2300元來計算，溢價率約15.4%，台積電ADR折合新台幣價格約2655.17元。",
-      "sentiment_label": "極度利多",
+      "sentiment_label": "極度正面",
+      "sentiment_type": "positive",
+      "impact_score": 4,
+      "reason": "ADR創歷史新高、溢價15.4%顯示國際資金高度追價，提升台積電估值預期。"
+    },
+    {
+      "title": "台積電傳砍分紅風暴！魏哲家內部信曝光 3奈米下半年15％漲定了？ - 旺得富理財網",
+      "url": "https://wantrich.chinatimes.com/news/20260527900249-420101",
+      "source": "旺得富理財網",
+      "date": "2026-05-27",
+      "content_summary": "",
+      "sentiment_label": "資訊缺失",
+      "sentiment_type": "neutral",
+      "impact_score": 0,
+      "reason": "內容缺失，無法判斷影響。"
+    },
+    {
+      "title": "快訊／台積電漲50元至2320　台股大漲逾1100點指數再刷高 - ETtoday財經雲",
+      "url": "https://finance.ettoday.net/news/3172763",
+      "source": "ETtoday財經雲",
+      "date": "2026-05-27",
+      "content_summary": "▲台股今天上漲。（圖／ETtoday新聞雲資料照） \\\\ 美股26日主要指數漲多於跌，台股今（27日）開高，以上漲316.89點、43842.36點開出，漲勢持續，指數大漲逾1100點，衝至逾44600點，再創高。 \\\\ 今日盤面焦點個股開盤後表現，台積電（2330）上漲40元來到2310元，漲幅1.76％，後漲至2320元；鴻海（2317）上漲4元至263元；聯發科（2454）上漲210元至4475元；廣達（2382）上漲5.5元來到322元；長榮（2603）上漲1.5元至213元。 \\\\ 美股主要指數在前一交易日漲多跌少，道瓊工業指數終場下跌118.02點或0.23％，收在50461.68點；標準普爾500指數上漲45.65點或0.61％，收7519.12點；那斯達克指數上漲312.21點或1.19％，收在26656.18點；費城半導體指數上漲674.37點或5.53％，收12876.91點。",
+      "sentiment_label": "正面",
+      "sentiment_type": "positive",
+      "impact_score": 2,
+      "reason": "台積電股價突破2300元，配合大盤上漲，顯示市場動能強勁，短線支撐股價。"
+    },
+    {
+      "title": "2345T學長姐再等等！台積電傳3奈米喊漲 股價漲55元至2325元 - Yahoo股市",
+      "url": "https://tw.stock.yahoo.com/news/2345t%E5%AD%B8%E9%95%B7%E5%A7%90%E5%86%8D%E7%AD%89%E7%AD%89%EF%BC%81%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%82%B33%E5%A5%88%E7%B1%B3%E5%96%8A%E6%BC%B2-%E8%82%A1%E5%83%B9%E6%BC%B255%E5%85%83%E8%87%B32325%E5%85%83-015040768.html",
+      "source": "Yahoo股市",
+      "date": "2026-05-27",
+      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 受惠市場傳出台積電（2330）3奈米製程下半年將再度調漲報價，激勵「護國神山」今（27）日股價強勢表態，盤中一度衝上2325元，大漲55元。專家認為，在先進製程漲價題材加持下，台積電有機會再挑戰前波高點2345元，不過短線漲幅已大，現階段不建議投資人追高，可待股價回測5日線約2275元附近，再分批布局。 \\\\ 美光最新收盤暴漲19.29%，市值首度突破1兆美元，由於美光暴漲，也帶動記憶體類股同步大漲，晶片股全面走強，台積電ADR收412.32美元，漲1.93%或7.8美元 \\\\ 受到美國科技股續強激勵，台積電（2330）今（27）日開盤即站上2310元，盤中最高觸及2325元，大漲55元，漲幅約2.4%。 \\\\ 「前高2345元，確實有機會再度挑戰。」倫元投顧分析師王春盛表示，台積電今日股價走強，除了受惠美股AI與半導體族群上漲外，市場也傳出，台積電下半年可能再度調漲3奈米製程報價，漲幅上看15%，明年先進製程價格也有望續漲5%至10%，有助推升毛利率與獲利表現，成為股價續攻的重要題材。 \\\\ 瑞源投顧分析師魏明裕則表示，預計前波歷史高點2345，短線隨時將再越高，留意何時見到創高爆量（8萬張以上）收黑，適度減碼即可。依ADR前波高點421.97反推現貨價在2650，波段操作者潛在獲利空間仍大，續抱即可。 \\\\ 不過，他們兩個不約而同表示，短線操作者不追高，把握逢回上揚月線支撐，約2250元附近低接布局，風險相對較低。",
+      "sentiment_label": "極度正面",
       "sentiment_type": "positive",
       "impact_score": 5,
-      "reason": "台積電ADR收新高，溢價率達15.4%，顯示海外投資人追價力道仍強，對公司前景看好，可能對公司股價產生正面影響。"
+      "reason": "3奈米製程報價再度上調、股價大漲55元，結合美股AI與半導體熱潮，形成強勁題材推升股價。"
     }
   ]
 }

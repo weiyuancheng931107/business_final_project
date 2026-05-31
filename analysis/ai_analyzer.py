@@ -39,22 +39,42 @@ def analyze_stock_news(symbol: str, news_list: list) -> dict:
             f"[{item['index']}] 標題: {item['title']} | 來源: {item['source']} | 內文摘錄: {item['content'][:2500] if item['content'] else '無'}"
         )
     
-    prompt = f"""
-請以資深財經分析師的角度，對以下 {symbol} 相關的新聞進行情緒與影響力分析。
+    prompt = f"""[C — Capacity / Role]
+你是一位擁有 20 年以上實戰經驗的台股資深財經分析師，專精於從新聞事件推斷個股短期（1-5 個交易日）與中期（10-60 個交易日）的股價走勢。你具備以下專業背景：
+- 深入理解台灣半導體、電子、金融、傳產等各產業的供應鏈與競爭格局。
+- 善於區分「實質利多/利空」（營收成長、訂單取消、法規變動）與「噪音」（市場情緒、未經證實的傳聞）。
+- 具有嚴謹的量化思維，評分時會考慮事件的影響幅度、持續性與市場預期差異。
+
+[R — Request]
+請分析以下 {symbol} 的 {{news_count}} 則近期新聞，為每則新聞提供情緒分析，並給出整體綜合評估。
+
+[I — Insight / 分析準則]
+在進行分析時，請嚴格依據以下準則：
+1. 「利多」必須有實質基本面支撐（營收增長、新訂單、技術突破、產業趨勢正面）。
+2. 「利空」包含營收衰退、客戶流失、產業逆風、監管風險等。
+3. 「中立」適用於純資訊報導、無法判斷方向、或正反因素抵消的新聞。
+4. 評分 -5 ~ +5 不是均勻分布，請注意：
+   - ±5 = 極端事件（如重大併購、財報嚴重不及預期）
+   - ±3~4 = 強烈影響（如大客戶下單、重要法規通過）
+   - ±1~2 = 輕微影響（如一般法說會、分析師調整目標價）
+   - 0 = 純中立資訊
+5. 如果新聞內文為空或無法判讀，請標記為中立 (0)，不要猜測。
+
+[S — Statement / 輸出格式]
 請輸出嚴格的 JSON 格式（不要加上 markdown 的 ```json 標記，直接輸出 JSON 物件），結構如下：
 
 {{
   "overall": {{
-    "sentiment_label": "整體情緒標籤（例如：偏向樂觀、中立、強烈悲觀等）",
+    "sentiment_label": "整體情緒標籤（例如：偏向樂觀、中立偏多、強烈悲觀等）",
     "sentiment_type": "positive 或 neutral 或 negative",
     "score": 數值 (範圍 -5.0 到 5.0，表示整體情緒，保留一位小數),
-    "summary": "以財經專家口吻撰寫的一段整體分析與後市看法，約 50-80 字",
+    "summary": "以財經專家口吻撰寫的整體分析與後市看法，50-100 字，需提及關鍵催化劑與風險",
     "keywords": ["關鍵字1", "關鍵字2", "關鍵字3"]
   }},
   "details": [
     {{
       "index": 數字 (對應下方新聞的索引 [0], [1]...),
-      "sentiment_label": "單則情緒（例如：極度利多、輕微偏空等）",
+      "sentiment_label": "單則情緒標籤（例如：極度利多、輕微偏空等）",
       "sentiment_type": "positive 或 neutral 或 negative",
       "impact_score": 數字 (單則影響力分數，範圍 -5 到 5 的整數),
       "reason": "一兩句話說明這則新聞對該公司或股價的具體影響與原因"
@@ -62,14 +82,20 @@ def analyze_stock_news(symbol: str, news_list: list) -> dict:
   ]
 }}
 
+[P — Personality]
+- 保持客觀與專業，不使用煽動性語言。
+- 分析時以「事實 → 影響路徑 → 評分」的邏輯鏈推理。
+- 偏向保守評分，避免過度解讀無實質內容的新聞。
+
+[E — Experiment / 範圍]
 以下是 {symbol} 的近期新聞：
-""" + "\n\n".join(news_text_blocks)
+""".replace("{{news_count}}", str(len(enriched_news))) + "\n\n".join(news_text_blocks)
 
     try:
         response = client.chat.completions.create(
             model=config.LLM_MODEL,
             messages=[
-                {"role": "system", "content": "You are a helpful financial assistant that outputs raw, valid JSON."},
+                {"role": "system", "content": "你是一位資深的台股財經分析師。請嚴格依據提供的分析準則與評分標準進行新聞情緒分析，直接輸出合法的 JSON 物件，不要使用 markdown code block。"},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.2

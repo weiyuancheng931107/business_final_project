@@ -4,6 +4,7 @@ fetcher.py
 """
 import json
 import os
+import time
 import urllib.parse
 import urllib.request
 import re
@@ -12,7 +13,7 @@ from datetime import datetime, timedelta, timezone
 import yfinance as yf
 import pandas as pd
 import numpy as np
-from typing import Optional
+from typing import Optional, Callable
 
 NEWS_LIMIT = 3
 FINMIND_LOOKBACK_DAYS = 7
@@ -685,3 +686,101 @@ def fetch_article_content(url: str) -> str:
         print(f"[WARN] Failed to fetch article body from {url}: {e}")
         return ""
 
+
+# ────────────────────────────────────────────
+# Historical backfill  (used by build_dataset.py)
+# ────────────────────────────────────────────
+def get_stock_news_range(
+    symbol: str,
+    start_date: str,
+    end_date: str,
+    request_delay: float = 0.5,
+    skip_dates: Optional[set] = None,
+    progress_callback: Optional[Callable] = None,
+) -> list[dict]:
+    """
+    Fetch ALL FinMind news for *symbol* within [start_date, end_date].
+
+    FinMind TaiwanStockNews returns exactly one calendar day per request,
+    so this function iterates day-by-day from *end_date* backwards to
+    *start_date*, collecting every article it finds.
+
+    Parameters
+    ----------
+    symbol          : e.g. "2330.TW"
+    start_date      : "YYYY-MM-DD" inclusive lower bound
+    end_date        : "YYYY-MM-DD" inclusive upper bound
+    request_delay   : seconds to sleep between FinMind requests.
+    skip_dates      : set of "YYYY-MM-DD" strings to skip (for resume).
+    progress_callback : optional callable(date_str, day_index, total_days,
+                        collected_so_far) called after each day is processed.
+
+    Returns
+    -------
+    List of normalised news dicts (title, source, date, url),
+    sorted newest-first, deduplicated by URL/title.
+    """
+    stock_id = symbol.split(".")[0]
+    start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+    end_dt   = datetime.strptime(end_date,   "%Y-%m-%d")
+
+    if start_dt > end_dt:
+        raise ValueError(f"start_date {start_date!r} is after end_date {end_date!r}")
+
+    total_days = (end_dt - start_dt).days + 1
+    skip_dates = skip_dates or set()
+
+    all_news: list[dict] = []
+    seen_keys: set[str] = set()
+
+    current_dt = end_dt
+    day_index  = 0
+
+    while current_dt >= start_dt:
+        date_str  = current_dt.strftime("%Y-%m-%d")
+        day_index += 1
+
+        if date_str in skip_dates:
+            current_dt -= timedelta(days=1)
+            if progress_callback:
+                progress_callback(date_str, day_index, total_days, len(all_news))
+            continue
+
+        params = urllib.parse.urlencode({
+            "dataset":    "TaiwanStockNews",
+            "data_id":    stock_id,
+            "start_date": date_str,
+        })
+        api_url = f"https://api.finmindtrade.com/api/v4/data?{params}"
+
+        try:
+            req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as response:
+                res_data = json.loads(response.read().decode("utf-8"))
+
+            if res_data.get("status") == 200:
+                for item in res_data.get("data", []):
+                    news_item = _normalize_finmind_news_item(item)
+                    if not news_item:
+                        continue
+                    url_val = news_item.get("url", "")
+                    title   = news_item.get("title", "")
+                    key = url_val.lower() if (url_val and url_val != "#") else title.lower()
+                    if key not in seen_keys:
+                        seen_keys.add(key)
+                        all_news.append(news_item)
+
+        except Exception as exc:
+            print(f"[WARN] FinMind backfill failed ({symbol} {date_str}): {exc}")
+
+        if progress_callback:
+            progress_callback(date_str, day_index, total_days, len(all_news))
+
+        current_dt -= timedelta(days=1)
+
+        # Rate-limit courtesy sleep (skip on last iteration)
+        if request_delay > 0 and current_dt >= start_dt:
+            time.sleep(request_delay)
+
+    all_news.sort(key=lambda x: x.get("date", ""), reverse=True)
+    return all_news
