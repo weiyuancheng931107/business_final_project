@@ -198,11 +198,11 @@ python -m unittest discover -s tests
 
 **Step 1: 建立資料集**（蒐集歷史新聞 + AI 情緒分析）
 ```bash
-# 使用 portfolio.json 中的所有股票，回溯一年
-python tests/build_dataset.py --start-date 2025-01-01 --end-date 2025-12-31
+# 使用 portfolio.json 中的所有股票
+python tests/build_dataset.py --start-date 2025-10-01 --end-date 2025-12-31
 
 # 只分析特定股票
-python tests/build_dataset.py --symbols 2330.TW 2454.TW --start-date 2025-06-01 --end-date 2025-12-31
+python tests/build_dataset.py --symbols 2330.TW 2454.TW --start-date 2025-10-01 --end-date 2025-12-31
 ```
 
 **Step 2: 執行回測**（比對 AI 情緒 vs. 實際股價走勢）

@@ -1,116 +1,85 @@
 {
-  "analysis_timestamp": "2026-05-28 17:02:53",
-  "analysis_duration_seconds": 36.46,
+  "analysis_timestamp": "2026-05-31 15:49:33",
+  "analysis_duration_seconds": 4.46,
   "overall": {
     "sentiment_label": "偏向樂觀",
     "sentiment_type": "positive",
-    "score": 2.3,
-    "summary": "近期台積電受惠美股半導體走強、3奈米報價上調與ADR創新高，市場情緒偏正面；雖有投資者情緒討論，但整體資金流向仍支撐股價上行，短期建議逢回檔布局。",
+    "score": 0.5,
+    "summary": "近期報導顯示AMD與Nvidia大額投資台灣，將提升AI晶片需求，為台積電帶來顯著訂單機會；同時估值偏高與地緣政治風險仍是短期壓力，整體仍偏向正面。",
     "keywords": [
-      "3奈米報價上調",
-      "ADR溢價",
-      "半導體需求"
+      "AI投資",
+      "估值",
+      "水資源",
+      "供應鏈",
+      "地緣風險"
     ]
   },
   "details": [
     {
-      "title": "Micron Is Nearing $1,000. Is a Stock Split Next?",
-      "url": "https://www.fool.com/investing/2026/05/28/as-micron-approaches-1000-is-a-stock-split-next/",
+      "title": "Assessing Taiwan Semiconductor Manufacturing’s Valuation After Strong Recent Share Price Momentum",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/assessing-taiwan-semiconductor-manufacturing-valuation-030816163.html",
+      "source": "Simply Wall St.",
+      "date": "2026-05-31",
+      "content_summary": "Track your investments for FREE with Simply Wall St, the portfolio command center trusted by over 7 million individual investors worldwide. \\\\ Taiwan Semiconductor Manufacturing (NYSE:TSM) has quietly posted sizable gains over the past year, with the stock up 5.2% over the past month and 13.4% over the past 3 months, while one day performance has been weaker. \\\\ See our latest analysis for Taiwan Semiconductor Manufacturing. \\\\ The share price is now at US$418.45. Despite a 1 day decline of 1.51%, the 30 day share price return of 5.23% and year to date share price return of 30.93% sit alongside a very large 1 year total shareholder return, indicating momentum has been building over both shorter and longer periods. \\\\ If you are interested in how other chip related stocks are moving, it could be worth scanning 47 AI infrastructure stocks to spot additional opportunities in the broader AI supply chain. \\\\ With TSMC now at US$418.45 and sitting roughly 10% below the average analyst price target, the key question is whether the stock still trades at a discount or whether the market has already priced in future growth. \\\\ According to the most followed narrative, TSMC's fair value sits at $400, a touch below the last close of $418.45. This frames the current valuation debate. \\\\ TSMC is the central pillar of the global semiconductor ecosystem, powering the AI revolution with unmatched scale, cutting-edge process technology, and disciplined execution. With record profits, a dominant client base, and massive expansion underway, both in Taiwan and abroad, it is described as a relatively lower-risk way to gain exposure to the AI infrastructure trend. Although geopolitical and trade risks loom, its moat, margins, and market position are cited as offering a rare combination of growth, profitability, and stability. \\\\ Read the complete narrative. \\\\ Want to see what sits behind that $400 fair value? The narrative leans heavily on high margins, rapid profit growth, and a rich future earnings profile. Curious which assumptions really carry the model? \\\\ Result: Fair Value of $400 (OVERVALUED) \\\\ Have a read of the narrative in full and understand what's behind the forecasts. \\\\ However, there are still pressure points to watch, especially any escalation in U.S.-China trade tensions or a sharp pullback in AI chip orders from major customers. \\\\ Find out about the key risks to this Taiwan Semiconductor Manufacturing narrative. \\\\ While the narrative fair value of US$400 points to slight overvaluation, the current P/E of 32x paints a softer picture. It sits well below the US Semiconductor industry at 66.9x and peers at 83.2x, and also below a 48.7x fair ratio, which could leave room for sentiment to shift in either direction. \\\\ For investors who lean on earnings multiples, this gap highlights both potential upside if sentiment moves closer to that fair ratio and downside if expectations cool from current levels. It may therefore be worth stress testing your own assumptions against the numbers behind TSMC's current pricing. See what the numbers say about this price — find out in our valuation breakdown. \\\\ Given this mix of confidence and caution around TSMC, it makes sense to move quickly and test the data yourself before opinions harden. To weigh up both sides in one place, start with the 4 key rewards and 1 important warning sign. \\\\ If you only stop at TSMC, you could miss other stocks that fit your style, so use the tools available and broaden your opportunity set today. \\\\ Target value opportunities by scanning 46 high quality undervalued stocks that combine pricing support with solid fundamentals that might align with your return expectations. \\\\ Strengthen your portfolio’s foundation by checking solid balance sheet and fundamentals stocks screener (46 results) to focus on companies with healthier finances and fewer balance sheet surprises. \\\\ Spot potential early movers by reviewing the screener containing 22 high quality undiscovered gems that may not yet be widely followed but still show strong underlying metrics. \\\\ This article by Simply Wall St is general in nature. We provide commentary based on historical data and analyst forecasts only using an unbiased methodology and our articles are not intended to be financial advice. It does not constitute a recommendation to buy or sell any stock, and does not take account of your objectives, or your financial situation. We aim to bring you long-term focused analysis driven by fundamental data. Note that our analysis may not factor in the latest price-sensitive company announcements or qualitative material. Simply Wall St has no position in any stocks mentioned. \\\\ Companies discussed in this article include TSM. \\\\ Have feedback on this article? Concerned about the content? Get in touch with us directly. Alternatively, email editorial-team@simplywallst.com",
+      "sentiment_label": "輕微偏空",
+      "sentiment_type": "negative",
+      "impact_score": -1,
+      "reason": "文章僅是估值討論，指出股價可能高估，未帶來新基本面變化，影響有限。"
+    },
+    {
+      "title": "Investors look beyond chipmakers for next wave of AI winners in Asia",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/investors-look-beyond-chipmakers-next-011031424.html",
+      "source": "Investing.com",
+      "date": "2026-05-31",
+      "content_summary": "Investing.com -- Investors are increasingly turning to Asian technology suppliers and infrastructure companies as potential beneficiaries of the next phase of artificial intelligence spending, Bloomberg reported on Sunday. \\\\ The shift comes as major AI companies, including SpaceX, OpenAI, and Anthropic, prepare large capital raises that could fuel another wave of investment in data centers, computing infrastructure, and related technologies. \\\\ According to the report, the three companies could collectively raise tens of billions of dollars, adding to more than $750 billion already committed by major technology firms to AI-related capital expenditures. \\\\ While Asian chipmakers such as Taiwan Semiconductor Manufacturing, Samsung Electronics, and SK Hynix have been among the biggest beneficiaries of the AI boom, some investors are now seeking opportunities further down the supply chain. \\\\ Market participants cited concerns that valuations of leading semiconductor stocks have become stretched following strong gains driven by demand for AI chips and data-center equipment. \\\\ Instead, attention is shifting to companies that produce electronic components, advanced packaging materials, cooling systems, power equipment, and server-related products. \\\\ Samsung Electro-Mechanics and Japan’s Ibiden were identified among companies that have benefited from growing investor interest in suppliers tied to AI infrastructure. \\\\ The report said demand is also expanding beyond semiconductor manufacturing into areas such as server assembly, optical connectivity, testing, and power management. \\\\ Several investors highlighted Taiwan’s Hon Hai Precision Industry, Quanta Computer, and MediaTek among companies positioned to benefit from continued AI-related spending. \\\\ Another area attracting attention is energy infrastructure. The rapid expansion of data centers has increased focus on electricity generation and transmission, prompting investors to look at companies involved in power equipment, nuclear energy, and renewable energy projects. \\\\ In South Korea, HD Hyundai Energy Solutions and Daewoo Engineering & Construction have been among the stronger-performing stocks this year as investors position for rising energy demand linked to AI development. \\\\ Some investors are also targeting companies involved in robotics and autonomous systems, areas often referred to as \"physical AI,\" which have gained momentum through partnerships with companies such as Nvidia. \\\\ The report noted that many investors expect AI infrastructure spending to continue for years, supporting demand across a broader range of companies than the semiconductor leaders that dominated the initial phase of the rally. \\\\ Investors look beyond chipmakers for next wave of AI winners in Asia \\\\ Goldman expects lower but still attractive stock market returns in 2026 \\\\ Morgan Stanley CIO survey: Why AI hype isn’t boosting 2026 IT budgets",
+      "sentiment_label": "輕微偏空",
+      "sentiment_type": "negative",
+      "impact_score": -1,
+      "reason": "報導提及晶片股估值已拉高，投資者轉向下游，對台積電短期情緒略為負面。"
+    },
+    {
+      "title": "Wix Stock Has Crashed This Past Year, and One Investor Exited a $4.35 Million Position",
+      "url": "https://www.fool.com/coverage/filings/2026/05/30/wix-stock-has-crashed-this-past-year-and-one-investor-exited-a-usd4-35-million-position/",
       "source": "Motley Fool",
-      "date": "2026-05-28",
-      "content_summary": "Micron's (MU +3.50%) scorching hot run isn't over yet. \\\\ The memory chip stock jumped 19.3% on Tuesday after UBS lifted its price target to $1,650 on the stock, more than double from where it was trading before the hike. Micron has now topped $1 trillion in market value, putting it in an elite stock club along with the \"Magnificent Seven\" and chip stock peers like Broadcom and Taiwan Semiconductor. \\\\ The stock added to those gains on Wednesday, topping $900 per share, and nearly eclipsed $1,000 for the first time in pre-market trading, making its individual shares among the highest-priced on the market. \\\\ At this point, with the stock continuing to soar, investors are likely wondering if a stock split is in its future. It's a good question. Let's take a look at what the prospects are for a Micron stock split. \\\\ Image source: Getty Images. \\\\ Micron hasn't split its stock since the dot-com era. The company has issued three stock splits in its history as follows. \\\\ If you had one share before 1994, then you would have 10 shares after the splits. \\\\ The pause in stock splits following the dot-com bubble bursting with other tech stocks as splits were common during the dot-com era, though the collapse seemed to chasten companies away from it. \\\\ However, as Micron approaches $1,000 a share, the case for a stock split is getting stronger, as its share price has never been higher before. \\\\ Stock splits don't change the fundamentals of a stock. It's just splitting the pie into more pieces, but they can affect the stock in other ways, and investors generally respond favorably to them. \\\\ First, they act as a sign that management expects the stock to go higher. After all, companies control the timing of stock splits, and it only makes sense to do them if management expects the stock to go higher. \\\\ Micron has a lot of bullish momentum at the moment. In fact, the stock jumped nearly 20% just on a price target hike to $1,650, implying that when it was issued, the stock could double. Micron said its results are expected to continue to soar with revenue jumping 194% this fiscal year to $110 billion and climbing another 58% in fiscal 2027, according to the analyst consensus. \\\\ In recent quarters, the company has trounced estimates, and management hinted that would continue when it reports earnings in June, as it recently said that its financial performance has improved since its previous earnings call and that demand continues to outstrip supply. \\\\ A stock split from the company would likely send the stock soaring, and with the share price already above $900, doing a 5-for-1 or even a 10-for-1 split would be reasonable. Doing so would make the stock more accessible to retail investors and send a signal of confidence from management. \\\\ Stock splits are difficult to predict as the decision to do so is completely in the hands of management. Memory chip stocks are notoriously cyclical, which may be one reason why the company would hold off on a split. If supply/demand dynamics change, the stock could crash as profits would likely come down sharply. However, there's no sign of that happening, and CEO Sanjay Mehrotra said the company is only able to meet about 60% of demand. \\\\ There's no reason for Micron management to rush into the decision, but if the stock continues to move higher, calls for a split will grow louder.",
-      "sentiment_label": "中性偏正面",
-      "sentiment_type": "neutral",
-      "impact_score": 1,
-      "reason": "Micron 股價大漲與分割討論屬美國記憶體板塊熱度，對台積電影響有限，僅顯示整體晶片需求強勁。"
-    },
-    {
-      "title": "Dow Jones Futures Waver, Snowflake Surges On Earnings; Fed Inflation Data Due",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-amazon-marvell-snowflake-earnings/?src=A00220&yptr=yahoo",
-      "source": "Investor's Business Daily",
-      "date": "2026-05-28",
-      "content_summary": "Dow Jones futures were little changed overnight, while S&P 500 futures and Nasdaq futures edged lower. Oil prices rose somewhat. Marvell Technology (MRVL) edged lower overnight on earnings while Snowflake (SNOW) surged. The Fed's favorite inflation gauge, the core PCE price index, is due early Thursday. The stock market was slightly higher on the major indexes on Wednesday, all near…",
-      "sentiment_label": "中性",
+      "date": "2026-05-30",
+      "content_summary": "On May 14, 2026, Elwood Capital Partners disclosed in an SEC filing that it sold out of Wix.com (WIX +6.48%), liquidating 52,033 shares in an estimated $4.35 million trade based on quarterly average pricing. \\\\ According to the SEC filing dated May 14, 2026, Elwood Capital Partners sold its entire holding of 52,033 shares in Wix.com during the first quarter. The estimated value of the transaction was $4.35 million, based on the average unadjusted closing price between January 1 and March 31, 2026. The fund’s quarter-end position in Wix.com dropped to zero, with a net position change of $5.41 million reflecting both trading and price movement. \\\\ Wix.com is a leading provider of cloud-based website development and business management solutions. The company leverages a subscription-based model with additional monetization from business applications and payment processing, enabling scalable recurring revenue streams. Its comprehensive platform and focus on user empowerment underpin its competitive position in the website infrastructure market. \\\\ After a 63% decline over the past year, some investors might be reasonably unwilling to wait for Wix’s turnaround story to fully play out. Still, Wix's underlying business has, in fact, shown signs of strength. First-quarter revenue climbed 14% year over year to $541 million, while bookings rose 15% to $585 million. Total annual recurring revenue reached $1.9 billion, up 15%, and management highlighted particularly strong momentum from newer AI-driven products, including Base44, which surpassed roughly $150 million in annual recurring revenue.CEO Avishai Abrahami said his conviction in Wix's long-term position has strengthened as AI capabilities accelerate, pointing to the company's proprietary large language model powering Wix Harmony. CFO Lior Shemesh, meanwhile, also noted that bookings from the newest user cohort increased nearly 50% year over year.The catch is profitability. Wix reported a GAAP net loss of $57.5 million during the quarter as it continued investing aggressively in growth initiatives and AI products. And it’s still unclear whether Wix's AI investments can translate into sustained cash flow growth. The operating metrics remain healthy, but the market is clearly waiting for stronger evidence that those investments will generate durable shareholder value.",
+      "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "報導聚焦美國指數與其他公司，未直接提及台積電，影響力極小。"
+      "reason": "內容與台積電無關，屬於噪音資訊。"
     },
     {
-      "title": "Can Nvidia’s $150 Billion Bet on Taiwan Succeed Despite Rising Geopolitical Tensions?",
-      "url": "https://www.barrons.com/articles/nvidia-stock-price-taiwan-bet-d96753a9?siteid=yhoof2&yptr=yahoo",
-      "source": "Barrons.com",
-      "date": "2026-05-27",
-      "content_summary": "",
-      "sentiment_label": "資訊缺失",
-      "sentiment_type": "neutral",
-      "impact_score": 0,
-      "reason": "內容空白，無法評估對台積電的影響。"
-    },
-    {
-      "title": "重壓台積電（2330）賺近千萬⋯他獲利114%竟賺輸0050！挨酸：假抱怨真炫耀| 存股族愛ETF | 股市 - UDN",
-      "url": "https://udn.com/news/story/123006/9529234?list_ch2_index",
-      "source": "UDN",
-      "date": "2026-05-28",
-      "content_summary": "台積電股價漲不停！一名網友在Dcard發文表示，自己兩年前聽從朋友與投資名師建議，選擇重壓台積電，沒想到近期績效卻跑輸朋友持有的0050與其他熱門飆股，因此感到後悔。貼文曝光後迅速引發熱議，但由於原PO同時曬出持股獲利超過900萬元、報酬率高達114%的對帳單，不少網友認為根本是「假抱怨真炫耀」，討論焦點也逐漸從台積電表現轉向投資心態。 \\\\ 原PO表示，自己兩年前才開始接觸股票，當時聽信「存0050不如存台積電」的說法，因此選擇一路重壓台積電至今。不過他認為，近來台積電股價雖有上漲，但漲幅與波動表現不如正二ETF、台達電、聯發科等熱門標的，感嘆自己「賭的是高風險高報酬，結果變成高風險低報酬」，甚至直言想回到過去「給自己一棒」。但隨文附上的截圖顯示，其持股目前帳面獲利已超過960萬元，引發大量關注。 \\\\ 不少網友認為，原PO真正後悔的並非賠錢，而是「沒賺更多」。有人直言「都賺114%了還在哭」、「一堆人連本金都沒有，你這根本炫耀文」，還有人調侃「股票綠茶」、「無病呻吟」。許多人也指出，台積電本來就屬於穩健型大型權值股，與高波動飆股相比，本來就難有短時間翻數倍的表現，「不是台積不好，是他的快樂小夥伴太飆了」。 \\\\ 另一派網友則替台積電平反，認為近年台積電績效其實並不差，甚至有人質疑原PO「怎麼會跑輸0050」。不少人強調，台積電適合長期持有與資產配置，「買台積是求穩」、「有賺就該偷笑」，並提醒牛市期間容易出現大量「少年股神」，但真正遇到空頭市場時，高風險投資未必能全身而退。也有投資人分享自身經驗，坦言過去太早賣出台積電，如今看到股價持續走高感到相當後悔。 \\\\ 此外，也有不少留言延伸到投資策略與市場氛圍。有網友認為，問題並不在標的，而是「聽別人說就All in」的投資方式過於衝動，強調應自行研究與分散風險。另有人指出，現在市場資金明顯偏好高成長與高題材個股，因此台積電這類大型權值股短期較難出現爆發性漲勢。不過也有投資人仍看好台積電後市，認為未來仍有機會挑戰更高價位，呼籲原PO別太早下定論。",
-      "sentiment_label": "輕微正面",
-      "sentiment_type": "positive",
-      "impact_score": 1,
-      "reason": "社群討論凸顯台積電長期穩健，雖有短期表現比較，但整體正向形象提升投資者信心。"
-    },
-    {
-      "title": "重壓台積電（2330）賺近千萬⋯他獲利114%竟賺輸0050！挨酸：假抱怨真炫耀 - UDN",
-      "url": "https://udn.com/news/story/123006/9529234",
-      "source": "UDN",
-      "date": "2026-05-28",
-      "content_summary": "台積電股價漲不停！一名網友在Dcard發文表示，自己兩年前聽從朋友與投資名師建議，選擇重壓台積電，沒想到近期績效卻跑輸朋友持有的0050與其他熱門飆股，因此感到後悔。貼文曝光後迅速引發熱議，但由於原PO同時曬出持股獲利超過900萬元、報酬率高達114%的對帳單，不少網友認為根本是「假抱怨真炫耀」，討論焦點也逐漸從台積電表現轉向投資心態。 \\\\ 原PO表示，自己兩年前才開始接觸股票，當時聽信「存0050不如存台積電」的說法，因此選擇一路重壓台積電至今。不過他認為，近來台積電股價雖有上漲，但漲幅與波動表現不如正二ETF、台達電、聯發科等熱門標的，感嘆自己「賭的是高風險高報酬，結果變成高風險低報酬」，甚至直言想回到過去「給自己一棒」。但隨文附上的截圖顯示，其持股目前帳面獲利已超過960萬元，引發大量關注。 \\\\ 不少網友認為，原PO真正後悔的並非賠錢，而是「沒賺更多」。有人直言「都賺114%了還在哭」、「一堆人連本金都沒有，你這根本炫耀文」，還有人調侃「股票綠茶」、「無病呻吟」。許多人也指出，台積電本來就屬於穩健型大型權值股，與高波動飆股相比，本來就難有短時間翻數倍的表現，「不是台積不好，是他的快樂小夥伴太飆了」。 \\\\ 另一派網友則替台積電平反，認為近年台積電績效其實並不差，甚至有人質疑原PO「怎麼會跑輸0050」。不少人強調，台積電適合長期持有與資產配置，「買台積是求穩」、「有賺就該偷笑」，並提醒牛市期間容易出現大量「少年股神」，但真正遇到空頭市場時，高風險投資未必能全身而退。也有投資人分享自身經驗，坦言過去太早賣出台積電，如今看到股價持續走高感到相當後悔。 \\\\ 此外，也有不少留言延伸到投資策略與市場氛圍。有網友認為，問題並不在標的，而是「聽別人說就All in」的投資方式過於衝動，強調應自行研究與分散風險。另有人指出，現在市場資金明顯偏好高成長與高題材個股，因此台積電這類大型權值股短期較難出現爆發性漲勢。不過也有投資人仍看好台積電後市，認為未來仍有機會挑戰更高價位，呼籲原PO別太早下定論。",
-      "sentiment_label": "輕微正面",
-      "sentiment_type": "positive",
-      "impact_score": 1,
-      "reason": "與[3]內容相同，重申台積電穩健定位，對股價形成正向輿論。"
-    },
-    {
-      "title": "台積電ADR收新高　溢價15.4％、折合台股約2655元 - ETtoday財經雲",
-      "url": "https://finance.ettoday.net/news/3173413",
-      "source": "ETtoday財經雲",
-      "date": "2026-05-28",
-      "content_summary": "台積電ADR（TSM）美東時間27日上漲2.5%，收在422.73美元，收在歷史新高。台積電ADR與台北現股相比，溢價幅度約15.4%，顯示海外投資人追價力道仍強。 \\\\ 美股27日道瓊工業指數漲182.60點或0.36%，收報50644.28點；標普500指數漲1.24點或0.02%，收在7520.36點；那斯達克指數漲18.55點或0.07%，收26674.73點；費城半導體指數跌174.72點或1.36%，收12702.19點。 \\\\ 台積電ADR收在歷史新高422.73美元，相較台股27日台積電（2330）收2300元來計算，溢價率約15.4%，台積電ADR折合新台幣價格約2655.17元。",
-      "sentiment_label": "極度正面",
+      "title": "2330 台積電 - [新聞] 輝達＋AMD狂砸5兆投資台灣韓媒嚇瘋了悲-股市爆料同學會 - CMoney",
+      "url": "https://www.cmoney.tw/forum/article/179445287",
+      "source": "CMoney",
+      "date": "2026-05-31",
+      "content_summary": "作者charles0939 (charles0939)看板HatePolitics標題[新聞] 輝達＋AMD狂砸5兆投資台灣 韓媒嚇瘋了悲時間Sun May 31 08:21:14 2026輝達＋AMD狂砸5兆投資台灣 韓媒嚇瘋了悲嘆1事ltn2026/05/30 16:03輝達和AMD加大對台投資。圖左為AMD執行長蘇姿丰，右為輝達執行長黃仁勳。（路透，資料照，本報合成）輝達和AMD加大對台投資。圖左為AMD執行長蘇姿丰，右為輝達執行長黃仁勳。（路透，資料照，本報合成）〔財經頻道／綜合報導〕AMD執行長蘇姿丰及輝達執行長黃仁勳近期先後抵台，AMD宣布投資台灣100億美元（約台幣3150億）",
+      "sentiment_label": "強烈利多",
       "sentiment_type": "positive",
       "impact_score": 4,
-      "reason": "ADR創歷史新高、溢價15.4%顯示國際資金高度追價，提升台積電估值預期。"
+      "reason": "AMD與Nvidia宣布數兆台幣投資台灣，預示AI晶片需求上升，將直接或間接帶動台積電訂單與營收。"
     },
     {
-      "title": "台積電傳砍分紅風暴！魏哲家內部信曝光 3奈米下半年15％漲定了？ - 旺得富理財網",
-      "url": "https://wantrich.chinatimes.com/news/20260527900249-420101",
-      "source": "旺得富理財網",
-      "date": "2026-05-27",
+      "title": "台積電先進製程不能沒有它！山林水如何掌握全台四成五再生水，成為半導體不可替代的後盾 - CMoney",
+      "url": "https://www.cmoney.tw/forum/article/179445125",
+      "source": "CMoney",
+      "date": "2026-05-31",
+      "content_summary": "國內水資源處理大廠山林水，4 年前面臨虧損，卻在去年開創 50 億元營收新頁。董座郭又綺如何讓員工重拾信心，帶 […]",
+      "sentiment_label": "輕微利多",
+      "sentiment_type": "positive",
+      "impact_score": 1,
+      "reason": "報導說明水資源公司支援半導體用水，降低供應鏈風險，對台積電營運環境有正面加分。"
+    },
+    {
+      "title": "台積電(2330) 個股概覽 | 個股 - 股市 - CMoney",
+      "url": "https://www.cmoney.tw/finance/2330/f00025",
+      "source": "CMoney",
+      "date": "2026-05-31",
       "content_summary": "",
-      "sentiment_label": "資訊缺失",
+      "sentiment_label": "中立",
       "sentiment_type": "neutral",
       "impact_score": 0,
-      "reason": "內容缺失，無法判斷影響。"
-    },
-    {
-      "title": "快訊／台積電漲50元至2320　台股大漲逾1100點指數再刷高 - ETtoday財經雲",
-      "url": "https://finance.ettoday.net/news/3172763",
-      "source": "ETtoday財經雲",
-      "date": "2026-05-27",
-      "content_summary": "▲台股今天上漲。（圖／ETtoday新聞雲資料照） \\\\ 美股26日主要指數漲多於跌，台股今（27日）開高，以上漲316.89點、43842.36點開出，漲勢持續，指數大漲逾1100點，衝至逾44600點，再創高。 \\\\ 今日盤面焦點個股開盤後表現，台積電（2330）上漲40元來到2310元，漲幅1.76％，後漲至2320元；鴻海（2317）上漲4元至263元；聯發科（2454）上漲210元至4475元；廣達（2382）上漲5.5元來到322元；長榮（2603）上漲1.5元至213元。 \\\\ 美股主要指數在前一交易日漲多跌少，道瓊工業指數終場下跌118.02點或0.23％，收在50461.68點；標準普爾500指數上漲45.65點或0.61％，收7519.12點；那斯達克指數上漲312.21點或1.19％，收在26656.18點；費城半導體指數上漲674.37點或5.53％，收12876.91點。",
-      "sentiment_label": "正面",
-      "sentiment_type": "positive",
-      "impact_score": 2,
-      "reason": "台積電股價突破2300元，配合大盤上漲，顯示市場動能強勁，短線支撐股價。"
-    },
-    {
-      "title": "2345T學長姐再等等！台積電傳3奈米喊漲 股價漲55元至2325元 - Yahoo股市",
-      "url": "https://tw.stock.yahoo.com/news/2345t%E5%AD%B8%E9%95%B7%E5%A7%90%E5%86%8D%E7%AD%89%E7%AD%89%EF%BC%81%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%82%B33%E5%A5%88%E7%B1%B3%E5%96%8A%E6%BC%B2-%E8%82%A1%E5%83%B9%E6%BC%B255%E5%85%83%E8%87%B32325%E5%85%83-015040768.html",
-      "source": "Yahoo股市",
-      "date": "2026-05-27",
-      "content_summary": "將 Yahoo 設為首選來源，在 Google 上查看更多我們的精彩報導 \\\\ 受惠市場傳出台積電（2330）3奈米製程下半年將再度調漲報價，激勵「護國神山」今（27）日股價強勢表態，盤中一度衝上2325元，大漲55元。專家認為，在先進製程漲價題材加持下，台積電有機會再挑戰前波高點2345元，不過短線漲幅已大，現階段不建議投資人追高，可待股價回測5日線約2275元附近，再分批布局。 \\\\ 美光最新收盤暴漲19.29%，市值首度突破1兆美元，由於美光暴漲，也帶動記憶體類股同步大漲，晶片股全面走強，台積電ADR收412.32美元，漲1.93%或7.8美元 \\\\ 受到美國科技股續強激勵，台積電（2330）今（27）日開盤即站上2310元，盤中最高觸及2325元，大漲55元，漲幅約2.4%。 \\\\ 「前高2345元，確實有機會再度挑戰。」倫元投顧分析師王春盛表示，台積電今日股價走強，除了受惠美股AI與半導體族群上漲外，市場也傳出，台積電下半年可能再度調漲3奈米製程報價，漲幅上看15%，明年先進製程價格也有望續漲5%至10%，有助推升毛利率與獲利表現，成為股價續攻的重要題材。 \\\\ 瑞源投顧分析師魏明裕則表示，預計前波歷史高點2345，短線隨時將再越高，留意何時見到創高爆量（8萬張以上）收黑，適度減碼即可。依ADR前波高點421.97反推現貨價在2650，波段操作者潛在獲利空間仍大，續抱即可。 \\\\ 不過，他們兩個不約而同表示，短線操作者不追高，把握逢回上揚月線支撐，約2250元附近低接布局，風險相對較低。",
-      "sentiment_label": "極度正面",
-      "sentiment_type": "positive",
-      "impact_score": 5,
-      "reason": "3奈米製程報價再度上調、股價大漲55元，結合美股AI與半導體熱潮，形成強勁題材推升股價。"
+      "reason": "僅為個股概覽，未提供具體新資訊。"
     }
   ]
 }

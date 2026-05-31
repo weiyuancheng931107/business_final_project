@@ -258,16 +258,24 @@ positive / slightly_positive / neutral / slightly_negative / negative
   ]
 }}
 
-注意：details 陣列長度必須等於輸入新聞數量 ({len(news_list)})。"""
+注意：
+1. details 陣列長度必須等於輸入新聞數量 ({len(news_list)})。
+2. 若新聞標題或內容包含雙引號 (")，請務必加上反斜線跳脫 (\\\")，或改用單引號，確保 JSON 格式完全合法。"""
 
     response = client.chat.completions.create(
         model=config.LLM_MODEL,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
+        max_tokens=4096,
     )
     raw = response.choices[0].message.content
     raw = raw.replace("```json", "").replace("```", "").strip()
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except json.decoder.JSONDecodeError as e:
+        # 如果解析失敗，印出最後的字串幫助 debug，然後將錯誤往上拋給 retry 處理
+        print(f"\n[JSONDecodeError] LLM 回傳無法解析的 JSON:\n{raw}\n")
+        raise e
 
 
 def _parse_sentiment_result(result) -> Optional[str]:
