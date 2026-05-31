@@ -322,7 +322,7 @@ def plot_accuracy_bar(df: pd.DataFrame, ret_col: str) -> None:
     fig, ax = plt.subplots(figsize=(9, 5), facecolor=BG)
     x  = np.arange(len(acc_by_sent))
     cs = [GREEN if v >= 0.55 else (ORANGE if v >= 0.45 else RED)
-          for v in acc_by_sent["mean"].fillna(0)]
+          for v in acc_by_sent["mean"].astype(float).fillna(0.0)]
     bars = ax.bar(x, acc_by_sent["mean"] * 100,
                   color=cs, edgecolor=BORDER, linewidth=0.8, width=0.55)
     ax.axhline(50, color=GREY, linewidth=1.2, linestyle="--",
