@@ -15,38 +15,44 @@
 ## 系統架構
 
 ```mermaid
-graph TB
+graph TD
+    %% 1. 前端最上方
     subgraph Frontend["🖥️ 前端 (Browser)"]
         UI["index.html + index.css"]
         LS["localStorage<br/>自選股管理"]
     end
 
+    %% 2. Flask 後端：API 由左至右排好，精準對齊下游
     subgraph Flask["🐍 Flask 後端 (app.py)"]
+        API_LIST["/api/get_stock_list"]
         API_INFO["/api/stock/:symbol/info"]
         API_PRICE["/api/stock/:symbol/price_chart"]
         API_PE["/api/stock/:symbol/pe_river"]
         API_NEWS["/api/stock/:symbol/news"]
         API_ANALYZE["/api/stock/:symbol/analyze_news"]
-        API_LIST["/api/get_stock_list"]
     end
 
+    %% 3. 分析模組：fetcher 靠左，AI 靠右
     subgraph Analysis["📊 分析模組 (analysis/)"]
         FETCHER["fetcher.py<br/>資料抓取 + Fallback"]
         PLOTTER["plotter.py<br/>matplotlib 圖表"]
         AI["ai_analyzer.py<br/>CRISPE Prompt<br/>情緒分析"]
     end
 
+    %% 4. 外部資料來源（強迫定位在左下方）
     subgraph DataSources["🌐 外部資料來源"]
+        TWSE["TWSE<br/>證交所股票清單"]
         YF["yfinance<br/>Yahoo Finance"]
         FM["FinMind API<br/>台股新聞 + 基本面"]
-        TWSE["TWSE<br/>證交所股票清單"]
     end
 
+    %% 5. LLM API（強迫定位在右下方）
     subgraph LLM["🤖 LLM API"]
         GROQ["Groq API"]
         OR["OpenRouter"]
     end
 
+    %% 6. 回測系統（放在獨立側邊）
     subgraph Backtest["🧪 回測系統 (tests/)"]
         BD["build_dataset.py<br/>蒐集歷史新聞 + AI 分析"]
         BE["backtest_engine.py<br/>比對股價走勢"]
@@ -54,21 +60,30 @@ graph TB
         VP["visualize_prediction.py<br/>視覺化結果"]
     end
 
-    UI -->|HTTP| API_INFO & API_PRICE & API_PE & API_NEWS & API_ANALYZE & API_LIST
+    %% --- 連線關係 ---
+    UI -->|HTTP| API_LIST
+    UI -->|HTTP| API_INFO
+    UI -->|HTTP| API_PRICE
+    UI -->|HTTP| API_PE
+    UI -->|HTTP| API_NEWS
+    UI -->|HTTP| API_ANALYZE
 
+    %% 垂直向下分流
+    API_LIST --> TWSE
     API_INFO --> FETCHER
-    API_PRICE --> FETCHER --> PLOTTER
+    API_PRICE --> FETCHER
     API_PE --> FETCHER
     API_NEWS --> FETCHER
     API_ANALYZE --> AI
-    API_LIST --> TWSE
 
+    %% 模組內部與外部依賴
+    FETCHER --> PLOTTER
     FETCHER -->|優先| YF
     FETCHER -->|Fallback| FM
-
     AI -->|CRISPE Prompt| GROQ
     AI -.->|備選| OR
 
+    %% 回測連線
     BD -->|歷史新聞| FETCHER
     BD -->|情緒分析| AI
     BD -->|sentiment_dataset.json| BE
